@@ -1,61 +1,81 @@
-import { Component, OnInit, RendererFactory2, Renderer2 } from '@angular/core';
-import { Title } from '@angular/platform-browser';
-import { Router, ActivatedRouteSnapshot, NavigationEnd, NavigationError } from '@angular/router';
-import { TranslateService, LangChangeEvent } from '@ngx-translate/core';
-import * as dayjs from 'dayjs';
+import { Component, OnInit, ViewChild } from '@angular/core';
+import { Router } from '@angular/router';
+import { TranslateService } from '@ngx-translate/core';
 
 import { AccountService } from 'app/core/auth/account.service';
-
+import { LoginService } from 'app/login/login.service';
+import { SessionStorageService } from 'ngx-webstorage';
+import { ProfileService } from 'app/layouts/profiles/profile.service';
+import { VERSION } from 'app/app.constants';
+import { MatSidenav } from '@angular/material/sidenav';
+import { Account } from 'app/core/auth/account.model';
+import { Subscription } from 'rxjs';
 @Component({
   selector: 'jhi-main',
   templateUrl: './main.component.html',
+  styleUrls: ['./main.component.scss'],
 })
 export class MainComponent implements OnInit {
-  private renderer: Renderer2;
-
+  inProduction?: boolean;
+  isNavbarCollapsed = true;
+  // languages = LANGUAGES;
+  openAPIEnabled?: boolean;
+  version = '';
+  isLoggedIn: boolean | undefined;
+  account: Account | null = null;
+  authSubscription?: Subscription;
+  @ViewChild(MatSidenav) sidenav: MatSidenav | undefined;
   constructor(
     private accountService: AccountService,
-    private titleService: Title,
-    private router: Router,
+    private loginService: LoginService,
     private translateService: TranslateService,
-    rootRenderer: RendererFactory2
+    private sessionStorage: SessionStorageService,
+    private profileService: ProfileService,
+    private router: Router
   ) {
-    this.renderer = rootRenderer.createRenderer(document.querySelector('html'), null);
+    if (VERSION) {
+      this.version = VERSION.toLowerCase().startsWith('v') ? VERSION : 'v' + VERSION;
+    }
   }
 
   ngOnInit(): void {
-    // try to log in automatically
-    this.accountService.identity().subscribe();
-
-    this.router.events.subscribe(event => {
-      if (event instanceof NavigationEnd) {
-        this.updateTitle();
-      }
-      if (event instanceof NavigationError && event.error.status === 404) {
-        this.router.navigate(['/404']);
-      }
-    });
-
-    this.translateService.onLangChange.subscribe((langChangeEvent: LangChangeEvent) => {
-      this.updateTitle();
-      dayjs.locale(langChangeEvent.lang);
-      this.renderer.setAttribute(document.querySelector('html'), 'lang', langChangeEvent.lang);
+    this.profileService.getProfileInfo().subscribe(profileInfo => {
+      this.inProduction = profileInfo.inProduction;
+      this.openAPIEnabled = profileInfo.openAPIEnabled;
+      this.authSubscription = this.accountService.getAuthenticationState().subscribe(account => (this.account = account));
     });
   }
 
-  private getPageTitle(routeSnapshot: ActivatedRouteSnapshot): string {
-    let title: string = routeSnapshot.data['pageTitle'] ?? '';
-    if (routeSnapshot.firstChild) {
-      title = this.getPageTitle(routeSnapshot.firstChild) || title;
-    }
-    return title;
+  changeLanguage(languageKey: string): void {
+    this.sessionStorage.store('locale', languageKey);
+    this.translateService.use(languageKey);
   }
 
-  private updateTitle(): void {
-    let pageTitle = this.getPageTitle(this.router.routerState.snapshot.root);
-    if (!pageTitle) {
-      pageTitle = 'global.title';
-    }
-    this.translateService.get(pageTitle).subscribe(title => this.titleService.setTitle(title));
+  collapseNavbar(): void {
+    this.isNavbarCollapsed = true;
+  }
+
+  isAuthenticated(): boolean {
+    return this.accountService.isAuthenticated();
+  }
+
+  login(): void {
+    this.isLoggedIn = true;
+    this.router.navigate(['/login']);
+  }
+
+  logout(): void {
+    this.isLoggedIn = false;
+    this.collapseNavbar();
+    this.loginService.logout();
+    this.router.navigate(['']);
+  }
+
+  toggleNavbar(): void {
+    this.isNavbarCollapsed = !this.isNavbarCollapsed;
+  }
+
+  getImageUrl(): string {
+    return this.isAuthenticated() ? this.accountService.getImageUrl() : '';
   }
 }

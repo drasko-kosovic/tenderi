@@ -1,0 +1,106 @@
+<head>
+  <link href="https://fonts.googleapis.com/css?family=Roboto:300,400,500" rel="stylesheet" />
+  <link href="https://fonts.googleapis.com/css?family=Roboto:300,400,500&display=swap" rel="stylesheet" />
+  <link href="https://fonts.googleapis.com/icon?family=Material+Icons" rel="stylesheet" />
+</head>
+
+<mat-form-field class="container-search">
+  <mat-label>Nadji</mat-label>
+  <input (keyup)="doFilter(box.value)" #box matInput placeholder="" />
+</mat-form-field>
+<button
+  *jhiHasAnyAuthority="'ROLE_ADMIN'"
+  id="jh-create-entity"
+  data-cy="entityCreateButton"
+  mat-raised-button
+  color="primary"
+  [routerLink]="['/ponude/new']"
+>
+  <fa-icon icon="plus"></fa-icon>
+  <span>Nova Ponuda</span>
+</button>
+<!--<button *jhiHasAnyAuthority="'ROLE_ADMIN'" mat-raised-button color="accent">-->
+<!--  <fa-icon icon="plus"></fa-icon>-->
+<!--  <span>Unesi Exel Tabelu</span>-->
+<!--</button>-->
+<mat-card class="example-container mat-elevation-z24">
+  <button mat-raised-button (click)="exporter.exportTable('xlsx', { fileName: 'Ponude', sheet: 'sheet_name', Props: { Author: 'Talha' } })">
+    <img src="../../../../content/images/icons8-microsoft-excel-48.png" alt="" />
+  </button>
+
+  <table
+    class="example-container mat-elevation-z8"
+    mat-table
+    id="ExampleTable"
+    matTableExporter
+    [dataSource]="dataSource"
+    matSort
+    matSortStart="desc"
+    #exporter="matTableExporter"
+  >
+    <!--    <ng-container matColumnDef="id">-->
+    <!--      <th mat-header-cell *matHeaderCellDef mat-sort-header>Id</th>-->
+    <!--      <td mat-cell *matCellDef="let element">{{ element.id }}</td>-->
+    <!--      <td mat-footer-cell *matFooterCellDef></td>-->
+    <!--    </ng-container>-->
+    <ng-container matColumnDef="sifra postupka">
+      <th mat-header-cell *matHeaderCellDef mat-sort-header>Sifra Postupka</th>
+      <td mat-cell *matCellDef="let element">{{ element.sifraPostupka }}</td>
+      <td mat-footer-cell *matFooterCellDef></td>
+    </ng-container>
+    <ng-container matColumnDef="sifra ponude">
+      <th mat-header-cell *matHeaderCellDef mat-sort-header>Sifra Ponude</th>
+      <td mat-cell *matCellDef="let element">{{ element.sifraPonude }}</td>
+      <td mat-footer-cell *matFooterCellDef></td>
+    </ng-container>
+    <ng-container matColumnDef="broj partije">
+      <th mat-header-cell *matHeaderCellDef mat-sort-header>Broj Partije</th>
+      <td mat-cell *matCellDef="let element">{{ element.brojPartije }}</td>
+      <td mat-footer-cell *matFooterCellDef></td>
+    </ng-container>
+    <ng-container matColumnDef="naziv ponudjaca">
+      <th mat-header-cell *matHeaderCellDef mat-sort-header>Ponudjac</th>
+      <td mat-cell *matCellDef="let element">{{ element.nazivPonudjaca }}</td>
+      <td mat-footer-cell *matFooterCellDef></td>
+    </ng-container>
+    <ng-container matColumnDef="naziv proizvodjaca">
+      <th mat-header-cell *matHeaderCellDef mat-sort-header>Proizvodjac</th>
+      <td mat-cell *matCellDef="let element">{{ element.nazivProizvodjaca }}</td>
+      <td mat-footer-cell *matFooterCellDef></td>
+    </ng-container>
+    <ng-container matColumnDef="zasticeni naziv">
+      <th mat-header-cell *matHeaderCellDef mat-sort-header>Zasticeni Naziv</th>
+      <td mat-cell *matCellDef="let element">{{ element.zastceniNaziv }}</td>
+      <td mat-footer-cell *matFooterCellDef></td>
+    </ng-container>
+    <ng-container matColumnDef="ponudjena vrijednost">
+      <th mat-header-cell *matHeaderCellDef mat-sort-header>Ponudjena Cijena</th>
+      <td mat-cell *matCellDef="let element">{{ element.ponudjenaVrijednost | number: '1.2-2' }}</td>
+      <td mat-footer-cell *matFooterCellDef>{{ ukupnaPonudjena | number: '1.2-2' }}</td>
+    </ng-container>
+    <ng-container matColumnDef="rok isporuke">
+      <th mat-header-cell *matHeaderCellDef mat-sort-header>Rok Isporuke</th>
+      <td mat-cell *matCellDef="let element">{{ element.rokIsporuke }}</td>
+      <td mat-footer-cell *matFooterCellDef></td>
+    </ng-container>
+    <ng-container matColumnDef="delete" stickyEnd>
+      <th mat-header-cell *matHeaderCellDef></th>
+      <td mat-cell *matCellDef="let element">
+        <mat-icon *jhiHasAnyAuthority="'ROLE_ADMIN'" id="delete" type="submit" (click)="delete(element)">delete</mat-icon>
+      </td>
+      <td mat-footer-cell *matFooterCellDef></td>
+    </ng-container>
+    <ng-container matColumnDef="edit" stickyEnd>
+      <th mat-header-cell *matHeaderCellDef></th>
+      <td mat-cell *matCellDef="let element">
+        <mat-icon *jhiHasAnyAuthority="'ROLE_ADMIN'" id="edit" type="submit" [routerLink]="['/ponude', element.id, 'edit']">edit</mat-icon>
+      </td>
+      <td mat-footer-cell *matFooterCellDef></td>
+    </ng-container>
+
+    <tr mat-header-row *matHeaderRowDef="displayedColumns"></tr>
+    <tr mat-row *matRowDef="let row; columns: displayedColumns"></tr>
+    <tr mat-footer-row *matFooterRowDef="displayedColumns"></tr>
+  </table>
+  <mat-paginator [pageSizeOptions]="[5, 10, 20]" showFirstLastButtons></mat-paginator>
+</mat-card>

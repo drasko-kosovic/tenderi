@@ -1,0 +1,207 @@
+<mat-card class="example-container mat-elevation-z24" style="margin-top: 20px; margin-left: 40px; margin-right: 40px">
+  <div class="col-8">
+    <form name="editForm" role="form" novalidate (ngSubmit)="save()" [formGroup]="editForm">
+      <h2 id="jhi-ponude-heading" data-cy="PonudeCreateUpdateHeading" jhiTranslate="tenderiApp.ponude.home.createOrEditLabel">
+        Create or edit a Ponude
+      </h2>
+
+      <div>
+        <jhi-alert-error></jhi-alert-error>
+
+        <div class="form-group" [hidden]="editForm.get('id')!.value == null">
+          <label class="form-control-label" jhiTranslate="global.field.id" for="field_id">ID</label>
+          <input type="number" class="form-control" name="id" id="field_id" data-cy="id" formControlName="id" [readonly]="true" />
+        </div>
+
+        <div class="form-group">
+          <mat-form-field>
+            <mat-label>Sifra Postupka</mat-label>
+            <input matInput name="sifraPostupka" id="sifraPostupka" placeholder="" formControlName="sifraPostupka" #sifraPostupka />
+          </mat-form-field>
+          <div
+            *ngIf="
+              editForm.get('sifraPostupka')!.invalid && (editForm.get('sifraPostupka')!.dirty || editForm.get('sifraPostupka')!.touched)
+            "
+          >
+            <small
+              class="form-text text-danger"
+              *ngIf="editForm.get('sifraPostupka')?.errors?.required"
+              jhiTranslate="entity.validation.required"
+            >
+              This field is required.
+            </small>
+            <small
+              class="form-text text-danger"
+              [hidden]="!editForm.get('sifraPostupka')?.errors?.number"
+              jhiTranslate="entity.validation.number"
+            >
+              This field should be a number.
+            </small>
+          </div>
+        </div>
+
+        <div class="form-group">
+          <mat-form-field>
+            <mat-label>Sifra Ponude</mat-label>
+            <input matInput name="sifraPonude" id="sifraPonude" placeholder="" formControlName="sifraPonude" #sifraPonude />
+          </mat-form-field>
+          <div *ngIf="editForm.get('sifraPonude')!.invalid && (editForm.get('sifraPonude')!.dirty || editForm.get('sifraPonude')!.touched)">
+            <small
+              class="form-text text-danger"
+              *ngIf="editForm.get('sifraPonude')?.errors?.required"
+              jhiTranslate="entity.validation.required"
+            >
+              This field is required.
+            </small>
+            <small
+              class="form-text text-danger"
+              [hidden]="!editForm.get('sifraPonude')?.errors?.number"
+              jhiTranslate="entity.validation.number"
+            >
+              This field should be a number.
+            </small>
+          </div>
+        </div>
+
+        <div class="form-group">
+          <mat-form-field>
+            <mat-label>Broj Partije</mat-label>
+            <input matInput name="brojPartije" id="brojPartije" placeholder="" formControlName="brojPartije" #brojPartije />
+          </mat-form-field>
+          <div *ngIf="editForm.get('brojPartije')!.invalid && (editForm.get('brojPartije')!.dirty || editForm.get('brojPartije')!.touched)">
+            <small
+              class="form-text text-danger"
+              *ngIf="editForm.get('brojPartije')?.errors?.required"
+              jhiTranslate="entity.validation.required"
+            >
+              This field is required.
+            </small>
+            <small
+              class="form-text text-danger"
+              [hidden]="!editForm.get('brojPartije')?.errors?.number"
+              jhiTranslate="entity.validation.number"
+            >
+              This field should be a number.
+            </small>
+          </div>
+        </div>
+
+        <div class="form-group">
+          <mat-form-field>
+            <mat-label>Naziv Ponudjaca</mat-label>
+            <input matInput name="nazivPonudjaca" id="nazivPonudjaca" placeholder="" formControlName="nazivPonudjaca" #nazivPonudjaca />
+          </mat-form-field>
+
+          <div
+            *ngIf="
+              editForm.get('nazivPonudjaca')!.invalid && (editForm.get('nazivPonudjaca')!.dirty || editForm.get('nazivPonudjaca')!.touched)
+            "
+          >
+            <small
+              class="form-text text-danger"
+              *ngIf="editForm.get('nazivPonudjaca')?.errors?.required"
+              jhiTranslate="entity.validation.required"
+            >
+              This field is required.
+            </small>
+          </div>
+        </div>
+
+        <div class="form-group"></div>
+        <mat-form-field>
+          <mat-label>Naziv Proizvodjaca</mat-label>
+          <input
+            matInput
+            name="nazivProizvodjaca"
+            id="nazivProizvodjaca"
+            placeholder=""
+            formControlName="nazivProizvodjaca"
+            #nazivProizvodjaca
+          />
+        </mat-form-field>
+
+        <div class="form-group">
+          <mat-form-field>
+            <mat-label>Zastceni Naziv</mat-label>
+            <input matInput name="zastceniNaziv" id="zastceniNaziv" placeholder="" formControlName="zastceniNaziv" #zastceniNaziv />
+          </mat-form-field>
+        </div>
+
+        <div class="form-group">
+          <mat-form-field>
+            <mat-label>Ponudjena Vrijednost</mat-label>
+            <input
+              matInput
+              name="ponudjenaVrijednost"
+              id="ponudjenaVrijednost"
+              placeholder=""
+              formControlName="ponudjenaVrijednost"
+              #ponudjenaVrijednost
+            />
+          </mat-form-field>
+          <div
+            *ngIf="
+              editForm.get('ponudjenaVrijednost')!.invalid &&
+              (editForm.get('ponudjenaVrijednost')!.dirty || editForm.get('ponudjenaVrijednost')!.touched)
+            "
+          >
+            <small
+              class="form-text text-danger"
+              *ngIf="editForm.get('ponudjenaVrijednost')?.errors?.required"
+              jhiTranslate="entity.validation.required"
+            >
+              This field is required.
+            </small>
+            <small
+              class="form-text text-danger"
+              [hidden]="!editForm.get('ponudjenaVrijednost')?.errors?.number"
+              jhiTranslate="entity.validation.number"
+            >
+              This field should be a number.
+            </small>
+          </div>
+        </div>
+
+        <div class="form-group">
+          <mat-form-field>
+            <mat-label>Rok Isporuke</mat-label>
+            <input matInput name="rokIsporuke" id="rokIsporuke" placeholder="" formControlName="rokIsporuke" #rokIsporuke />
+          </mat-form-field>
+          <div *ngIf="editForm.get('rokIsporuke')!.invalid && (editForm.get('rokIsporuke')!.dirty || editForm.get('rokIsporuke')!.touched)">
+            <small
+              class="form-text text-danger"
+              *ngIf="editForm.get('rokIsporuke')?.errors?.required"
+              jhiTranslate="entity.validation.required"
+            >
+              This field is required.
+            </small>
+            <small
+              class="form-text text-danger"
+              [hidden]="!editForm.get('rokIsporuke')?.errors?.number"
+              jhiTranslate="entity.validation.number"
+            >
+              This field should be a number.
+            </small>
+          </div>
+        </div>
+      </div>
+
+      <div>
+        <button type="button" id="cancel-save" mat-raised-button (click)="previousState()">
+          <fa-icon icon="ban"></fa-icon>&nbsp;<span jhiTranslate="entity.action.cancel">Cancel</span>
+        </button>
+
+        <button
+          type="submit"
+          id="save-entity"
+          data-cy="entityCreateSaveButton"
+          [disabled]="editForm.invalid || isSaving"
+          mat-raised-button
+          color="primary"
+        >
+          <fa-icon icon="save"></fa-icon>&nbsp;<span jhiTranslate="entity.action.save">Save</span>
+        </button>
+      </div>
+    </form>
+  </div>
+</mat-card>

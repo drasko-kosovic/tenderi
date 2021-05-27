@@ -7,6 +7,11 @@
       "jhipster-needle-menu-add-element": "JHipster will add additional menu entries here (do not translate!)",
       "entities": {
         "main": "Entiteti",
+        "ponude": "Ponude",
+        "ponudjaci": "Ponudjaci",
+        "postupci": "Postupci",
+        "specifikacije": "Specifikacije",
+        "tenderiHome": "Tenderi Home",
         "jhipster-needle-menu-add-entry": "JHipster will add additional entities here (do not translate!)"
       },
       "account": {
@@ -134,5 +139,5 @@
       "not.image": "File was expected to be an image but was found to be \"{{ fileType }}\""
     }
   },
-  "footer": "Ovo je vaše podnožje"
+  "footer": "Copyright © 2021 by Drasko Kosovic"
 }

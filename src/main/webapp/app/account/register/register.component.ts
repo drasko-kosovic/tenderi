@@ -37,6 +37,9 @@ export class RegisterComponent implements AfterViewInit {
 
   constructor(private translateService: TranslateService, private registerService: RegisterService, private fb: FormBuilder) {}
 
+  previousState(): void {
+    window.history.back();
+  }
   ngAfterViewInit(): void {
     if (this.login) {
       this.login.nativeElement.focus();

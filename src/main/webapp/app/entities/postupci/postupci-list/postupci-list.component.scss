@@ -1,0 +1,23 @@
+tr.mat-row:hover {
+  background-color: orange;
+}
+tr {
+  cursor: pointer;
+}
+table {
+  width: 100%;
+}
+
+tr.mat-footer-row {
+  font-weight: bold;
+}
+
+tr mat-row {
+  font-weight: bold;
+}
+#delete {
+  color: red;
+}
+#edit {
+  color: green;
+}

@@ -1,0 +1,21 @@
+<head>
+  <link href="https://fonts.googleapis.com/css?family=Roboto:300,400,500" rel="stylesheet" />
+  <link href="https://fonts.googleapis.com/css?family=Roboto:300,400,500&display=swap" rel="stylesheet" />
+  <link href="https://fonts.googleapis.com/icon?family=Material+Icons" rel="stylesheet" />
+</head>
+
+<h2>Postupak br: {{ sifra }}</h2>
+<mat-tab-group mat-align-tabs="start">
+  <mat-tab label="Ponude">
+    <jhi-ponude [postupak]="sifra"></jhi-ponude>
+  </mat-tab>
+  <mat-tab label="Bodovanje">
+    <jhi-view-vrednovanje [postupak]="sifra"></jhi-view-vrednovanje>
+  </mat-tab>
+  <mat-tab label="Prvorangirani">
+    <jhi-prvorangirani [postupak]="sifra"></jhi-prvorangirani>
+  </mat-tab>
+  <mat-tab label="Nedostaju">
+    <jhi-hvale-ponude [postupak]="sifra"></jhi-hvale-ponude>
+  </mat-tab>
+</mat-tab-group>
