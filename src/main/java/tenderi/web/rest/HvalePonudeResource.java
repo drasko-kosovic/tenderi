@@ -33,27 +33,6 @@ public class HvalePonudeResource {
         this.hvalePonudeRepository = hvalePonudeRepository;
     }
 
-    /**
-     * {@code GET  /hvale-ponudes} : get all the Ponudes.
-     *
-     * @param pageable the pagination information.
-     * @return the {@link ResponseEntity} with status {@code 200 (OK)} and the list of hvalePonudes in body.
-     */
-    //    @GetMapping("/hvale-ponude")
-    //    public ResponseEntity<List<HvalePonude>> getAllHvalePonudes(Pageable pageable) {
-    //        log.debug("REST request to get a page of HvalePonudes");
-    //        Page<HvalePonude> page = hvalePonudeRepository.findAll(pageable);
-    //        HttpHeaders headers = PaginationUtil.generatePaginationHttpHeaders(ServletUriComponentsBuilder.fromCurrentRequest(), page);
-    //        return ResponseEntity.ok().headers(headers).body(page.getContent());
-    //    }
-
-    /**
-     * {@code GET  /hvale-ponudes/:id} : get the "id" hvalePonude.
-     *
-
-     * @return the {@link ResponseEntity} with status {@code 200 (OK)} and with body the hvalePonude, or with status {@code 404 (Not Found)}.
-     */
-
     @GetMapping("/hvale/{sifra}")
     public List<Ponude> getHvalePonude(@PathVariable Integer sifra) {
         List<Ponude> hvalePonude = hvalePonudeRepository.HvalePonude(sifra);

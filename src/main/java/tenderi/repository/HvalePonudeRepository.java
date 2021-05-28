@@ -7,10 +7,6 @@ import org.springframework.data.repository.query.Param;
 import org.springframework.stereotype.Repository;
 import tenderi.domain.Ponude;
 
-/**
- * Spring Data SQL repository for the HvalePonude entity.
- */
-@SuppressWarnings("unused")
 @Repository
 public interface HvalePonudeRepository extends JpaRepository<Ponude, Long> {
     @Query(
@@ -26,17 +22,17 @@ public interface HvalePonudeRepository extends JpaRepository<Ponude, Long> {
         "FROM specifikacije \n" +
         "WHERE\n" +
         "  (\n" +
-        "    (specifikacije.sifra_postupka = :sifra) AND\n" +
+        "    (specifikacije.sifra_postupka =:sifra) AND\n" +
         "    (\n" +
         "      NOT (\n" +
         "        specifikacije.broj_partije IN ( SELECT \n" +
         "          view_prvorangirani.broj_partije \n" +
         "        FROM view_prvorangirani \n" +
         "        WHERE\n" +
-        "          (view_prvorangirani.sifra_postupka = :sifra))\n" +
+        "          (view_prvorangirani.sifra_postupka =:sifra))\n" +
         "      )\n" +
         "    )\n" +
-        "  )",
+        "    )",
         nativeQuery = true
     )
     List<Ponude> HvalePonude(@Param("sifra") Integer sifra);
