@@ -14,6 +14,7 @@ import { MatPaginator } from '@angular/material/paginator';
 export class PrvorangiraniComponent implements OnChanges, AfterViewInit {
   prvorangiranis?: IPrvorangirani[];
   ukupnaPonudjena?: number | null | undefined;
+  ukupnaProcijenjena?: number | null | undefined;
   public displayedColumns = [
     'sifra postupka',
     'sifra ponude',
@@ -55,6 +56,7 @@ export class PrvorangiraniComponent implements OnChanges, AfterViewInit {
   doFilter = (iznos: string): any => {
     this.dataSource.filter = iznos.trim().toLocaleLowerCase();
     this.ukupnaPonudjena = this.dataSource.filteredData.map(t => t.ponudjenaVrijednost).reduce((acc, value) => acc! + value!, 0);
+    this.ukupnaProcijenjena = this.dataSource.filteredData.map(t => t.procijenjenaVrijednost).reduce((acc, value) => acc! + value!, 0);
   };
 
   ngOnChanges(): void {

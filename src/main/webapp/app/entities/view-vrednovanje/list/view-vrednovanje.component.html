@@ -3,17 +3,11 @@
   <link href="https://fonts.googleapis.com/css?family=Roboto:300,400,500&display=swap" rel="stylesheet" />
   <link href="https://fonts.googleapis.com/icon?family=Material+Icons" rel="stylesheet" />
 </head>
-<!--<div class="trazi">-->
-<!--  <mat-form-field fxFlex="40%">-->
-<!--    <mat-label>Leave a comment</mat-label>-->
-<!--    <input #box matInput type="text" (keyup)="doFilter(box.value)" />-->
-<!--  </mat-form-field>-->
-<!--</div>-->
-<!--<input type="text" class="form-control" [(ngModel)]="sifraPostupka" id="artikal" name="artikal" placeholder="postupak" />-->
+<mat-form-field class="container-search">
+  <mat-label><mat-icon>search</mat-icon></mat-label>
 
-<!--<button class="input-group-append btn btn-info" (click)="getAllPostupciVrednovanjei()">-->
-<!--  <fa-icon icon="search"></fa-icon>-->
-<!--</button>-->
+  <input (keyup)="doFilter(box.value)" #box matInput placeholder="" />
+</mat-form-field>
 <button
   mat-raised-button
   (click)="exporter.exportTable('xlsx', { fileName: 'Prvorangirani', sheet: 'sheet_prvorangirani', Props: { Author: 'Draskoa' } })"
@@ -79,13 +73,13 @@
     </ng-container>
     <ng-container matColumnDef="procijenjena vrijednost">
       <th mat-header-cell *matHeaderCellDef mat-sort-header>Procijenjena vrijednost</th>
-      <td mat-cell *matCellDef="let element">{{ element.procijenjenaVrijednost }}</td>
-      <td mat-footer-cell *matFooterCellDef></td>
+      <td mat-cell *matCellDef="let element">{{ element.procijenjenaVrijednost | number: '1.2-2' }}</td>
+      <td mat-footer-cell *matFooterCellDef>{{ ukupnaProcijenjena | number: '1.2-2' }}</td>
     </ng-container>
     <ng-container matColumnDef="ponudjena vrijednost">
       <th mat-header-cell *matHeaderCellDef mat-sort-header>Ponudjena Cijena</th>
-      <td mat-cell *matCellDef="let element">{{ element.ponudjenaVrijednost }}</td>
-      <td mat-footer-cell *matFooterCellDef></td>
+      <td mat-cell *matCellDef="let element">{{ element.ponudjenaVrijednost | number: '1.2-2' }}</td>
+      <td mat-footer-cell *matFooterCellDef>{{ ukupnaPonudjena | number: '1.2-2' }}</td>
     </ng-container>
     <ng-container matColumnDef="rok isporuke">
       <th mat-header-cell *matHeaderCellDef mat-sort-header>Rok Isporuke</th>

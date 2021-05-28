@@ -12,7 +12,8 @@ import { MatPaginator } from '@angular/material/paginator';
 })
 export class ViewVrednovanjeComponent implements AfterViewInit, OnChanges {
   viewVrednovanjes?: IViewVrednovanje[];
-
+  ukupnaPonudjena?: number | null | undefined;
+  ukupnaProcijenjena?: number | null | undefined;
   public displayedColumns = [
     'sifra postupka',
     'sifra ponude',
@@ -48,6 +49,11 @@ export class ViewVrednovanjeComponent implements AfterViewInit, OnChanges {
       console.log(res);
     });
   }
+  doFilter = (iznos: string): any => {
+    this.dataSource.filter = iznos.trim().toLocaleLowerCase();
+    this.ukupnaPonudjena = this.dataSource.filteredData.map(t => t.ponudjenaVrijednost).reduce((acc, value) => acc! + value!, 0);
+    this.ukupnaProcijenjena = this.dataSource.filteredData.map(t => t.procijenjenaVrijednost).reduce((acc, value) => acc! + value!, 0);
+  };
 
   public getAllPostupciVrednovanjei(): void {
     this.vrednovanjeService.findPostupak(this.postupak).subscribe((res: IViewVrednovanje[]) => {
@@ -56,10 +62,6 @@ export class ViewVrednovanjeComponent implements AfterViewInit, OnChanges {
       console.log(res);
     });
   }
-
-  public doFilter = (value: string): any => {
-    this.dataSource.filter = value.trim().toLocaleLowerCase();
-  };
 
   ngOnChanges(): void {
     this.getAllPostupciVrednovanjei();

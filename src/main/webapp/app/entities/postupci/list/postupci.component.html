@@ -1,14 +1,3 @@
-<!--<head>-->
-<!--  <link href="https://fonts.googleapis.com/css?family=Roboto:300,400,500" rel="stylesheet" />-->
-<!--  <link href="https://fonts.googleapis.com/css?family=Roboto:300,400,500&display=swap" rel="stylesheet" />-->
-<!--  <link href="https://fonts.googleapis.com/icon?family=Material+Icons" rel="stylesheet" />-->
-<!--</head>-->
-
-<!--<mat-form-field fxFlex="40%">-->
-<!--  <input #box matInput type="text" (keyup)="doFilter(box.value)" />-->
-<!--</mat-form-field>-->
-
-<!--<div class="example-container mat-elevation-z8">-->
 <mat-card class="example-container mat-elevation-z24" style="margin-top: 20px; margin-left: 20px; margin-right: 20px; margin-bottom: 20px">
   <button
     *jhiHasAnyAuthority="'ROLE_ADMIN'"
@@ -23,11 +12,6 @@
   </button>
 
   <table mat-table id="ExampleTable" [dataSource]="dataSource" matSort matSortStart="desc">
-    <!--    <ng-container matColumnDef="id">-->
-    <!--      <th mat-header-cell *matHeaderCellDef mat-sort-header>Id</th>-->
-    <!--      <td mat-cell *matCellDef="let element">{{ element.id }}</td>-->
-    <!--      <td mat-footer-cell *matFooterCellDef></td>-->
-    <!--    </ng-container>-->
     <ng-container matColumnDef="sifra postupka">
       <th mat-header-cell *matHeaderCellDef mat-sort-header>Sifra Postupka</th>
       <td mat-cell *matCellDef="let element">{{ element.sifraPostupka }}</td>

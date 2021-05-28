@@ -22,7 +22,6 @@ export class PonudeComponent implements AfterViewInit, OnChanges, OnInit {
   ponudes?: IPonude[];
   account: Account | null = null;
   authSubscription?: Subscription;
-  ukupnoProcijenjena?: number;
   ukupnaPonudjena?: number;
   nadji?: any;
   public displayedColumns = [
@@ -57,10 +56,6 @@ export class PonudeComponent implements AfterViewInit, OnChanges, OnInit {
     });
   }
 
-  //   public unesiPonude(ponudes:IPonude): void {
-  //     this.ponudeService.updatePonude(ponudes);
-  //
-  // }
   delete(ponude: IPonude[]): void {
     const modalRef = this.modalService.open(PonudeDeleteDialogComponent, { backdrop: 'static' });
     modalRef.componentInstance.ponude = ponude;
