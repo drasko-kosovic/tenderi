@@ -10,6 +10,7 @@ import { ViewVrednovanjeModule } from 'app/entities/view-vrednovanje/view-vredno
 import { PrvorangiraniModule } from 'app/entities/prvorangirani/prvorangirani.module';
 import { HvalePonudeModule } from 'app/entities/hvale-ponude/hvale-ponude.module';
 import { SpecifikacijeModule } from 'app/entities/specifikacije/specifikacije.module';
+import { UgovorModule } from 'app/entities/ugovor/ugovor.module';
 
 @NgModule({
   imports: [
@@ -21,6 +22,7 @@ import { SpecifikacijeModule } from 'app/entities/specifikacije/specifikacije.mo
     PrvorangiraniModule,
     HvalePonudeModule,
     SpecifikacijeModule,
+    UgovorModule,
   ],
   declarations: [TenderiHomeComponent, TenderiHomeDetailComponent],
 })

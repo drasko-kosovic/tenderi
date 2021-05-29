@@ -25,6 +25,7 @@ export class UgovorUpdateComponent implements OnInit {
     brojDatumOdlukeIzbora: [null, [Validators.required]],
     brojDatumPonude: [null, [Validators.required]],
     iznosUgovoraBezPdf: [null, [Validators.required]],
+    sifraPostupka: [null, [Validators.required]],
   });
 
   constructor(protected ugovorService: UgovorService, protected activatedRoute: ActivatedRoute, protected fb: FormBuilder) {}
@@ -79,6 +80,7 @@ export class UgovorUpdateComponent implements OnInit {
       brojDatumOdlukeIzbora: ugovor.brojDatumOdlukeIzbora,
       brojDatumPonude: ugovor.brojDatumPonude,
       iznosUgovoraBezPdf: ugovor.iznosUgovoraBezPdf,
+      sifraPostupka: ugovor.sifraPostupka,
     });
   }
 
@@ -94,6 +96,7 @@ export class UgovorUpdateComponent implements OnInit {
       brojDatumOdlukeIzbora: this.editForm.get(['brojDatumOdlukeIzbora'])!.value,
       brojDatumPonude: this.editForm.get(['brojDatumPonude'])!.value,
       iznosUgovoraBezPdf: this.editForm.get(['iznosUgovoraBezPdf'])!.value,
+      sifraPostupka: this.editForm.get(['sifraPostupka'])!.value,
     };
   }
 }

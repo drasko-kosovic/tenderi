@@ -1,84 +1,68 @@
-<div>
-  <h2 id="page-heading" data-cy="UgovorHeading">
-    <span jhiTranslate="tenderiApp.ugovor.home.title">Ugovors</span>
+<button
+  *jhiHasAnyAuthority="'ROLE_ADMIN'"
+  id="jh-create-entity"
+  data-cy="entityCreateButton"
+  mat-raised-button
+  color="primary"
+  [routerLink]="['/ugovor/new']"
+>
+  <fa-icon icon="plus"></fa-icon>
+  <span>Novi Ugovor</span>
+</button>
+<mat-card class="example-container mat-elevation-z24">
+  <table
+    class="example-container mat-elevation-z8"
+    mat-table
+    id="ExampleTable"
+    matTableExporter
+    [dataSource]="dataSource"
+    matSort
+    matSortStart="desc"
+  >
+    <ng-container matColumnDef="sifra postupka">
+      <th mat-header-cell *matHeaderCellDef mat-sort-header>Sifra Postupka</th>
+      <td mat-cell *matCellDef="let element">{{ element.sifraPostupka }}</td>
+      <td mat-footer-cell *matFooterCellDef></td>
+    </ng-container>
+    <ng-container matColumnDef="broj ugovora">
+      <th mat-header-cell *matHeaderCellDef mat-sort-header>Broj Ugovora</th>
+      <td mat-cell *matCellDef="let element">{{ element.brojUgovora }}</td>
+      <td mat-footer-cell *matFooterCellDef></td>
+    </ng-container>
+    <ng-container matColumnDef="datum ugovora">
+      <th mat-header-cell *matHeaderCellDef mat-sort-header>Datum Ugovora</th>
+      <td mat-cell *matCellDef="let element">{{ element.datumUgovora }}</td>
+      <td mat-footer-cell *matFooterCellDef></td>
+    </ng-container>
+    <ng-container matColumnDef="predmet ugovora">
+      <th mat-header-cell *matHeaderCellDef mat-sort-header>Predmet Ugovora</th>
+      <td mat-cell *matCellDef="let element">{{ element.predmetUgovora }}</td>
+      <td mat-footer-cell *matFooterCellDef></td>
+    </ng-container>
+    <ng-container matColumnDef="naziv ponudjaca">
+      <th mat-header-cell *matHeaderCellDef mat-sort-header>Ponudjac</th>
+      <td mat-cell *matCellDef="let element">{{ element.nazivPonudjaca }}</td>
+      <td mat-footer-cell *matFooterCellDef></td>
+    </ng-container>
 
-    <div class="d-flex justify-content-end">
-      <button class="btn btn-info mr-2" (click)="loadAll()" [disabled]="isLoading">
-        <fa-icon icon="sync" [spin]="isLoading"></fa-icon>
-        <span jhiTranslate="tenderiApp.ugovor.home.refreshListLabel">Refresh List</span>
-      </button>
+    <ng-container matColumnDef="delete" stickyEnd>
+      <th mat-header-cell *matHeaderCellDef></th>
+      <td mat-cell *matCellDef="let element">
+        <mat-icon *jhiHasAnyAuthority="'ROLE_ADMIN'" id="delete" type="submit" (click)="delete(element)">delete</mat-icon>
+      </td>
+      <td mat-footer-cell *matFooterCellDef></td>
+    </ng-container>
+    <ng-container matColumnDef="edit" stickyEnd>
+      <th mat-header-cell *matHeaderCellDef></th>
+      <td mat-cell *matCellDef="let element">
+        <mat-icon *jhiHasAnyAuthority="'ROLE_ADMIN'" id="edit" type="submit" [routerLink]="['/ponude', element.id, 'edit']">edit</mat-icon>
+      </td>
+      <td mat-footer-cell *matFooterCellDef></td>
+    </ng-container>
 
-      <button
-        id="jh-create-entity"
-        data-cy="entityCreateButton"
-        class="btn btn-primary jh-create-entity create-ugovor"
-        [routerLink]="['/ugovor/new']"
-      >
-        <fa-icon icon="plus"></fa-icon>
-        <span jhiTranslate="tenderiApp.ugovor.home.createLabel"> Create a new Ugovor </span>
-      </button>
-    </div>
-  </h2>
-
-  <jhi-alert-error></jhi-alert-error>
-
-  <jhi-alert></jhi-alert>
-
-  <div class="alert alert-warning" id="no-result" *ngIf="ugovors?.length === 0">
-    <span jhiTranslate="tenderiApp.ugovor.home.notFound">No ugovors found</span>
-  </div>
-
-  <div class="table-responsive" id="entities" *ngIf="ugovors && ugovors.length > 0">
-    <table class="table table-striped" aria-describedby="page-heading">
-      <thead>
-        <tr>
-          <th scope="col"><span jhiTranslate="global.field.id">ID</span></th>
-          <th scope="col"><span jhiTranslate="tenderiApp.ugovor.brojUgovora">Broj Ugovora</span></th>
-          <th scope="col"><span jhiTranslate="tenderiApp.ugovor.datumUgovora">Datum Ugovora</span></th>
-          <th scope="col"><span jhiTranslate="tenderiApp.ugovor.predmetUgovora">Predmet Ugovora</span></th>
-          <th scope="col"><span jhiTranslate="tenderiApp.ugovor.nazivPonudjaca">Naziv Ponudjaca</span></th>
-          <th scope="col">
-            <span jhiTranslate="tenderiApp.ugovor.brojDatumTenderskeDokumntacije">Broj Datum Tenderske Dokumntacije</span>
-          </th>
-          <th scope="col"><span jhiTranslate="tenderiApp.ugovor.brojDatumOdlukeIzbora">Broj Datum Odluke Izbora</span></th>
-          <th scope="col"><span jhiTranslate="tenderiApp.ugovor.brojDatumPonude">Broj Datum Ponude</span></th>
-          <th scope="col"><span jhiTranslate="tenderiApp.ugovor.iznosUgovoraBezPdf">Iznos Ugovora Bez Pdf</span></th>
-          <th scope="col"></th>
-        </tr>
-      </thead>
-      <tbody>
-        <tr *ngFor="let ugovor of ugovors; trackBy: trackId" data-cy="entityTable">
-          <td>
-            <a [routerLink]="['/ugovor', ugovor.id, 'view']">{{ ugovor.id }}</a>
-          </td>
-          <td>{{ ugovor.brojUgovora }}</td>
-          <td>{{ ugovor.datumUgovora | formatMediumDate }}</td>
-          <td>{{ ugovor.predmetUgovora }}</td>
-          <td>{{ ugovor.nazivPonudjaca }}</td>
-          <td>{{ ugovor.brojDatumTenderskeDokumntacije }}</td>
-          <td>{{ ugovor.brojDatumOdlukeIzbora }}</td>
-          <td>{{ ugovor.brojDatumPonude }}</td>
-          <td>{{ ugovor.iznosUgovoraBezPdf }}</td>
-          <td class="text-right">
-            <div class="btn-group">
-              <button type="submit" [routerLink]="['/ugovor', ugovor.id, 'view']" class="btn btn-info btn-sm" data-cy="entityDetailsButton">
-                <fa-icon icon="eye"></fa-icon>
-                <span class="d-none d-md-inline" jhiTranslate="entity.action.view">View</span>
-              </button>
-
-              <button type="submit" [routerLink]="['/ugovor', ugovor.id, 'edit']" class="btn btn-primary btn-sm" data-cy="entityEditButton">
-                <fa-icon icon="pencil-alt"></fa-icon>
-                <span class="d-none d-md-inline" jhiTranslate="entity.action.edit">Edit</span>
-              </button>
-
-              <button type="submit" (click)="delete(ugovor)" class="btn btn-danger btn-sm" data-cy="entityDeleteButton">
-                <fa-icon icon="times"></fa-icon>
-                <span class="d-none d-md-inline" jhiTranslate="entity.action.delete">Delete</span>
-              </button>
-            </div>
-          </td>
-        </tr>
-      </tbody>
-    </table>
-  </div>
-</div>
+    <tr mat-header-row *matHeaderRowDef="displayedColumns"></tr>
+    <tr mat-row *matRowDef="let row; columns: displayedColumns"></tr>
+    <tr mat-footer-row *matFooterRowDef="displayedColumns"></tr>
+  </table>
+  <mat-paginator [pageSizeOptions]="[5, 10, 20]" showFirstLastButtons></mat-paginator>
+</mat-card>

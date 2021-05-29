@@ -51,6 +51,10 @@ public class Ugovor implements Serializable {
     @Column(name = "iznos_ugovora_bez_pdf", nullable = false)
     private Integer iznosUgovoraBezPdf;
 
+    @NotNull
+    @Column(name = "sifra_postupka", nullable = false)
+    private Integer sifraPostupka;
+
     // jhipster-needle-entity-add-field - JHipster will add fields here
     public Long getId() {
         return id;
@@ -169,6 +173,19 @@ public class Ugovor implements Serializable {
         this.iznosUgovoraBezPdf = iznosUgovoraBezPdf;
     }
 
+    public Integer getSifraPostupka() {
+        return this.sifraPostupka;
+    }
+
+    public Ugovor sifraPostupka(Integer sifraPostupka) {
+        this.sifraPostupka = sifraPostupka;
+        return this;
+    }
+
+    public void setSifraPostupka(Integer sifraPostupka) {
+        this.sifraPostupka = sifraPostupka;
+    }
+
     // jhipster-needle-entity-add-getters-setters - JHipster will add getters and setters here
 
     @Override
@@ -201,6 +218,7 @@ public class Ugovor implements Serializable {
             ", brojDatumOdlukeIzbora='" + getBrojDatumOdlukeIzbora() + "'" +
             ", brojDatumPonude='" + getBrojDatumPonude() + "'" +
             ", iznosUgovoraBezPdf=" + getIznosUgovoraBezPdf() +
+            ", sifraPostupka=" + getSifraPostupka() +
             "}";
     }
 }

@@ -150,6 +150,9 @@ public class UgovorResource {
                     if (ugovor.getIznosUgovoraBezPdf() != null) {
                         existingUgovor.setIznosUgovoraBezPdf(ugovor.getIznosUgovoraBezPdf());
                     }
+                    if (ugovor.getSifraPostupka() != null) {
+                        existingUgovor.setSifraPostupka(ugovor.getSifraPostupka());
+                    }
 
                     return existingUgovor;
                 }
@@ -200,5 +203,10 @@ public class UgovorResource {
             .noContent()
             .headers(HeaderUtil.createEntityDeletionAlert(applicationName, true, ENTITY_NAME, id.toString()))
             .build();
+    }
+
+    @GetMapping("/ugovor/{sifra_postupka}")
+    public List<Ugovor> getUgovor(@PathVariable Integer sifra_postupka) {
+        return ugovorRepository.findBySifraPostupka((sifra_postupka));
     }
 }

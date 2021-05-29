@@ -25,7 +25,8 @@
       "brojDatumTenderskeDokumntacije": "Broj Datum Tenderske Dokumntacije",
       "brojDatumOdlukeIzbora": "Broj Datum Odluke Izbora",
       "brojDatumPonude": "Broj Datum Ponude",
-      "iznosUgovoraBezPdf": "Iznos Ugovora Bez Pdf"
+      "iznosUgovoraBezPdf": "Iznos Ugovora Bez Pdf",
+      "sifraPostupka": "Sifra Postupka"
     }
   }
 }

@@ -46,6 +46,10 @@
         <dd>
           <span>{{ ugovor.iznosUgovoraBezPdf }}</span>
         </dd>
+        <dt><span jhiTranslate="tenderiApp.ugovor.sifraPostupka">Sifra Postupka</span></dt>
+        <dd>
+          <span>{{ ugovor.sifraPostupka }}</span>
+        </dd>
       </dl>
 
       <button type="submit" (click)="previousState()" class="btn btn-info" data-cy="entityDetailsBackButton">
