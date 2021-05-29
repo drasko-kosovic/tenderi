@@ -44,6 +44,8 @@
     "languages": ["sr", "en"],
     "herokuAppName": "esjn-montefarm",
     "herokuDeployType": "git",
-    "herokuJavaVersion": "11"
+    "herokuJavaVersion": "11",
+    "lastLiquibaseTimestamp": 1622265256000,
+    "entities": ["Ugovor"]
   }
 }

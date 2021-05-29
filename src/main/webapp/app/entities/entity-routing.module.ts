@@ -44,6 +44,11 @@ import { RouterModule } from '@angular/router';
         data: { pageTitle: 'tenderiApp.hvaleponude.home.title' },
         loadChildren: () => import('./hvale-ponude/hvale-ponude.module').then(m => m.HvalePonudeModule),
       },
+      {
+        path: 'ugovor',
+        data: { pageTitle: 'tenderiApp.ugovor.home.title' },
+        loadChildren: () => import('./ugovor/ugovor.module').then(m => m.UgovorModule),
+      },
       /* jhipster-needle-add-entity-route - JHipster will add entity modules routes here */
     ]),
   ],
