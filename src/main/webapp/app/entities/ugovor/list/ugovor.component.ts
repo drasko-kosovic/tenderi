@@ -42,7 +42,7 @@ export class UgovorComponent implements AfterViewInit, OnChanges, OnInit {
   ) {}
 
   public getSifraPostupka(): void {
-    this.ugovorService.findSiftraPostupak(this.postupak).subscribe((res: IPonude[]) => {
+    this.ugovorService.findSiftraPostupak(this.postupak).subscribe((res: IUgovor[]) => {
       this.dataSource.data = res;
     });
   }
@@ -57,15 +57,6 @@ export class UgovorComponent implements AfterViewInit, OnChanges, OnInit {
       }
     });
   }
-
-  // public getAllPonude(): void {
-  //   this.ugovorService.ponudeAll().subscribe((res: IPonude[]) => {
-  //     this.dataSource.data = res;
-  //     // eslint-disable-next-line no-console
-  //     console.log(res);
-  //   });
-  // }
-
   ngAfterViewInit(): void {
     this.dataSource.sort = this.sort;
     this.dataSource.paginator = this.paginator;
