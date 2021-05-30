@@ -28,6 +28,10 @@
         <mat-icon>logout</mat-icon>
         <span>Odjavi se</span>
       </a>
+      <a [hidden]="!isAuthenticated()" mat-list-item routerLink="/admin/user-management">
+        <mat-icon>format_align_justify</mat-icon>
+        <span>Admin</span>
+      </a>
     </mat-nav-list>
   </mat-sidenav>
 
