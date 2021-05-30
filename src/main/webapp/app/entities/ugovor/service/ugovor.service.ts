@@ -15,8 +15,8 @@ export type EntityArrayResponseType = HttpResponse<IUgovor[]>;
 
 @Injectable({ providedIn: 'root' })
 export class UgovorService {
-  public resourceUrl = this.applicationConfigService.getEndpointFor('api/ugovor');
-
+  public resourceUrl = this.applicationConfigService.getEndpointFor('api/ugovors');
+  public resourceUrlPostupci = this.applicationConfigService.getEndpointFor('api/ugovor');
   constructor(protected http: HttpClient, private applicationConfigService: ApplicationConfigService) {}
 
   create(ugovor: IUgovor): Observable<EntityResponseType> {
@@ -46,7 +46,7 @@ export class UgovorService {
       .pipe(map((res: EntityResponseType) => this.convertDateFromServer(res)));
   }
   findSiftraPostupak(sifra_postupka: number): any {
-    return this.http.get<[IUgovor]>(`${this.resourceUrl}/${sifra_postupka}`);
+    return this.http.get<[IUgovor]>(`${this.resourceUrlPostupci}/${sifra_postupka}`);
   }
   query(req?: any): Observable<EntityArrayResponseType> {
     const options = createRequestOption(req);
