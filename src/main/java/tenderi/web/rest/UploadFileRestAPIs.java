@@ -8,7 +8,7 @@ import org.springframework.web.bind.annotation.PostMapping;
 import org.springframework.web.bind.annotation.RequestParam;
 import org.springframework.web.bind.annotation.RestController;
 import org.springframework.web.multipart.MultipartFile;
-import tenderi.message.Message;
+import tenderi.Message;
 import tenderi.service.ExcelFileServices;
 import tenderi.utils.ExcelUtils;
 
