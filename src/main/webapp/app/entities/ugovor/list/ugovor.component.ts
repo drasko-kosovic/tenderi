@@ -47,9 +47,9 @@ export class UgovorComponent implements AfterViewInit, OnChanges, OnInit {
     });
   }
 
-  delete(ponude: IPonude[]): void {
-    const modalRef = this.modalService.open(PonudeDeleteDialogComponent, { backdrop: 'static' });
-    modalRef.componentInstance.ponude = ponude;
+  delete(ugovor: IUgovor[]): void {
+    const modalRef = this.modalService.open(UgovorDeleteDialogComponent, { backdrop: 'static' });
+    modalRef.componentInstance.ugovor = ugovor;
     // unsubscribe not needed because closed completes on modal close
     modalRef.closed.subscribe((reason: string) => {
       if (reason === 'deleted') {
