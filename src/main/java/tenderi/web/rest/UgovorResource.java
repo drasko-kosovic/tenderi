@@ -15,6 +15,7 @@ import org.springframework.transaction.annotation.Transactional;
 import org.springframework.web.bind.annotation.*;
 import tech.jhipster.web.util.HeaderUtil;
 import tech.jhipster.web.util.ResponseUtil;
+import tenderi.domain.Ponude;
 import tenderi.domain.Ugovor;
 import tenderi.repository.UgovorRepository;
 import tenderi.web.rest.errors.BadRequestAlertException;
@@ -209,5 +210,10 @@ public class UgovorResource {
             .noContent()
             .headers(HeaderUtil.createEntityDeletionAlert(applicationName, true, ENTITY_NAME, id.toString()))
             .build();
+    }
+
+    @GetMapping("/ugovor/{sifra_postupka}")
+    public List<Ugovor> getPonude(@PathVariable Integer sifra_postupka) {
+        return ugovorRepository.findBySifraPostupka(sifra_postupka);
     }
 }

@@ -26,7 +26,17 @@ export class UgovorComponent implements AfterViewInit, OnChanges, OnInit {
   account: Account | null = null;
   authSubscription?: Subscription;
 
-  public displayedColumns = ['sifra postupka', 'broj ugovora', 'datum ugovora', 'predmet ugovora', 'naziv ponudjaca', 'delete', 'edit'];
+  public displayedColumns = [
+    'sifra postupka',
+    'sifra ponude',
+    'sifra ponudjaca',
+    'broj ugovora',
+    'datum ugovora',
+    'predmet ugovora',
+    'naziv ponudjaca',
+    'delete',
+    'edit',
+  ];
 
   public dataSource = new MatTableDataSource<IUgovor>();
 
