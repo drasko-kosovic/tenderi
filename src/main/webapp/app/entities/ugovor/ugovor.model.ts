@@ -11,6 +11,8 @@ export interface IUgovor {
   brojDatumPonude?: string;
   iznosUgovoraBezPdf?: number;
   sifraPostupka?: number;
+  sifraPonude?: number;
+  sifraPonudjaca?: number;
 }
 
 export class Ugovor implements IUgovor {
@@ -24,7 +26,9 @@ export class Ugovor implements IUgovor {
     public brojDatumOdlukeIzbora?: string,
     public brojDatumPonude?: string,
     public iznosUgovoraBezPdf?: number,
-    public sifraPostupka?: number
+    public sifraPostupka?: number,
+    public sifraPonude?: number,
+    public sifraPonudjaca?: number
   ) {}
 }
 

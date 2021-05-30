@@ -1,7 +1,7 @@
 <mat-card id="drasko" class="example-container mat-elevation-z24">
   <div class="row justify-content-center">
     <div class="col-8">
-      <form name="editForm" role="form" novalidate (ngSubmit)="save()" [formGroup]="editForm">
+      <div name="editForm" role="form" novalidate (ngSubmit)="save()" [formGroup]="editForm">
         <h2 id="jhi-ugovor-heading" data-cy="UgovorCreateUpdateHeading" jhiTranslate="tenderiApp.ugovor.home.createOrEditLabel">
           Create or edit a Ugovor
         </h2>
@@ -252,6 +252,59 @@
                 This field should be a number.
               </small>
             </div>
+
+            <div class="form-group">
+              <mat-form-field>
+                <mat-label>Sifra Ponudjaca</mat-label>
+                <input matInput name="sifraPonudjaca" id="sifraPonudjaca" placeholder="" formControlName="sifraPonudjaca" #sifraPonudjaca />
+              </mat-form-field>
+              <div
+                *ngIf="
+                  editForm.get('sifraPostupka')!.invalid &&
+                  (editForm.get('sifraPonudjaca')!.dirty || editForm.get('sifraPonudjaca')!.touched)
+                "
+              >
+                <small
+                  class="form-text text-danger"
+                  *ngIf="editForm.get('sifraPonudjaca')?.errors?.required"
+                  jhiTranslate="entity.validation.required"
+                >
+                  This field is required.
+                </small>
+                <small
+                  class="form-text text-danger"
+                  [hidden]="!editForm.get('sifraPonudjaca')?.errors?.number"
+                  jhiTranslate="entity.validation.number"
+                >
+                  This field should be a number.
+                </small>
+              </div>
+            </div>
+          </div>
+
+          <div class="form-group">
+            <mat-form-field>
+              <mat-label>Sifra Ponude</mat-label>
+              <input matInput name="sifraPonude" id="sifraPonude" placeholder="" formControlName="sifraPonude" #sifraPonude />
+            </mat-form-field>
+            <div
+              *ngIf="editForm.get('sifraPonude')!.invalid && (editForm.get('sifraPonude')!.dirty || editForm.get('sifraPonude')!.touched)"
+            >
+              <small
+                class="form-text text-danger"
+                *ngIf="editForm.get('sifraPonude')?.errors?.required"
+                jhiTranslate="entity.validation.required"
+              >
+                This field is required.
+              </small>
+              <small
+                class="form-text text-danger"
+                [hidden]="!editForm.get('sifraPonude')?.errors?.number"
+                jhiTranslate="entity.validation.number"
+              >
+                This field should be a number.
+              </small>
+            </div>
           </div>
         </div>
 
@@ -271,7 +324,8 @@
             <fa-icon icon="save"></fa-icon>&nbsp;<span jhiTranslate="entity.action.save">Save</span>
           </button>
         </div>
-      </form>
+      </div>
+      <!--      </form>-->
     </div>
   </div>
 </mat-card>
