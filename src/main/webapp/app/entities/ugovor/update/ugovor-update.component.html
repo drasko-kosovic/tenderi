@@ -256,7 +256,7 @@
         </div>
 
         <div>
-          <button type="button" id="cancel-save" class="btn btn-secondary" (click)="previousState()">
+          <button type="button" id="cancel-save" mat-raised-button (click)="previousState()">
             <fa-icon icon="ban"></fa-icon>&nbsp;<span jhiTranslate="entity.action.cancel">Cancel</span>
           </button>
 
@@ -265,7 +265,8 @@
             id="save-entity"
             data-cy="entityCreateSaveButton"
             [disabled]="editForm.invalid || isSaving"
-            class="btn btn-primary"
+            mat-raised-button
+            color="primary"
           >
             <fa-icon icon="save"></fa-icon>&nbsp;<span jhiTranslate="entity.action.save">Save</span>
           </button>
