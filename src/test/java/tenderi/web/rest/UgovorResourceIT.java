@@ -58,6 +58,12 @@ class UgovorResourceIT {
     private static final Integer DEFAULT_SIFRA_POSTUPKA = 1;
     private static final Integer UPDATED_SIFRA_POSTUPKA = 2;
 
+    private static final Integer DEFAULT_SIFRA_PONUDE = 1;
+    private static final Integer UPDATED_SIFRA_PONUDE = 2;
+
+    private static final Integer DEFAULT_SIFRA_PONUDJACA = 1;
+    private static final Integer UPDATED_SIFRA_PONUDJACA = 2;
+
     private static final String ENTITY_API_URL = "/api/ugovors";
     private static final String ENTITY_API_URL_ID = ENTITY_API_URL + "/{id}";
 
@@ -91,7 +97,9 @@ class UgovorResourceIT {
             .brojDatumOdlukeIzbora(DEFAULT_BROJ_DATUM_ODLUKE_IZBORA)
             .brojDatumPonude(DEFAULT_BROJ_DATUM_PONUDE)
             .iznosUgovoraBezPdf(DEFAULT_IZNOS_UGOVORA_BEZ_PDF)
-            .sifraPostupka(DEFAULT_SIFRA_POSTUPKA);
+            .sifraPostupka(DEFAULT_SIFRA_POSTUPKA)
+            .sifraPonude(DEFAULT_SIFRA_PONUDE)
+            .sifraPonudjaca(DEFAULT_SIFRA_PONUDJACA);
         return ugovor;
     }
 
@@ -111,7 +119,9 @@ class UgovorResourceIT {
             .brojDatumOdlukeIzbora(UPDATED_BROJ_DATUM_ODLUKE_IZBORA)
             .brojDatumPonude(UPDATED_BROJ_DATUM_PONUDE)
             .iznosUgovoraBezPdf(UPDATED_IZNOS_UGOVORA_BEZ_PDF)
-            .sifraPostupka(UPDATED_SIFRA_POSTUPKA);
+            .sifraPostupka(UPDATED_SIFRA_POSTUPKA)
+            .sifraPonude(UPDATED_SIFRA_PONUDE)
+            .sifraPonudjaca(UPDATED_SIFRA_PONUDJACA);
         return ugovor;
     }
 
@@ -142,6 +152,8 @@ class UgovorResourceIT {
         assertThat(testUgovor.getBrojDatumPonude()).isEqualTo(DEFAULT_BROJ_DATUM_PONUDE);
         assertThat(testUgovor.getIznosUgovoraBezPdf()).isEqualTo(DEFAULT_IZNOS_UGOVORA_BEZ_PDF);
         assertThat(testUgovor.getSifraPostupka()).isEqualTo(DEFAULT_SIFRA_POSTUPKA);
+        assertThat(testUgovor.getSifraPonude()).isEqualTo(DEFAULT_SIFRA_PONUDE);
+        assertThat(testUgovor.getSifraPonudjaca()).isEqualTo(DEFAULT_SIFRA_PONUDJACA);
     }
 
     @Test
@@ -317,6 +329,40 @@ class UgovorResourceIT {
 
     @Test
     @Transactional
+    void checkSifraPonudeIsRequired() throws Exception {
+        int databaseSizeBeforeTest = ugovorRepository.findAll().size();
+        // set the field null
+        ugovor.setSifraPonude(null);
+
+        // Create the Ugovor, which fails.
+
+        restUgovorMockMvc
+            .perform(post(ENTITY_API_URL).contentType(MediaType.APPLICATION_JSON).content(TestUtil.convertObjectToJsonBytes(ugovor)))
+            .andExpect(status().isBadRequest());
+
+        List<Ugovor> ugovorList = ugovorRepository.findAll();
+        assertThat(ugovorList).hasSize(databaseSizeBeforeTest);
+    }
+
+    @Test
+    @Transactional
+    void checkSifraPonudjacaIsRequired() throws Exception {
+        int databaseSizeBeforeTest = ugovorRepository.findAll().size();
+        // set the field null
+        ugovor.setSifraPonudjaca(null);
+
+        // Create the Ugovor, which fails.
+
+        restUgovorMockMvc
+            .perform(post(ENTITY_API_URL).contentType(MediaType.APPLICATION_JSON).content(TestUtil.convertObjectToJsonBytes(ugovor)))
+            .andExpect(status().isBadRequest());
+
+        List<Ugovor> ugovorList = ugovorRepository.findAll();
+        assertThat(ugovorList).hasSize(databaseSizeBeforeTest);
+    }
+
+    @Test
+    @Transactional
     void getAllUgovors() throws Exception {
         // Initialize the database
         ugovorRepository.saveAndFlush(ugovor);
@@ -335,7 +381,9 @@ class UgovorResourceIT {
             .andExpect(jsonPath("$.[*].brojDatumOdlukeIzbora").value(hasItem(DEFAULT_BROJ_DATUM_ODLUKE_IZBORA)))
             .andExpect(jsonPath("$.[*].brojDatumPonude").value(hasItem(DEFAULT_BROJ_DATUM_PONUDE)))
             .andExpect(jsonPath("$.[*].iznosUgovoraBezPdf").value(hasItem(DEFAULT_IZNOS_UGOVORA_BEZ_PDF)))
-            .andExpect(jsonPath("$.[*].sifraPostupka").value(hasItem(DEFAULT_SIFRA_POSTUPKA)));
+            .andExpect(jsonPath("$.[*].sifraPostupka").value(hasItem(DEFAULT_SIFRA_POSTUPKA)))
+            .andExpect(jsonPath("$.[*].sifraPonude").value(hasItem(DEFAULT_SIFRA_PONUDE)))
+            .andExpect(jsonPath("$.[*].sifraPonudjaca").value(hasItem(DEFAULT_SIFRA_PONUDJACA)));
     }
 
     @Test
@@ -358,7 +406,9 @@ class UgovorResourceIT {
             .andExpect(jsonPath("$.brojDatumOdlukeIzbora").value(DEFAULT_BROJ_DATUM_ODLUKE_IZBORA))
             .andExpect(jsonPath("$.brojDatumPonude").value(DEFAULT_BROJ_DATUM_PONUDE))
             .andExpect(jsonPath("$.iznosUgovoraBezPdf").value(DEFAULT_IZNOS_UGOVORA_BEZ_PDF))
-            .andExpect(jsonPath("$.sifraPostupka").value(DEFAULT_SIFRA_POSTUPKA));
+            .andExpect(jsonPath("$.sifraPostupka").value(DEFAULT_SIFRA_POSTUPKA))
+            .andExpect(jsonPath("$.sifraPonude").value(DEFAULT_SIFRA_PONUDE))
+            .andExpect(jsonPath("$.sifraPonudjaca").value(DEFAULT_SIFRA_PONUDJACA));
     }
 
     @Test
@@ -389,7 +439,9 @@ class UgovorResourceIT {
             .brojDatumOdlukeIzbora(UPDATED_BROJ_DATUM_ODLUKE_IZBORA)
             .brojDatumPonude(UPDATED_BROJ_DATUM_PONUDE)
             .iznosUgovoraBezPdf(UPDATED_IZNOS_UGOVORA_BEZ_PDF)
-            .sifraPostupka(UPDATED_SIFRA_POSTUPKA);
+            .sifraPostupka(UPDATED_SIFRA_POSTUPKA)
+            .sifraPonude(UPDATED_SIFRA_PONUDE)
+            .sifraPonudjaca(UPDATED_SIFRA_PONUDJACA);
 
         restUgovorMockMvc
             .perform(
@@ -412,6 +464,8 @@ class UgovorResourceIT {
         assertThat(testUgovor.getBrojDatumPonude()).isEqualTo(UPDATED_BROJ_DATUM_PONUDE);
         assertThat(testUgovor.getIznosUgovoraBezPdf()).isEqualTo(UPDATED_IZNOS_UGOVORA_BEZ_PDF);
         assertThat(testUgovor.getSifraPostupka()).isEqualTo(UPDATED_SIFRA_POSTUPKA);
+        assertThat(testUgovor.getSifraPonude()).isEqualTo(UPDATED_SIFRA_PONUDE);
+        assertThat(testUgovor.getSifraPonudjaca()).isEqualTo(UPDATED_SIFRA_PONUDJACA);
     }
 
     @Test
@@ -488,7 +542,8 @@ class UgovorResourceIT {
             .nazivPonudjaca(UPDATED_NAZIV_PONUDJACA)
             .brojDatumTenderskeDokumntacije(UPDATED_BROJ_DATUM_TENDERSKE_DOKUMNTACIJE)
             .brojDatumOdlukeIzbora(UPDATED_BROJ_DATUM_ODLUKE_IZBORA)
-            .sifraPostupka(UPDATED_SIFRA_POSTUPKA);
+            .sifraPostupka(UPDATED_SIFRA_POSTUPKA)
+            .sifraPonude(UPDATED_SIFRA_PONUDE);
 
         restUgovorMockMvc
             .perform(
@@ -511,6 +566,8 @@ class UgovorResourceIT {
         assertThat(testUgovor.getBrojDatumPonude()).isEqualTo(DEFAULT_BROJ_DATUM_PONUDE);
         assertThat(testUgovor.getIznosUgovoraBezPdf()).isEqualTo(DEFAULT_IZNOS_UGOVORA_BEZ_PDF);
         assertThat(testUgovor.getSifraPostupka()).isEqualTo(UPDATED_SIFRA_POSTUPKA);
+        assertThat(testUgovor.getSifraPonude()).isEqualTo(UPDATED_SIFRA_PONUDE);
+        assertThat(testUgovor.getSifraPonudjaca()).isEqualTo(DEFAULT_SIFRA_PONUDJACA);
     }
 
     @Test
@@ -534,7 +591,9 @@ class UgovorResourceIT {
             .brojDatumOdlukeIzbora(UPDATED_BROJ_DATUM_ODLUKE_IZBORA)
             .brojDatumPonude(UPDATED_BROJ_DATUM_PONUDE)
             .iznosUgovoraBezPdf(UPDATED_IZNOS_UGOVORA_BEZ_PDF)
-            .sifraPostupka(UPDATED_SIFRA_POSTUPKA);
+            .sifraPostupka(UPDATED_SIFRA_POSTUPKA)
+            .sifraPonude(UPDATED_SIFRA_PONUDE)
+            .sifraPonudjaca(UPDATED_SIFRA_PONUDJACA);
 
         restUgovorMockMvc
             .perform(
@@ -557,6 +616,8 @@ class UgovorResourceIT {
         assertThat(testUgovor.getBrojDatumPonude()).isEqualTo(UPDATED_BROJ_DATUM_PONUDE);
         assertThat(testUgovor.getIznosUgovoraBezPdf()).isEqualTo(UPDATED_IZNOS_UGOVORA_BEZ_PDF);
         assertThat(testUgovor.getSifraPostupka()).isEqualTo(UPDATED_SIFRA_POSTUPKA);
+        assertThat(testUgovor.getSifraPonude()).isEqualTo(UPDATED_SIFRA_PONUDE);
+        assertThat(testUgovor.getSifraPonudjaca()).isEqualTo(UPDATED_SIFRA_PONUDJACA);
     }
 
     @Test

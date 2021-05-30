@@ -32,6 +32,9 @@ public class Ponudjaci implements Serializable {
     @Column(name = "banka_racun")
     private String bankaRacun;
 
+    @Column(name = "sifra+_ponudjaca")
+    private Integer sifraPonudjaca;
+
     // jhipster-needle-entity-add-field - JHipster will add fields here
     public Long getId() {
         return id;
@@ -44,6 +47,14 @@ public class Ponudjaci implements Serializable {
     public Ponudjaci id(Long id) {
         this.id = id;
         return this;
+    }
+
+    public Integer getSifraPonudjaca() {
+        return sifraPonudjaca;
+    }
+
+    public void setSifraPonudjaca(Integer sifraPonudjaca) {
+        this.sifraPonudjaca = sifraPonudjaca;
     }
 
     public String getNazivPonudjaca() {
@@ -117,15 +128,27 @@ public class Ponudjaci implements Serializable {
         return getClass().hashCode();
     }
 
-    // prettier-ignore
     @Override
     public String toString() {
-        return "Ponudjaci{" +
-            "id=" + getId() +
-            ", nazivPonudjaca='" + getNazivPonudjaca() + "'" +
-            ", odgovornoLice='" + getOdgovornoLice() + "'" +
-            ", adresaPonudjaca='" + getAdresaPonudjaca() + "'" +
-            ", bankaRacun='" + getBankaRacun() + "'" +
-            "}";
+        return (
+            "Ponudjaci{" +
+            "id=" +
+            id +
+            ", nazivPonudjaca='" +
+            nazivPonudjaca +
+            '\'' +
+            ", odgovornoLice='" +
+            odgovornoLice +
+            '\'' +
+            ", adresaPonudjaca='" +
+            adresaPonudjaca +
+            '\'' +
+            ", bankaRacun='" +
+            bankaRacun +
+            '\'' +
+            ", sifraPonudjaca=" +
+            sifraPonudjaca +
+            '}'
+        );
     }
 }

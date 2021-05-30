@@ -41,6 +41,12 @@
             <column name="sifra_postupka" type="integer">
                 <constraints nullable="false" />
             </column>
+            <column name="sifra_ponude" type="integer">
+                <constraints nullable="false" />
+            </column>
+            <column name="sifra_ponudjaca" type="integer">
+                <constraints nullable="false" />
+            </column>
             <!-- jhipster-needle-liquibase-add-column - JHipster will add columns here -->
         </createTable>
     </changeSet>
@@ -70,6 +76,8 @@
             <column name="broj_datum_ponude" type="string"/>
             <column name="iznos_ugovora_bez_pdf" type="numeric"/>
             <column name="sifra_postupka" type="numeric"/>
+            <column name="sifra_ponude" type="numeric"/>
+            <column name="sifra_ponudjaca" type="numeric"/>
             <!-- jhipster-needle-liquibase-add-loadcolumn - JHipster (and/or extensions) can add load columns here -->
         </loadData>
     </changeSet>

@@ -55,6 +55,14 @@ public class Ugovor implements Serializable {
     @Column(name = "sifra_postupka", nullable = false)
     private Integer sifraPostupka;
 
+    @NotNull
+    @Column(name = "sifra_ponude", nullable = false)
+    private Integer sifraPonude;
+
+    @NotNull
+    @Column(name = "sifra_ponudjaca", nullable = false)
+    private Integer sifraPonudjaca;
+
     // jhipster-needle-entity-add-field - JHipster will add fields here
     public Long getId() {
         return id;
@@ -186,6 +194,32 @@ public class Ugovor implements Serializable {
         this.sifraPostupka = sifraPostupka;
     }
 
+    public Integer getSifraPonude() {
+        return this.sifraPonude;
+    }
+
+    public Ugovor sifraPonude(Integer sifraPonude) {
+        this.sifraPonude = sifraPonude;
+        return this;
+    }
+
+    public void setSifraPonude(Integer sifraPonude) {
+        this.sifraPonude = sifraPonude;
+    }
+
+    public Integer getSifraPonudjaca() {
+        return this.sifraPonudjaca;
+    }
+
+    public Ugovor sifraPonudjaca(Integer sifraPonudjaca) {
+        this.sifraPonudjaca = sifraPonudjaca;
+        return this;
+    }
+
+    public void setSifraPonudjaca(Integer sifraPonudjaca) {
+        this.sifraPonudjaca = sifraPonudjaca;
+    }
+
     // jhipster-needle-entity-add-getters-setters - JHipster will add getters and setters here
 
     @Override
@@ -219,6 +253,8 @@ public class Ugovor implements Serializable {
             ", brojDatumPonude='" + getBrojDatumPonude() + "'" +
             ", iznosUgovoraBezPdf=" + getIznosUgovoraBezPdf() +
             ", sifraPostupka=" + getSifraPostupka() +
+            ", sifraPonude=" + getSifraPonude() +
+            ", sifraPonudjaca=" + getSifraPonudjaca() +
             "}";
     }
 }

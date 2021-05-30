@@ -153,6 +153,12 @@ public class UgovorResource {
                     if (ugovor.getSifraPostupka() != null) {
                         existingUgovor.setSifraPostupka(ugovor.getSifraPostupka());
                     }
+                    if (ugovor.getSifraPonude() != null) {
+                        existingUgovor.setSifraPonude(ugovor.getSifraPonude());
+                    }
+                    if (ugovor.getSifraPonudjaca() != null) {
+                        existingUgovor.setSifraPonudjaca(ugovor.getSifraPonudjaca());
+                    }
 
                     return existingUgovor;
                 }
@@ -203,10 +209,5 @@ public class UgovorResource {
             .noContent()
             .headers(HeaderUtil.createEntityDeletionAlert(applicationName, true, ENTITY_NAME, id.toString()))
             .build();
-    }
-
-    @GetMapping("/ugovor/{sifra_postupka}")
-    public List<Ugovor> getUgovor(@PathVariable Integer sifra_postupka) {
-        return ugovorRepository.findBySifraPostupka((sifra_postupka));
     }
 }
