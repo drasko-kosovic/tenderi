@@ -2,8 +2,6 @@
   <div class="row justify-content-center">
     <div class="col-8">
       <form name="editForm" role="form" novalidate (ngSubmit)="save()" [formGroup]="editForm">
-        <h2 id="myUserLabel" jhiTranslate="userManagement.home.createOrEditLabel">Create or edit a User</h2>
-
         <div *ngIf="user">
           <jhi-alert-error></jhi-alert-error>
 
@@ -151,11 +149,11 @@
         </div>
 
         <div *ngIf="user">
-          <button type="button" class="btn btn-secondary" (click)="previousState()">
+          <button type="button" mat-raised-button (click)="previousState()">
             <fa-icon icon="ban"></fa-icon>&nbsp;<span jhiTranslate="entity.action.cancel">Cancel</span>
           </button>
 
-          <button type="submit" [disabled]="editForm.invalid || isSaving" class="btn btn-primary">
+          <button type="submit" [disabled]="editForm.invalid || isSaving" mat-raised-button color="primary">
             <fa-icon icon="save"></fa-icon>&nbsp;<span jhiTranslate="entity.action.save">Save</span>
           </button>
         </div>

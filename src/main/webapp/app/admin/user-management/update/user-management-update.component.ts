@@ -9,6 +9,7 @@ import { UserManagementService } from '../service/user-management.service';
 @Component({
   selector: 'jhi-user-mgmt-update',
   templateUrl: './user-management-update.component.html',
+  styleUrls: ['./update-managment.scss'],
 })
 export class UserManagementUpdateComponent implements OnInit {
   user!: User;
