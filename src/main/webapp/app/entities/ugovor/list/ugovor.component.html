@@ -73,7 +73,7 @@
     <ng-container matColumnDef="print" stickyEnd>
       <th mat-header-cell *matHeaderCellDef></th>
       <td mat-cell *matCellDef="let element">
-        <mat-icon  *jhiHasAnyAuthority="'ROLE_ADMIN'" id="print" type="submit" (click)="printUgovor(element.brojUgovora)" >print</mat-icon>
+        <mat-icon class="printer"  *jhiHasAnyAuthority="'ROLE_ADMIN'" id="print" type="submit" (click)="printUgovor(element.brojUgovora)" >print</mat-icon>
       </td>
       <td mat-footer-cell *matFooterCellDef></td>
     </ng-container>

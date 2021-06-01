@@ -17,7 +17,7 @@ export type EntityArrayResponseType = HttpResponse<IUgovor[]>;
 export class UgovorService {
   public resourceUrl = this.applicationConfigService.getEndpointFor('api/ugovors');
   public resourceUrlPostupci = this.applicationConfigService.getEndpointFor('api/ugovor');
-  public resourceUrlPdf = this.applicationConfigService.getEndpointFor('ugovor');
+  public resourceUrlPdf = 'https://esjn-montefarm.herokuapp.com/report/ugovor/';
   constructor(protected http: HttpClient, private applicationConfigService: ApplicationConfigService) {}
 
   printReportServiceUgovor(brojUgovora: string ): any {
@@ -25,7 +25,7 @@ export class UgovorService {
       responseType: 'arraybuffer' as 'json'
       // 'responseType'  : 'blob' as 'json'        //This also worked
     };
-    return this.http.get<[IUgovor]>('http://localhost:8080/report/ugovor/' + brojUgovora, httpOptions);
+    return this.http.get<[IUgovor]>(this.resourceUrlPdf + brojUgovora, httpOptions);
 
   }
   create(ugovor: IUgovor): Observable<EntityResponseType> {
