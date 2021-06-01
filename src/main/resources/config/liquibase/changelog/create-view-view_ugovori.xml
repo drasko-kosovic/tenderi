@@ -1,0 +1,28 @@
+<?xml version="1.1" encoding="UTF-8" standalone="no"?>
+<databaseChangeLog xmlns="http://www.liquibase.org/xml/ns/dbchangelog" xmlns:ext="http://www.liquibase.org/xml/ns/dbchangelog-ext" xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xsi:schemaLocation="http://www.liquibase.org/xml/ns/dbchangelog-ext http://www.liquibase.org/xml/ns/dbchangelog/dbchangelog-ext.xsd http://www.liquibase.org/xml/ns/dbchangelog http://www.liquibase.org/xml/ns/dbchangelog/dbchangelog-3.6.xsd">
+  <changeSet author="Drasko" id="create-view-ugovor">
+    <createView catalogName="vrednovanje-esjn" schemaName="public" viewName="view_ugovor">
+        SELECT
+        ugovor.sifra_ponudjaca,
+        ugovor.broj_ugovora,
+        ugovor.datum_ugovora,
+        ugovor.predmet_ugovora,
+        ugovor.naziv_ponudjaca,
+        ugovor.broj_datum_tenderske_dokumntacije,
+        ugovor.broj_datum_odluke_izbora,
+        ugovor.broj_datum_ponude,
+        ugovor.iznos_ugovora_bez_pdf,
+        ugovor.sifra_postupka,
+        ugovor.sifra_ponude,
+        ponudjaci.odgovorno_lice,
+        ponudjaci.adresa_ponudjaca,
+        ponudjaci.banka_racun,
+        ugovor.id
+        FROM (ugovor
+        JOIN ponudjaci ON
+        (
+        (ugovor.sifra_ponudjaca = ponudjaci.id)
+        ))
+</createView>
+  </changeSet>
+</databaseChangeLog>
