@@ -32,8 +32,6 @@ public class Ponudjaci implements Serializable {
     @Column(name = "banka_racun")
     private String bankaRacun;
 
-    @Column(name = "sifra+_ponudjaca")
-    private Integer sifraPonudjaca;
 
     // jhipster-needle-entity-add-field - JHipster will add fields here
     public Long getId() {
@@ -49,13 +47,6 @@ public class Ponudjaci implements Serializable {
         return this;
     }
 
-    public Integer getSifraPonudjaca() {
-        return sifraPonudjaca;
-    }
-
-    public void setSifraPonudjaca(Integer sifraPonudjaca) {
-        this.sifraPonudjaca = sifraPonudjaca;
-    }
 
     public String getNazivPonudjaca() {
         return this.nazivPonudjaca;
@@ -146,8 +137,7 @@ public class Ponudjaci implements Serializable {
             ", bankaRacun='" +
             bankaRacun +
             '\'' +
-            ", sifraPonudjaca=" +
-            sifraPonudjaca +
+
             '}'
         );
     }

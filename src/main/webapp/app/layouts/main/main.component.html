@@ -32,6 +32,10 @@
         <mat-icon>format_align_justify</mat-icon>
         <span>Admin</span>
       </a>
+      <a [hidden]="!isAuthenticated()" mat-list-item routerLink="ponudjaci">
+        <mat-icon>list</mat-icon>
+        <span>Ponudjaci</span>
+      </a>
     </mat-nav-list>
   </mat-sidenav>
 
@@ -39,8 +43,8 @@
     <button mat-icon-button (click)="snav.toggle()">
       <mat-icon>menu</mat-icon>
     </button>
-    <div class="container">
-      <div [hidden]="!isAuthenticated()" class="container-item">
+    <div class="right">
+      <div  [hidden]="!isAuthenticated()" class="container-item">
         <p>prijavljeni ste kao: {{ account?.login }}</p>
       </div>
     </div>

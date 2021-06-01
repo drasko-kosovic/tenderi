@@ -3,23 +3,13 @@ package tenderi.web.rest;
 import org.slf4j.Logger;
 import org.slf4j.LoggerFactory;
 import org.springframework.beans.factory.annotation.Value;
-import org.springframework.http.ResponseEntity;
 import org.springframework.transaction.annotation.Transactional;
 import org.springframework.web.bind.annotation.*;
-import tech.jhipster.web.util.HeaderUtil;
-import tech.jhipster.web.util.ResponseUtil;
 import tenderi.domain.Ugovor;
+import tenderi.domain.UgovorPdf;
 import tenderi.repository.UgovorPdfRepository;
-import tenderi.repository.UgovorRepository;
-import tenderi.web.rest.errors.BadRequestAlertException;
 
-import javax.validation.Valid;
-import javax.validation.constraints.NotNull;
-import java.net.URI;
-import java.net.URISyntaxException;
 import java.util.List;
-import java.util.Objects;
-import java.util.Optional;
 
 /**
  * REST controller for managing {@link Ugovor}.
@@ -45,10 +35,13 @@ public class UgovorPdfResource {
 
 
     @GetMapping("/ugovori")
-    public List<Ugovor> getAllUgovors() {
+    public List<UgovorPdf> getAllUgovors() {
         log.debug("REST request to get all Ugovors");
         return ugovorPdfRepository.findAll();
     }
-
+    @GetMapping("/ugovor/{broj_ugovora}")
+    public List<UgovorPdf> getPonude(@PathVariable String broj_ugovora) {
+        return ugovorPdfRepository.findUgovorPdfByBrojUgovora(broj_ugovora);
+    }
 
 }

@@ -3,7 +3,9 @@ package tenderi.repository;
 import org.springframework.data.jpa.repository.JpaRepository;
 import org.springframework.stereotype.Repository;
 import tenderi.domain.Ugovor;
+import tenderi.domain.UgovorPdf;
 
+import javax.validation.constraints.NotNull;
 import java.util.List;
 
 /**
@@ -11,6 +13,6 @@ import java.util.List;
  */
 @SuppressWarnings("unused")
 @Repository
-public interface UgovorPdfRepository extends JpaRepository<Ugovor, Long> {
-    List<Ugovor> findBySifraPostupka(Integer sifra_postupka);
+public interface UgovorPdfRepository extends JpaRepository<UgovorPdf, Long> {
+    List<UgovorPdf> findUgovorPdfByBrojUgovora(String brojUgovora);
 }
