@@ -33,13 +33,12 @@ public class UgovorPdfResource {
 
     }
 
-
-    @GetMapping("/ugovori")
+    @GetMapping("/ugovori-pdf")
     public List<UgovorPdf> getAllUgovors() {
         log.debug("REST request to get all Ugovors");
         return ugovorPdfRepository.findAll();
     }
-    @GetMapping("/ugovor/{broj_ugovora}")
+    @GetMapping("/ugovor-pdf/{broj_ugovora}")
     public List<UgovorPdf> getPonude(@PathVariable String broj_ugovora) {
         return ugovorPdfRepository.findUgovorPdfByBrojUgovora(broj_ugovora);
     }
