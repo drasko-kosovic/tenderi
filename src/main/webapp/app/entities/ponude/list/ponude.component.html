@@ -1,5 +1,7 @@
 <mat-form-field class="container-search">
-  <mat-label><mat-icon>search</mat-icon></mat-label>
+  <mat-label class="dd">
+  <mat-icon>search</mat-icon>
+  </mat-label>
   <input (keyup)="doFilter(box.value)" #box matInput placeholder="" />
 </mat-form-field>
 <button

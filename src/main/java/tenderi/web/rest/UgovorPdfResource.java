@@ -38,7 +38,7 @@ public class UgovorPdfResource {
         log.debug("REST request to get all Ugovors");
         return ugovorPdfRepository.findAll();
     }
-    @GetMapping("/ugovor-pdf/{broj_ugovora}")
+    @GetMapping("/ugovori-pdf/{broj_ugovora}")
     public List<UgovorPdf> getPonude(@PathVariable String broj_ugovora) {
         return ugovorPdfRepository.findUgovorPdfByBrojUgovora(broj_ugovora);
     }
