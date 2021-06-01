@@ -1,3 +1,4 @@
+
 <mat-card class="example-container mat-elevation-z24">
   <div>
     <h2>
@@ -46,7 +47,7 @@
             <td>{{ user.login }}</td>
             <td>{{ user.email }}</td>
             <td>
-              <button mat-raised-button (click)="setActive(user, true)" *ngIf="!user.activated" jhiTranslate="userManagement.deactivated">
+              <button class="deactived" mat-raised-button (click)="setActive(user, true)" *ngIf="!user.activated" jhiTranslate="userManagement.deactivated">
                 Deactivated
               </button>
               <button
@@ -71,32 +72,37 @@
             <td>{{ user.lastModifiedDate | date: 'dd/MM/yy HH:mm' }}</td>
             <td class="text-right">
               <div class="btn-group">
-                <button class="srednja-view" type="submit" [routerLink]="['./', user.login, 'view']" mat-raised-button color="accent">
-                  <fa-icon icon="eye"></fa-icon>
-                </button>
+<!--                <button class="srednja-view" type="submit" [routerLink]="['./', user.login, 'view']" mat-raised-button color="accent">-->
+<!--                  <fa-icon icon="eye"></fa-icon>-->
+<!--                </button>-->
+                <mat-icon id="delete" type="submit" (click)="deleteUser(user)">
+                  delete
+                </mat-icon>
+                <mat-icon id="edit" type="submit"  [routerLink]="['./', user.login, 'edit']">
+                  edit
+                </mat-icon>
+<!--                <button-->
+<!--                  class="srednja-edit"-->
+<!--                  type="submit"-->
+<!--                  [routerLink]="['./', user.login, 'edit']"-->
+<!--                  queryParamsHandling="merge"-->
+<!--                  mat-raised-button-->
+<!--                  color="primary"-->
+<!--                >-->
+<!--                  <fa-icon icon="pencil-alt"></fa-icon>-->
+<!--                  <span class="d-none d-md-inline"></span>-->
+<!--                </button>-->
 
-                <button
-                  class="srednja-edit"
-                  type="submit"
-                  [routerLink]="['./', user.login, 'edit']"
-                  queryParamsHandling="merge"
-                  mat-raised-button
-                  color="primary"
-                >
-                  <fa-icon icon="pencil-alt"></fa-icon>
-                  <span class="d-none d-md-inline"></span>
-                </button>
-
-                <button
-                  class="srednja-delete"
-                  type="button"
-                  (click)="deleteUser(user)"
-                  mat-raised-button
-                  color="warn"
-                  [disabled]="!currentAccount || currentAccount.login === user.login"
-                >
-                  <fa-icon icon="times"></fa-icon>
-                </button>
+<!--                <button-->
+<!--                  class="srednja-delete"-->
+<!--                  type="button"-->
+<!--                  (click)="deleteUser(user)"-->
+<!--                  mat-raised-button-->
+<!--                  color="warn"-->
+<!--                  [disabled]="!currentAccount || currentAccount.login === user.login"-->
+<!--                >-->
+<!--                  <fa-icon icon="times"></fa-icon>-->
+<!--                </button>-->
               </div>
             </td>
           </tr>
