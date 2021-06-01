@@ -17,8 +17,17 @@ export type EntityArrayResponseType = HttpResponse<IUgovor[]>;
 export class UgovorService {
   public resourceUrl = this.applicationConfigService.getEndpointFor('api/ugovors');
   public resourceUrlPostupci = this.applicationConfigService.getEndpointFor('api/ugovor');
+  public resourceUrlPdf = this.applicationConfigService.getEndpointFor('ugovor');
   constructor(protected http: HttpClient, private applicationConfigService: ApplicationConfigService) {}
 
+  printReportServiceUgovor(brojUgovora: string ): any {
+    const httpOptions = {
+      responseType: 'arraybuffer' as 'json'
+      // 'responseType'  : 'blob' as 'json'        //This also worked
+    };
+    return this.http.get<[IUgovor]>('http://localhost:8080/report/ugovor/' + brojUgovora, httpOptions);
+
+  }
   create(ugovor: IUgovor): Observable<EntityResponseType> {
     const copy = this.convertDateFromClient(ugovor);
     return this.http
@@ -97,4 +106,6 @@ export class UgovorService {
     }
     return res;
   }
+
+
 }

@@ -36,6 +36,7 @@ export class UgovorComponent implements AfterViewInit, OnChanges, OnInit {
     'naziv ponudjaca',
     'delete',
     'edit',
+    'print',
   ];
 
   public dataSource = new MatTableDataSource<IUgovor>();
@@ -82,4 +83,13 @@ export class UgovorComponent implements AfterViewInit, OnChanges, OnInit {
   ngOnInit(): void {
     this.authSubscription = this.accountService.getAuthenticationState().subscribe(account => (this.account = account));
   }
+
+  printUgovor(broj:string): any {
+    this.ugovorService.printReportServiceUgovor(broj).subscribe((response: BlobPart) => {
+      const file = new Blob([response], { type: 'application/pdf' });
+      const fileURL = URL.createObjectURL(file);
+      window.open(fileURL);
+    });
+  }
+
 }
