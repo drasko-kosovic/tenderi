@@ -4,8 +4,8 @@
   <!--  <link href="https://fonts.googleapis.com/icon?family=Material+Icons" rel="stylesheet" />-->
 </head>
 <mat-form-field class="container-search">
-  <mat-label><mat-icon>search</mat-icon></mat-label>
-  <input (keyup)="doFilter(box.value)" #box matInput placeholder="" />
+  <mat-icon matPrefix>search</mat-icon>
+  <input type="search" (keyup)="doFilter(box.value)" #box matInput placeholder="Ponudjac" />
 </mat-form-field>
 
 <button
