@@ -1,20 +1,17 @@
 import { AfterViewInit, Component, Input, OnChanges, OnInit, ViewChild } from '@angular/core';
-import { HttpResponse } from '@angular/common/http';
 import { NgbModal } from '@ng-bootstrap/ng-bootstrap';
 
 import { IUgovor } from '../ugovor.model';
 import { UgovorService } from '../service/ugovor.service';
 import { UgovorDeleteDialogComponent } from '../delete/ugovor-delete-dialog.component';
-import { IPonude } from 'app/entities/ponude/ponude.model';
 import { Account } from 'app/core/auth/account.model';
 import { Subscription } from 'rxjs';
 import { MatTableDataSource } from '@angular/material/table';
 import { MatSort } from '@angular/material/sort';
 import { MatPaginator } from '@angular/material/paginator';
-import { PonudeService } from 'app/entities/ponude/service/ponude.service';
 import { ActivatedRoute, Router } from '@angular/router';
 import { AccountService } from 'app/core/auth/account.service';
-import { PonudeDeleteDialogComponent } from 'app/entities/ponude/delete/ponude-delete-dialog.component';
+
 
 @Component({
   selector: 'jhi-ugovor',
