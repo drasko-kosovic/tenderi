@@ -18,6 +18,7 @@ export class UgovorService {
   public resourceUrl = this.applicationConfigService.getEndpointFor('api/ugovors');
   public resourceUrlPostupci = this.applicationConfigService.getEndpointFor('api/ugovor');
   public resourceUrlPdf = 'https://esjn-montefarm.herokuapp.com/report/ugovor/';
+  public resourceUrlPdfLocal = 'http://localhost:8080/report/ugovor/';
   constructor(protected http: HttpClient, private applicationConfigService: ApplicationConfigService) {}
 
   printReportServiceUgovor(brojUgovora: string ): any {
@@ -25,7 +26,7 @@ export class UgovorService {
       responseType: 'arraybuffer' as 'json'
       // 'responseType'  : 'blob' as 'json'        //This also worked
     };
-    return this.http.get<[IUgovor]>(this.resourceUrlPdf + brojUgovora, httpOptions);
+    return this.http.get<[IUgovor]>(this.resourceUrlPdfLocal + brojUgovora, httpOptions);
 
   }
   create(ugovor: IUgovor): Observable<EntityResponseType> {

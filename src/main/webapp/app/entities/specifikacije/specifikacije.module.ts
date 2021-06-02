@@ -8,8 +8,11 @@ import { SpecifikacijeDeleteDialogComponent } from './delete/specifikacije-delet
 import { SpecifikacijeRoutingModule } from './route/specifikacije-routing.module';
 
 @NgModule({
-  imports: [SharedModule, SpecifikacijeRoutingModule],
-  declarations: [SpecifikacijeComponent, SpecifikacijeDetailComponent, SpecifikacijeUpdateComponent, SpecifikacijeDeleteDialogComponent],
-  entryComponents: [SpecifikacijeDeleteDialogComponent],
+    imports: [SharedModule, SpecifikacijeRoutingModule],
+    declarations: [SpecifikacijeComponent, SpecifikacijeDetailComponent, SpecifikacijeUpdateComponent, SpecifikacijeDeleteDialogComponent],
+    entryComponents: [SpecifikacijeDeleteDialogComponent],
+    exports: [
+        SpecifikacijeComponent
+    ]
 })
 export class SpecifikacijeModule {}
