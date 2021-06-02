@@ -11,6 +11,7 @@ import { UgovorService } from '../service/ugovor.service';
 @Component({
   selector: 'jhi-ugovor-update',
   templateUrl: './ugovor-update.component.html',
+  styleUrls:['./ugovor.scss']
 })
 export class UgovorUpdateComponent implements OnInit {
   isSaving = false;
