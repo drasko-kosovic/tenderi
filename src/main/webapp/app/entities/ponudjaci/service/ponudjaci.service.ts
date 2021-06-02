@@ -6,7 +6,6 @@ import { isPresent } from 'app/core/util/operators';
 import { ApplicationConfigService } from 'app/core/config/application-config.service';
 import { createRequestOption } from 'app/core/request/request-util';
 import { IPonudjaci, getPonudjaciIdentifier } from '../ponudjaci.model';
-
 export type EntityResponseType = HttpResponse<IPonudjaci>;
 export type EntityArrayResponseType = HttpResponse<IPonudjaci[]>;
 
@@ -44,7 +43,9 @@ export class PonudjaciService {
   delete(id: number): Observable<HttpResponse<{}>> {
     return this.http.delete(`${this.resourceUrl}/${id}`, { observe: 'response' });
   }
-
+  ponudjaciAll(): any {
+    return this.http.get<IPonudjaci[]>(this.resourceUrl);
+  }
   addPonudjaciToCollectionIfMissing(
     ponudjaciCollection: IPonudjaci[],
     ...ponudjacisToCheck: (IPonudjaci | null | undefined)[]

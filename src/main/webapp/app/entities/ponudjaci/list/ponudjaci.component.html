@@ -1,87 +1,71 @@
+
 <mat-card class="example-container mat-elevation-z24">
-  <div>
-    <h2 id="page-heading" data-cy="PonudjaciHeading">
-      <span >Ponudjaci</span>
+  <button
+    *jhiHasAnyAuthority="'ROLE_ADMIN'"
+    id="jh-create-entity"
+    data-cy="entityCreateButton"
+    mat-raised-button
+    color="primary"
+    [routerLink]="['/ponudjaci/new']"
+  >
+    <fa-icon icon="plus"></fa-icon>
+    <span>Novi Ponudjac</span>
+  </button>
+    <table
+    mat-table
+    id="ExampleTable"
+    matTableExporter
+    [dataSource]="dataSource"
+    matSort
+    matSortStart="desc"
 
-      <div class="d-flex justify-content-end">
-        <button class="btn btn-info mr-2" (click)="loadAll()" [disabled]="isLoading">
-          <fa-icon icon="sync" [spin]="isLoading"></fa-icon>
-          <span jhiTranslate="tenderiApp.ponudjaci.home.refreshListLabel">Refresh List</span>
-        </button>
+  >
 
-        <button
-          id="jh-create-entity"
-          data-cy="entityCreateButton"
-          class="btn btn-primary jh-create-entity create-ponudjaci"
-          [routerLink]="['/ponudjaci/new']"
-        >
-          <fa-icon icon="plus"></fa-icon>
-          <span jhiTranslate="tenderiApp.ponudjaci.home.createLabel"> Create a new Ponudjaci </span>
-        </button>
-      </div>
-    </h2>
+      <ng-container matColumnDef="id">
+        <th mat-header-cell *matHeaderCellDef mat-sort-header>Id</th>
+        <td mat-cell *matCellDef="let element">{{ element.id }}</td>
+        <td mat-footer-cell *matFooterCellDef></td>
+      </ng-container>
+    <ng-container matColumnDef="naziv ponudjaca">
+      <th mat-header-cell *matHeaderCellDef mat-sort-header>Naziv Ponudjaca</th>
+      <td mat-cell *matCellDef="let element">{{ element.nazivPonudjaca }}</td>
+      <td mat-footer-cell *matFooterCellDef></td>
+    </ng-container>
+    <ng-container matColumnDef="odgovorno lice">
+      <th mat-header-cell *matHeaderCellDef mat-sort-header>Odgovorno Lice</th>
+      <td mat-cell *matCellDef="let element">{{ element.odgovornoLice }}</td>
+      <td mat-footer-cell *matFooterCellDef></td>
+    </ng-container>
 
-    <jhi-alert-error></jhi-alert-error>
+    <ng-container matColumnDef="adresa ponudjaca">
+      <th mat-header-cell *matHeaderCellDef mat-sort-header>Adresa</th>
+      <td mat-cell *matCellDef="let element">{{ element.adresaPonudjaca }}</td>
+      <td mat-footer-cell *matFooterCellDef></td>
+    </ng-container>
+    <ng-container matColumnDef="banka racun">
+      <th mat-header-cell *matHeaderCellDef mat-sort-header>Bakarski Racun</th>
+      <td mat-cell *matCellDef="let element">{{ element.bankaRacun}}</td>
+      <td mat-footer-cell *matFooterCellDef></td>
+    </ng-container>
 
-    <jhi-alert></jhi-alert>
+    <ng-container matColumnDef="delete" stickyEnd>
+      <th mat-header-cell *matHeaderCellDef></th>
+      <td mat-cell *matCellDef="let element">
+        <mat-icon *jhiHasAnyAuthority="'ROLE_ADMIN'" id="delete" type="submit" (click)="delete(element)">delete</mat-icon>
+      </td>
+      <td mat-footer-cell *matFooterCellDef></td>
+    </ng-container>
+    <ng-container matColumnDef="edit" stickyEnd>
+      <th mat-header-cell *matHeaderCellDef></th>
+      <td mat-cell *matCellDef="let element">
+        <mat-icon *jhiHasAnyAuthority="'ROLE_ADMIN'" id="edit" type="submit" [routerLink]="['/ponudjaci', element.id, 'edit']">edit</mat-icon>
+      </td>
+      <td mat-footer-cell *matFooterCellDef></td>
+    </ng-container>
 
-    <div class="alert alert-warning" id="no-result" *ngIf="ponudjacis?.length === 0">
-      <span jhiTranslate="tenderiApp.ponudjaci.home.notFound">No ponudjacis found</span>
-    </div>
-
-    <div class="table-responsive" id="entities" *ngIf="ponudjacis && ponudjacis.length > 0">
-      <table class="table table-striped" aria-describedby="page-heading">
-        <thead>
-        <tr>
-          <th scope="col"><span jhiTranslate="global.field.id">ID</span></th>
-          <th scope="col"><span jhiTranslate="tenderiApp.ponudjaci.nazivPonudjaca">Naziv Ponudjaca</span></th>
-          <th scope="col"><span jhiTranslate="tenderiApp.ponudjaci.odgovornoLice">Odgovorno Lice</span></th>
-          <th scope="col"><span jhiTranslate="tenderiApp.ponudjaci.adresaPonudjaca">Adresa Ponudjaca</span></th>
-          <th scope="col"><span jhiTranslate="tenderiApp.ponudjaci.bankaRacun">Banka Racun</span></th>
-          <th scope="col"></th>
-        </tr>
-        </thead>
-        <tbody>
-        <tr *ngFor="let ponudjaci of ponudjacis; trackBy: trackId" data-cy="entityTable">
-          <td>
-            <a [routerLink]="['/ponudjaci', ponudjaci.id, 'view']">{{ ponudjaci.id }}</a>
-          </td>
-          <td>{{ ponudjaci.nazivPonudjaca }}</td>
-          <td>{{ ponudjaci.odgovornoLice }}</td>
-          <td>{{ ponudjaci.adresaPonudjaca }}</td>
-          <td>{{ ponudjaci.bankaRacun }}</td>
-          <td class="text-right">
-            <div class="btn-group">
-              <button
-                type="submit"
-                [routerLink]="['/ponudjaci', ponudjaci.id, 'view']"
-                class="btn btn-info btn-sm"
-                data-cy="entityDetailsButton"
-              >
-                <fa-icon icon="eye"></fa-icon>
-                <span class="d-none d-md-inline" jhiTranslate="entity.action.view">View</span>
-              </button>
-
-              <button
-                type="submit"
-                [routerLink]="['/ponudjaci', ponudjaci.id, 'edit']"
-                class="btn btn-primary btn-sm"
-                data-cy="entityEditButton"
-              >
-                <fa-icon icon="pencil-alt"></fa-icon>
-                <span class="d-none d-md-inline" jhiTranslate="entity.action.edit">Edit</span>
-              </button>
-
-              <button type="submit" (click)="delete(ponudjaci)" class="btn btn-danger btn-sm" data-cy="entityDeleteButton">
-                <fa-icon icon="times"></fa-icon>
-                <span class="d-none d-md-inline" jhiTranslate="entity.action.delete">Delete</span>
-              </button>
-            </div>
-          </td>
-        </tr>
-        </tbody>
-      </table>
-    </div>
-  </div>
-
+    <tr mat-header-row *matHeaderRowDef="displayedColumns"></tr>
+    <tr mat-row *matRowDef="let row; columns: displayedColumns"></tr>
+    <tr mat-footer-row *matFooterRowDef="displayedColumns"></tr>
+  </table>
+  <mat-paginator [pageSizeOptions]="[5, 10, 20]" showFirstLastButtons></mat-paginator>
 </mat-card>

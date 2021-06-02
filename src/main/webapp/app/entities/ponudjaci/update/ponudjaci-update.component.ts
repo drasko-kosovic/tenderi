@@ -11,6 +11,8 @@ import { PonudjaciService } from '../service/ponudjaci.service';
 @Component({
   selector: 'jhi-ponudjaci-update',
   templateUrl: './ponudjaci-update.component.html',
+  styleUrls:['./ponudjaci-update.scss'],
+
 })
 export class PonudjaciUpdateComponent implements OnInit {
   isSaving = false;
