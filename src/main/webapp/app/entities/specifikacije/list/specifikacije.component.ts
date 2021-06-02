@@ -9,6 +9,7 @@ import { SpecifikacijeDeleteDialogComponent } from '../delete/specifikacije-dele
 @Component({
   selector: 'jhi-specifikacije',
   templateUrl: './specifikacije.component.html',
+  styleUrls:['./specifikacije.scss']
 })
 export class SpecifikacijeComponent implements OnInit {
   specifikacijes?: ISpecifikacije[];

@@ -1,36 +1,37 @@
-<div>
-  <h2 id="page-heading" data-cy="SpecifikacijeHeading">
-    <span jhiTranslate="tenderiApp.specifikacije.home.title">Specifikacijes</span>
+<mat-card class="example-container mat-elevation-z24">
+  <div>
+    <h2 id="page-heading" data-cy="SpecifikacijeHeading">
+      <span jhiTranslate="tenderiApp.specifikacije.home.title">Specifikacijes</span>
 
-    <div class="d-flex justify-content-end">
-      <button class="btn btn-info mr-2" (click)="loadAll()" [disabled]="isLoading">
-        <fa-icon icon="sync" [spin]="isLoading"></fa-icon>
-        <span jhiTranslate="tenderiApp.specifikacije.home.refreshListLabel">Refresh List</span>
-      </button>
+      <div class="d-flex justify-content-end">
+        <button class="btn btn-info mr-2" (click)="loadAll()" [disabled]="isLoading">
+          <fa-icon icon="sync" [spin]="isLoading"></fa-icon>
+          <span jhiTranslate="tenderiApp.specifikacije.home.refreshListLabel">Refresh List</span>
+        </button>
 
-      <button
-        id="jh-create-entity"
-        data-cy="entityCreateButton"
-        class="btn btn-primary jh-create-entity create-specifikacije"
-        [routerLink]="['/specifikacije/new']"
-      >
-        <fa-icon icon="plus"></fa-icon>
-        <span jhiTranslate="tenderiApp.specifikacije.home.createLabel"> Create a new Specifikacije </span>
-      </button>
+        <button
+          id="jh-create-entity"
+          data-cy="entityCreateButton"
+          class="btn btn-primary jh-create-entity create-specifikacije"
+          [routerLink]="['/specifikacije/new']"
+        >
+          <fa-icon icon="plus"></fa-icon>
+          <span jhiTranslate="tenderiApp.specifikacije.home.createLabel"> Create a new Specifikacije </span>
+        </button>
+      </div>
+    </h2>
+
+    <jhi-alert-error></jhi-alert-error>
+
+    <jhi-alert></jhi-alert>
+
+    <div class="alert alert-warning" id="no-result" *ngIf="specifikacijes?.length === 0">
+      <span jhiTranslate="tenderiApp.specifikacije.home.notFound">No specifikacijes found</span>
     </div>
-  </h2>
 
-  <jhi-alert-error></jhi-alert-error>
-
-  <jhi-alert></jhi-alert>
-
-  <div class="alert alert-warning" id="no-result" *ngIf="specifikacijes?.length === 0">
-    <span jhiTranslate="tenderiApp.specifikacije.home.notFound">No specifikacijes found</span>
-  </div>
-
-  <div class="table-responsive" id="entities" *ngIf="specifikacijes && specifikacijes.length > 0">
-    <table class="table table-striped" aria-describedby="page-heading">
-      <thead>
+    <div class="table-responsive" id="entities" *ngIf="specifikacijes && specifikacijes.length > 0">
+      <table class="table table-striped" aria-describedby="page-heading">
+        <thead>
         <tr>
           <th scope="col"><span jhiTranslate="global.field.id">ID</span></th>
           <th scope="col"><span jhiTranslate="tenderiApp.specifikacije.sifraPostupka">Sifra Postupka</span></th>
@@ -44,8 +45,8 @@
           <th scope="col"><span jhiTranslate="tenderiApp.specifikacije.procijenjenaVrijednost">Procijenjena Vrijednost</span></th>
           <th scope="col"></th>
         </tr>
-      </thead>
-      <tbody>
+        </thead>
+        <tbody>
         <tr *ngFor="let specifikacije of specifikacijes; trackBy: trackId" data-cy="entityTable">
           <td>
             <a [routerLink]="['/specifikacije', specifikacije.id, 'view']">{{ specifikacije.id }}</a>
@@ -88,7 +89,10 @@
             </div>
           </td>
         </tr>
-      </tbody>
-    </table>
+        </tbody>
+      </table>
+    </div>
   </div>
-</div>
+
+
+</mat-card>

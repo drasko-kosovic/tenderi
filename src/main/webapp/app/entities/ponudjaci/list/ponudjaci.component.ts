@@ -9,6 +9,7 @@ import { PonudjaciDeleteDialogComponent } from '../delete/ponudjaci-delete-dialo
 @Component({
   selector: 'jhi-ponudjaci',
   templateUrl: './ponudjaci.component.html',
+  styleUrls:['./ponudjaci.scss']
 })
 export class PonudjaciComponent implements OnInit {
   ponudjacis?: IPonudjaci[];

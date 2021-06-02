@@ -1,36 +1,37 @@
-<div>
-  <h2 id="page-heading" data-cy="PonudjaciHeading">
-    <span jhiTranslate="tenderiApp.ponudjaci.home.title">Ponudjacis</span>
+<mat-card class="example-container mat-elevation-z24">
+  <div>
+    <h2 id="page-heading" data-cy="PonudjaciHeading">
+      <span >Ponudjaci</span>
 
-    <div class="d-flex justify-content-end">
-      <button class="btn btn-info mr-2" (click)="loadAll()" [disabled]="isLoading">
-        <fa-icon icon="sync" [spin]="isLoading"></fa-icon>
-        <span jhiTranslate="tenderiApp.ponudjaci.home.refreshListLabel">Refresh List</span>
-      </button>
+      <div class="d-flex justify-content-end">
+        <button class="btn btn-info mr-2" (click)="loadAll()" [disabled]="isLoading">
+          <fa-icon icon="sync" [spin]="isLoading"></fa-icon>
+          <span jhiTranslate="tenderiApp.ponudjaci.home.refreshListLabel">Refresh List</span>
+        </button>
 
-      <button
-        id="jh-create-entity"
-        data-cy="entityCreateButton"
-        class="btn btn-primary jh-create-entity create-ponudjaci"
-        [routerLink]="['/ponudjaci/new']"
-      >
-        <fa-icon icon="plus"></fa-icon>
-        <span jhiTranslate="tenderiApp.ponudjaci.home.createLabel"> Create a new Ponudjaci </span>
-      </button>
+        <button
+          id="jh-create-entity"
+          data-cy="entityCreateButton"
+          class="btn btn-primary jh-create-entity create-ponudjaci"
+          [routerLink]="['/ponudjaci/new']"
+        >
+          <fa-icon icon="plus"></fa-icon>
+          <span jhiTranslate="tenderiApp.ponudjaci.home.createLabel"> Create a new Ponudjaci </span>
+        </button>
+      </div>
+    </h2>
+
+    <jhi-alert-error></jhi-alert-error>
+
+    <jhi-alert></jhi-alert>
+
+    <div class="alert alert-warning" id="no-result" *ngIf="ponudjacis?.length === 0">
+      <span jhiTranslate="tenderiApp.ponudjaci.home.notFound">No ponudjacis found</span>
     </div>
-  </h2>
 
-  <jhi-alert-error></jhi-alert-error>
-
-  <jhi-alert></jhi-alert>
-
-  <div class="alert alert-warning" id="no-result" *ngIf="ponudjacis?.length === 0">
-    <span jhiTranslate="tenderiApp.ponudjaci.home.notFound">No ponudjacis found</span>
-  </div>
-
-  <div class="table-responsive" id="entities" *ngIf="ponudjacis && ponudjacis.length > 0">
-    <table class="table table-striped" aria-describedby="page-heading">
-      <thead>
+    <div class="table-responsive" id="entities" *ngIf="ponudjacis && ponudjacis.length > 0">
+      <table class="table table-striped" aria-describedby="page-heading">
+        <thead>
         <tr>
           <th scope="col"><span jhiTranslate="global.field.id">ID</span></th>
           <th scope="col"><span jhiTranslate="tenderiApp.ponudjaci.nazivPonudjaca">Naziv Ponudjaca</span></th>
@@ -39,8 +40,8 @@
           <th scope="col"><span jhiTranslate="tenderiApp.ponudjaci.bankaRacun">Banka Racun</span></th>
           <th scope="col"></th>
         </tr>
-      </thead>
-      <tbody>
+        </thead>
+        <tbody>
         <tr *ngFor="let ponudjaci of ponudjacis; trackBy: trackId" data-cy="entityTable">
           <td>
             <a [routerLink]="['/ponudjaci', ponudjaci.id, 'view']">{{ ponudjaci.id }}</a>
@@ -78,7 +79,9 @@
             </div>
           </td>
         </tr>
-      </tbody>
-    </table>
+        </tbody>
+      </table>
+    </div>
   </div>
-</div>
+
+</mat-card>

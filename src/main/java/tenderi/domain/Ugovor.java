@@ -9,7 +9,7 @@ import javax.validation.constraints.*;
  * A Ugovor.
  */
 @Entity
-@Table(name = "view_ugovor")
+@Table(name = "ugovor")
 public class Ugovor implements Serializable {
 
     private static final long serialVersionUID = 1L;
