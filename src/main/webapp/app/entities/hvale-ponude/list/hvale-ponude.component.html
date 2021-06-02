@@ -7,7 +7,7 @@
 <button mat-raised-button (click)="exporter.exportTable('xlsx', { fileName: 'Ponude', sheet: 'sheet_name', Props: { Author: 'Talha' } })">
   <img src="../../../../content/images/icons8-microsoft-excel-48.png" alt="" />
 </button>
-<div class="example-container mat-elevation-z8">
+<mat-card class="example-container mat-elevation-z8">
   <table mat-table id="ExampleTable" matTableExporter [dataSource]="dataSource" matSort matSortStart="desc" #exporter="matTableExporter">
     <ng-container matColumnDef="sifra postupka">
       <th mat-header-cell *matHeaderCellDef mat-sort-header>Sifra Postupka</th>
@@ -49,4 +49,4 @@
     <tr mat-footer-row *matFooterRowDef="displayedColumns; sticky: true"></tr>
   </table>
   <mat-paginator [pageSizeOptions]="[5, 10, 20]" showFirstLastButtons></mat-paginator>
-</div>
+</mat-card>

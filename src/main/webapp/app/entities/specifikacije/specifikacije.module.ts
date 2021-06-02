@@ -6,9 +6,13 @@ import { SpecifikacijeDetailComponent } from './detail/specifikacije-detail.comp
 import { SpecifikacijeUpdateComponent } from './update/specifikacije-update.component';
 import { SpecifikacijeDeleteDialogComponent } from './delete/specifikacije-delete-dialog.component';
 import { SpecifikacijeRoutingModule } from './route/specifikacije-routing.module';
+import {MatPaginatorModule} from "@angular/material/paginator";
+import {MatTableModule} from "@angular/material/table";
+import {MatSortModule} from "@angular/material/sort";
+import {MatTableExporterModule} from "mat-table-exporter";
 
 @NgModule({
-    imports: [SharedModule, SpecifikacijeRoutingModule],
+  imports: [SharedModule, SpecifikacijeRoutingModule, MatPaginatorModule, MatTableModule, MatSortModule, MatTableExporterModule],
     declarations: [SpecifikacijeComponent, SpecifikacijeDetailComponent, SpecifikacijeUpdateComponent, SpecifikacijeDeleteDialogComponent],
     entryComponents: [SpecifikacijeDeleteDialogComponent],
     exports: [

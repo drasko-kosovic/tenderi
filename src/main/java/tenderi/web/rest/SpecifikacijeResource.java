@@ -15,6 +15,7 @@ import org.springframework.transaction.annotation.Transactional;
 import org.springframework.web.bind.annotation.*;
 import tech.jhipster.web.util.HeaderUtil;
 import tech.jhipster.web.util.ResponseUtil;
+import tenderi.domain.Ponude;
 import tenderi.domain.Specifikacije;
 import tenderi.repository.SpecifikacijeRepository;
 import tenderi.web.rest.errors.BadRequestAlertException;
@@ -38,6 +39,11 @@ public class SpecifikacijeResource {
 
     public SpecifikacijeResource(SpecifikacijeRepository specifikacijeRepository) {
         this.specifikacijeRepository = specifikacijeRepository;
+    }
+
+    @GetMapping("/specifikacija/{sifra_postupka}")
+    public List<Specifikacije> getSpecifikacijePostupak(@PathVariable Integer sifra_postupka) {
+        return specifikacijeRepository.findBySifraPostupka(sifra_postupka);
     }
 
     /**

@@ -6,6 +6,7 @@ import { isPresent } from 'app/core/util/operators';
 import { ApplicationConfigService } from 'app/core/config/application-config.service';
 import { createRequestOption } from 'app/core/request/request-util';
 import { ISpecifikacije, getSpecifikacijeIdentifier } from '../specifikacije.model';
+import {IPonude} from "app/entities/ponude/ponude.model";
 
 export type EntityResponseType = HttpResponse<ISpecifikacije>;
 export type EntityArrayResponseType = HttpResponse<ISpecifikacije[]>;
@@ -13,9 +14,12 @@ export type EntityArrayResponseType = HttpResponse<ISpecifikacije[]>;
 @Injectable({ providedIn: 'root' })
 export class SpecifikacijeService {
   public resourceUrl = this.applicationConfigService.getEndpointFor('api/specifikacijes');
-
+  public resourceUrlSifraPostupka = this.applicationConfigService.getEndpointFor('api/specifikacija');
   constructor(protected http: HttpClient, private applicationConfigService: ApplicationConfigService) {}
 
+  findSiftraPostupak(sifra_postupka: number): any {
+    return this.http.get<IPonude[]>(`${this.resourceUrlSifraPostupka}/${sifra_postupka}`);
+  }
   create(specifikacije: ISpecifikacije): Observable<EntityResponseType> {
     return this.http.post<ISpecifikacije>(this.resourceUrl, specifikacije, { observe: 'response' });
   }

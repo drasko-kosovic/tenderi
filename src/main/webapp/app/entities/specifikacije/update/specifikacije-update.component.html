@@ -1,13 +1,13 @@
-<div class="row justify-content-center">
+<mat-card class="example-container mat-elevation-z24">
   <div class="col-8">
     <form name="editForm" role="form" novalidate (ngSubmit)="save()" [formGroup]="editForm">
-      <h2
+      <h4
         id="jhi-specifikacije-heading"
         data-cy="SpecifikacijeCreateUpdateHeading"
         jhiTranslate="tenderiApp.specifikacije.home.createOrEditLabel"
       >
         Create or edit a Specifikacije
-      </h2>
+      </h4>
 
       <div>
         <jhi-alert-error></jhi-alert-error>
@@ -18,17 +18,11 @@
         </div>
 
         <div class="form-group">
-          <label class="form-control-label" jhiTranslate="tenderiApp.specifikacije.sifraPostupka" for="field_sifraPostupka"
-            >Sifra Postupka</label
-          >
-          <input
-            type="number"
-            class="form-control"
-            name="sifraPostupka"
-            id="field_sifraPostupka"
-            data-cy="sifraPostupka"
-            formControlName="sifraPostupka"
-          />
+
+          <mat-form-field>
+            <mat-label>Sifra Postupka</mat-label>
+            <input matInput name="sifraPostupka" id="sifraPostupka" placeholder="" formControlName="sifraPostupka" #sifraPostupka />
+          </mat-form-field>
           <div
             *ngIf="
               editForm.get('sifraPostupka')!.invalid && (editForm.get('sifraPostupka')!.dirty || editForm.get('sifraPostupka')!.touched)
@@ -52,15 +46,10 @@
         </div>
 
         <div class="form-group">
-          <label class="form-control-label" jhiTranslate="tenderiApp.specifikacije.brojPartije" for="field_brojPartije">Broj Partije</label>
-          <input
-            type="number"
-            class="form-control"
-            name="brojPartije"
-            id="field_brojPartije"
-            data-cy="brojPartije"
-            formControlName="brojPartije"
-          />
+          <mat-form-field>
+            <mat-label>Broj Partije</mat-label>
+            <input matInput name="brojPartije" id="brojPartije" placeholder="" formControlName="brojPartije" #brojPartije />
+          </mat-form-field>
           <div *ngIf="editForm.get('brojPartije')!.invalid && (editForm.get('brojPartije')!.dirty || editForm.get('brojPartije')!.touched)">
             <small
               class="form-text text-danger"
@@ -80,58 +69,38 @@
         </div>
 
         <div class="form-group">
-          <label class="form-control-label" jhiTranslate="tenderiApp.specifikacije.atc" for="field_atc">Atc</label>
-          <input type="text" class="form-control" name="atc" id="field_atc" data-cy="atc" formControlName="atc" />
+           <mat-form-field>
+            <mat-label>Atc</mat-label>
+            <input matInput name="atc" id="atc" placeholder="" formControlName="atc" #atc />
+          </mat-form-field>
         </div>
 
         <div class="form-group">
-          <label class="form-control-label" jhiTranslate="tenderiApp.specifikacije.inn" for="field_inn">Inn</label>
-          <input type="text" class="form-control" name="inn" id="field_inn" data-cy="inn" formControlName="inn" />
+          <mat-form-field>
+            <mat-label>Inn</mat-label>
+            <input matInput name="atc" id="inn" placeholder="" formControlName="inn" #inn />
+          </mat-form-field>
         </div>
 
         <div class="form-group">
-          <label
-            class="form-control-label"
-            jhiTranslate="tenderiApp.specifikacije.farmaceutskiOblikLijeka"
-            for="field_farmaceutskiOblikLijeka"
-            >Farmaceutski Oblik Lijeka</label
-          >
-          <input
-            type="text"
-            class="form-control"
-            name="farmaceutskiOblikLijeka"
-            id="field_farmaceutskiOblikLijeka"
-            data-cy="farmaceutskiOblikLijeka"
-            formControlName="farmaceutskiOblikLijeka"
-          />
+          <mat-form-field>
+            <mat-label>Farmaceutski Oblik</mat-label>
+            <input matInput name="farmaceutskiOblikLijeka" id="farmaceutskiOblikLijeka" placeholder="" formControlName="farmaceutskiOblikLijeka" #farmaceutskiOblikLijeka />
+          </mat-form-field>
         </div>
 
         <div class="form-group">
-          <label class="form-control-label" jhiTranslate="tenderiApp.specifikacije.jacinaLijeka" for="field_jacinaLijeka"
-            >Jacina Lijeka</label
-          >
-          <input
-            type="text"
-            class="form-control"
-            name="jacinaLijeka"
-            id="field_jacinaLijeka"
-            data-cy="jacinaLijeka"
-            formControlName="jacinaLijeka"
-          />
+          <mat-form-field>
+            <mat-label>Jacina Lijeka</mat-label>
+            <input matInput name="jacinaLijeka" id="jacinaLijeka" placeholder="" formControlName="jacinaLijeka" #jacinaLijeka />
+          </mat-form-field>
         </div>
 
         <div class="form-group">
-          <label class="form-control-label" jhiTranslate="tenderiApp.specifikacije.trazenaKolicina" for="field_trazenaKolicina"
-            >Trazena Kolicina</label
-          >
-          <input
-            type="number"
-            class="form-control"
-            name="trazenaKolicina"
-            id="field_trazenaKolicina"
-            data-cy="trazenaKolicina"
-            formControlName="trazenaKolicina"
-          />
+          <mat-form-field>
+            <mat-label>Kolicina</mat-label>
+            <input matInput name="trazenaKolicina" id="trazenaKolicina" placeholder="" formControlName="trazenaKolicina" #trazenaKolicina />
+          </mat-form-field>
           <div
             *ngIf="
               editForm.get('trazenaKolicina')!.invalid &&
@@ -156,25 +125,18 @@
         </div>
 
         <div class="form-group">
-          <label class="form-control-label" jhiTranslate="tenderiApp.specifikacije.pakovanje" for="field_pakovanje">Pakovanje</label>
-          <input type="text" class="form-control" name="pakovanje" id="field_pakovanje" data-cy="pakovanje" formControlName="pakovanje" />
+          <mat-form-field>
+            <mat-label>Pakovanje</mat-label>
+            <input matInput name="pakovanje" id="pakovanje" placeholder="" formControlName="pakovanje" #pakovanje />
+          </mat-form-field>
+
         </div>
 
         <div class="form-group">
-          <label
-            class="form-control-label"
-            jhiTranslate="tenderiApp.specifikacije.procijenjenaVrijednost"
-            for="field_procijenjenaVrijednost"
-            >Procijenjena Vrijednost</label
-          >
-          <input
-            type="number"
-            class="form-control"
-            name="procijenjenaVrijednost"
-            id="field_procijenjenaVrijednost"
-            data-cy="procijenjenaVrijednost"
-            formControlName="procijenjenaVrijednost"
-          />
+          <mat-form-field>
+            <mat-label>Procijenjena Vrijednost</mat-label>
+            <input matInput name="procijenjenaVrijednost" id="procijenjenaVrijednost" placeholder="" formControlName="procijenjenaVrijednost" #procijenjenaVrijednost />
+          </mat-form-field>
           <div
             *ngIf="
               editForm.get('procijenjenaVrijednost')!.invalid &&
@@ -200,7 +162,8 @@
       </div>
 
       <div>
-        <button type="button" id="cancel-save" class="btn btn-secondary" (click)="previousState()">
+        <button type="button" id="cancel-save" mat-raised-button
+                (click)="previousState()">
           <fa-icon icon="ban"></fa-icon>&nbsp;<span jhiTranslate="entity.action.cancel">Cancel</span>
         </button>
 
@@ -209,11 +172,14 @@
           id="save-entity"
           data-cy="entityCreateSaveButton"
           [disabled]="editForm.invalid || isSaving"
-          class="btn btn-primary"
+          mat-raised-button
+          color="primary"
         >
           <fa-icon icon="save"></fa-icon>&nbsp;<span jhiTranslate="entity.action.save">Save</span>
         </button>
       </div>
     </form>
   </div>
-</div>
+
+</mat-card>
+

@@ -11,6 +11,7 @@ import { SpecifikacijeService } from '../service/specifikacije.service';
 @Component({
   selector: 'jhi-specifikacije-update',
   templateUrl: './specifikacije-update.component.html',
+  styleUrls:['./specifikacije-update.scss']
 })
 export class SpecifikacijeUpdateComponent implements OnInit {
   isSaving = false;
