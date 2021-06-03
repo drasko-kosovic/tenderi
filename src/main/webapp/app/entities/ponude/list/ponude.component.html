@@ -16,6 +16,14 @@
   <fa-icon icon="plus"></fa-icon>
   <span>Nova Ponuda</span>
 </button>
+  <button type="button" mat-raised-button (click)="fileInput.click()">Choose File</button>
+<!--  <input class="form-control" type="file" #fileInput />-->
+  <input hidden  #fileInput type="file" id="file">
+
+    <button mat-raised-button
+            color="warn" (click)="uploadFile()">Upload</button>
+
+
 <mat-card class="example-container mat-elevation-z24">
   <button mat-raised-button (click)="exporter.exportTable('xlsx', { fileName: 'Ponude', sheet: 'sheet_name', Props: { Author: 'Talha' } })">
     <img src="../../../../content/images/icons8-microsoft-excel-48.png" alt="" />

@@ -42,13 +42,17 @@ export class PonudeComponent implements AfterViewInit, OnChanges, OnInit {
   @ViewChild(MatSort) sort!: MatSort;
   @ViewChild(MatPaginator) paginator!: MatPaginator;
   @Input() postupak?: any;
+  @ViewChild('fileInput') fileInput: any;
+  message: string | undefined;
+
   constructor(
     protected ponudeService: PonudeService,
     protected activatedRoute: ActivatedRoute,
     protected router: Router,
     protected modalService: NgbModal,
     private accountService: AccountService
-  ) {}
+  ) {
+  }
 
   public getSifraPostupka(): void {
     this.ponudeService.findSiftraPostupak(this.postupak).subscribe((res: IPonude[]) => {
@@ -57,7 +61,7 @@ export class PonudeComponent implements AfterViewInit, OnChanges, OnInit {
   }
 
   delete(ponude: IPonude[]): void {
-    const modalRef = this.modalService.open(PonudeDeleteDialogComponent, { backdrop: 'static' });
+    const modalRef = this.modalService.open(PonudeDeleteDialogComponent, {backdrop: 'static'});
     modalRef.componentInstance.ponude = ponude;
     // unsubscribe not needed because closed completes on modal close
     modalRef.closed.subscribe((reason: string) => {
@@ -79,6 +83,7 @@ export class PonudeComponent implements AfterViewInit, OnChanges, OnInit {
     this.dataSource.sort = this.sort;
     this.dataSource.paginator = this.paginator;
   }
+
   doFilter = (iznos: string): any => {
     this.dataSource.filter = iznos.trim().toLocaleLowerCase();
     this.ukupnaPonudjena = this.dataSource.filteredData.map(t => t.ponudjenaVrijednost).reduce((acc, value) => acc! + value!, 0);
@@ -87,11 +92,23 @@ export class PonudeComponent implements AfterViewInit, OnChanges, OnInit {
   ngOnChanges(): void {
     this.getSifraPostupka();
   }
+
   isAuthenticated(): boolean {
     return this.accountService.isAuthenticated();
   }
 
   ngOnInit(): void {
     this.authSubscription = this.accountService.getAuthenticationState().subscribe(account => (this.account = account));
+  }
+
+  uploadFile(): any {
+    const formData = new FormData();
+    formData.append('uploadfiles', this.fileInput.nativeElement.files[0])
+
+    this.ponudeService.UploadExcel(formData).subscribe((result: { toString: () => string | undefined; }) => {
+      this.message = result.toString();
+
+    });
+
   }
 }

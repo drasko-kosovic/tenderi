@@ -1,5 +1,5 @@
 import { Injectable } from '@angular/core';
-import { HttpClient, HttpResponse } from '@angular/common/http';
+import {HttpClient, HttpHeaders, HttpResponse} from '@angular/common/http';
 import { Observable } from 'rxjs';
 
 import { isPresent } from 'app/core/util/operators';
@@ -15,6 +15,8 @@ export class PonudeService {
   public resourceUrl = this.applicationConfigService.getEndpointFor('api/ponudes');
   public resourceUrlSifraPonude = this.applicationConfigService.getEndpointFor('api/ponude');
   public resourceUrlUpload = this.applicationConfigService.getEndpointFor('api/uploadfiles?uploadfiles=');
+  public resourceUrlExcelUpload='http://localhost:8080/api/uploadfiles';
+
   constructor(protected http: HttpClient, private applicationConfigService: ApplicationConfigService) {}
 
   findSiftraPostupak(sifra_postupka: number): any {
@@ -69,5 +71,17 @@ export class PonudeService {
       return [...ponudesToAdd, ...ponudeCollection];
     }
     return ponudeCollection;
+  }
+
+
+  UploadExcel(formData: FormData):any {
+    const headers = new HttpHeaders();
+
+    headers.append('Content-Type', 'multipart/form-data');
+    headers.append('Accept', 'application/json');
+
+    const httpOptions = { headers: headers };
+
+    return this.http.post(this.resourceUrlExcelUpload , formData, httpOptions)
   }
 }
