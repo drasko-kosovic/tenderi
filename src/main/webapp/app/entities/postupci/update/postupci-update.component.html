@@ -1,9 +1,3 @@
-<!--<head>-->
-<!--  <link href="https://fonts.googleapis.com/css?family=Roboto:300,400,500" rel="stylesheet" />-->
-<!--  <link href="https://fonts.googleapis.com/css?family=Roboto:300,400,500&display=swap" rel="stylesheet" />-->
-<!--  <link href="https://fonts.googleapis.com/icon?family=Material+Icons" rel="stylesheet" />-->
-<!--</head>-->
-
 <mat-card id="drasko" class="example-container mat-elevation-z24">
   <div class="row justify-content-center">
     <div class="col-8">
@@ -93,22 +87,29 @@
               </small>
             </div>
           </div>
-
           <div class="form-group">
-            <!--            <label class="form-control-label" jhiTranslate="tenderiApp.postupci.datumObjave" for="field_datumObjave">Datum Objave</label>-->
+            <label class="form-control-label" jhiTranslate="tenderiApp.ugovor.datumUgovora" for="field_datumUgovora">Datum Ugovora</label>
             <div class="input-group">
-              <mat-form-field>
-                <mat-label>Datum Objave</mat-label>
-                <input formControlName="datumObjave" matInput name="datumObjave" ngbDatepicker #datumObjaveDp="ngbDatepicker" />
-              </mat-form-field>
-
-              <!--              <mat-form-field>-->
-              <!--                <mat-label>Broj Tendera</mat-label>-->
-              <!--                <input matInput name="brojTendera"  placeholder="" formControlName="datumObjave" #datumObjave />-->
-              <!--              </mat-form-field>-->
+              <input
+                id="field_datumUgovora"
+                data-cy="datumUgovora"
+                type="text"
+                class="form-control"
+                name="datumUgovora"
+                ngbDatepicker
+                #datumUgovoraDp="ngbDatepicker"
+                formControlName="datumObjave"
+              />
+              <span class="input-group-append">
+                <button type="button" class="btn btn-secondary" (click)="datumUgovoraDp.toggle()">
+                  <fa-icon icon="calendar-alt"></fa-icon>
+                </button>
+              </span>
             </div>
           </div>
+
         </div>
+
 
         <div>
           <button type="button" id="cancel-save" mat-raised-button (click)="previousState()">

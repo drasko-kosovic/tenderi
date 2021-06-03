@@ -1,0 +1,216 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!-- Created with Jaspersoft Studio version 6.12.2.final using JasperReports Library version 6.12.2-75c5e90a222ab406e416cbf590a5397028a52de3  -->
+<jasperReport xmlns="http://jasperreports.sourceforge.net/jasperreports" xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xsi:schemaLocation="http://jasperreports.sourceforge.net/jasperreports http://jasperreports.sourceforge.net/xsd/jasperreport.xsd" name="PrimjerUgovora" pageWidth="595" pageHeight="842" columnWidth="555" leftMargin="20" rightMargin="20" topMargin="20" bottomMargin="20" uuid="ecb7461a-a61e-43cc-962e-9877fe579f3d">
+	<property name="com.jaspersoft.studio.data.sql.tables" value=""/>
+	<property name="com.jaspersoft.studio.data.defaultdataadapter" value="DataAdapter ESJN.xml"/>
+	<property name="com.jaspersoft.studio.property.dataset.dialog.DatasetDialog.sash.w1" value="338"/>
+	<property name="com.jaspersoft.studio.property.dataset.dialog.DatasetDialog.sash.w2" value="648"/>
+	<queryString language="SQL">
+		<![CDATA[select * from  view_ugovor]]>
+	</queryString>
+	<field name="sifra_ponudjaca" class="java.lang.Integer">
+		<property name="com.jaspersoft.studio.field.label" value="sifra_ponudjaca"/>
+		<property name="com.jaspersoft.studio.field.tree.path" value="view_ugovor"/>
+	</field>
+	<field name="broj_ugovora" class="java.lang.String">
+		<property name="com.jaspersoft.studio.field.label" value="broj_ugovora"/>
+		<property name="com.jaspersoft.studio.field.tree.path" value="view_ugovor"/>
+	</field>
+	<field name="datum_ugovora" class="java.sql.Date">
+		<property name="com.jaspersoft.studio.field.label" value="datum_ugovora"/>
+		<property name="com.jaspersoft.studio.field.tree.path" value="view_ugovor"/>
+	</field>
+	<background>
+		<band splitType="Stretch"/>
+	</background>
+	<detail>
+		<band height="610" splitType="Stretch">
+			<staticText>
+				<reportElement x="4" y="70" width="526" height="530" uuid="060a2bb4-222e-4c83-82a0-26dd616c7f39"/>
+				<text><![CDATA[Ugovorne strane su se sporazumjele o sljedećem:
+
+
+OSNOV UGOVORA
+
+Član 1.
+
+Tenderska dokumentacija za otvoreni postupak javne nabavke za nabavku ampuliranih ljekova za potrebe Zdravstvene  ustanove Apoteke Crne Gore Montefarm i JZU Crne Gore : 90/1-0721 od 25.02.2021.g.
+Broj i datum Odluke o izboru najpovoljnije ponude  : 216/1-0721 od 23.04.2021.g.
+Ponuda ponuđača  Glosarij d.o.o. broj : 1330 od 22.03.2021.g.
+
+	 
+I PREDMET UGOVORA
+
+Član 1.
+
+Predmet ovog ugovora je nabavka ljekova Naručiocu od strane Dobavljača, za partije , u svemu prema prihvaćenoj ponudi Dobavljača broj: 1330 od 22.03.2021.g., koja čini sastavni dio ovog ugovora ,dostavljenoj po Tenderskoj dokumentaciji broj: 90/1-0721 od 25.02.2021.g. za otvoreni postupak javne nabavke za izbor najpovoljnije ponude za nabavku ampuliranih ljekova, objavljenom na portalu CeJN, dana : 25.02.2021.g. i Odluke o izboru najpovoljnije ponude  broj : 216/1-0721 od 23.04.2021.g.
+
+II CIJENA I NAČIN PLAĆANJA
+
+Član 2.
+     
+
+       
+       Ukupna vrijednost ovog ugovora iznosi: 3.249.249,85 € bez PDV-a.
+       Ukupna vrijednost ovog ugovora iznosi: 3.249.249,85 € sa PDV-om.
+         
+
+
+Za isporučene ljekove ( u daljem tekstu: roba),  koji su predmet ovog ugovora, Dobavljač je dužan da Naručiocu ispostavi mjesečnu fakturu potpisanu od ovlašćenog lica, sa uračunatim PDV- om (0%)
+
+Faktura mora da sadrži broj ugovora po kojem se plaćanje vrši.
+
+Plaćanje će se vršiti na žiro račun Dobavljača broj: 520-19120-42 , otvoren kod banke- Hipotekarna banka, u rokovima predviđenim ponudom Dobavljača, virmanskim putem ili doznakom na račun Dobavljača.Valuta plaćanja je euro.		     
+
+]]></text>
+			</staticText>
+			<staticText>
+				<reportElement x="4" y="0" width="526" height="52" uuid="2cacff5c-2faf-46df-a0e9-b6ccb08b0789"/>
+				<text><![CDATA[Ugovor br. 1-0721
+
+  
+Zaključen između:
+]]></text>
+			</staticText>
+		</band>
+		<band height="610">
+			<staticText>
+				<reportElement x="7" y="11" width="523" height="539" uuid="982153d4-d6b9-42f3-b9c9-496d3bf06e86"/>
+				<text><![CDATA[
+                                             III OBAVEZE UGOVORNIH STRANA
+
+Član 3.
+
+Dobavljač se obavezuje da isporuči robu  koja je predmet ovog ugovora,u svemu pod uslovima iz  tenderske dokumentacije i prihvaćenog dijela ponude. Ugovorena roba je u specifikaciji (Prilog br.1)  ,koja čini sastavni dio ovog ugovora.
+Isporuka robe vrši se sukcesivno u količinama koje odredi Naručilac, u toku tromjesečnog perioda, prema pojedinačnim narudžbama Naručioca, u ponuđenom roku koji ne može biti duži od 30 dana od dana narudžbe.
+
+Roba mora biti u paletama pakovanja sledećih dimenzija: dužina 120 cm, širina 80 cm i visina 94 cm  (tj. visina paletnog pakovanja zajedno sa visinom same palete može iznositi max 108,50 cm).
+
+Visina paletnog pakovanja mora da bude funkcionalno kompatibilna sa robom i da je dovoljno stabilna kako bi se omogućio prikladan transport i rukovanje.
+
+Paleta pakovanja treba da bude čvrsto obmotana pripadajućom folijom.
+Palete poslije istovara se ne vraćaju isporučiocu robe.
+
+Isporuku će pratiti sljedeći dokumenti: paking list, sertifikat  analize izdat od strane nadležne institucije i faktura dobavljača. Dobavljač će putem faxa ili elektronske pošte, pet dana prije otpreme potvrditi Naručiocu spremnost robe za transport, način transporta uz navođenje broja paketa, neto i bruto težine,transportni temperaturni režim i režim skladištenja.
+
+Na fakturi naznačiti tačan naziv Naručioca: Zdravstvena ustanova Apoteke Crne Gore Montefarm – Podgorica, Ljubljanska b.b.
+
+Dobavljač je dužan da u fakturi pored naziva lijeka koji isporučuje navede i naziv lijeka po ATC klasifikaciji.
+
+Na fakturi naznačiti: Franko skladište kupca
+
+Dobavljač i Naručilac konstatuju sve eventualne reklamacije vezane za uslove transporta, čuvanje robe i transportna oštećenja o čemu će Naručilac sačiniti zapisnik koji dostavlja Dobavljaču.
+
+Svaka reklamacija koja bude konstatovana u isporuci i transportu pada na teret Dobavljača. 
+Mjesto isporuke je skladište Zdravstvene ustanove Apoteke Crne Gore Montefarm, Ljubljanska b.b. Podgorica.
+
+Smatra se da je izvršena adekvatna isporuka robe  kada ovlašćena komisija Naručioca u mjestu isporuke izvrši prijem robe, što se potvrdjuje Zapisnikom.
+
+Sve isporučene stavke moraju imati skladišni rok koji nije kraći od 2/3 (dvije trećine) ukupnog roka trajanja proizvoda. Proizvodi sa kraćim rokom skladištenja (manje od 18 mjeseci) moraju imati najmanje ¾ (tri četvrtine) preostalog roka trajanja od ukupnog skladišnog roka trajanja.
+
+Ako se zapisnički utvrdi da roba koju je Dobavljač isporučio ne odgovara zahtjevanom roku upotrebe, kvantitetu i nije dostavljen sertifikat analize, Naručilac će prijaviti nedostatke  Dobavljaču pismenim putem u roku od 48 sati od prijema za rok upotrebe,  kvantitet i sertifikat analize, uz obavezu dobavljača da pismenim putem da instrukcije za postupanje sa reklamiranom robom.
+
+Član 4.
+
+Ako se zapisnički utvrdi da roba koju je Dobavljač isporučio Naručiocu ne odgovara ugovorenoj robi, ugovorenom roku upotrebe, kvantitetu i nije dostavljen sertifikat analize, Dobavljač mora Naručiocu isporučiti novu robu koja odgovara ugovorenoj robi, ugovorenom roku upotrebe, kvantitetu uz dostavljen sertifikat analize, u roku od sedam dana od dana sačinjavanja zapisnika o reklamaciji.		
+						
+U slučaju skrivenih nedostataka isporučene robe  koja se nije mogla ustanoviti u momentu preuzimanja, reklamacija robe se vrši preporučenim pismom u roku od 48 sati od saznanja.						
+Član 5.
+
+Zapisnik iz člana 3. ovog Ugovora i dostavljene fakture naručioca predstavljaju osnov za plaćanje isporučene robe.
+
+Član 6.
+
+Naručilac će odustati od nabavke određenog lijeka ukoliko je određeni lijek skinut sa liste ili je isti povučen iz prometa.
+
+
+                                                             IV ROK IZVRŠENJA UGOVORA
+
+Član 7.
+
+Ugovor se zaključuje na određeno vrijeme.
+Ovaj ugovor stupa na snagu danom potpisivanja od strane ovlašćenih predstavnika ugovornih strana i zaključuje se na period od tri mjeseca (90 dana).
+ 
+]]></text>
+			</staticText>
+		</band>
+		<band height="610">
+			<staticText>
+				<reportElement x="11" y="18" width="529" height="582" uuid="ed881ba6-21d5-4579-a740-8629cb65b031"/>
+				<text><![CDATA[. Proizvodi sa kraćim rokom skladištenja (manje od 18 mjeseci) moraju imati najmanje ¾ (tri četvrtine) preostalog roka trajanja od ukupnog skladišnog roka trajanja.
+
+Ako se zapisnički utvrdi da roba koju je Dobavljač isporučio ne odgovara zahtjevanom roku upotrebe, kvantitetu i nije dostavljen sertifikat analize, Naručilac će prijaviti nedostatke  Dobavljaču pismenim putem u roku od 48 sati od prijema za rok upotrebe,  kvantitet i sertifikat analize, uz obavezu dobavljača da pismenim putem da instrukcije za postupanje sa reklamiranom robom.
+
+Član 4.
+
+Ako se zapisnički utvrdi da roba koju je Dobavljač isporučio Naručiocu ne odgovara ugovorenoj robi, ugovorenom roku upotrebe, kvantitetu i nije dostavljen sertifikat analize, Dobavljač mora Naručiocu isporučiti novu robu koja odgovara ugovorenoj robi, ugovorenom roku upotrebe, kvantitetu uz dostavljen sertifikat analize, u roku od sedam dana od dana sačinjavanja zapisnika o reklamaciji.		
+						
+U slučaju skrivenih nedostataka isporučene robe  koja se nije mogla ustanoviti u momentu preuzimanja, reklamacija robe se vrši preporučenim pismom u roku od 48 sati od saznanja.						
+Član 5.
+
+Zapisnik iz člana 3. ovog Ugovora i dostavljene fakture naručioca predstavljaju osnov za plaćanje isporučene robe.
+
+Član 6.
+
+Naručilac će odustati od nabavke određenog lijeka ukoliko je određeni lijek skinut sa liste ili je isti povučen iz prometa.
+
+
+                                                             IV ROK IZVRŠENJA UGOVORA
+
+Član 7.
+
+Ugovor se zaključuje na određeno vrijeme.
+Ovaj ugovor stupa na snagu danom potpisivanja od strane ovlašćenih predstavnika ugovornih strana i zaključuje se na period od tri mjeseca (90 dana).
+ 
+
+V GARANCIJA ZA DOBRO IZVRŠENJE UGOVORA
+
+Član 8.
+
+Dobavljač se obavezuje da Naručiocu nakon potpisivanja ovog ugovora preda garanciju  za dobro izvršenje ugovora, na iznos od 5%  od vrijednosti ugovora, sa rokom važenja tri mjeseca od dana zaključenja ugovora i koju Naručilac može aktivirati u svakom momentu kad nastupi neki od razloga predviđenih za raskid ugovora.
+]]></text>
+			</staticText>
+		</band>
+		<band height="610">
+			<staticText>
+				<reportElement x="9" y="17" width="521" height="583" uuid="ab3bae5f-78f2-4719-a4fc-69e3c1d57c52"/>
+				<text><![CDATA[VI RASKID UGOVORA
+
+Član 9.
+
+Ukoliko jedna od ugovornih strana ne izvrši svoje ugovorne obaveze, druga ugovorna strana ima pravo da raskine ugovor, uz prethodno pisano upozorenje.
+
+
+VII ZAVRŠNE ODREDBE
+
+Član 10.
+
+Ugovor o javnoj nabavci koji je zaključen uz kršenje antikorupcijskih pravila u skladu sa odredbama člana 15. Zakona o javnim nabavkama („Sl.list CG“ br.42/11, 57/14, 28/15 i 42/17) ništav je.
+
+Član 11.
+
+Sve eventualne sporove koji nastanu iz ili povodom ovog Ugovora sporazumne strane će pokušati da riješe sporazumom.
+Ukoliko sporovi između ugovornih strana ne budu riješeni sporazumno, ugovara se nadležnost nadležnog suda u Podgorici.
+
+
+Član 12.
+
+Na sve što nije regulisano odredbama ovog Ugovora primjenjivaće se odredbe Zakona o obligacionim odnosima, koje se odnose na Ugovor o kupoprodaji.
+				
+               Član 13.
+
+Ovaj Ugovor je sačinjen u 4 (četiri) istovjetna  primjerka od kojih svaka ugovorna strana zadržava po dva primjerka.
+Ugovorne strane saglasno izjavljuju da su pročitale, razumjele i da ugovorne odredbe u svemu predstavljaju izraz njihove stvarne volje.
+
+
+
+ UGOVORNA STRANA                 		                                    UGOVORNA STRANA
+       DOBAVLJAČ     		                                                               N A R U Č I L A C
+     Izvršni direktor,								 Direktor,
+   Mirjana Mijušković, dipl ecc    			     		Radoman Dragaš, dipl. ecc     			 
+]]></text>
+			</staticText>
+		</band>
+		<band height="610"/>
+	</detail>
+</jasperReport>

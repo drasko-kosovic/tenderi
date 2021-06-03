@@ -18,11 +18,11 @@ export class PostupciUpdateComponent implements OnInit {
 
   editForm = this.fb.group({
     id: [],
-    sifraPostupka: [null, [Validators.required]],
+    sifraPostupka: [],
     brojTendera: [],
-    opisPostupka: [null, [Validators.required]],
-    vrstaPostupka: [null, [Validators.required]],
-    datumObjave: [],
+    opisPostupka: [],
+    vrstaPostupka: [],
+    datumObjave: [null, [Validators.required]],
   });
 
   constructor(protected postupciService: PostupciService, protected activatedRoute: ActivatedRoute, protected fb: FormBuilder) {}
