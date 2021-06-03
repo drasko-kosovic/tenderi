@@ -16,12 +16,12 @@
   <fa-icon icon="plus"></fa-icon>
   <span>Nova Ponuda</span>
 </button>
-  <button type="button" mat-raised-button (click)="fileInput.click()">Choose File</button>
+  <button id="zeleno" type="button" mat-raised-button (click)="fileInput.click()">Izaberi Dokument</button>
 <!--  <input class="form-control" type="file" #fileInput />-->
   <input hidden  #fileInput type="file" id="file">
 
     <button mat-raised-button
-            color="warn" (click)="uploadFile()">Upload</button>
+            color="warn" (click)="uploadFile()">Unesi Excel</button>
 
 
 <mat-card class="example-container mat-elevation-z24">
