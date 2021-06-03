@@ -12,4 +12,6 @@ import tenderi.domain.Ponude;
 @Repository
 public interface PonudeRepository extends JpaRepository<Ponude, Long> {
     List<Ponude> findBySifraPostupka(Integer sifra_postupka);
+
+    List<Ponude> findPonudeByBrojPartije(Integer sifra_postupka);
 }
