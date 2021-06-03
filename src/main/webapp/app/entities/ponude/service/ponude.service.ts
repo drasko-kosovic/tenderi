@@ -5,7 +5,7 @@ import { Observable } from 'rxjs';
 import { isPresent } from 'app/core/util/operators';
 import { ApplicationConfigService } from 'app/core/config/application-config.service';
 import { createRequestOption } from 'app/core/request/request-util';
-import {IPonude, getPonudeIdentifier, Ponude} from '../ponude.model';
+import {IPonude, getPonudeIdentifier} from '../ponude.model';
 
 export type EntityResponseType = HttpResponse<IPonude>;
 export type EntityArrayResponseType = HttpResponse<IPonude[]>;

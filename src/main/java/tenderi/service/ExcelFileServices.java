@@ -30,7 +30,7 @@ public class ExcelFileServices {
 
 //     Load Data to Excel File
     public ByteArrayInputStream loadFile() {
-        List<Ponude> ponude = (List<Ponude>) ponudeRepository.findAll();
+        List<Ponude> ponude = (List<Ponude>) ponudeRepository.allPonude();
 
         try {
             ByteArrayInputStream in = ExcelUtils.customersToExcel(ponude);

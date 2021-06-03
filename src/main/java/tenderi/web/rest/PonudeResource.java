@@ -75,6 +75,13 @@ public class PonudeResource {
         return ponudeRepository.findBySifraPostupka(sifra_postupka);
     }
 
+    @GetMapping("/ponude/all")
+    public List<Ponude> getAll() {
+        return ponudeRepository.allPonude();
+    }
+
+
+
     @PutMapping("/ponudes/{id}")
     public ResponseEntity<Ponude> updatePonude(
         @PathVariable(value = "id", required = false) final Long id,
