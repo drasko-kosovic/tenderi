@@ -1,6 +1,6 @@
 <mat-form-field class="container-search">
 
-    <mat-icon matPrefix>search</mat-icon>
+  <mat-icon matPrefix>search</mat-icon>
 
   <input type="search" (keyup)="doFilter(box.value)" #box matInput placeholder="Ponudjac" />
 </mat-form-field>
@@ -16,11 +16,12 @@
   <fa-icon icon="plus"></fa-icon>
   <span>Nova Ponuda</span>
 </button>
-  <button  *jhiHasAnyAuthority="'ROLE_ADMIN'" id="zeleno" type="button" mat-raised-button (click)="fileInput.click()">Izaberi Dokument</button>
+<button id="zeleno" type="button" mat-raised-button (click)="fileInput.click()">Izaberi Dokument</button>
 <!--  <input class="form-control" type="file" #fileInput />-->
-  <input  *jhiHasAnyAuthority="'ROLE_ADMIN'" hidden  #fileInput type="file" id="file">
+<input hidden  #fileInput type="file" id="file">
 
-    <button  *jhiHasAnyAuthority="'ROLE_ADMIN'" mat-raised-button color="warn" (click)="uploadFile()">Unesi Excel</button>
+<button mat-raised-button
+        color="warn" (click)="uploadFile()">Unesi Excel</button>
 
 <button  *jhiHasAnyAuthority="'ROLE_ADMIN'" mat-raised-button color="accent" (click)="DownloadExcel()">Obrazac</button>
 
