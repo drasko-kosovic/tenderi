@@ -83,21 +83,21 @@
               </div>
             </div>
             <div class="form-group">
-              <label class="form-control-label" jhiTranslate="tenderiApp.ugovor.datumUgovora" for="field_datumUgovora">Datum Ugovora</label>
-              <div class="input-group">
+               <div class="input-group">
                 <input
-                  id="field_datumUgovora"
-                  data-cy="datumUgovora"
+                  id="field_datumObjave"
+                  data-cy="datumObjave"
+                  placeholder="Datum Objave"
                   type="text"
                   class="form-control"
-                  name="datumUgovora"
+                  name="datumObjave"
                   ngbDatepicker
                   #datumUgovoraDp="ngbDatepicker"
                   formControlName="datumObjave"
                 />
                 <span class="input-group-append">
                 <button type="button" class="btn btn-secondary" (click)="datumUgovoraDp.toggle()">
-                  <fa-icon icon="calendar-alt"></fa-icon>
+                  <fa-icon icon="calendar-alt" size="1x"></fa-icon>
                 </button>
               </span>
               </div>

@@ -14,8 +14,7 @@ export type EntityArrayResponseType = HttpResponse<IPonude[]>;
 export class PonudeService {
   public resourceUrl = this.applicationConfigService.getEndpointFor('api/ponudes');
   public resourceUrlSifraPonude = this.applicationConfigService.getEndpointFor('api/ponude');
-  public resourceUrlUpload = this.applicationConfigService.getEndpointFor('api/uploadfiles?uploadfiles=');
-  public resourceUrlExcelUpload='http://localhost:8080/api/uploadfiles';
+  public resourceUrlExcelUpload=this.applicationConfigService.getEndpointFor('api/uploadfiles');
 
 
 
@@ -35,11 +34,6 @@ export class PonudeService {
   update(ponude: IPonude): Observable<EntityResponseType> {
     return this.http.put<IPonude>(`${this.resourceUrl}/${getPonudeIdentifier(ponude) as number}`, ponude, { observe: 'response' });
   }
-
-  //   updatePonude (): Observable<EntityResponseType> {
-  //   return this.http.put<IPonude>(`${this.resourceUrlUpload}/${"C:/ponude.xlsx"}`);
-  //
-  // }
 
   partialUpdate(ponude: IPonude): Observable<EntityResponseType> {
     return this.http.patch<IPonude>(`${this.resourceUrl}/${getPonudeIdentifier(ponude) as number}`, ponude, { observe: 'response' });
