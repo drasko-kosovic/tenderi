@@ -14,7 +14,4 @@ public interface PonudeRepository extends JpaRepository<Ponude, Long> {
     List<Ponude> findBySifraPostupka(Integer sifra_postupka);
 
     List<Ponude> findPonudeByBrojPartije(Integer sifra_postupka);
-
-    @Query(value = "select * from Ponude  where ponude.sifra_ponude = 10000 ",nativeQuery = true)
-    List<Ponude> allPonude();
 }
