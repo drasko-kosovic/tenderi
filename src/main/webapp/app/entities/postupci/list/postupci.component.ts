@@ -43,6 +43,9 @@ export class PostupciComponent implements OnInit, AfterViewInit {
       this.dataSource.data = res.body ?? [];
     });
   }
+  previousState(): void {
+    window.history.back();
+  }
 
   delete(postupci: IPostupci[]): void {
     const modalRef = this.modalService.open(PostupciDeleteDialogComponent, { size: 'lg', backdrop: 'static' });
