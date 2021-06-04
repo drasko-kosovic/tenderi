@@ -35,7 +35,7 @@ public class UgovorPdf {
 
     public void getPdfUgovor(HttpServletResponse response, @PathVariable String broj_ugovora) throws Exception {
 
-        Resource resource = context.getResource("classpath:reports/Ugovor.jrxml");
+        Resource resource = context.getResource("classpath:reports/PrimjerUgovora.jrxml");
 
         InputStream inputStream = resource.getInputStream();
         JasperReport report = JasperCompileManager.compileReport(inputStream);

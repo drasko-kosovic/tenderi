@@ -8,74 +8,74 @@
 	<queryString language="SQL">
 		<![CDATA[select * from  view_ugovor]]>
 	</queryString>
-	<field name="sifra_ponudjaca" class="java.lang.Integer">
-		<property name="com.jaspersoft.studio.field.name" value="sifra_ponudjaca"/>
-		<property name="com.jaspersoft.studio.field.label" value="sifra_ponudjaca"/>
+<!--	<field name="sifra_ponudjaca" class="java.lang.Integer">-->
+<!--		<property name="com.jaspersoft.studio.field.name" value="sifra_ponudjaca"/>-->
+<!--		<property name="com.jaspersoft.studio.field.label" value="sifra_ponudjaca"/>-->
+<!--		<property name="com.jaspersoft.studio.field.tree.path" value="view_ugovor"/>-->
+<!--	</field>-->
+	<field name="brojUgovora" class="java.lang.String">
+		<property name="com.jaspersoft.studio.field.name" value="brojUgovora"/>
+		<property name="com.jaspersoft.studio.field.label" value="brojUgovora"/>
 		<property name="com.jaspersoft.studio.field.tree.path" value="view_ugovor"/>
 	</field>
-	<field name="broj_ugovora" class="java.lang.String">
-		<property name="com.jaspersoft.studio.field.name" value="broj_ugovora"/>
-		<property name="com.jaspersoft.studio.field.label" value="broj_ugovora"/>
+	<field name="datumUgovora" class="java.time.LocalDate">
+		<property name="com.jaspersoft.studio.field.name" value="datumUgovora"/>
+		<property name="com.jaspersoft.studio.field.label" value="datumUgovora"/>
 		<property name="com.jaspersoft.studio.field.tree.path" value="view_ugovor"/>
 	</field>
-	<field name="datum_ugovora" class="java.sql.Date">
-		<property name="com.jaspersoft.studio.field.name" value="datum_ugovora"/>
-		<property name="com.jaspersoft.studio.field.label" value="datum_ugovora"/>
+	<field name="predmetUgovora" class="java.lang.String">
+		<property name="com.jaspersoft.studio.field.name" value="predmetUgovora"/>
+		<property name="com.jaspersoft.studio.field.label" value="predmetUgovora"/>
 		<property name="com.jaspersoft.studio.field.tree.path" value="view_ugovor"/>
 	</field>
-	<field name="predmet_ugovora" class="java.lang.String">
-		<property name="com.jaspersoft.studio.field.name" value="predmet_ugovora"/>
-		<property name="com.jaspersoft.studio.field.label" value="predmet_ugovora"/>
+	<field name="nazivPonudjaca" class="java.lang.String">
+		<property name="com.jaspersoft.studio.field.name" value="nazivPonudjaca"/>
+		<property name="com.jaspersoft.studio.field.label" value="nazivPonudjaca"/>
 		<property name="com.jaspersoft.studio.field.tree.path" value="view_ugovor"/>
 	</field>
-	<field name="naziv_ponudjaca" class="java.lang.String">
-		<property name="com.jaspersoft.studio.field.name" value="naziv_ponudjaca"/>
-		<property name="com.jaspersoft.studio.field.label" value="naziv_ponudjaca"/>
+	<field name="brojDatumTenderskeDokumntacije" class="java.lang.String">
+		<property name="com.jaspersoft.studio.field.name" value="brojDatumTenderskeDokumntacije"/>
+		<property name="com.jaspersoft.studio.field.label" value="brojDatumTenderskeDokumntacije"/>
 		<property name="com.jaspersoft.studio.field.tree.path" value="view_ugovor"/>
 	</field>
-	<field name="broj_datum_tenderske_dokumntacije" class="java.lang.String">
-		<property name="com.jaspersoft.studio.field.name" value="broj_datum_tenderske_dokumntacije"/>
-		<property name="com.jaspersoft.studio.field.label" value="broj_datum_tenderske_dokumntacije"/>
+	<field name="brojDatumOdlukeIzbora" class="java.lang.String">
+		<property name="com.jaspersoft.studio.field.name" value="brojDatumOdlukeIzbora"/>
+		<property name="com.jaspersoft.studio.field.label" value="brojDatumOdlukeIzbora"/>
 		<property name="com.jaspersoft.studio.field.tree.path" value="view_ugovor"/>
 	</field>
-	<field name="broj_datum_odluke_izbora" class="java.lang.String">
-		<property name="com.jaspersoft.studio.field.name" value="broj_datum_odluke_izbora"/>
-		<property name="com.jaspersoft.studio.field.label" value="broj_datum_odluke_izbora"/>
+	<field name="brojDatumPonude" class="java.lang.String">
+		<property name="com.jaspersoft.studio.field.name" value="brojDatumPonude"/>
+		<property name="com.jaspersoft.studio.field.label" value="brojDatumPonude"/>
 		<property name="com.jaspersoft.studio.field.tree.path" value="view_ugovor"/>
 	</field>
-	<field name="broj_datum_ponude" class="java.lang.String">
-		<property name="com.jaspersoft.studio.field.name" value="broj_datum_ponude"/>
-		<property name="com.jaspersoft.studio.field.label" value="broj_datum_ponude"/>
+	<field name="iznosUgovoraBezPdf" class="java.lang.Integer">
+		<property name="com.jaspersoft.studio.field.name" value="iznosUgovoraBezPdf"/>
+		<property name="com.jaspersoft.studio.field.label" value="iznosUgovoraBezPdf"/>
 		<property name="com.jaspersoft.studio.field.tree.path" value="view_ugovor"/>
 	</field>
-	<field name="iznos_ugovora_bez_pdf" class="java.lang.Integer">
-		<property name="com.jaspersoft.studio.field.name" value="iznos_ugovora_bez_pdf"/>
-		<property name="com.jaspersoft.studio.field.label" value="iznos_ugovora_bez_pdf"/>
+	<field name="sifraPostupka" class="java.lang.Integer">
+		<property name="com.jaspersoft.studio.field.name" value="sifraPostupka"/>
+		<property name="com.jaspersoft.studio.field.label" value="sifraPostupka"/>
 		<property name="com.jaspersoft.studio.field.tree.path" value="view_ugovor"/>
 	</field>
-	<field name="sifra_postupka" class="java.lang.Integer">
-		<property name="com.jaspersoft.studio.field.name" value="sifra_postupka"/>
-		<property name="com.jaspersoft.studio.field.label" value="sifra_postupka"/>
+	<field name="sifraPonude" class="java.lang.Integer">
+		<property name="com.jaspersoft.studio.field.name" value="sifraPonude"/>
+		<property name="com.jaspersoft.studio.field.label" value="sifraPonude"/>
 		<property name="com.jaspersoft.studio.field.tree.path" value="view_ugovor"/>
 	</field>
-	<field name="sifra_ponude" class="java.lang.Integer">
-		<property name="com.jaspersoft.studio.field.name" value="sifra_ponude"/>
-		<property name="com.jaspersoft.studio.field.label" value="sifra_ponude"/>
+	<field name="odgovornoLice" class="java.lang.String">
+		<property name="com.jaspersoft.studio.field.name" value="odgovornoLice"/>
+		<property name="com.jaspersoft.studio.field.label" value="odgovornoLice"/>
 		<property name="com.jaspersoft.studio.field.tree.path" value="view_ugovor"/>
 	</field>
-	<field name="odgovorno_lice" class="java.lang.String">
-		<property name="com.jaspersoft.studio.field.name" value="odgovorno_lice"/>
-		<property name="com.jaspersoft.studio.field.label" value="odgovorno_lice"/>
+	<field name="adresaPonudjaca" class="java.lang.String">
+		<property name="com.jaspersoft.studio.field.name" value="adresaPonudjaca"/>
+		<property name="com.jaspersoft.studio.field.label" value="adresaPonudjaca"/>
 		<property name="com.jaspersoft.studio.field.tree.path" value="view_ugovor"/>
 	</field>
-	<field name="adresa_ponudjaca" class="java.lang.String">
-		<property name="com.jaspersoft.studio.field.name" value="adresa_ponudjaca"/>
-		<property name="com.jaspersoft.studio.field.label" value="adresa_ponudjaca"/>
-		<property name="com.jaspersoft.studio.field.tree.path" value="view_ugovor"/>
-	</field>
-	<field name="banka_racun" class="java.lang.String">
-		<property name="com.jaspersoft.studio.field.name" value="banka_racun"/>
-		<property name="com.jaspersoft.studio.field.label" value="banka_racun"/>
+	<field name="bankaRacun" class="java.lang.String">
+		<property name="com.jaspersoft.studio.field.name" value="bankaRacun"/>
+		<property name="com.jaspersoft.studio.field.label" value="bankaRacun"/>
 		<property name="com.jaspersoft.studio.field.tree.path" value="view_ugovor"/>
 	</field>
 	<field name="id" class="java.lang.Long">
@@ -101,7 +101,7 @@ Tenderska dokumentacija za otvoreni postupak javne nabavke za nabavku ampulirani
 Broj i datum Odluke o izboru najpovoljnije ponude  : 216/1-0721 od 23.04.2021.g.
 Ponuda ponuđača  Glosarij d.o.o. broj : 1330 od 22.03.2021.g.
 
-	 
+
 I PREDMET UGOVORA
 
 Član 1.
@@ -111,21 +111,21 @@ Predmet ovog ugovora je nabavka ljekova Naručiocu od strane Dobavljača, za par
 II CIJENA I NAČIN PLAĆANJA
 
 Član 2.
-     
 
-       
+
+
        Ukupna vrijednost ovog ugovora iznosi: 3.249.249,85 € bez PDV-a.
        Ukupna vrijednost ovog ugovora iznosi: 3.249.249,85 € sa PDV-om.
-         
+
 
 
 Za isporučene ljekove ( u daljem tekstu: roba),  koji su predmet ovog ugovora, Dobavljač je dužan da Naručiocu ispostavi mjesečnu fakturu potpisanu od ovlašćenog lica, sa uračunatim PDV- om (0%)
 
 Faktura mora da sadrži broj ugovora po kojem se plaćanje vrši.
 
-Plaćanje će se vršiti na žiro račun Dobavljača broj: 520-19120-42 , otvoren kod banke- Hipotekarna banka, u rokovima predviđenim ponudom Dobavljača, virmanskim putem ili doznakom na račun Dobavljača.Valuta plaćanja je euro.		     
+Plaćanje će se vršiti na žiro račun Dobavljača broj: 520-19120-42 , otvoren kod banke- Hipotekarna banka, u rokovima predviđenim ponudom Dobavljača, virmanskim putem ili doznakom na račun Dobavljača.Valuta plaćanja je euro.
 
-                                
+
 
                                              III OBAVEZE UGOVORNIH STRANA
 
@@ -146,13 +146,13 @@ Palete poslije istovara se ne vraćaju isporučiocu robe.
 			<staticText>
 				<reportElement x="4" y="0" width="526" height="52" uuid="2cacff5c-2faf-46df-a0e9-b6ccb08b0789"/>
 				<text><![CDATA[
- 
+
 Zaključen između:
 ]]></text>
 			</staticText>
 			<textField>
 				<reportElement x="60" y="0" width="60" height="20" uuid="c157d08b-8ca4-46ee-8347-1e250b94be0c"/>
-				<textFieldExpression><![CDATA[$F{broj_ugovora}]]></textFieldExpression>
+				<textFieldExpression><![CDATA[$F{brojUgovora}]]></textFieldExpression>
 			</textField>
 			<staticText>
 				<reportElement x="4" y="0" width="56" height="20" uuid="7396d158-7b4c-4c62-bdb0-3b6471c49b9b"/>
@@ -189,7 +189,7 @@ Na fakturi naznačiti: Franko skladište kupca
 
 Dobavljač i Naručilac konstatuju sve eventualne reklamacije vezane za uslove transporta, čuvanje robe i transportna oštećenja o čemu će Naručilac sačiniti zapisnik koji dostavlja Dobavljaču.
 
-Svaka reklamacija koja bude konstatovana u isporuci i transportu pada na teret Dobavljača. 
+Svaka reklamacija koja bude konstatovana u isporuci i transportu pada na teret Dobavljača.
 Mjesto isporuke je skladište Zdravstvene ustanove Apoteke Crne Gore Montefarm, Ljubljanska b.b. Podgorica.
 
 Smatra se da je izvršena adekvatna isporuka robe  kada ovlašćena komisija Naručioca u mjestu isporuke izvrši prijem robe, što se potvrdjuje Zapisnikom.
@@ -200,9 +200,9 @@ Ako se zapisnički utvrdi da roba koju je Dobavljač isporučio ne odgovara zaht
 
 Član 4.
 
-Ako se zapisnički utvrdi da roba koju je Dobavljač isporučio Naručiocu ne odgovara ugovorenoj robi, ugovorenom roku upotrebe, kvantitetu i nije dostavljen sertifikat analize, Dobavljač mora Naručiocu isporučiti novu robu koja odgovara ugovorenoj robi, ugovorenom roku upotrebe, kvantitetu uz dostavljen sertifikat analize, u roku od sedam dana od dana sačinjavanja zapisnika o reklamaciji.		
-						
-U slučaju skrivenih nedostataka isporučene robe  koja se nije mogla ustanoviti u momentu preuzimanja, reklamacija robe se vrši preporučenim pismom u roku od 48 sati od saznanja.						
+Ako se zapisnički utvrdi da roba koju je Dobavljač isporučio Naručiocu ne odgovara ugovorenoj robi, ugovorenom roku upotrebe, kvantitetu i nije dostavljen sertifikat analize, Dobavljač mora Naručiocu isporučiti novu robu koja odgovara ugovorenoj robi, ugovorenom roku upotrebe, kvantitetu uz dostavljen sertifikat analize, u roku od sedam dana od dana sačinjavanja zapisnika o reklamaciji.
+
+U slučaju skrivenih nedostataka isporučene robe  koja se nije mogla ustanoviti u momentu preuzimanja, reklamacija robe se vrši preporučenim pismom u roku od 48 sati od saznanja.
 Član 5.
 
 Zapisnik iz člana 3. ovog Ugovora i dostavljene fakture naručioca predstavljaju osnov za plaćanje isporučene robe.
@@ -218,7 +218,7 @@ Naručilac će odustati od nabavke određenog lijeka ukoliko je određeni lijek 
 
 Ugovor se zaključuje na određeno vrijeme.
 Ovaj ugovor stupa na snagu danom potpisivanja od strane ovlašćenih predstavnika ugovornih strana i zaključuje se na period od tri mjeseca (90 dana).
- 
+
 
 V GARANCIJA ZA DOBRO IZVRŠENJE UGOVORA
 
@@ -238,7 +238,7 @@ Dobavljač se obavezuje da Naručiocu nakon potpisivanja ovog ugovora preda gara
 			<staticText>
 				<reportElement x="11" y="40" width="529" height="750" uuid="5fda3d00-1325-440b-aed5-4a0029bb045b"/>
 				<text><![CDATA[Ovaj ugovor stupa na snagu danom potpisivanja od strane ovlašćenih predstavnika ugovornih strana i zaključuje se na period od tri mjeseca (90 dana).
- 
+
 
 V GARANCIJA ZA DOBRO IZVRŠENJE UGOVORA
 
@@ -269,7 +269,7 @@ Ukoliko sporovi između ugovornih strana ne budu riješeni sporazumno, ugovara s
 Član 12.
 
 Na sve što nije regulisano odredbama ovog Ugovora primjenjivaće se odredbe Zakona o obligacionim odnosima, koje se odnose na Ugovor o kupoprodaji.
-				
+
                Član 13.
 
 Ovaj Ugovor je sačinjen u 4 (četiri) istovjetna  primjerka od kojih svaka ugovorna strana zadržava po dva primjerka.
