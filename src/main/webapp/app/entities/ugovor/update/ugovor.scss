@@ -1,4 +1,15 @@
-mat-card{
-  width: 30%;
-  margin-left: 40px;
+mat-card {
+  width: 350px;
+  height: 900px;
+  display: block;
+  margin-left: auto;
+  margin-right: auto;
+}
+
+section {
+  vertical-align: middle;
+  height: 100%;
+}
+input{
+  width: 100px;
 }
