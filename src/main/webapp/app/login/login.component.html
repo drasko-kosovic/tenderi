@@ -1,38 +1,41 @@
 <section fxLayout="column" fxLayoutAlign="center center" fxLayoutGap="10px">
+
   <mat-card
     class="example-container mat-elevation-z24">
-    <!--  style="margin-top: 40px; margin-left: 300px; margin-right: 400px; margin-bottom: 70px"-->
-    <!--&gt;-->
+    <div id="centar">
     <h3 jhiTranslate="login.title" data-cy="loginTitle">Sign in</h3>
     <div class="alert alert-danger" *ngIf="authenticationError" jhiTranslate="login.messages.error.authentication" data-cy="loginError">
       <strong>Failed to sign in!</strong> Please check your credentials and try again.
     </div>
-    <form class="form" role="form" (ngSubmit)="login()" [formGroup]="loginForm">
-      <div class="form-group">
-        <mat-form-field [style.width.px]=250>
-          <mat-label>Korisnik</mat-label>
-          <input  matInput name="username" id="username" placeholder="" formControlName="username"  #username>
-<!--          <mat-icon matSuffix>saccount_box</mat-icon>-->
-        </mat-form-field>
-      </div>
 
-      <div class="form-group">
-        <mat-form-field [style.width.px]=250>
-          <mat-label>Sifra</mat-label>
-          <input matInput name="password" id="password" placeholder="" formControlName="password" #password >
-<!--          <mat-icon matSuffix>lock</mat-icon>-->
-        </mat-form-field>
-      </div>
+      <form class="form" role="form" (ngSubmit)="login()" [formGroup]="loginForm">
+        <div class="form-group">
+          <mat-form-field [style.width.px]=250>
+            <mat-label>Korisnik</mat-label>
+            <input  matInput name="username" id="username" placeholder="" formControlName="username"  #username>
+            <!--          <mat-icon matSuffix>saccount_box</mat-icon>-->
+          </mat-form-field>
+        </div>
 
-      <div class="form-check">
-        <label class="form-check-label" for="rememberMe">
-          <input class="form-check-input" type="checkbox" name="rememberMe" id="rememberMe" formControlName="rememberMe" />
-          <span jhiTranslate="login.form.rememberme">Remember me</span>
-        </label>
-      </div>
+        <div class="form-group">
+          <mat-form-field [style.width.px]=250>
+            <mat-label>Sifra</mat-label>
+            <input matInput name="password" id="password" placeholder="" formControlName="password" #password >
+            <!--          <mat-icon matSuffix>lock</mat-icon>-->
+          </mat-form-field>
+        </div>
 
-      <button type="submit" mat-raised-button color="primary" jhiTranslate="login.form.button" data-cy="submit">Sign in</button>
-    </form>
+        <div class="form-check">
+          <label class="form-check-label" for="rememberMe">
+            <input class="form-check-input" type="checkbox" name="rememberMe" id="rememberMe" formControlName="rememberMe" />
+            <span jhiTranslate="login.form.rememberme">Remember me</span>
+          </label>
+        </div>
+
+        <button type="submit" mat-raised-button color="primary" jhiTranslate="login.form.button" data-cy="submit">Sign in</button>
+      </form>
+    </div>
+
   </mat-card>
 
 

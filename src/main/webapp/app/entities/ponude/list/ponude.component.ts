@@ -26,9 +26,9 @@ export class PonudeComponent implements AfterViewInit, OnChanges, OnInit {
   nadji?: any;
   public displayedColumns = [
     'sifra postupka',
-    'sifra ponude',
-    'broj partije',
-    'naziv ponudjaca',
+    'sifraPonude',
+    'brojPartije',
+    'nazivPonudjaca',
     'naziv proizvodjaca',
     'zasticeni naziv',
     'ponudjena vrijednost',
