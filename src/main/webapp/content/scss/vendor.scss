@@ -26,7 +26,7 @@ $mat-custom-theme: (
   600: #43a047,
   700: #388e3c,
   800: #2e7d32,
-  900: #1b5e20,
+  900: #323744,
   A100: #b9f6ca,
   A200: #69f0ae,
   A400: #00e676,
@@ -49,7 +49,7 @@ $mat-custom-theme: (
   )
 );
 
-$primary:mat-palette($mat-custom-theme);
+$primary:mat-palette($mat-custom-theme,900);
 $accent:mat-palette($mat-pink,A200,A100,A400);
 $theme:mat-light-theme($primary,$accent);
 @include angular-material-theme($theme);
