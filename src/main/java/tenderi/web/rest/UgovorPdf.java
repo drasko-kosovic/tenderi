@@ -18,7 +18,7 @@ import java.util.Map;
 
 @CrossOrigin(origins = ("*"))
 @RestController
-@RequestMapping("/report")
+@RequestMapping("api/report")
 public class UgovorPdf {
 
     @Autowired

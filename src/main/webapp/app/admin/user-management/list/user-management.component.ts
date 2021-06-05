@@ -1,111 +1,86 @@
-import { Component, OnInit } from '@angular/core';
+import {AfterViewInit, Component, OnInit, ViewChild} from '@angular/core';
 import { HttpResponse, HttpHeaders } from '@angular/common/http';
 import { ActivatedRoute, Router } from '@angular/router';
-import { combineLatest } from 'rxjs';
+import {combineLatest, Subscription} from 'rxjs';
 import { NgbModal } from '@ng-bootstrap/ng-bootstrap';
-
-import { ITEMS_PER_PAGE } from 'app/config/pagination.constants';
 import { AccountService } from 'app/core/auth/account.service';
 import { Account } from 'app/core/auth/account.model';
-import { UserManagementService } from '../service/user-management.service';
-import { User } from '../user-management.model';
-import { UserManagementDeleteDialogComponent } from '../delete/user-management-delete-dialog.component';
+import {IUser, User} from '../user-management.model';
+import {IPonudjaci} from "app/entities/ponudjaci/ponudjaci.model";
+import {MatTableDataSource} from "@angular/material/table";
+import {MatSort} from "@angular/material/sort";
+import {MatPaginator} from "@angular/material/paginator";
+import {PonudjaciService} from "app/entities/ponudjaci/service/ponudjaci.service";
+import {IPonude} from "app/entities/ponude/ponude.model";
+import {PonudjaciDeleteDialogComponent} from "app/entities/ponudjaci/delete/ponudjaci-delete-dialog.component";
+import {UserManagementService} from "app/admin/user-management/service/user-management.service";
+import {UserManagementDeleteDialogComponent} from "app/admin/user-management/delete/user-management-delete-dialog.component";
 
 @Component({
   selector: 'jhi-user-mgmt',
   templateUrl: './user-management.component.html',
   styleUrls: ['./managment.scss'],
 })
-export class UserManagementComponent implements OnInit {
+export class UserManagementComponent implements AfterViewInit, OnInit {
   currentAccount: Account | null = null;
   users: User[] | null = null;
-  isLoading = false;
-  totalItems = 0;
-  itemsPerPage = ITEMS_PER_PAGE;
-  page!: number;
-  predicate!: string;
-  ascending!: boolean;
+
+  public displayedColumns = [
+   'login',
+    'email',
+    'activated',
+    'authorities',
+    'createdBy',
+    // 'createdDate',
+    // 'lastModifiedDate',
+    'delete',
+    'edit',
+
+  ];
+
+  public dataSource = new MatTableDataSource<IPonudjaci>();
+
+  @ViewChild(MatSort) sort!: MatSort;
+  @ViewChild(MatPaginator) paginator!: MatPaginator;
 
   constructor(
     private userService: UserManagementService,
-    private accountService: AccountService,
-    private activatedRoute: ActivatedRoute,
-    private router: Router,
-    private modalService: NgbModal
+    protected activatedRoute: ActivatedRoute,
+    protected router: Router,
+    protected modalService: NgbModal,
+    private accountService: AccountService
   ) {}
 
-  ngOnInit(): void {
-    this.accountService.identity().subscribe(account => (this.currentAccount = account));
-    this.handleNavigation();
+  public getAllUsers(): void {
+    this.userService.usersAll().subscribe((res: IUser[]) => {
+      this.dataSource.data = res;
+      // eslint-disable-next-line no-console
+      console.log(res);
+    });
   }
 
-  setActive(user: User, isActivated: boolean): void {
-    this.userService.update({ ...user, activated: isActivated }).subscribe(() => this.loadAll());
-  }
-
-  trackIdentity(index: number, item: User): number {
-    return item.id!;
-  }
-
-  deleteUser(user: User): void {
-    const modalRef = this.modalService.open(UserManagementDeleteDialogComponent, { size: 'lg', backdrop: 'static' });
+  delete(user: IUser[]): void {
+    const modalRef = this.modalService.open(UserManagementDeleteDialogComponent, { backdrop: 'static' });
     modalRef.componentInstance.user = user;
     // unsubscribe not needed because closed completes on modal close
-    modalRef.closed.subscribe(reason => {
+    modalRef.closed.subscribe((reason: string) => {
       if (reason === 'deleted') {
-        this.loadAll();
+        this.getAllUsers();
       }
     });
   }
 
-  loadAll(): void {
-    this.isLoading = true;
-    this.userService
-      .query({
-        page: this.page - 1,
-        size: this.itemsPerPage,
-        sort: this.sort(),
-      })
-      .subscribe(
-        (res: HttpResponse<User[]>) => {
-          this.isLoading = false;
-          this.onSuccess(res.body, res.headers);
-        },
-        () => (this.isLoading = false)
-      );
+  ngAfterViewInit(): void {
+    this.dataSource.sort = this.sort;
+    this.dataSource.paginator = this.paginator;
   }
 
-  transition(): void {
-    this.router.navigate(['./'], {
-      relativeTo: this.activatedRoute.parent,
-      queryParams: {
-        page: this.page,
-        sort: this.predicate + ',' + (this.ascending ? 'asc' : 'desc'),
-      },
-    });
+
+  isAuthenticated(): boolean {
+    return this.accountService.isAuthenticated();
   }
 
-  private handleNavigation(): void {
-    combineLatest([this.activatedRoute.data, this.activatedRoute.queryParamMap]).subscribe(([data, params]) => {
-      const page = params.get('page');
-      this.page = page !== null ? +page : 1;
-      const sort = (params.get('sort') ?? data['defaultSort']).split(',');
-      this.predicate = sort[0];
-      this.ascending = sort[1] === 'asc';
-      this.loadAll();
-    });
-  }
-
-  private sort(): string[] {
-    const result = [this.predicate + ',' + (this.ascending ? 'asc' : 'desc')];
-    if (this.predicate !== 'id') {
-      result.push('id');
-    }
-    return result;
-  }
-
-  private onSuccess(users: User[] | null, headers: HttpHeaders): void {
-    this.totalItems = Number(headers.get('X-Total-Count'));
-    this.users = users;
+  ngOnInit(): void {
+    this.getAllUsers();
   }
 }

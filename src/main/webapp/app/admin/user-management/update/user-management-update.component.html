@@ -6,11 +6,6 @@
           <div *ngIf="user">
             <jhi-alert-error></jhi-alert-error>
 
-            <div class="form-group" [hidden]="!user.id">
-              <label jhiTranslate="global.field.id">ID</label>
-              <input type="text" class="form-control" name="id" formControlName="id" readonly />
-            </div>
-
             <div class="form-group">
               <mat-form-field>
                 <mat-label>Prijava</mat-label>

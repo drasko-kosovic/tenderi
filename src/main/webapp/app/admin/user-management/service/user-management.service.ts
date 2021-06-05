@@ -6,6 +6,7 @@ import { ApplicationConfigService } from 'app/core/config/application-config.ser
 import { createRequestOption } from 'app/core/request/request-util';
 import { Pagination } from 'app/core/request/request.model';
 import { IUser } from '../user-management.model';
+import {IPonudjaci} from "app/entities/ponudjaci/ponudjaci.model";
 
 @Injectable({ providedIn: 'root' })
 export class UserManagementService {
@@ -13,6 +14,9 @@ export class UserManagementService {
 
   constructor(private http: HttpClient, private applicationConfigService: ApplicationConfigService) {}
 
+  usersAll(): any {
+    return this.http.get<IUser[]>(this.resourceUrl);
+  }
   create(user: IUser): Observable<IUser> {
     return this.http.post<IUser>(this.resourceUrl, user);
   }
