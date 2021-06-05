@@ -1,41 +1,40 @@
-.srednja-edit {
-  width: 38px;
-  height: 38px;
-  background-color: limegreen;
+tr {
+  cursor: pointer;
 }
-.srednja-delete {
-  width: 38px;
-  height: 38px;
-  background-color: red;
+table {
+  width: 100%;
 }
-.srednja-view {
-  width: 38px;
-  height: 38px;
-  background-color: blue;
+tr.mat-row:hover {
+  background-color: lightgrey;
 }
-.activan {
-  width: 38px;
-  height: 38px;
-  background-color: limegreen;
-  font-size: 0.7em;
-  color: white;
+tr {
+  cursor: pointer;
+}
+tr.mat-footer-row {
+  font-weight: bold;
 }
 
+tr mat-row {
+  font-weight: bold;
+}
 #delete {
   color: red;
 }
 #edit {
   color: green;
 }
-.deactived {
-  width: 38px;
-  height: 38px;
-  background-color: red;
-  font-size: 0.7em;
-  color: white;
+
+.container-search {
+  display: flex;
+
+  justify-content: flex-end;
+}
+.search-item {
+  margin-top: 10px;
+
+  width: 260px;
 }
 mat-card{
-
   margin-left: 20px;
   margin-right: 20px;
 }
