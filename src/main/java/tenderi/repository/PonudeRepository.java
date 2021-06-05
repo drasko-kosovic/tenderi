@@ -2,6 +2,7 @@ package tenderi.repository;
 
 import java.util.List;
 import org.springframework.data.jpa.repository.*;
+import org.springframework.data.repository.query.Param;
 import org.springframework.stereotype.Repository;
 import tenderi.domain.Ponude;
 
@@ -17,4 +18,9 @@ public interface PonudeRepository extends JpaRepository<Ponude, Long> {
 
     @Query(value = "select * from Ponude  where ponude.sifra_ponude = 10000 ",nativeQuery = true)
     List<Ponude> allPonude();
+
+    @Modifying
+    @Query("delete from Ponude p where p.sifraPonude=:sifraPonude")
+    void deletePonudeSifraPonude(@Param("sifraPonude") Integer sifraPonude);
+
 }
