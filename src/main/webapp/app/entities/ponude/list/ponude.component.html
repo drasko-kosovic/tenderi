@@ -23,6 +23,9 @@
 <button *jhiHasAnyAuthority="'ROLE_ADMIN'" mat-raised-button
         color="warn" (click)="uploadFile()">Unesi Excel</button>
 
+<button *jhiHasAnyAuthority="'ROLE_ADMIN'" mat-raised-button
+        color="warn" (click)="deleteSifra()">Delete Ponuda</button>
+
 <button  *jhiHasAnyAuthority="'ROLE_ADMIN'" mat-raised-button color="accent" (click)="DownloadExcel()">Obrazac</button>
 
 

@@ -21,4 +21,9 @@ export class PonudeDeleteDialogComponent {
       this.activeModal.close('deleted');
     });
   }
+  confirmDeletePonda(sifraPonude: number): void {
+    this.ponudeService.deleteSifraPonude(sifraPonude).subscribe(() => {
+      this.activeModal.close('deleted');
+    });
+  }
 }

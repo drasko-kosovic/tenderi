@@ -15,7 +15,7 @@ export class PonudeService {
   public resourceUrl = this.applicationConfigService.getEndpointFor('api/ponudes');
   public resourceUrlSifraPonude = this.applicationConfigService.getEndpointFor('api/ponude');
   public resourceUrlExcelUpload=this.applicationConfigService.getEndpointFor('api/uploadfiles');
-
+  public resourceUrlSifraPonudeDelete = this.applicationConfigService.getEndpointFor('api/ponude');
 
 
   constructor(protected http: HttpClient, private applicationConfigService: ApplicationConfigService) {}
@@ -50,6 +50,10 @@ export class PonudeService {
 
   delete(id: number): Observable<HttpResponse<{}>> {
     return this.http.delete(`${this.resourceUrl}/${id}`, { observe: 'response' });
+  }
+
+  deleteSifraPonude(sifraPonude: number):any {
+    return this.http.delete(`${this.resourceUrlSifraPonudeDelete}/${sifraPonude}`);
   }
 
   addPonudeToCollectionIfMissing(ponudeCollection: IPonude[], ...ponudesToCheck: (IPonude | null | undefined)[]): IPonude[] {

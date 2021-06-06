@@ -8,10 +8,10 @@ import { MatSort } from '@angular/material/sort';
 import { MatPaginator } from '@angular/material/paginator';
 import { ActivatedRoute, Router } from '@angular/router';
 import { NgbModal } from '@ng-bootstrap/ng-bootstrap';
-import { PonudeDeleteDialogComponent } from 'app/entities/ponude/delete/ponude-delete-dialog.component';
 import { Account } from 'app/core/auth/account.model';
 import { Subscription } from 'rxjs';
 import { AccountService } from 'app/core/auth/account.service';
+import {PonudeDeleteDialogComponent} from "app/entities/ponude/delete/ponude-delete-dialog.component";
 
 @Component({
   selector: 'jhi-ponude',
@@ -60,16 +60,20 @@ export class PonudeComponent implements AfterViewInit, OnChanges, OnInit {
     });
   }
 
-  delete(ponude: IPonude[]): void {
-    const modalRef = this.modalService.open(PonudeDeleteDialogComponent, {backdrop: 'static'});
-    modalRef.componentInstance.ponude = ponude;
-    // unsubscribe not needed because closed completes on modal close
-    modalRef.closed.subscribe((reason: string) => {
-      if (reason === 'deleted') {
-        this.getSifraPostupka();
-      }
-    });
+  deleteSifra(): void {
+  this.ponudeService.deleteSifraPonude(1725)
   }
+
+  // deletePonuda(ponude: IPonude[]): void {
+  //   const modalRef = this.modalService.open(PonudeDeleteSifraPonudeDialogComponent, {backdrop: 'static'});
+  //   modalRef.componentInstance.ponude = ponude;
+  //   // unsubscribe not needed because closed completes on modal close
+  //   modalRef.closed.subscribe((reason: string) => {
+  //     if (reason === 'deleted') {
+  //       this.getSifraPostupka();
+  //     }
+  //   });
+  // }
 
   public getAllPonude(): void {
     this.ponudeService.ponudeAll().subscribe((res: IPonude[]) => {
@@ -113,6 +117,16 @@ export class PonudeComponent implements AfterViewInit, OnChanges, OnInit {
   }
   DownloadExcel():void{
     window.location.href='http://localhost:8080/api/file';
+  }
+  delete(ponude: IPonude[]): void {
+    const modalRef = this.modalService.open(PonudeDeleteDialogComponent, {backdrop: 'static'});
+    modalRef.componentInstance.ponude = ponude;
+    // unsubscribe not needed because closed completes on modal close
+    modalRef.closed.subscribe((reason: string) => {
+      if (reason === 'deleted') {
+        this.getSifraPostupka();
+      }
+    });
   }
 
 
