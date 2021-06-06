@@ -161,6 +161,13 @@ public class PonudjaciResource {
         return ponudjaciRepository.findAll();
     }
 
+    @GetMapping("/ponudjaci")
+    public List<Ponudjaci> allPonudjaciDistinct() {
+
+        return ponudjaciRepository.allPonudjaciDistinct();
+    }
+
+
     /**
      * {@code GET  /ponudjacis/:id} : get the "id" ponudjaci.
      *
@@ -173,6 +180,7 @@ public class PonudjaciResource {
         Optional<Ponudjaci> ponudjaci = ponudjaciRepository.findById(id);
         return ResponseUtil.wrapOrNotFound(ponudjaci);
     }
+
 
     /**
      * {@code DELETE  /ponudjacis/:id} : delete the "id" ponudjaci.

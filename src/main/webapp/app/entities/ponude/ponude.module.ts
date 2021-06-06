@@ -10,10 +10,11 @@ import { MatPaginatorModule } from '@angular/material/paginator';
 import { MatTableModule } from '@angular/material/table';
 import { MatSortModule } from '@angular/material/sort';
 import { MatTableExporterModule } from 'mat-table-exporter';
+import {NgPipesModule} from "ngx-pipes";
 
 
 @NgModule({
-  imports: [SharedModule, PonudeRoutingModule, MatPaginatorModule, MatTableModule, MatSortModule, MatTableExporterModule],
+    imports: [SharedModule, PonudeRoutingModule, MatPaginatorModule, MatTableModule, MatSortModule, MatTableExporterModule, NgPipesModule],
   declarations: [PonudeComponent, PonudeDetailComponent, PonudeUpdateComponent, PonudeDeleteDialogComponent],
   entryComponents: [PonudeDeleteDialogComponent],
   exports: [PonudeComponent],

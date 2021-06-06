@@ -31,8 +31,8 @@
   <mat-label>Select an option</mat-label>
   <mat-select [(ngModel)]="nadjiPonudjaca">
     <mat-option>None</mat-option>
-    <mat-option *ngFor="let foo of ponudes" [value]="foo.sifraPonude">
-    {{foo.nazivPonudjaca}}
+    <mat-option *ngFor="let foo of ponudes | unique" [value]="foo.sifraPonude">
+    {{foo.nazivPonudjaca | unique}}
     </mat-option>
 
   </mat-select>
