@@ -26,7 +26,7 @@ export class UgovorService {
       responseType: 'arraybuffer' as 'json'
       // 'responseType'  : 'blob' as 'json'        //This also worked
     };
-    return this.http.get<[IUgovor]>(this.resourceUrlPdfLocal + brojUgovora, httpOptions);
+    return this.http.get<[IUgovor]>(this.resourceUrlPdf + brojUgovora, httpOptions);
 
   }
   create(ugovor: IUgovor): Observable<EntityResponseType> {
