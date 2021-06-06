@@ -42,10 +42,10 @@
     "jwtSecretKey": "MDI5YmMyOTgyMzQ1MjQ4ZTUxM2M2Y2NhNmQ4MjhhZjQ0MzU0YWM4MjMxMmNmYjI3ZGNjMWNmZTIxNmQ5NDZlNDJlZDFiZDEwMjI0NmJlNTMyN2EzZWNlMDZmZDc5NGZkNDA5NGM1ZjViNTBkMzc3OGY0NmM0YjBhMjExZDZiZjM=",
     "clientPackageManager": "npm",
     "languages": ["sr", "en"],
-    "herokuAppName": "esjn-montefarm",
-    "herokuDeployType": "git",
-    "herokuJavaVersion": "11",
     "lastLiquibaseTimestamp": 1622265256000,
-    "entities": ["Ugovor"]
+    "entities": ["Ugovor"],
+    "herokuAppName": "montefarm",
+    "herokuDeployType": "git",
+    "herokuJavaVersion": "11"
   }
 }
