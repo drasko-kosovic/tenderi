@@ -1,12 +1,6 @@
-<!--<head>-->
-<!--  <link href="https://fonts.googleapis.com/css?family=Roboto:300,400,500" rel="stylesheet" />-->
-<!--  <link href="https://fonts.googleapis.com/css?family=Roboto:300,400,500&display=swap" rel="stylesheet" />-->
-<!--  <link href="https://fonts.googleapis.com/icon?family=Material+Icons" rel="stylesheet" />-->
-<!--</head>-->
-
 <h2>Postupak br: {{ sifra }}</h2>
-<mat-tab-group mat-align-tabs="start" backgroundColor="primary" color="warn">
-  <mat-tab label="Specifikacija">
+<mat-tab-group  mat-align-tabs="start" >
+  <mat-tab id="back" label="Specifikacija">
     <jhi-specifikacije [postupak]="sifra" ></jhi-specifikacije>
   </mat-tab>
   <mat-tab label="Ponude">

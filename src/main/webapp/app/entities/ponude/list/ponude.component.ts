@@ -12,6 +12,7 @@ import { Account } from 'app/core/auth/account.model';
 import { Subscription } from 'rxjs';
 import { AccountService } from 'app/core/auth/account.service';
 import {PonudeDeleteDialogComponent} from "app/entities/ponude/delete/ponude-delete-dialog.component";
+import {FormControl} from "@angular/forms";
 
 @Component({
   selector: 'jhi-ponude',
@@ -23,7 +24,8 @@ export class PonudeComponent implements AfterViewInit, OnChanges, OnInit {
   account: Account | null = null;
   authSubscription?: Subscription;
   ukupnaPonudjena?: number;
-  nadji?: any;
+  nadjiPonudjaca?: any;
+  selected = 'option2';
   public displayedColumns = [
     'sifra postupka',
     'sifraPonude',
@@ -59,21 +61,15 @@ export class PonudeComponent implements AfterViewInit, OnChanges, OnInit {
       this.dataSource.data = res;
     });
   }
-
-  deleteSifra(): void {
-  this.ponudeService.deleteSifraPonude(100).subscribe();
+  public getSifraPostupkaPonudes(): void {
+    this.ponudeService.findSiftraPostupak(this.postupak).subscribe((res: IPonude[]) => {
+      this.ponudes = res;
+    });
   }
 
-  // deletePonuda(ponude: IPonude[]): void {
-  //   const modalRef = this.modalService.open(PonudeDeleteSifraPonudeDialogComponent, {backdrop: 'static'});
-  //   modalRef.componentInstance.ponude = ponude;
-  //   // unsubscribe not needed because closed completes on modal close
-  //   modalRef.closed.subscribe((reason: string) => {
-  //     if (reason === 'deleted') {
-  //       this.getSifraPostupka();
-  //     }
-  //   });
-  // }
+  deleteSifra(): void {
+  this.ponudeService.deleteSifraPonude(this.nadjiPonudjaca).subscribe();
+  }
 
   public getAllPonude(): void {
     this.ponudeService.ponudeAll().subscribe((res: IPonude[]) => {
@@ -103,6 +99,7 @@ export class PonudeComponent implements AfterViewInit, OnChanges, OnInit {
 
   ngOnInit(): void {
     this.authSubscription = this.accountService.getAuthenticationState().subscribe(account => (this.account = account));
+    this.getSifraPostupkaPonudes();
   }
 
   uploadFile(): any {

@@ -22,11 +22,23 @@
 
 <button *jhiHasAnyAuthority="'ROLE_ADMIN'" mat-raised-button
         color="warn" (click)="uploadFile()">Unesi Excel</button>
+<button  *jhiHasAnyAuthority="'ROLE_ADMIN'" mat-raised-button color="accent" (click)="DownloadExcel()">Obrazac</button>
 
 <button *jhiHasAnyAuthority="'ROLE_ADMIN'" mat-raised-button
         color="warn" (click)="deleteSifra()">Delete Ponuda</button>
 
-<button  *jhiHasAnyAuthority="'ROLE_ADMIN'" mat-raised-button color="accent" (click)="DownloadExcel()">Obrazac</button>
+<mat-form-field appearance="fill">
+  <mat-label>Select an option</mat-label>
+  <mat-select [(ngModel)]="nadjiPonudjaca">
+    <mat-option>None</mat-option>
+    <mat-option *ngFor="let foo of ponudes" [value]="foo.sifraPonude">
+    {{foo.nazivPonudjaca}}
+    </mat-option>
+
+  </mat-select>
+</mat-form-field>
+
+<p>You selected: {{nadjiPonudjaca}}</p>
 
 
 
