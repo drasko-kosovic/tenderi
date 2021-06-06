@@ -24,4 +24,5 @@
     <include file="config/liquibase/changelog/create-view-maximalni_bod.xml" relativeToChangelogFile="false"/>
     <include file="config/liquibase/changelog/create-view-prvorangirani.xml" relativeToChangelogFile="false"/>
     <include file="config/liquibase/changelog/create-view-view_ugovori.xml" relativeToChangelogFile="false"/>
+    <include file="config/liquibase/changelog/create-view-view_ponudjaci_ponude.xml" relativeToChangelogFile="false"/>
 </databaseChangeLog>
