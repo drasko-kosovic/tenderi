@@ -17,8 +17,8 @@ export type EntityArrayResponseType = HttpResponse<IUgovor[]>;
 export class UgovorService {
   public resourceUrl = this.applicationConfigService.getEndpointFor('api/ugovors');
   public resourceUrlPostupci = this.applicationConfigService.getEndpointFor('api/ugovor');
-  public resourceUrlPdf = 'https://esjn-montefarm.herokuapp.com/report/ugovor/';
-  public resourceUrlPdfLocal = 'http://localhost:8080/report/ugovor/';
+  public resourceUrlPdf = 'https://esjn-montefarm.herokuapp.com/api/report/ugovor/';
+  public resourceUrlPdfLocal = 'http://localhost:8080/api/report/ugovor/';
   constructor(protected http: HttpClient, private applicationConfigService: ApplicationConfigService) {}
 
   printReportServiceUgovor(brojUgovora: string ): any {
