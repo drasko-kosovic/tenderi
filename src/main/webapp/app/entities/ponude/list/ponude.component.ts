@@ -61,7 +61,7 @@ export class PonudeComponent implements AfterViewInit, OnChanges, OnInit {
   }
 
   deleteSifra(): void {
-  this.ponudeService.deleteSifraPonude(1725)
+  this.ponudeService.deleteSifraPonude(100).subscribe();
   }
 
   // deletePonuda(ponude: IPonude[]): void {
