@@ -25,7 +25,7 @@ public class PonudjaciPonude implements Serializable {
 
     @NotNull
     @Column(name = "sifra_ponude", nullable = false)
-    private Integer sifraPPonude;
+    private Integer sifraPonude;
 
     public Long getId() {
         return id;
@@ -39,7 +39,7 @@ public class PonudjaciPonude implements Serializable {
         return sifraPostupka;
     }
 
-    public Integer getSifraPPonude() {
-        return sifraPPonude;
+    public Integer getSifraPonude() {
+        return sifraPonude;
     }
 }

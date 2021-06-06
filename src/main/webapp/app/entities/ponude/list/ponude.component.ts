@@ -13,6 +13,7 @@ import { Subscription } from 'rxjs';
 import { AccountService } from 'app/core/auth/account.service';
 import {PonudeDeleteDialogComponent} from "app/entities/ponude/delete/ponude-delete-dialog.component";
 import {FormControl} from "@angular/forms";
+import {IPonudePonudjaci} from "app/entities/ponude/ponude_ponudjaci.model";
 
 @Component({
   selector: 'jhi-ponude',
@@ -20,7 +21,8 @@ import {FormControl} from "@angular/forms";
   styleUrls: ['./ponude.component.scss'],
 })
 export class PonudeComponent implements AfterViewInit, OnChanges, OnInit {
-  ponudes?: IPonude[];
+  ponude_ponudjaci?:IPonudePonudjaci[];
+  ponude?: IPonude[];
   account: Account | null = null;
   authSubscription?: Subscription;
   ukupnaPonudjena?: number;
@@ -61,9 +63,9 @@ export class PonudeComponent implements AfterViewInit, OnChanges, OnInit {
       this.dataSource.data = res;
     });
   }
-  public getSifraPostupkaPonudes(): void {
-    this.ponudeService.findSiftraPostupak(this.postupak).subscribe((res: IPonude[]) => {
-      this.ponudes = res;
+  public getSifraPostupkaPonudePonudjaci(): void {
+    this.ponudeService.findSiftraPostupakPonudePonudjaci(this.postupak).subscribe((res: IPonudePonudjaci[]) => {
+      this.ponude_ponudjaci = res;
     });
   }
 
@@ -91,16 +93,22 @@ export class PonudeComponent implements AfterViewInit, OnChanges, OnInit {
 
   ngOnChanges(): void {
     this.getSifraPostupka();
+    this.getSifraPostupkaPonudePonudjaci()
   }
 
   isAuthenticated(): boolean {
     return this.accountService.isAuthenticated();
   }
-
+  public getSifraPostupkaPonudes(): void {
+    this.ponudeService.findSiftraPostupak(this.postupak).subscribe((res: IPonude[]) => {
+      this.ponude = res;
+    });
+  }
   ngOnInit(): void {
     this.authSubscription = this.accountService.getAuthenticationState().subscribe(account => (this.account = account));
-    this.getSifraPostupkaPonudes();
-  }
+    this.getSifraPostupkaPonudePonudjaci();
+    // this.getSifraPostupkaPonudes();
+    }
 
   uploadFile(): any {
     const formData = new FormData();

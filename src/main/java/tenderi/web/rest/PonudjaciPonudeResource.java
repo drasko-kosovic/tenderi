@@ -39,5 +39,11 @@ public class PonudjaciPonudeResource {
         return ponudjaciPonudeRepository.findAll();
     }
 
+    @GetMapping("/ponudjaci_ponude/{sifraPostupka}")
+    public List<PonudjaciPonude> allPonudjaciPonudeSifraPostupka(@PathVariable Integer sifraPostupka) {
+
+        return ponudjaciPonudeRepository.findBySifraPostupka(sifraPostupka);
+    }
+
 
 }

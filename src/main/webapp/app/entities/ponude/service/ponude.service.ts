@@ -17,11 +17,16 @@ export class PonudeService {
   public resourceUrlExcelUpload=this.applicationConfigService.getEndpointFor('api/uploadfiles');
   public resourceUrlSifraPonudeDelete = this.applicationConfigService.getEndpointFor('api/ponude');
 
+  public resourceUrlPonudePonudjaci = this.applicationConfigService.getEndpointFor('api/ponudjaci_ponude');
 
   constructor(protected http: HttpClient, private applicationConfigService: ApplicationConfigService) {}
 
   findSiftraPostupak(sifra_postupka: number): any {
     return this.http.get<IPonude[]>(`${this.resourceUrlSifraPonude}/${sifra_postupka}`);
+  }
+
+  findSiftraPostupakPonudePonudjaci(sifra_postupka: number): any {
+    return this.http.get<IPonude[]>(`${this.resourceUrlPonudePonudjaci}/${sifra_postupka}`);
   }
   ponudeAll(): any {
     return this.http.get<IPonude[]>(this.resourceUrl);
