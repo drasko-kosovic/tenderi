@@ -9,6 +9,7 @@ import { DATE_FORMAT } from 'app/config/input.constants';
 import { ApplicationConfigService } from 'app/core/config/application-config.service';
 import { createRequestOption } from 'app/core/request/request-util';
 import { IUgovor, getUgovorIdentifier } from '../ugovor.model';
+import {SERVER_API_URL} from "app/app.constants";
 
 export type EntityResponseType = HttpResponse<IUgovor>;
 export type EntityArrayResponseType = HttpResponse<IUgovor[]>;
@@ -19,6 +20,8 @@ export class UgovorService {
   public resourceUrlPostupci = this.applicationConfigService.getEndpointFor('api/ugovor');
   public resourceUrlPdf = 'https://esjn-montefarm.herokuapp.com/api/report/ugovor/';
   public resourceUrlPdfLocal = 'http://localhost:8080/api/report/ugovor/';
+  public resourceUrlPdfLocal2 = SERVER_API_URL + 'api/report/ugovor/';
+  public resourceUrlPdfLocal1 = this.applicationConfigService.getEndpointFor('api/report/ugovor');
   constructor(protected http: HttpClient, private applicationConfigService: ApplicationConfigService) {}
 
   printReportServiceUgovor(brojUgovora: string ): any {
@@ -26,7 +29,7 @@ export class UgovorService {
       responseType: 'arraybuffer' as 'json'
       // 'responseType'  : 'blob' as 'json'        //This also worked
     };
-    return this.http.get<[IUgovor]>(this.resourceUrlPdf + brojUgovora, httpOptions);
+    return this.http.get<[IUgovor]>(this.resourceUrlPdfLocal2 + brojUgovora, httpOptions);
 
   }
   create(ugovor: IUgovor): Observable<EntityResponseType> {
