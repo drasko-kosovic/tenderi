@@ -76,14 +76,19 @@
   flex-direction: row;
   flex-wrap: wrap;
   justify-content: flex-end;
+  padding-right: 5px;
+
+
 
 }
 .container-item{
   color: white;
-
-  width: 70px;
-  margin: 10px;
-text-align: center;
+  width: 50px;
+  height: 80%;
+  margin: 5px;
+  text-align: center;
+  //border-style: dashed;
+  text-align: center;
 
 }
 #zuto-hover:hover{
@@ -92,8 +97,6 @@ text-align: center;
 #hover-zuto:hover{
   color: yellow;
 }
-.mat-list-base .mat-list-item, .mat-list-base .mat-list-option {
-  color: rgba(0,0,0,.87);
-}
+
 
 
