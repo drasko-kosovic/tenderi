@@ -5,7 +5,8 @@
         <span id="firma">Montefarm ESJN</span>
       </a>
 <mat-divider></mat-divider>
-      <a [hidden]="!isAuthenticated()" mat-list-item routerLink="postupci-list">
+      <a [hidden]="!isAuthenticated()"
+         mat-list-item routerLink="postupci-list">
         <mat-icon>question_answer</mat-icon>
         <span>Postupci</span>
       </a>
@@ -23,9 +24,16 @@
     <button mat-icon-button (click)="snav.toggle()">
       <mat-icon>menu</mat-icon>
     </button>
-    <button mat-button [matMenuTriggerFor]="menu">
-      <mat-icon>power_settings_new</mat-icon>
-    </button>
+    <div class="container">
+       <div [hidden]="!isAuthenticated()" class="container-item">
+          <p>{{ account?.login }}</p>
+       </div>
+       <div class="container-item">
+          <button mat-button [matMenuTriggerFor]="menu">
+            <mat-icon>power_settings_new</mat-icon>
+          </button>
+        </div>
+      </div>
 
     <div class="pull-right">
       <mat-menu  #menu="matMenu">
@@ -49,11 +57,7 @@
       </mat-menu>
     </div>
 
-    <div class="right">
-      <div  [hidden]="!isAuthenticated()" class="container-item">
-        <p>{{ account?.login }}</p>
-      </div>
-    </div>
+
   </mat-toolbar>
 
   <div class="main">
