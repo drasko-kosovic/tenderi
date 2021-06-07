@@ -1,7 +1,6 @@
 import { AfterViewInit, Component, Input, OnChanges, OnInit, ViewChild } from '@angular/core';
 
 import { IPonude } from '../ponude.model';
-
 import { PonudeService } from '../service/ponude.service';
 import { MatTableDataSource } from '@angular/material/table';
 import { MatSort } from '@angular/material/sort';
@@ -12,7 +11,6 @@ import { Account } from 'app/core/auth/account.model';
 import { Subscription } from 'rxjs';
 import { AccountService } from 'app/core/auth/account.service';
 import {PonudeDeleteDialogComponent} from "app/entities/ponude/delete/ponude-delete-dialog.component";
-import {FormControl} from "@angular/forms";
 import {IPonudePonudjaci} from "app/entities/ponude/ponude_ponudjaci.model";
 
 @Component({

@@ -1,5 +1,5 @@
 import { Injectable } from '@angular/core';
-import { HttpClient, HttpResponse } from '@angular/common/http';
+import {HttpClient, HttpHeaders, HttpResponse} from '@angular/common/http';
 import { Observable } from 'rxjs';
 
 import { isPresent } from 'app/core/util/operators';
@@ -7,6 +7,7 @@ import { ApplicationConfigService } from 'app/core/config/application-config.ser
 import { createRequestOption } from 'app/core/request/request-util';
 import { ISpecifikacije, getSpecifikacijeIdentifier } from '../specifikacije.model';
 import {IPonude} from "app/entities/ponude/ponude.model";
+import {SERVER_API_URL} from "app/app.constants";
 
 export type EntityResponseType = HttpResponse<ISpecifikacije>;
 export type EntityArrayResponseType = HttpResponse<ISpecifikacije[]>;
@@ -15,6 +16,7 @@ export type EntityArrayResponseType = HttpResponse<ISpecifikacije[]>;
 export class SpecifikacijeService {
   public resourceUrl = this.applicationConfigService.getEndpointFor('api/specifikacijes');
   public resourceUrlSifraPostupka = this.applicationConfigService.getEndpointFor('api/specifikacija');
+  public resourceUrlExcelUpload= SERVER_API_URL + 'api/uploadfiles/specifikacije';
   constructor(protected http: HttpClient, private applicationConfigService: ApplicationConfigService) {}
 
   findSiftraPostupak(sifra_postupka: number): any {
@@ -69,5 +71,16 @@ export class SpecifikacijeService {
       return [...specifikacijesToAdd, ...specifikacijeCollection];
     }
     return specifikacijeCollection;
+  }
+
+  UploadExcel(formData: FormData):any {
+    const headers = new HttpHeaders();
+
+    headers.append('Content-Type', 'multipart/form-data');
+    headers.append('Accept', 'application/json');
+
+    const httpOptions = { headers: headers };
+
+    return this.http.post(this.resourceUrlExcelUpload , formData, httpOptions)
   }
 }

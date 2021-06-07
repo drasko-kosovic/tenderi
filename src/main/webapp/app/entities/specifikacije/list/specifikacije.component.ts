@@ -35,20 +35,24 @@ export class SpecifikacijeComponent implements AfterViewInit, OnChanges, OnInit 
     'procijenjena vrijednost',
     'delete',
     'edit',
-     ];
+  ];
 
   public dataSource = new MatTableDataSource<IPonude>();
 
   @ViewChild(MatSort) sort!: MatSort;
   @ViewChild(MatPaginator) paginator!: MatPaginator;
   @Input() postupak?: any;
+  @ViewChild('fileInput') fileInput: any;
+  message: string | undefined;
+
   constructor(
     protected specifikacijaService: SpecifikacijeService,
     protected activatedRoute: ActivatedRoute,
     protected router: Router,
     protected modalService: NgbModal,
     private accountService: AccountService
-  ) {}
+  ) {
+  }
 
   public getSifraPostupka(): void {
     this.specifikacijaService.findSiftraPostupak(this.postupak).subscribe((res: ISpecifikacije[]) => {
@@ -57,7 +61,7 @@ export class SpecifikacijeComponent implements AfterViewInit, OnChanges, OnInit 
   }
 
   delete(specifikacije: ISpecifikacije[]): void {
-    const modalRef = this.modalService.open(SpecifikacijeDeleteDialogComponent, { backdrop: 'static' });
+    const modalRef = this.modalService.open(SpecifikacijeDeleteDialogComponent, {backdrop: 'static'});
     modalRef.componentInstance.specifikacije = specifikacije;
     // unsubscribe not needed because closed completes on modal close
     modalRef.closed.subscribe((reason: string) => {
@@ -79,6 +83,7 @@ export class SpecifikacijeComponent implements AfterViewInit, OnChanges, OnInit 
     this.dataSource.sort = this.sort;
     this.dataSource.paginator = this.paginator;
   }
+
   doFilter = (iznos: string): any => {
     this.dataSource.filter = iznos.trim().toLocaleLowerCase();
 
@@ -87,11 +92,25 @@ export class SpecifikacijeComponent implements AfterViewInit, OnChanges, OnInit 
   ngOnChanges(): void {
     this.getSifraPostupka();
   }
+
   isAuthenticated(): boolean {
     return this.accountService.isAuthenticated();
   }
 
   ngOnInit(): void {
     this.authSubscription = this.accountService.getAuthenticationState().subscribe(account => (this.account = account));
+  }
+
+  uploadFile(): any {
+    const formData = new FormData();
+    formData.append('uploadfiles', this.fileInput.nativeElement.files[0])
+
+    this.specifikacijaService.UploadExcel(formData).subscribe((result: { toString: () => string | undefined; }) => {
+      this.message = result.toString();
+
+    });
+  }
+  DownloadExcel():void{
+    window.location.href='http://localhost:8080/api/file';
   }
 }

@@ -1,28 +1,31 @@
 package tenderi.service;
 
 
-import java.io.ByteArrayInputStream;
-import java.io.IOException;
-import java.util.List;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Service;
 import org.springframework.web.multipart.MultipartFile;
 import tenderi.domain.Ponude;
-import tenderi.repository.PonudeRepository;
+import tenderi.domain.Specifikacije;
+import tenderi.repository.SpecifikacijeRepository;
 import tenderi.utils.ExcelUtils;
+import tenderi.utils.ExcelUtilsSpecifikacije;
+
+import java.io.ByteArrayInputStream;
+import java.io.IOException;
+import java.util.List;
 
 @Service
-public class ExcelFileServices {
+public class ExcelFileServicesSpecifikacije {
 
     @Autowired
-    PonudeRepository ponudeRepository;
+    SpecifikacijeRepository specifikacijeRepository;
 
     // Store File Data to Database
     public void store(MultipartFile file) {
         try {
-            List<Ponude> lstPonude = ExcelUtils.parseExcelFile(file.getInputStream());
+            List<Specifikacije> lstSpecifikacije = ExcelUtilsSpecifikacije.parseExcelFile(file.getInputStream());
             // Save Customers to DataBase
-            ponudeRepository.saveAll(lstPonude);
+            specifikacijeRepository.saveAll(lstSpecifikacije);
         } catch (IOException e) {
             throw new RuntimeException("FAIL! -> message = " + e.getMessage());
         }
@@ -30,10 +33,10 @@ public class ExcelFileServices {
 
 //     Load Data to Excel File
     public ByteArrayInputStream loadFile() {
-        List<Ponude> ponude = (List<Ponude>) ponudeRepository.allPonude();
+        List<Specifikacije> specifikacije = (List<Specifikacije>) specifikacijeRepository.findAll();
 
         try {
-            ByteArrayInputStream in = ExcelUtils.customersToExcel(ponude);
+            ByteArrayInputStream in = ExcelUtilsSpecifikacije.customersToExcel(specifikacije);
             return in;
         } catch (IOException e) {}
 

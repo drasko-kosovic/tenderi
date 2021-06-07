@@ -16,6 +16,14 @@
   <fa-icon icon="plus"></fa-icon>
   <span>Nova Specifikacija</span>
 </button>
+<button *jhiHasAnyAuthority="'ROLE_ADMIN'" id="zeleno" type="button" mat-raised-button (click)="fileInput.click()">Izaberi Dokument</button>
+<!--  <input class="form-control" type="file" #fileInput />-->
+<input hidden  #fileInput type="file" id="file">
+
+<button *jhiHasAnyAuthority="'ROLE_ADMIN'" mat-raised-button
+        color="warn" (click)="uploadFile()">Unesi Excel</button>
+<button  *jhiHasAnyAuthority="'ROLE_ADMIN'" mat-raised-button color="accent" (click)="DownloadExcel()">Obrazac</button>
+
 <mat-card class="example-container mat-elevation-z24">
 
   <table

@@ -15,7 +15,6 @@ export type EntityArrayResponseType = HttpResponse<IPonude[]>;
 export class PonudeService {
   public resourceUrl = this.applicationConfigService.getEndpointFor('api/ponudes');
   public resourceUrlSifraPonude = this.applicationConfigService.getEndpointFor('api/ponude');
-  // public resourceUrlExcelUpload=this.applicationConfigService.getEndpointFor('api/uploadfiles');
   public resourceUrlExcelUpload= SERVER_API_URL + 'api/uploadfiles';
   public resourceUrlSifraPonudeDelete = this.applicationConfigService.getEndpointFor('api/ponude');
 
