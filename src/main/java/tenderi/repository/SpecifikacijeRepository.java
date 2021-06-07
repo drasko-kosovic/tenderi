@@ -14,4 +14,7 @@ import java.util.List;
 @Repository
 public interface SpecifikacijeRepository extends JpaRepository<Specifikacije, Long> {
     List<Specifikacije> findBySifraPostupka(Integer sifra_postupka);
+
+    @Query(value = "select * from specifikacije  where specifikacije.sifra_postupka = 100000 ",nativeQuery = true)
+    List<Specifikacije> allSpecifikacije();
 }

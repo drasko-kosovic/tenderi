@@ -33,7 +33,7 @@ public class ExcelFileServicesSpecifikacije {
 
 //     Load Data to Excel File
     public ByteArrayInputStream loadFile() {
-        List<Specifikacije> specifikacije = (List<Specifikacije>) specifikacijeRepository.findAll();
+        List<Specifikacije> specifikacije = (List<Specifikacije>) specifikacijeRepository.allSpecifikacije();
 
         try {
             ByteArrayInputStream in = ExcelUtilsSpecifikacije.customersToExcel(specifikacije);

@@ -23,7 +23,7 @@ public class ExcelUtilsSpecifikacije {
             "Id",
             "Sifra Postupka",
             "Broj Partije",
-           "atc",
+            "atc",
             "inn",
             "Farmaceutski Oblik",
             "Jacina Lijeka",
@@ -136,14 +136,17 @@ public class ExcelUtilsSpecifikacije {
 
                             break;
                         case 7:
-                            specifikacije.setPakovanje(currentCell.getStringCellValue());
+                            specifikacije.setTrazenaKolicina((int) currentCell.getNumericCellValue());
 
                             break;
                         case 8:
+                            specifikacije.setPakovanje(currentCell.getStringCellValue());
+
+                            break;
+                        case 9:
                             specifikacije.setProcijenjenaVrijednost((double) currentCell.getNumericCellValue());
 
                             break;
-
 
 
                     }

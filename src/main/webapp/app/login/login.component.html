@@ -20,11 +20,15 @@
            </div>
 
            <div class="form-group">
-             <mat-form-field [style.width.px]=250>
-               <mat-label>Sifra</mat-label>
-               <input matInput name="password" id="password" placeholder="" formControlName="password" #password >
-               <!--          <mat-icon matSuffix>lock</mat-icon>-->
+
+             <mat-form-field appearance="fill">
+               <mat-label>Enter your password</mat-label>
+               <input matInput [type]="hide ? 'password' : 'text'" formControlName="password">
+               <button mat-icon-button matSuffix (click)="hide = !hide" [attr.aria-label]="'Hide password'" [attr.aria-pressed]="hide">
+                 <mat-icon>{{hide ? 'visibility_off' : 'visibility'}}</mat-icon>
+               </button>
              </mat-form-field>
+
            </div>
 
            <div class="form-check">

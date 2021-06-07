@@ -111,6 +111,6 @@ export class SpecifikacijeComponent implements AfterViewInit, OnChanges, OnInit 
     });
   }
   DownloadExcel():void{
-    window.location.href='http://localhost:8080/api/file';
+    window.location.href='http://localhost:8080/api/specifikacije/file';
   }
 }

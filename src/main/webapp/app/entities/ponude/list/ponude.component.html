@@ -16,18 +16,18 @@
   <fa-icon icon="plus"></fa-icon>
   <span>Nova Ponuda</span>
 </button>
-<button *jhiHasAnyAuthority="'ROLE_ADMIN'" id="zeleno" type="button" mat-raised-button (click)="fileInput.click()">Izaberi Dokument</button>
+<button *jhiHasAnyAuthority="'ROLE_ADMIN'" id="nadji-fajl" type="button" mat-raised-button (click)="fileInput.click()"><mat-icon>attachment</mat-icon></button>
 <!--  <input class="form-control" type="file" #fileInput />-->
 <input hidden  #fileInput type="file" id="file">
 
-<button *jhiHasAnyAuthority="'ROLE_ADMIN'" mat-raised-button
+<button id="UnseiExcel" *jhiHasAnyAuthority="'ROLE_ADMIN'" mat-raised-button
         color="warn" (click)="uploadFile()">Unesi Excel</button>
-<button  *jhiHasAnyAuthority="'ROLE_ADMIN'" mat-raised-button color="accent" (click)="DownloadExcel()">Obrazac</button>
+<button  *jhiHasAnyAuthority="'ROLE_ADMIN'" mat-raised-button color="accent" (click)="DownloadExcel()"><mat-icon>download</mat-icon></button>
 
 <button *jhiHasAnyAuthority="'ROLE_ADMIN'" mat-raised-button
-        color="warn" (click)="deleteSifra()">Delete Ponuda</button>
+        color="warn" (click)="deleteSifra()"><mat-icon>delete</mat-icon></button>
 
-<mat-form-field >
+<mat-form-field *jhiHasAnyAuthority="'ROLE_ADMIN'" >
   <mat-label>Select an option</mat-label>
   <mat-select [(ngModel)]="nadjiPonudjaca">
     <mat-option></mat-option>

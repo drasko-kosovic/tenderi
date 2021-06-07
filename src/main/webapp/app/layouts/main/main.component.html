@@ -1,6 +1,6 @@
 <mat-sidenav-container fullscreen id="pozadina-cijela">
   <mat-sidenav id="pozadina" mode="side" #snav #start>
-    <mat-nav-list>
+    <mat-nav-list id="crna">
       <a mat-list-item routerLink="/">
         <span id="firma">Montefarm ESJN</span>
       </a>
@@ -10,7 +10,6 @@
         <mat-icon>question_answer</mat-icon>
         <span>Postupci</span>
       </a>
-      <mat-divider></mat-divider>
       <mat-divider></mat-divider>
       <a [hidden]="!isAuthenticated()" mat-list-item routerLink="ponudjaci">
         <mat-icon>list</mat-icon>
@@ -25,10 +24,10 @@
       <mat-icon>menu</mat-icon>
     </button>
     <div class="container">
-       <div [hidden]="!isAuthenticated()" class="container-item">
+       <div id="zuto-hover" [hidden]="!isAuthenticated()" class="container-item">
           <p>{{ account?.login }}</p>
        </div>
-       <div class="container-item">
+       <div id="hover-zuto" class="container-item">
           <button mat-button [matMenuTriggerFor]="menu">
             <mat-icon>power_settings_new</mat-icon>
           </button>

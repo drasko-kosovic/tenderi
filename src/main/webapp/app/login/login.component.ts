@@ -14,7 +14,7 @@ export class LoginComponent implements OnInit, AfterViewInit {
   username?: ElementRef;
 
   authenticationError = false;
-
+  hide = true;
   loginForm = this.fb.group({
     username: [null, [Validators.required]],
     password: [null, [Validators.required]],
