@@ -1,65 +1,14 @@
 <?xml version="1.0" encoding="UTF-8"?>
-<!-- Created with Jaspersoft Studio version 6.12.2.final using JasperReports Library version 6.12.2-75c5e90a222ab406e416cbf590a5397028a52de3  -->
+<!-- Created with Jaspersoft Studio version 6.17.0.final using JasperReports Library version 6.17.0-6d93193241dd8cc42629e188b94f9e0bc5722efd  -->
 <jasperReport xmlns="http://jasperreports.sourceforge.net/jasperreports" xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xsi:schemaLocation="http://jasperreports.sourceforge.net/jasperreports http://jasperreports.sourceforge.net/xsd/jasperreport.xsd" name="Ugovor" pageWidth="595" pageHeight="842" columnWidth="555" leftMargin="20" rightMargin="20" topMargin="20" bottomMargin="20" uuid="23b3da1f-0f05-4603-8bb8-fe22ddc5c770">
     <property name="com.jaspersoft.studio.data.sql.tables" value=""/>
-    <property name="com.jaspersoft.studio.data.defaultdataadapter" value="DataAdapter ESJN.xml"/>
+    <property name="com.jaspersoft.studio.data.defaultdataadapter" value="DataAdapterESJN.xml"/>
     <queryString language="SQL">
-        <![CDATA[select *   from view_ugovor]]>
+        <![CDATA[select brojUgovora   from view_ugovor]]>
     </queryString>
     <field name="brojUgovora" class="java.lang.String">
+        <property name="com.jaspersoft.studio.field.name" value="brojUgovora"/>
         <property name="com.jaspersoft.studio.field.label" value="brojUgovora"/>
-        <property name="com.jaspersoft.studio.field.tree.path" value="view_ugovor"/>
-    </field>
-    <field name="datumUgovora" class="java.time.LocalDate">
-        <property name="com.jaspersoft.studio.field.label" value="datumUgovora"/>
-        <property name="com.jaspersoft.studio.field.tree.path" value="view_ugovor"/>
-    </field>
-    <field name="predmetUgovora" class="java.lang.String">
-        <property name="com.jaspersoft.studio.field.label" value="predmetUgovora"/>
-        <property name="com.jaspersoft.studio.field.tree.path" value="view_ugovor"/>
-    </field>
-    <field name="nazivPonudjaca" class="java.lang.String">
-        <property name="com.jaspersoft.studio.field.label" value="nazivPonudjaca"/>
-        <property name="com.jaspersoft.studio.field.tree.path" value="view_ugovor"/>
-    </field>
-    <field name="brojDatumTenderskeDokumntacije" class="java.lang.String">
-        <property name="com.jaspersoft.studio.field.label" value="brojDatumTenderskeDokumntacije"/>
-        <property name="com.jaspersoft.studio.field.tree.path" value="view_ugovor"/>
-    </field>
-    <field name="brojDatumOdlukeIzbora" class="java.lang.String">
-        <property name="com.jaspersoft.studio.field.label" value="brojDatumOdlukeIzbora"/>
-        <property name="com.jaspersoft.studio.field.tree.path" value="view_ugovor"/>
-    </field>
-    <field name="brojDatumPonude" class="java.lang.String">
-        <property name="com.jaspersoft.studio.field.label" value="brojDatumPonude"/>
-        <property name="com.jaspersoft.studio.field.tree.path" value="view_ugovor"/>
-    </field>
-    <field name="iznosUgovoraBezPdf" class="java.lang.Integer">
-        <property name="com.jaspersoft.studio.field.label" value="iznosUgovoraBezPdf"/>
-        <property name="com.jaspersoft.studio.field.tree.path" value="view_ugovor"/>
-    </field>
-    <field name="sifraPostupka" class="java.lang.Integer">
-        <property name="com.jaspersoft.studio.field.label" value="sifraPostupka"/>
-        <property name="com.jaspersoft.studio.field.tree.path" value="view_ugovor"/>
-    </field>
-    <field name="sifraPonude" class="java.lang.Integer">
-        <property name="com.jaspersoft.studio.field.label" value="sifraPonude"/>
-        <property name="com.jaspersoft.studio.field.tree.path" value="view_ugovor"/>
-    </field>
-    <field name="odgovornoLice" class="java.lang.String">
-        <property name="com.jaspersoft.studio.field.label" value="odgovornoLice"/>
-        <property name="com.jaspersoft.studio.field.tree.path" value="view_ugovor"/>
-    </field>
-    <field name="adresaPonudjaca" class="java.lang.String">
-        <property name="com.jaspersoft.studio.field.label" value="adresaPonudjaca"/>
-        <property name="com.jaspersoft.studio.field.tree.path" value="view_ugovor"/>
-    </field>
-    <field name="bankaRacun" class="java.lang.String">
-        <property name="com.jaspersoft.studio.field.label" value="bankaRacun"/>
-        <property name="com.jaspersoft.studio.field.tree.path" value="view_ugovor"/>
-    </field>
-    <field name="id" class="java.lang.Long">
-        <property name="com.jaspersoft.studio.field.label" value="id"/>
         <property name="com.jaspersoft.studio.field.tree.path" value="view_ugovor"/>
     </field>
     <background>
@@ -72,167 +21,23 @@
         <band height="35" splitType="Stretch"/>
     </pageHeader>
     <columnHeader>
-        <band height="61" splitType="Stretch">
-            <staticText>
-                <reportElement x="0" y="0" width="51" height="30" uuid="0e3e6e78-4ff3-4338-8fa7-9f8885cf8c5a">
-                    <property name="com.jaspersoft.studio.spreadsheet.connectionID" value="0b00111a-0aaa-4d65-92a3-8657225d8867"/>
-                </reportElement>
-                <text><![CDATA[brojUgovora]]></text>
-            </staticText>
-            <staticText>
-                <reportElement x="51" y="0" width="42" height="30" uuid="dbd0b494-0ca9-4a60-8dfa-162da49ef100">
-                    <property name="com.jaspersoft.studio.spreadsheet.connectionID" value="e04fdc0b-4a3e-4134-a624-4b81dbc1ce18"/>
-                </reportElement>
-                <text><![CDATA[datumUgovora]]></text>
-            </staticText>
-            <staticText>
-                <reportElement x="93" y="0" width="42" height="30" uuid="c77c9f21-864e-4771-ad56-c054e58147cf">
-                    <property name="com.jaspersoft.studio.spreadsheet.connectionID" value="3b7ac1a9-85a8-4c9d-a839-d71eab5d7c48"/>
-                </reportElement>
-                <text><![CDATA[predmetUgovora]]></text>
-            </staticText>
-            <staticText>
-                <reportElement x="135" y="0" width="42" height="30" uuid="a219bc93-6095-497e-9727-5818c9b5f424">
-                    <property name="com.jaspersoft.studio.spreadsheet.connectionID" value="e9e479fe-a43d-40fb-ada4-6234e6fd5525"/>
-                </reportElement>
-                <text><![CDATA[nazivPonudjaca]]></text>
-            </staticText>
-            <staticText>
-                <reportElement x="177" y="0" width="42" height="30" uuid="00cd3482-b1ed-43e1-bce3-b0faa4a4bb58">
-                    <property name="com.jaspersoft.studio.spreadsheet.connectionID" value="450920c4-9fc9-422f-a908-cd7be9aea08c"/>
-                </reportElement>
-                <text><![CDATA[brojDatumTenderskeDokumntacije]]></text>
-            </staticText>
-            <staticText>
-                <reportElement x="219" y="0" width="42" height="30" uuid="bbb8369e-2b0c-4fdc-9621-51a8e3599579">
-                    <property name="com.jaspersoft.studio.spreadsheet.connectionID" value="4666958d-a5e1-49cd-8bb8-87c6dd2873e0"/>
-                </reportElement>
-                <text><![CDATA[brojDatumOdlukeIzbora]]></text>
-            </staticText>
-            <staticText>
-                <reportElement x="261" y="0" width="42" height="30" uuid="911e7d8c-9349-4ab6-b5c6-3eabcb7543c8">
-                    <property name="com.jaspersoft.studio.spreadsheet.connectionID" value="f9e3f1a0-9d1b-4fbc-9958-6af51bfc3c84"/>
-                </reportElement>
-                <text><![CDATA[brojDatumPonude]]></text>
-            </staticText>
-            <staticText>
-                <reportElement x="303" y="0" width="42" height="30" uuid="8dbb803d-ecc3-490b-ab5c-c702471268f5">
-                    <property name="com.jaspersoft.studio.spreadsheet.connectionID" value="f21bb35a-85b0-4cf5-a38d-c7630bb16fa5"/>
-                </reportElement>
-                <text><![CDATA[iznosUgovoraBezPdf]]></text>
-            </staticText>
-            <staticText>
-                <reportElement x="345" y="0" width="42" height="30" uuid="1f5fbb15-8c74-4609-8956-0a52b1d4a1c1">
-                    <property name="com.jaspersoft.studio.spreadsheet.connectionID" value="00dd127e-3427-4312-ba2b-53c35d02fbff"/>
-                </reportElement>
-                <text><![CDATA[sifraPostupka]]></text>
-            </staticText>
-            <staticText>
-                <reportElement x="387" y="0" width="42" height="30" uuid="d4a36c6e-6814-4c43-adda-c97973b53564">
-                    <property name="com.jaspersoft.studio.spreadsheet.connectionID" value="0c11b65c-d038-4513-b437-0b1b95d1b703"/>
-                </reportElement>
-                <text><![CDATA[sifraPonude]]></text>
-            </staticText>
-            <staticText>
-                <reportElement x="429" y="0" width="42" height="30" uuid="6c5036e7-7855-4ed9-9f22-182b3c7ced27">
-                    <property name="com.jaspersoft.studio.spreadsheet.connectionID" value="bb6853cb-4017-4007-9a5d-258a53f8f1b7"/>
-                </reportElement>
-                <text><![CDATA[odgovornoLice]]></text>
-            </staticText>
-            <staticText>
-                <reportElement x="471" y="0" width="42" height="30" uuid="b0a9549c-3850-48d5-a5e9-64d17de52c22">
-                    <property name="com.jaspersoft.studio.spreadsheet.connectionID" value="d41617fc-20f4-4d12-9833-ceeb35a66c79"/>
-                </reportElement>
-                <text><![CDATA[adresaPonudjaca]]></text>
-            </staticText>
-            <staticText>
-                <reportElement x="513" y="0" width="42" height="30" uuid="2706a2d2-b16b-4c62-b960-2ad47c5c0280">
-                    <property name="com.jaspersoft.studio.spreadsheet.connectionID" value="536a8f1b-5da8-4749-a6d7-9275c0e6791c"/>
-                </reportElement>
-                <text><![CDATA[bankaRacun]]></text>
-            </staticText>
-        </band>
+        <band height="61" splitType="Stretch"/>
     </columnHeader>
     <detail>
-        <band height="125" splitType="Stretch">
+        <band height="296" splitType="Stretch">
             <textField>
-                <reportElement x="0" y="0" width="51" height="30" uuid="0810a60b-e7d0-4aa9-9ced-193162df12a6">
-                    <property name="com.jaspersoft.studio.spreadsheet.connectionID" value="0b00111a-0aaa-4d65-92a3-8657225d8867"/>
+                <reportElement x="85" y="59" width="100" height="30" uuid="6e199ed3-9992-4994-95a9-f2b4d1fcf394">
+                    <property name="com.jaspersoft.studio.spreadsheet.connectionID" value="62d0ce06-0e92-46db-aad1-41f7a50f59df"/>
                 </reportElement>
                 <textFieldExpression><![CDATA[$F{brojUgovora}]]></textFieldExpression>
             </textField>
-            <textField>
-                <reportElement x="51" y="0" width="42" height="30" uuid="e9495d3d-9aac-403b-9261-231feaeb15fe">
-                    <property name="com.jaspersoft.studio.spreadsheet.connectionID" value="e04fdc0b-4a3e-4134-a624-4b81dbc1ce18"/>
-                </reportElement>
-                <textFieldExpression><![CDATA[$F{datumUgovora}]]></textFieldExpression>
-            </textField>
-            <textField>
-                <reportElement x="93" y="0" width="42" height="30" uuid="7ffae5f3-5cf1-4304-b6ea-2acef7939406">
-                    <property name="com.jaspersoft.studio.spreadsheet.connectionID" value="3b7ac1a9-85a8-4c9d-a839-d71eab5d7c48"/>
-                </reportElement>
-                <textFieldExpression><![CDATA[$F{predmetUgovora}]]></textFieldExpression>
-            </textField>
-            <textField>
-                <reportElement x="135" y="0" width="42" height="30" uuid="ef875ed3-b1d3-4202-92ad-a0d717f91dfd">
-                    <property name="com.jaspersoft.studio.spreadsheet.connectionID" value="e9e479fe-a43d-40fb-ada4-6234e6fd5525"/>
-                </reportElement>
-                <textFieldExpression><![CDATA[$F{nazivPonudjaca}]]></textFieldExpression>
-            </textField>
-            <textField>
-                <reportElement x="177" y="0" width="42" height="30" uuid="45a3e64f-562b-4461-a917-f01264ae034d">
-                    <property name="com.jaspersoft.studio.spreadsheet.connectionID" value="450920c4-9fc9-422f-a908-cd7be9aea08c"/>
-                </reportElement>
-                <textFieldExpression><![CDATA[$F{brojDatumTenderskeDokumntacije}]]></textFieldExpression>
-            </textField>
-            <textField>
-                <reportElement x="219" y="0" width="42" height="30" uuid="8405cf98-9ac7-4c8f-9093-d9891fcec8e3">
-                    <property name="com.jaspersoft.studio.spreadsheet.connectionID" value="4666958d-a5e1-49cd-8bb8-87c6dd2873e0"/>
-                </reportElement>
-                <textFieldExpression><![CDATA[$F{brojDatumOdlukeIzbora}]]></textFieldExpression>
-            </textField>
-            <textField>
-                <reportElement x="261" y="0" width="42" height="30" uuid="45b9a44c-9c71-489f-87ad-3b4fd3e9203f">
-                    <property name="com.jaspersoft.studio.spreadsheet.connectionID" value="f9e3f1a0-9d1b-4fbc-9958-6af51bfc3c84"/>
-                </reportElement>
-                <textFieldExpression><![CDATA[$F{brojDatumPonude}]]></textFieldExpression>
-            </textField>
-            <textField>
-                <reportElement x="303" y="0" width="42" height="30" uuid="824ea64d-31a8-4f2d-81a3-64a1c2cdd770">
-                    <property name="com.jaspersoft.studio.spreadsheet.connectionID" value="f21bb35a-85b0-4cf5-a38d-c7630bb16fa5"/>
-                </reportElement>
-                <textFieldExpression><![CDATA[$F{iznosUgovoraBezPdf}]]></textFieldExpression>
-            </textField>
-            <textField>
-                <reportElement x="345" y="0" width="42" height="30" uuid="c940d59d-250b-4071-8fb4-241679bbc135">
-                    <property name="com.jaspersoft.studio.spreadsheet.connectionID" value="00dd127e-3427-4312-ba2b-53c35d02fbff"/>
-                </reportElement>
-                <textFieldExpression><![CDATA[$F{sifraPostupka}]]></textFieldExpression>
-            </textField>
-            <textField>
-                <reportElement x="387" y="0" width="42" height="30" uuid="abad0f33-0991-4cde-a8e8-191f871d43b8">
-                    <property name="com.jaspersoft.studio.spreadsheet.connectionID" value="0c11b65c-d038-4513-b437-0b1b95d1b703"/>
-                </reportElement>
-                <textFieldExpression><![CDATA[$F{sifraPonude}]]></textFieldExpression>
-            </textField>
-            <textField>
-                <reportElement x="429" y="0" width="42" height="30" uuid="ed29ee0f-cb4c-4d84-aa06-cf07561a53c5">
-                    <property name="com.jaspersoft.studio.spreadsheet.connectionID" value="bb6853cb-4017-4007-9a5d-258a53f8f1b7"/>
-                </reportElement>
-                <textFieldExpression><![CDATA[$F{odgovornoLice}]]></textFieldExpression>
-            </textField>
-            <textField>
-                <reportElement x="471" y="0" width="42" height="30" uuid="e0644800-dd71-4c5c-abf9-4c7ded90e958">
-                    <property name="com.jaspersoft.studio.spreadsheet.connectionID" value="d41617fc-20f4-4d12-9833-ceeb35a66c79"/>
-                </reportElement>
-                <textFieldExpression><![CDATA[$F{adresaPonudjaca}]]></textFieldExpression>
-            </textField>
-            <textField>
-                <reportElement x="513" y="0" width="42" height="30" uuid="ce558cde-f67f-4d51-8b6c-f2b4e1209403">
-                    <property name="com.jaspersoft.studio.spreadsheet.connectionID" value="536a8f1b-5da8-4749-a6d7-9275c0e6791c"/>
-                </reportElement>
-                <textFieldExpression><![CDATA[$F{bankaRacun}]]></textFieldExpression>
-            </textField>
+            <staticText>
+                <reportElement x="210" y="39" width="320" height="54" uuid="a901c59c-e5c7-446e-8fa6-527e82035282"/>
+                <textElement>
+                    <font fontName="DejaVu Sans"/>
+                </textElement>
+                <text><![CDATA[Čekam]]></text>
+            </staticText>
         </band>
     </detail>
     <columnFooter>
