@@ -6,7 +6,6 @@ import { ApplicationConfigService } from 'app/core/config/application-config.ser
 import { createRequestOption } from 'app/core/request/request-util';
 import { Pagination } from 'app/core/request/request.model';
 import { IUser } from '../user-management.model';
-import {IPonudjaci} from "app/entities/ponudjaci/ponudjaci.model";
 
 @Injectable({ providedIn: 'root' })
 export class UserManagementService {

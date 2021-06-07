@@ -1,7 +1,5 @@
 import {AfterViewInit, Component, OnInit, ViewChild} from '@angular/core';
-import { HttpResponse, HttpHeaders } from '@angular/common/http';
 import { ActivatedRoute, Router } from '@angular/router';
-import {combineLatest, Subscription} from 'rxjs';
 import { NgbModal } from '@ng-bootstrap/ng-bootstrap';
 import { AccountService } from 'app/core/auth/account.service';
 import { Account } from 'app/core/auth/account.model';
@@ -10,9 +8,6 @@ import {IPonudjaci} from "app/entities/ponudjaci/ponudjaci.model";
 import {MatTableDataSource} from "@angular/material/table";
 import {MatSort} from "@angular/material/sort";
 import {MatPaginator} from "@angular/material/paginator";
-import {PonudjaciService} from "app/entities/ponudjaci/service/ponudjaci.service";
-import {IPonude} from "app/entities/ponude/ponude.model";
-import {PonudjaciDeleteDialogComponent} from "app/entities/ponudjaci/delete/ponudjaci-delete-dialog.component";
 import {UserManagementService} from "app/admin/user-management/service/user-management.service";
 import {UserManagementDeleteDialogComponent} from "app/admin/user-management/delete/user-management-delete-dialog.component";
 

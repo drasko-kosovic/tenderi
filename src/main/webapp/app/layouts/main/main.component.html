@@ -10,26 +10,7 @@
         <span>Postupci</span>
       </a>
       <mat-divider></mat-divider>
-<!--      <a mat-list-item routerLink="account/register">-->
-<!--        <mat-icon>person_add</mat-icon>-->
-<!--        <span>Registruj se </span>-->
-<!--      </a>-->
-<!--      <mat-divider></mat-divider>-->
-<!--      <a [hidden]="isAuthenticated()" mat-list-item routerLink="login">-->
-<!--        <mat-icon>account_circle</mat-icon>-->
-<!--        <span>Prijavi se </span>-->
-<!--      </a>-->
-<!--      <mat-divider></mat-divider>-->
-<!--      <a [hidden]="!isAuthenticated()" mat-list-item (click)="logout()">-->
-<!--        <mat-icon>logout</mat-icon>-->
-<!--        <span>Odjavi se</span>-->
-<!--      </a>-->
       <mat-divider></mat-divider>
-<!--      <a [hidden]="!isAuthenticated()" mat-list-item routerLink="/admin/user-management">-->
-<!--        <mat-icon>format_align_justify</mat-icon>-->
-<!--        <span>Admin</span>-->
-<!--      </a>-->
-<!--      <mat-divider></mat-divider>-->
       <a [hidden]="!isAuthenticated()" mat-list-item routerLink="ponudjaci">
         <mat-icon>list</mat-icon>
         <span>Ponudjaci</span>
@@ -45,22 +26,22 @@
     <button mat-button [matMenuTriggerFor]="menu">Prijava</button>
     <div class="pull-right">
       <mat-menu  #menu="matMenu">
-        <button mat-menu-item [hidden]="!isAuthenticated()"> <a  mat-list-item routerLink="/admin/user-management">
+        <button mat-menu-item [hidden]="!isAuthenticated()"> <p  mat-list-item routerLink="/admin/user-management">
           <mat-icon>format_align_justify</mat-icon>
-          <span>Admin</span>
-        </a></button>
-        <button mat-menu-item [hidden]="isAuthenticated()"><a  mat-list-item routerLink="login">
+          <span>Korisnici</span>
+        </p></button>
+        <button mat-menu-item [hidden]="isAuthenticated()"><p  mat-list-item routerLink="login">
           <mat-icon>account_circle</mat-icon>
           <span>Prijavi se </span>
-        </a></button>
-        <button mat-menu-item [hidden]="!isAuthenticated()"> <a  mat-list-item (click)="logout()">
+        </p></button>
+        <button mat-menu-item [hidden]="!isAuthenticated()"> <p  mat-list-item (click)="logout()">
           <mat-icon>logout</mat-icon>
           <span>Odjavi se</span>
-         </a></button>
-        <button mat-menu-item > <a mat-list-item routerLink="account/register">
+         </p></button>
+        <button mat-menu-item > <p mat-list-item routerLink="account/register">
           <mat-icon>person_add</mat-icon>
           <span>Registruj se </span>
-        </a></button>
+        </p></button>
 
       </mat-menu>
     </div>
@@ -74,9 +55,9 @@
 
   <div class="main">
     <router-outlet></router-outlet>
-<div id="heder">
-  <jhi-footer></jhi-footer>
-</div>
+<!--<div id="footer">-->
+<!--  <jhi-footer></jhi-footer>-->
+<!--</div>-->
 
   </div>
 </mat-sidenav-container>
