@@ -23,7 +23,13 @@ public class ExcelUtilsSpecifikacije {
             "Id",
             "Sifra Postupka",
             "Broj Partije",
-           "Zasticeni Naziv",
+           "atc",
+            "inn",
+            "Farmaceutski Oblik",
+            "Jacina Lijeka",
+            "Kolicina",
+            "Pakovanje",
+            "Procijenjena",
 
         };
         try (Workbook workbook = new XSSFWorkbook(); ByteArrayOutputStream out = new ByteArrayOutputStream();) {
@@ -59,6 +65,13 @@ public class ExcelUtilsSpecifikacije {
                 row.createCell(0).setCellValue(specifikacijes.getId());
                 row.createCell(1).setCellValue(specifikacijes.getSifraPostupka());
                 row.createCell(3).setCellValue(specifikacijes.getBrojPartije());
+                row.createCell(4).setCellValue(specifikacijes.getAtc());
+                row.createCell(5).setCellValue(specifikacijes.getInn());
+                row.createCell(6).setCellValue(specifikacijes.getFarmaceutskiOblikLijeka());
+                row.createCell(7).setCellValue(specifikacijes.getJacinaLijeka());
+                row.createCell(8).setCellValue(specifikacijes.getTrazenaKolicina());
+                row.createCell(9).setCellValue(specifikacijes.getPakovanje());
+                row.createCell(10).setCellValue(specifikacijes.getProcijenjenaVrijednost());
 
             }
 
@@ -105,6 +118,33 @@ public class ExcelUtilsSpecifikacije {
                         case 2:
                             specifikacije.setBrojPartije((int) currentCell.getNumericCellValue());
                             break;
+
+                        case 3:
+                            specifikacije.setAtc(currentCell.getStringCellValue());
+
+                            break;
+                        case 4:
+                            specifikacije.setInn(currentCell.getStringCellValue());
+
+                            break;
+                        case 5:
+                            specifikacije.setFarmaceutskiOblikLijeka(currentCell.getStringCellValue());
+
+                            break;
+                        case 6:
+                            specifikacije.setJacinaLijeka(currentCell.getStringCellValue());
+
+                            break;
+                        case 7:
+                            specifikacije.setPakovanje(currentCell.getStringCellValue());
+
+                            break;
+                        case 8:
+                            specifikacije.setProcijenjenaVrijednost((double) currentCell.getNumericCellValue());
+
+                            break;
+
+
 
                     }
 
