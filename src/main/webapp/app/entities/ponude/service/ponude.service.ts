@@ -6,6 +6,7 @@ import { isPresent } from 'app/core/util/operators';
 import { ApplicationConfigService } from 'app/core/config/application-config.service';
 import { createRequestOption } from 'app/core/request/request-util';
 import {IPonude, getPonudeIdentifier} from '../ponude.model';
+import {SERVER_API_URL} from "app/app.constants";
 
 export type EntityResponseType = HttpResponse<IPonude>;
 export type EntityArrayResponseType = HttpResponse<IPonude[]>;
@@ -14,7 +15,8 @@ export type EntityArrayResponseType = HttpResponse<IPonude[]>;
 export class PonudeService {
   public resourceUrl = this.applicationConfigService.getEndpointFor('api/ponudes');
   public resourceUrlSifraPonude = this.applicationConfigService.getEndpointFor('api/ponude');
-  public resourceUrlExcelUpload=this.applicationConfigService.getEndpointFor('api/uploadfiles');
+  // public resourceUrlExcelUpload=this.applicationConfigService.getEndpointFor('api/uploadfiles');
+  public resourceUrlExcelUpload= SERVER_API_URL + 'api/uploadfiles';
   public resourceUrlSifraPonudeDelete = this.applicationConfigService.getEndpointFor('api/ponude');
 
   public resourceUrlPonudePonudjaci = this.applicationConfigService.getEndpointFor('api/ponudjaci_ponude');
