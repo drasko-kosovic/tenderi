@@ -5,7 +5,7 @@
         <span id="firma">Montefarm ESJN</span>
       </a>
 <mat-divider></mat-divider>
-      <a mat-list-item routerLink="postupci-list">
+      <a [hidden]="!isAuthenticated()" mat-list-item routerLink="postupci-list">
         <mat-icon>question_answer</mat-icon>
         <span>Postupci</span>
       </a>
@@ -23,7 +23,10 @@
     <button mat-icon-button (click)="snav.toggle()">
       <mat-icon>menu</mat-icon>
     </button>
-    <button mat-button [matMenuTriggerFor]="menu">Prijava</button>
+    <button mat-button [matMenuTriggerFor]="menu">
+      <mat-icon>power_settings_new</mat-icon>
+    </button>
+
     <div class="pull-right">
       <mat-menu  #menu="matMenu">
         <button mat-menu-item [hidden]="!isAuthenticated()"> <p  mat-list-item routerLink="/admin/user-management">
