@@ -24,7 +24,7 @@
         color="warn" (click)="uploadFile()">Unesi Excel</button>
 <button  *jhiHasAnyAuthority="'ROLE_ADMIN'" mat-raised-button color="accent" (click)="DownloadExcel()"><mat-icon>download</mat-icon></button>
 
-<button *jhiHasAnyAuthority="'ROLE_ADMIN'" mat-raised-button
+<button *jhiHasAnyAuthority="'ROLE_ADMIN'" mat-raised-button  matTooltip="Ukloni cijelu ponudu"
         color="warn" (click)="deleteSifra()"><mat-icon>delete</mat-icon></button>
 
 <mat-form-field *jhiHasAnyAuthority="'ROLE_ADMIN'" >
