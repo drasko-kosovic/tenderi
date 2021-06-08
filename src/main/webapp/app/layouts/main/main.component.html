@@ -23,11 +23,11 @@
 
   <mat-toolbar class="toolbar" color="primary">
     <button mat-icon-button (click)="snav.toggle()">
-      <mat-icon>menu</mat-icon>
+      <mat-icon class="vece">menu</mat-icon>
     </button>
     <div class="container">
       <div id="zuto-hover" [hidden]="!isAuthenticated()" class="container-item">
-        <p>{{ account?.login }}</p>
+        <h3 >{{ account?.login }}</h3>
       </div>
       <div id="hover-zuto" class="container-item">
         <button mat-button [matMenuTriggerFor]="menu">
