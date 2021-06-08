@@ -1,6 +1,10 @@
 <?xml version="1.0" encoding="UTF-8"?>
 <!-- Created with Jaspersoft Studio version 6.17.0.final using JasperReports Library version 6.17.0-6d93193241dd8cc42629e188b94f9e0bc5722efd  -->
-<jasperReport xmlns="http://jasperreports.sourceforge.net/jasperreports" xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xsi:schemaLocation="http://jasperreports.sourceforge.net/jasperreports http://jasperreports.sourceforge.net/xsd/jasperreport.xsd" name="PrimjerUgovora" pageWidth="595" pageHeight="842" columnWidth="555" leftMargin="20" rightMargin="20" topMargin="20" bottomMargin="20" uuid="ecb7461a-a61e-43cc-962e-9877fe579f3d">
+<jasperReport xmlns="http://jasperreports.sourceforge.net/jasperreports"
+              xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance"
+              xsi:schemaLocation="http://jasperreports.sourceforge.net/jasperreports http://jasperreports.sourceforge.net/xsd/jasperreport.xsd"
+              name="PrimjerUgovora" pageWidth="595" pageHeight="842" columnWidth="555" leftMargin="20" rightMargin="20"
+              topMargin="20" bottomMargin="20" uuid="ecb7461a-a61e-43cc-962e-9877fe579f3d">
     <property name="com.jaspersoft.studio.data.sql.tables" value=""/>
     <property name="com.jaspersoft.studio.data.defaultdataadapter" value="DataAdapterESJN.xml"/>
     <property name="com.jaspersoft.studio.property.dataset.dialog.DatasetDialog.sash.w1" value="338"/>
@@ -8,11 +12,11 @@
     <queryString language="SQL">
         <![CDATA[select * from  view_ugovor]]>
     </queryString>
-<!--    <field name="sifraPonudjaca" class="java.lang.Integer">-->
-<!--        <property name="com.jaspersoft.studio.field.name" value="sifraPonudjaca"/>-->
-<!--        <property name="com.jaspersoft.studio.field.label" value="sifraPonudjaca"/>-->
-<!--        <property name="com.jaspersoft.studio.field.tree.path" value="view_ugovor"/>-->
-<!--    </field>-->
+    <!--    <field name="sifraPonudjaca" class="java.lang.Integer">-->
+    <!--        <property name="com.jaspersoft.studio.field.name" value="sifraPonudjaca"/>-->
+    <!--        <property name="com.jaspersoft.studio.field.label" value="sifraPonudjaca"/>-->
+    <!--        <property name="com.jaspersoft.studio.field.tree.path" value="view_ugovor"/>-->
+    <!--    </field>-->
     <field name="brojUgovora" class="java.lang.String">
         <property name="com.jaspersoft.studio.field.name" value="brojUgovora"/>
         <property name="com.jaspersoft.studio.field.label" value="brojUgovora"/>
@@ -83,7 +87,7 @@
         <property name="com.jaspersoft.studio.field.label" value="id"/>
         <property name="com.jaspersoft.studio.field.tree.path" value="view_ugovor"/>
     </field>
-<background>
+    <background>
         <band splitType="Stretch"/>
     </background>
     <detail>
@@ -100,25 +104,24 @@ OSNOV UGOVORA
 
 Član 1.
 
-Tenderska dokumentacija za otvoreni postupak javne nabavke za nabavku ampuliranih ljekova za potrebe Zdravstvene  ustanove Apoteke Crne Gore Montefarm i JZU Crne Gore : 90/1-0721 od 25.02.2021.g.
-Broj i datum Odluke o izboru najpovoljnije ponude  : 216/1-0721 od 23.04.2021.g.
-Ponuda ponuđača  Glosarij d.o.o. broj : 1330 od 22.03.2021.g.
+Tenderska dokumentacija za otvoreni postupak javne nabavke za nabavku ampuliranih ljekova za potrebe Zdravstvene  ustanove Apoteke Crne Gore Montefarm i JZU Crne Gore :
+Broj i datum Odluke o izboru najpovoljnije ponude  :
+Ponuda ponuđača                                                broj :
 
 
 I PREDMET UGOVORA
 
 Član 1.
 
-Predmet ovog ugovora je nabavka ljekova Naručiocu od strane Dobavljača, za partije , u svemu prema prihvaćenoj ponudi Dobavljača broj: 1330 od 22.03.2021.g., koja čini sastavni dio ovog ugovora ,dostavljenoj po Tenderskoj dokumentaciji broj: 90/1-0721 od 25.02.2021.g. za otvoreni postupak javne nabavke za izbor najpovoljnije ponude za nabavku ampuliranih ljekova, objavljenom na portalu CeJN, dana : 25.02.2021.g. i Odluke o izboru najpovoljnije ponude  broj : 216/1-0721 od 23.04.2021.g.
+Predmet ovog ugovora je nabavka ljekova Naručiocu od strane Dobavljača, za partije , u svemu prema prihvaćenoj ponudi Dobavljača broj:                                                , koja čini sastavni dio ovog ugovora ,dostavljenoj po Tenderskoj dokumentaciji broj:                                                                        za otvoreni postupak javne nabavke za izbor najpovoljnije ponude za nabavku ampuliranih ljekova, objavljenom na portalu CeJN, dana :                         . i Odluke o izboru najpovoljnije ponude  broj :
 
 II CIJENA I NAČIN PLAĆANJA
 
+
 Član 2.
 
-
-
-       Ukupna vrijednost ovog ugovora iznosi: 3.249.249,85 € bez PDV-a.
-       Ukupna vrijednost ovog ugovora iznosi: 3.249.249,85 € sa PDV-om.
+       Ukupna vrijednost ovog ugovora iznosi:                           bez PDV-a.
+       Ukupna vrijednost ovog ugovora iznosi:                            sa PDV-om.
 
 
 
@@ -126,7 +129,7 @@ Za isporučene ljekove ( u daljem tekstu: roba),  koji su predmet ovog ugovora, 
 
 Faktura mora da sadrži broj ugovora po kojem se plaćanje vrši.
 
-Plaćanje će se vršiti na žiro račun Dobavljača broj: 520-19120-42 , otvoren kod banke- Hipotekarna banka, u rokovima predviđenim ponudom Dobavljača, virmanskim putem ili doznakom na račun Dobavljača.Valuta plaćanja je euro.
+Plaćanje će se vršiti na žiro račun Dobavljača broj:                                                          , u rokovima predviđenim ponudom Dobavljača, virmanskim putem ili doznakom na račun Dobavljača.Valuta plaćanja je euro.
 
 
 
@@ -147,19 +150,17 @@ Palete poslije istovara se ne vraćaju isporučiocu robe.
 ]]></text>
             </staticText>
             <staticText>
-                <reportElement x="4" y="0" width="526" height="52" uuid="2cacff5c-2faf-46df-a0e9-b6ccb08b0789"/>
+                <reportElement x="4" y="0" width="526" height="52" uuid="2cacff5c-2faf-46df-a0e9-b6ccb08b0789">
+                    <property name="com.jaspersoft.studio.unit.height" value="pixel"/>
+                </reportElement>
                 <textElement>
-                    <font fontName="DejaVu Sans"/>
+                    <font fontName="DejaVu Serif"/>
                 </textElement>
                 <text><![CDATA[
 
 Zaključen između:
 ]]></text>
             </staticText>
-<!--            <textField>-->
-<!--                <reportElement x="60" y="0" width="60" height="20" uuid="c157d08b-8ca4-46ee-8347-1e250b94be0c"/>-->
-<!--                <textFieldExpression><![CDATA[$F{brojUgovora}]]></textFieldExpression>-->
-<!--            </textField>-->
             <textField>
                 <reportElement x="60" y="0" width="60" height="20" uuid="c157d08b-8ca4-46ee-8347-1e250b94be0c"/>
                 <textFieldExpression><![CDATA[$F{brojUgovora}]]></textFieldExpression>
@@ -170,29 +171,113 @@ Zaključen između:
             </staticText>
             <staticText>
                 <reportElement x="1" y="54" width="529" height="116" uuid="6f01c60a-47bd-4433-a551-b1f2494ff4c9"/>
-                <textElement>
-                    <font fontName="DejaVu Sans"/>
-                </textElement>
                 <text><![CDATA[1.	Naručioca Zdravstvene  ustanove Apoteke Crne Gore Montefarm, sa sjedištem u Podgorici, ul. Ljubljanska b.b., PIB: 02017105 , Broj računa : 510-205-07 , Naziv banke : CKB , koju zastupa direktor,Radoman Dragaš,dipl.ecc, ( u daljem tekstu Naručilac),
 
      i
-2.	Ponuđača GLOSARIJ d.o.o. sa sjedištem u Podgorici,ulica Vojislavljevića 76, Broj računa : 520-19120-42 , Naziv banke : Hipotekarna banka , koga zastupa izvršni direktor  ,Mirjana Mijušković , dipl ecc  (u daljem tekstu Dobavljač).
+2.	Ponuđača                                                                , Broj računa :                                                          , koga zastupa izvršni direktor  ,                                        (u daljem tekstu Dobavljač).
 ]]></text>
             </staticText>
+            <textField>
+                <reportElement positionType="FixRelativeToBottom" x="90" y="116" width="70" height="15"
+                               uuid="f7e0ce82-16f5-4c34-b11a-96c467ab6ac7">
+                    <property name="com.jaspersoft.studio.unit.height" value="pixel"/>
+                    <property name="com.jaspersoft.studio.unit.y" value="px"/>
+                </reportElement>
+                <textFieldExpression><![CDATA[$F{nazivPonudjaca}]]></textFieldExpression>
+            </textField>
+            <textField>
+                <reportElement positionType="FixRelativeToBottom" x="160" y="116" width="100" height="15"
+                               uuid="0e390418-ef9e-4477-b43c-c42eafbfa170">
+                    <property name="com.jaspersoft.studio.unit.x" value="pixel"/>
+                    <property name="com.jaspersoft.studio.unit.height" value="px"/>
+                    <property name="com.jaspersoft.studio.unit.y" value="px"/>
+                </reportElement>
+                <textFieldExpression><![CDATA[$F{adresaPonudjaca}]]></textFieldExpression>
+            </textField>
+            <textField>
+                <reportElement positionType="FixRelativeToBottom" x="330" y="116" width="150" height="15"
+                               uuid="8e60c965-fe37-4b0c-b991-f771c10014fd">
+                    <property name="com.jaspersoft.studio.unit.height" value="px"/>
+                    <property name="com.jaspersoft.studio.unit.y" value="px"/>
+                </reportElement>
+                <textFieldExpression><![CDATA[$F{bankaRacun}]]></textFieldExpression>
+            </textField>
+            <textField>
+                <reportElement x="110" y="129" width="110" height="14" uuid="b4a23ecc-a275-442a-818e-a0c559025cc5">
+                    <property name="com.jaspersoft.studio.unit.y" value="px"/>
+                </reportElement>
+                <textFieldExpression><![CDATA[$F{odgovornoLice}]]></textFieldExpression>
+            </textField>
+            <textField>
+                <reportElement x="336" y="280" width="174" height="14" uuid="420d03ad-74f8-4aa4-a62a-0e2893d96b16"/>
+                <textFieldExpression><![CDATA[$F{brojDatumTenderskeDokumntacije}]]></textFieldExpression>
+            </textField>
+            <textField>
+                <reportElement x="240" y="293" width="100" height="13" uuid="590d435d-2899-414a-b6c4-b2611adb5524">
+                    <property name="com.jaspersoft.studio.unit.height" value="px"/>
+                    <property name="com.jaspersoft.studio.unit.y" value="px"/>
+                </reportElement>
+                <textFieldExpression><![CDATA[$F{brojDatumOdlukeIzbora}]]></textFieldExpression>
+            </textField>
+            <textField>
+                <reportElement x="90" y="305" width="120" height="13" uuid="b06c39ca-e4eb-4a72-8c71-8c6315695379">
+                    <property name="com.jaspersoft.studio.unit.height" value="px"/>
+                    <property name="com.jaspersoft.studio.unit.y" value="px"/>
+                </reportElement>
+                <textFieldExpression><![CDATA[$F{nazivPonudjaca}]]></textFieldExpression>
+            </textField>
+            <textField>
+                <reportElement x="250" y="305" width="164" height="13" uuid="bd4f1077-468d-4e94-a9c2-458d46174498">
+                    <property name="com.jaspersoft.studio.unit.height" value="px"/>
+                    <property name="com.jaspersoft.studio.unit.y" value="px"/>
+                </reportElement>
+                <textFieldExpression><![CDATA[$F{brojDatumPonude}]]></textFieldExpression>
+            </textField>
+            <textField>
+                <reportElement x="110" y="407" width="130" height="14" uuid="252849ee-f98a-400f-83d5-5fbf2e61deca">
+                    <property name="com.jaspersoft.studio.unit.y" value="px"/>
+                </reportElement>
+                <textFieldExpression><![CDATA[$F{brojDatumPonude}]]></textFieldExpression>
+            </textField>
+            <textField>
+                <reportElement x="158" y="444" width="182" height="22" uuid="beb22043-6562-4ac1-b585-32db359b2e18">
+                    <property name="com.jaspersoft.studio.unit.y" value="px"/>
+                    <property name="com.jaspersoft.studio.unit.height" value="px"/>
+                </reportElement>
+                <textFieldExpression><![CDATA[$F{brojDatumOdlukeIzbora}]]></textFieldExpression>
+            </textField>
+            <textField>
+                <reportElement x="200" y="533" width="70" height="16" uuid="ae40c8c7-f2ef-4a7a-862c-e25eb70639d1">
+                    <property name="com.jaspersoft.studio.unit.y" value="px"/>
+                </reportElement>
+                <textFieldExpression><![CDATA[$F{iznosUgovoraBezPdf}]]></textFieldExpression>
+            </textField>
+            <textField>
+                <reportElement x="200" y="545" width="70" height="20" uuid="408c9fd1-70df-4e97-a2dd-8f8d08899415">
+                    <property name="com.jaspersoft.studio.unit.y" value="px"/>
+                </reportElement>
+                <textFieldExpression><![CDATA[$F{iznosUgovoraBezPdf}]]></textFieldExpression>
+            </textField>
+            <textField>
+                <reportElement x="236" y="658" width="154" height="20" uuid="cd690160-f59f-4ec9-93d6-5582b955be8e">
+                    <property name="com.jaspersoft.studio.unit.y" value="px"/>
+                </reportElement>
+                <textFieldExpression><![CDATA[$F{bankaRacun}]]></textFieldExpression>
+            </textField>
+            <textField>
+                <reportElement x="100" y="418" width="180" height="18" uuid="67c35834-a976-4020-9afc-d405cb2226c0">
+                    <property name="com.jaspersoft.studio.unit.y" value="px"/>
+                </reportElement>
+                <textFieldExpression><![CDATA[$F{brojDatumTenderskeDokumntacije}]]></textFieldExpression>
+            </textField>
         </band>
         <band height="800">
             <staticText>
                 <reportElement x="7" y="11" width="523" height="539" uuid="982153d4-d6b9-42f3-b9c9-496d3bf06e86"/>
-                <textElement>
-                    <font fontName="DejaVu Sans"/>
-                </textElement>
                 <text><![CDATA[]]></text>
             </staticText>
             <staticText>
                 <reportElement x="11" y="21" width="519" height="769" uuid="a8b8982f-0e31-45c4-85bd-838ff2504d3c"/>
-                <textElement>
-                    <font fontName="DejaVu Sans"/>
-                </textElement>
                 <text><![CDATA[Visina paletnog pakovanja mora da bude funkcionalno kompatibilna sa robom i da je dovoljno stabilna kako bi se omogućio prikladan transport i rukovanje.
 
 Paleta pakovanja treba da bude čvrsto obmotana pripadajućom folijom.
@@ -250,18 +335,9 @@ Dobavljač se obavezuje da Naručiocu nakon potpisivanja ovog ugovora preda gara
             </staticText>
         </band>
         <band height="800">
+            <property name="com.jaspersoft.studio.unit.height" value="px"/>
             <staticText>
-                <reportElement x="11" y="18" width="529" height="582" uuid="ed881ba6-21d5-4579-a740-8629cb65b031"/>
-                <textElement>
-                    <font fontName="DejaVu Sans"/>
-                </textElement>
-                <text><![CDATA[]]></text>
-            </staticText>
-            <staticText>
-                <reportElement x="11" y="40" width="529" height="750" uuid="5fda3d00-1325-440b-aed5-4a0029bb045b"/>
-                <textElement>
-                    <font fontName="DejaVu Sans"/>
-                </textElement>
+                <reportElement x="16" y="45" width="529" height="750" uuid="e2972ed3-3383-4b63-8fdc-c1d221b04331"/>
                 <text><![CDATA[Ovaj ugovor stupa na snagu danom potpisivanja od strane ovlašćenih predstavnika ugovornih strana i zaključuje se na period od tri mjeseca (90 dana).
 
 
@@ -304,9 +380,10 @@ Ugovorne strane saglasno izjavljuju da su pročitale, razumjele i da ugovorne od
 
  UGOVORNA STRANA                 		                                          UGOVORNA STRANA
        DOBAVLJAČ     		                                                                N A R U Č I L A C
-     Izvršni direktor,							                                           Direktor,
+     Izvršni direktor,							 Direktor,
    Mirjana Mijušković, dipl ecc    			     		  Radoman Dragaš, dipl. ecc     ]]></text>
             </staticText>
         </band>
+        <band height="50"/>
     </detail>
 </jasperReport>
