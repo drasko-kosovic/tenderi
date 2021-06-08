@@ -4,6 +4,7 @@
     <createView catalogName="vrednovanje-esjn" schemaName="public" viewName="view_ugovor">
         SELECT
         ugovor.sifra_ponudjaca,
+        ugovor.id,
         ugovor.broj_ugovora,
         ugovor.datum_ugovora,
         ugovor.predmet_ugovora,
@@ -17,11 +18,15 @@
         ponudjaci.odgovorno_lice,
         ponudjaci.adresa_ponudjaca,
         ponudjaci.banka_racun,
-        ugovor.id
-        FROM (ugovor
+        postupci.datum_objave
+        FROM ((ugovor
         JOIN ponudjaci ON
         (
         (ugovor.sifra_ponudjaca = ponudjaci.id)
+        ))
+        JOIN postupci ON
+        (
+        (ugovor.sifra_postupka = postupci.sifra_postupka)
         ))
 </createView>
   </changeSet>

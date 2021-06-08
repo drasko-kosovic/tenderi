@@ -31,10 +31,10 @@ public class UgovorPdf {
     UgovorPdfRepository ugovorPdfRepository;
 
 
-    @GetMapping(path = "/ugovor/{broj_ugovora}")
+    @GetMapping(path = "/ugovor/{brojUgovora}")
     @ResponseBody
 
-    public void getPdfUgovor(HttpServletResponse response, @PathVariable String broj_ugovora) throws Exception {
+    public void getPdfUgovor(HttpServletResponse response, @PathVariable String brojUgovora) throws Exception {
 
         Resource resource = context.getResource("classpath:reports/PrimjerUgovora.jrxml");
 //        Resource resource = context.getResource("classpath:reports/Ugovor.jrxml");
@@ -44,7 +44,7 @@ public class UgovorPdf {
         Map<String, Object> params = new HashMap<>();
 
 
-        List<tenderi.domain.UgovorPdf> ugovor= ugovorPdfRepository.findUgovorPdfByBrojUgovora(broj_ugovora);
+        List<tenderi.domain.UgovorPdf> ugovor= ugovorPdfRepository.findUgovorPdfByBrojUgovora(brojUgovora);
 
         //Data source Set
         JRDataSource dataSource = new JRBeanCollectionDataSource(ugovor);

@@ -58,6 +58,13 @@ public class UgovorPdf implements Serializable {
     @Column(name = "banka_racun")
     private String bankaRacun;
 
+    @Column(name = "datum_objave")
+    private LocalDate datumObjave;
+
+    public LocalDate getDatumObjave() {
+        return datumObjave;
+    }
+
     public Long getId() {
         return id;
     }
