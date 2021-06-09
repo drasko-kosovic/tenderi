@@ -14,7 +14,7 @@ const LAYOUT_ROUTES = [navbarRoute, ...errorRoute];
   imports: [
     RouterModule.forRoot(
       [
-        { path: 'postupci-list', component: PostupciListComponent },
+
         {
           path: 'admin',
           data: {

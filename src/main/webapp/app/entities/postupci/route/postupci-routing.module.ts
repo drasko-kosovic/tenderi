@@ -13,6 +13,7 @@ const postupciRoute: Routes = [
     component: PostupciComponent,
     canActivate: [UserRouteAccessService],
   },
+
   {
     path: ':id/view',
     component: PostupciDetailComponent,

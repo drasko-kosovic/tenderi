@@ -1,5 +1,6 @@
 import { NgModule } from '@angular/core';
 import { RouterModule } from '@angular/router';
+import {PostupciListComponent} from "app/entities/postupci/postupci-list/postupci-list.component";
 
 @NgModule({
   imports: [
@@ -34,6 +35,7 @@ import { RouterModule } from '@angular/router';
 
         loadChildren: () => import('./view-vrednovanje/view-vrednovanje.module').then(m => m.ViewVrednovanjeModule),
       },
+      { path: 'postupci-list', component: PostupciListComponent },
       {
         path: 'prvorangirani',
         data: { pageTitle: 'tenderiApp.prvorangirani.home.title' },
