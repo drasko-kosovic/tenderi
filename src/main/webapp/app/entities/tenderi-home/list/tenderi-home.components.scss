@@ -1,3 +1,7 @@
 #back{
   background-color: rgb(232 232 232);
 }
+::ng-deep .mat-tab-label .mat-tab-label-content {
+  font-size:17px;
+  //font-weight: lighter;
+}
