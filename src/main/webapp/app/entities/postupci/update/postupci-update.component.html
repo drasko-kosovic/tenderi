@@ -42,10 +42,17 @@
                 <input matInput name="brojTendera" id="brojTendera" placeholder="" formControlName="brojTendera" #brojTendera />
               </mat-form-field>
             </div>
+            <mat-form-field appearance="standard">
+              <mat-label>Vrsta Postupka</mat-label>
+              <mat-select formControlName="vrstaPostupka" #vrstaPostupka>
+                <mat-option value="ljekovi">Ljekovi</mat-option>
+                <mat-option value="potrosni">Potrosni</mat-option>
 
+              </mat-select>
+            </mat-form-field>
             <div class="form-group">
               <mat-form-field>
-                <mat-label>Opis Postupkaa</mat-label>
+                <mat-label>Opis Postupka</mat-label>
                 <input matInput name="opisPostupka" id="opisPostupka" placeholder="" formControlName="opisPostupka" #opisPostupka />
               </mat-form-field>
               <div
@@ -62,22 +69,7 @@
                 </small>
               </div>
             </div>
-<!--            <mat-form-field >-->
-<!--              <mat-label>Vrsta Postupka</mat-label>-->
-<!--              <select matNativeControl required formControlName="vrstaPostupka" #vrstaPostupka>-->
-<!--                <option value="ljekovi">Ljekovi</option>-->
-<!--                <option value="potrosni">Potrosni</option>-->
-<!--              </select>-->
-<!--            </mat-form-field>-->
 
-            <mat-form-field appearance="standard">
-              <mat-label>Vrsta Postupka</mat-label>
-              <mat-select formControlName="vrstaPostupka" #vrstaPostupka>
-                <mat-option value="ljekovi">Ljekovi</mat-option>
-                <mat-option value="potrosni">Potrosni</mat-option>
-
-              </mat-select>
-            </mat-form-field>
 
 
             <div class="form-group">

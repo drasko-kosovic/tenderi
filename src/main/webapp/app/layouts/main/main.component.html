@@ -22,7 +22,7 @@
   </mat-sidenav>
 
   <mat-toolbar class="toolbar" color="primary">
-    <button mat-icon-button (click)="snav.toggle()">
+    <button [hidden]="!isAuthenticated()" mat-icon-button (click)="snav.toggle()">
       <mat-icon class="vece">menu</mat-icon>
     </button>
     <div class="container">
