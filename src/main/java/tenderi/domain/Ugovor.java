@@ -169,16 +169,23 @@ public class Ugovor implements Serializable {
     }
 
     public Integer getIznosUgovoraBezPdf() {
+
+
         return this.iznosUgovoraBezPdf;
     }
 
     public Ugovor iznosUgovoraBezPdf(Integer iznosUgovoraBezPdf) {
-        this.iznosUgovoraBezPdf = iznosUgovoraBezPdf;
-        return this;
+       this.iznosUgovoraBezPdf = iznosUgovoraBezPdf;
+       return this;
     }
 
     public void setIznosUgovoraBezPdf(Integer iznosUgovoraBezPdf) {
+//        if (iznosUgovoraBezPdf>100)
+//            this.iznosUgovoraBezPdf = iznosUgovoraBezPdf;
+//        else System.out.println("ne moze manje od 100");
+
         this.iznosUgovoraBezPdf = iznosUgovoraBezPdf;
+
     }
 
     public Integer getSifraPostupka() {
