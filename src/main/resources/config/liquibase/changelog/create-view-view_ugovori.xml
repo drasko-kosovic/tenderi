@@ -18,7 +18,8 @@
         ponudjaci.odgovorno_lice,
         ponudjaci.adresa_ponudjaca,
         ponudjaci.banka_racun,
-        postupci.datum_objave
+        postupci.datum_objave,
+        postupci.vrsta_postupka
         FROM ((ugovor
         JOIN ponudjaci ON
         (

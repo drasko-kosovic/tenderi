@@ -64,6 +64,8 @@ public class UgovorPdf implements Serializable {
     public LocalDate getDatumObjave() {
         return datumObjave;
     }
+    @Column(name = "vrsta_postupka")
+    private String vrstaPostupka;
 
     public Long getId() {
         return id;
@@ -119,5 +121,9 @@ public class UgovorPdf implements Serializable {
 
     public String getBankaRacun() {
         return bankaRacun;
+    }
+
+    public String getVrstaPostupka() {
+        return vrstaPostupka;
     }
 }
