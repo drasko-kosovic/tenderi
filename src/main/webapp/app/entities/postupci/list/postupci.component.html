@@ -1,4 +1,4 @@
-<mat-card class="example-container mat-elevation-z24" style="margin-top: 20px; margin-left: 20px; margin-right: 20px; margin-bottom: 20px">
+<mat-card class="example-container mat-elevation-z24" >
   <button
     *jhiHasAnyAuthority="'ROLE_ADMIN'"
     id="jh-create-entity"
@@ -61,6 +61,6 @@
 
   <mat-paginator [pageSizeOptions]="[5, 10, 20]" showFirstLastButtons></mat-paginator>
   <button type="button" id="cancel-save" mat-raised-button color="warn" (click)="previousState()">
-    <fa-icon icon="ban"></fa-icon>&nbsp;<span jhiTranslate="entity.action.cancel">Vrati se na postupke</span>
+    <fa-icon icon="ban"></fa-icon>&nbsp;<span >Vrati se na postupke</span>
   </button>
 </mat-card>

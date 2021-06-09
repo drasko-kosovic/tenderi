@@ -30,14 +30,6 @@ export class PostupciListComponent implements OnInit, AfterViewInit {
     protected modalService: NgbModal
   ) {}
 
-  // public getAllPostupak(): void {
-  //   this.postupciService.postupakAll().subscribe((res: IPonude[]) => {
-  //     this.dataSource.data = res;
-  //     // eslint-disable-next-line no-console
-  //     console.log(res);
-  //   });
-
-  // }
   loadAll(): void {
     this.postupciService.query().subscribe((res: HttpResponse<IPostupci[]>) => {
       this.dataSource.data = res.body ?? [];
