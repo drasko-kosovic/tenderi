@@ -83,28 +83,6 @@
                 </small>
               </div>
             </div>
-
-            <div class="form-group">
-              <mat-form-field>
-                <mat-label>Naziv Ponudjac</mat-label>
-                <input matInput name="nazivPonudjaca" id="nazivPonudjaca" placeholder="" formControlName="nazivPonudjaca" #nazivPonudjac />
-              </mat-form-field>
-              <div
-                *ngIf="
-                editForm.get('nazivPonudjaca')!.invalid &&
-                (editForm.get('nazivPonudjaca')!.dirty || editForm.get('nazivPonudjaca')!.touched)
-              "
-              >
-                <small
-                  class="form-text text-danger"
-                  *ngIf="editForm.get('nazivPonudjaca')?.errors?.required"
-                  jhiTranslate="entity.validation.required"
-                >
-                  This field is required.
-                </small>
-              </div>
-            </div>
-
             <div class="form-group">
               <mat-form-field>
                 <mat-label>Broj i DatumTenderske Dokumntacije</mat-label>

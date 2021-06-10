@@ -52,6 +52,14 @@ public class Ugovor implements Serializable {
     @Column(name = "sifra_postupka", nullable = false)
     private Integer sifraPostupka;
 
+    public Ponudjaci getPonudjaci() {
+        return ponudjaci;
+    }
+
+    public void setPonudjaci(Ponudjaci ponudjaci) {
+        this.ponudjaci = ponudjaci;
+    }
+
     @NotNull
     @Column(name = "sifra_ponude", nullable = false)
     private Integer sifraPonude;
@@ -59,6 +67,10 @@ public class Ugovor implements Serializable {
     @NotNull
     @Column(name = "sifra_ponudjaca", nullable = false)
     private Integer sifraPonudjaca;
+
+    @OneToOne
+    @JoinColumn(unique = true)
+    private Ponudjaci ponudjaci;
 
     // jhipster-needle-entity-add-field - JHipster will add fields here
     public Long getId() {
