@@ -155,9 +155,7 @@ public class UgovorResource {
                     if (ugovor.getSifraPonude() != null) {
                         existingUgovor.setSifraPonude(ugovor.getSifraPonude());
                     }
-                    if (ugovor.getSifraPonudjaca() != null) {
-                        existingUgovor.setSifraPonudjaca(ugovor.getSifraPonudjaca());
-                    }
+
 
                     return existingUgovor;
                 }

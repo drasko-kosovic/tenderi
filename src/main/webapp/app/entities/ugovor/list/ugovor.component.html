@@ -31,11 +31,6 @@
       <td mat-cell *matCellDef="let element">{{ element.sifraPonude }}</td>
       <td mat-footer-cell *matFooterCellDef></td>
     </ng-container>
-    <ng-container matColumnDef="sifra ponudjaca">
-      <th mat-header-cell *matHeaderCellDef mat-sort-header>Sifra Ponudjaca</th>
-      <td mat-cell *matCellDef="let element">{{ element.sifraPonudjaca }}</td>
-      <td mat-footer-cell *matFooterCellDef></td>
-    </ng-container>
     <ng-container matColumnDef="broj ugovora">
       <th mat-header-cell *matHeaderCellDef mat-sort-header>Broj Ugovora</th>
       <td mat-cell *matCellDef="let element">{{ element.brojUgovora }}</td>
@@ -53,7 +48,7 @@
     </ng-container>
     <ng-container matColumnDef="naziv ponudjaca">
       <th mat-header-cell *matHeaderCellDef mat-sort-header>Ponudjac</th>
-      <td mat-cell *matCellDef="let element">{{ element.nazivPonudjaca }}</td>
+      <td mat-cell *matCellDef="let element">{{ element.ponudjaci.nazivPonudjaca}}</td>
       <td mat-footer-cell *matFooterCellDef></td>
     </ng-container>
 

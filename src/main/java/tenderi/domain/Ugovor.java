@@ -64,11 +64,7 @@ public class Ugovor implements Serializable {
     @Column(name = "sifra_ponude", nullable = false)
     private Integer sifraPonude;
 
-    @NotNull
-    @Column(name = "sifra_ponudjaca", nullable = false)
-    private Integer sifraPonudjaca;
-
-    @OneToOne
+   @OneToOne
     @JoinColumn(unique = true)
     private Ponudjaci ponudjaci;
 
@@ -211,20 +207,6 @@ public class Ugovor implements Serializable {
         this.sifraPonude = sifraPonude;
     }
 
-    public Integer getSifraPonudjaca() {
-        return this.sifraPonudjaca;
-    }
-
-    public Ugovor sifraPonudjaca(Integer sifraPonudjaca) {
-        this.sifraPonudjaca = sifraPonudjaca;
-        return this;
-    }
-
-    public void setSifraPonudjaca(Integer sifraPonudjaca) {
-        this.sifraPonudjaca = sifraPonudjaca;
-    }
-
-    // jhipster-needle-entity-add-getters-setters - JHipster will add getters and setters here
 
     @Override
     public boolean equals(Object o) {
@@ -257,7 +239,6 @@ public class Ugovor implements Serializable {
             ", iznosUgovoraBezPdf=" + getIznosUgovoraBezPdf() +
             ", sifraPostupka=" + getSifraPostupka() +
             ", sifraPonude=" + getSifraPonude() +
-            ", sifraPonudjaca=" + getSifraPonudjaca() +
-            "}";
+              "}";
     }
 }

@@ -12,7 +12,7 @@ export interface IUgovor {
   iznosUgovoraBezPdf?: number;
   sifraPostupka?: number;
   sifraPonude?: number;
-  sifraPonudjaca?: number;
+  ponudjaci_id?:number;
 }
 
 export class Ugovor implements IUgovor {
@@ -28,7 +28,7 @@ export class Ugovor implements IUgovor {
     public iznosUgovoraBezPdf?: number,
     public sifraPostupka?: number,
     public sifraPonude?: number,
-    public sifraPonudjaca?: number
+    public ponudjaci_id?: number
   ) {}
 }
 

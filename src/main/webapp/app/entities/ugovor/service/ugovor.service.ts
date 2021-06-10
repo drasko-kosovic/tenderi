@@ -10,6 +10,8 @@ import { ApplicationConfigService } from 'app/core/config/application-config.ser
 import { createRequestOption } from 'app/core/request/request-util';
 import { IUgovor, getUgovorIdentifier } from '../ugovor.model';
 import {SERVER_API_URL} from "app/app.constants";
+import {IPonude} from "app/entities/ponude/ponude.model";
+
 
 export type EntityResponseType = HttpResponse<IUgovor>;
 export type EntityArrayResponseType = HttpResponse<IUgovor[]>;
@@ -71,7 +73,9 @@ export class UgovorService {
   delete(id: number): Observable<HttpResponse<{}>> {
     return this.http.delete(`${this.resourceUrl}/${id}`, { observe: 'response' });
   }
-
+  ponudjaciAll(): any {
+    return this.http.get<IPonude[]>(this.resourceUrl);
+  }
   addUgovorToCollectionIfMissing(ugovorCollection: IUgovor[], ...ugovorsToCheck: (IUgovor | null | undefined)[]): IUgovor[] {
     const ugovors: IUgovor[] = ugovorsToCheck.filter(isPresent);
     if (ugovors.length > 0) {

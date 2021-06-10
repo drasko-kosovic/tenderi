@@ -3,8 +3,8 @@
   <changeSet author="Drasko" id="create-view-ugovor">
     <createView catalogName="vrednovanje-esjn" schemaName="public" viewName="view_ugovor">
         SELECT
-        ugovor.sifra_ponudjaca,
-        ugovor.id,
+        postupci.datum_objave,
+        postupci.vrsta_postupka,
         ugovor.broj_ugovora,
         ugovor.datum_ugovora,
         ugovor.predmet_ugovora,
@@ -14,16 +14,11 @@
         ugovor.iznos_ugovora_bez_pdf,
         ugovor.sifra_postupka,
         ugovor.sifra_ponude,
-        ponudjaci.odgovorno_lice,
-        ponudjaci.adresa_ponudjaca,
-        ponudjaci.banka_racun,
-        postupci.datum_objave,
-        postupci.vrsta_postupka,
-        ponudjaci.naziv_ponudjaca
+        ugovor.ponudjaci_id
         FROM ((ugovor
         JOIN ponudjaci ON
         (
-        (ugovor.sifra_ponudjaca = ponudjaci.id)
+        (ugovor.ponudjaci_id = ponudjaci.id)
         ))
         JOIN postupci ON
         (

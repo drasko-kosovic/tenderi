@@ -12,7 +12,6 @@ import { MatPaginator } from '@angular/material/paginator';
 import { ActivatedRoute, Router } from '@angular/router';
 import { AccountService } from 'app/core/auth/account.service';
 
-
 @Component({
   selector: 'jhi-ugovor',
   templateUrl: './ugovor.component.html',
@@ -26,7 +25,6 @@ export class UgovorComponent implements AfterViewInit, OnChanges, OnInit {
   public displayedColumns = [
     'sifra postupka',
     'sifra ponude',
-    'sifra ponudjaca',
     'broj ugovora',
     'datum ugovora',
     'predmet ugovora',
@@ -79,6 +77,7 @@ export class UgovorComponent implements AfterViewInit, OnChanges, OnInit {
 
   ngOnInit(): void {
     this.authSubscription = this.accountService.getAuthenticationState().subscribe(account => (this.account = account));
+  this.getAllPonudjaci();
   }
 
   printUgovor(broj:string): any {
@@ -86,6 +85,14 @@ export class UgovorComponent implements AfterViewInit, OnChanges, OnInit {
       const file = new Blob([response], { type: 'application/pdf' });
       const fileURL = URL.createObjectURL(file);
       window.open(fileURL);
+    });
+  }
+
+  public getAllPonudjaci(): void {
+    this.ugovorService.ponudjaciAll().subscribe((res: IUgovor[]) => {
+     this.ugovor = res;
+      // eslint-disable-next-line no-console
+      console.log(res);
     });
   }
 

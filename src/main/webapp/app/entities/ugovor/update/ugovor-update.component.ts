@@ -19,6 +19,7 @@ import {IPonude} from "app/entities/ponude/ponude.model";
 export class UgovorUpdateComponent implements OnInit {
   isSaving = false;
   ponudjacis?: IPonudjaci[];
+  ugovori?:IUgovor[];
 
   editForm = this.fb.group({
     id: [],
@@ -96,7 +97,7 @@ export class UgovorUpdateComponent implements OnInit {
       iznosUgovoraBezPdf: ugovor.iznosUgovoraBezPdf,
       sifraPostupka: ugovor.sifraPostupka,
       sifraPonude: ugovor.sifraPonude,
-      sifraPondjaca: ugovor.sifraPonudjaca,
+      ponudjaci_id: ugovor.ponudjaci_id,
     });
   }
 
@@ -113,7 +114,7 @@ export class UgovorUpdateComponent implements OnInit {
       iznosUgovoraBezPdf: this.editForm.get(['iznosUgovoraBezPdf'])!.value,
       sifraPostupka: this.editForm.get(['sifraPostupka'])!.value,
       sifraPonude: this.editForm.get(['sifraPonude'])!.value,
-      sifraPonudjaca: this.editForm.get(['sifraPonudjaca'])!.value,
+      ponudjaci_id: this.editForm.get(['ponudjaci_id'])!.value,
     };
   }
 }
