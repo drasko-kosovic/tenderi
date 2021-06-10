@@ -148,7 +148,8 @@ public class ExcelUtilsSpecifikacije {
 
                             break;
 
-
+                        default:
+                            break;
                     }
 
                     cellIdx++;
