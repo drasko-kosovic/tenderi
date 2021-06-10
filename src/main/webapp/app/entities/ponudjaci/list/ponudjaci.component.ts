@@ -52,7 +52,9 @@ export class PonudjaciComponent implements AfterViewInit, OnInit {
       console.log(res);
     });
   }
-
+  previousState(): void {
+    window.history.back();
+  }
   delete(ponudjaci: IPonudjaci[]): void {
     const modalRef = this.modalService.open(PonudjaciDeleteDialogComponent, { backdrop: 'static' });
     modalRef.componentInstance.ponudjaci = ponudjaci;

@@ -1,6 +1,6 @@
 mat-card {
-  width: 350px;
-  height: 900px;
+  width: 550px;
+  height: 100%;
   display: block;
   margin-left: auto;
   margin-right: auto;
@@ -10,6 +10,25 @@ section {
   vertical-align: middle;
   height: 100%;
 }
-input{
+.mat-form-field-infix {
+  display: block;
+  position: relative;
+  flex: auto;
+  min-width: 0;
+  width: 300px;
+}
+.mat-form-field-infix.ng-tns-c141-97 {
+  background-color: red;
+}
+.mat-form-field-appearance-legacy .mat-form-field-infix {
+  padding: 0.4375em 0;
+}
+#brojUgovora{
+  width: 300px;
+}
+.manje-polje{
   width: 100px;
+}
+mat-form-field{
+  width: 300px;
 }

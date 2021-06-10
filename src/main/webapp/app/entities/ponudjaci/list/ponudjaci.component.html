@@ -68,4 +68,8 @@
     <tr mat-footer-row *matFooterRowDef="displayedColumns"></tr>
   </table>
   <mat-paginator [pageSizeOptions]="[5, 10, 20]" showFirstLastButtons></mat-paginator>
+  <button type="button" id="cancel-save" mat-raised-button color="warn"
+          (click)="previousState()">
+    <fa-icon icon="ban"></fa-icon>&nbsp;<span jhiTranslate="entity.action.cancel">Cancel</span>
+  </button>
 </mat-card>

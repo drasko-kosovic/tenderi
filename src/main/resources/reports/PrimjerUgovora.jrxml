@@ -1,5 +1,5 @@
 <?xml version="1.0" encoding="UTF-8"?>
-<!-- Created with Jaspersoft Studio version 6.12.2.final using JasperReports Library version 6.12.2-75c5e90a222ab406e416cbf590a5397028a52de3  -->
+<!-- Created with Jaspersoft Studio version 6.17.0.final using JasperReports Library version 6.17.0-6d93193241dd8cc42629e188b94f9e0bc5722efd  -->
 <jasperReport xmlns="http://jasperreports.sourceforge.net/jasperreports" xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xsi:schemaLocation="http://jasperreports.sourceforge.net/jasperreports http://jasperreports.sourceforge.net/xsd/jasperreport.xsd" name="PrimjerUgovora" pageWidth="595" pageHeight="842" columnWidth="555" leftMargin="20" rightMargin="20" topMargin="20" bottomMargin="20" uuid="ecb7461a-a61e-43cc-962e-9877fe579f3d">
     <property name="com.jaspersoft.studio.data.sql.tables" value=""/>
     <property name="com.jaspersoft.studio.data.defaultdataadapter" value="DataAdapter ESJN.xml"/>
@@ -8,7 +8,7 @@
     <queryString language="SQL">
         <![CDATA[select * from  view_ugovor]]>
     </queryString>
-     <field name="brojUgovora" class="java.lang.String">
+    <field name="brojUgovora" class="java.lang.String">
         <property name="com.jaspersoft.studio.field.label" value="brojUgovora"/>
         <property name="com.jaspersoft.studio.field.tree.path" value="view_ugovor"/>
         <property name="com.jaspersoft.studio.field.name" value="brojUgovora"/>
@@ -99,7 +99,7 @@ Zaključen između:
      i
 
 
-2.	Ponuđača                                                                                       ,                                                         , koga zastupa izvršni direktor  ,                                                     (u daljem tekstu Dobavljač).
+2.	Ponuđača                                                                       ,                                                                         , koga zastupa izvršni direktor  ,                                         (u daljem tekstu Dobavljač).
 
 
 Ugovorne strane su se sporazumjele o sljedećem:
@@ -111,14 +111,14 @@ OSNOV UGOVORA
 
 Tenderska dokumentacija za otvoreni postupak javne nabavke za nabavku ampuliranih ljekova za potrebe Zdravstvene  ustanove Apoteke Crne Gore Montefarm i JZU Crne Gore :
 Broj i datum Odluke o izboru najpovoljnije ponude  :
-Ponuda ponuđača                      broj :
+Ponuda ponuđača                        broj :
 
 
 I PREDMET UGOVORA
 
 Član 1.
 
-Predmet ovog ugovora je nabavka ljekova Naručiocu od strane Dobavljača, za partije , u svemu prema prihvaćenoj ponudi Dobavljača broj:                         , koja čini sastavni dio ovog ugovora ,dostavljenoj po Tenderskoj dokumentaciji broj:                                      za otvoreni postupak javne nabavke za izbor najpovoljnije ponude za nabavku ampuliranih ljekova, objavljenom na portalu CeJN,dana:
+Predmet ovog ugovora je nabavka ljekova Naručiocu od strane Dobavljača, za partije , u svemu prema prihvaćenoj ponudi Dobavljača broj:                         , koja čini sastavni dio ovog ugovora ,dostavljenoj po Tenderskoj dokumentaciji broj:                             za otvoreni postupak javne nabavke za izbor najpovoljnije ponude za nabavku ampuliranih ljekova, objavljenom na portalu CeJN,dana:
  i Odluke o izboru najpovoljnije ponude  broj :
 II CIJENA I NAČIN PLAĆANJA
 
@@ -126,8 +126,8 @@ II CIJENA I NAČIN PLAĆANJA
 
 
 
-       Ukupna vrijednost ovog ugovora iznosi:                bez PDV-a.
-       Ukupna vrijednost ovog ugovora iznosi:                sa PDV-om.
+       Ukupna vrijednost ovog ugovora iznosi:              bez PDV-a.
+       Ukupna vrijednost ovog ugovora iznosi:              sa PDV-om.
 
 
 
@@ -135,7 +135,7 @@ Za isporučene ljekove ( u daljem tekstu: roba),  koji su predmet ovog ugovora, 
 
 Faktura mora da sadrži broj ugovora po kojem se plaćanje vrši.
 
-Plaćanje će se vršiti na žiro račun Dobavljača broj:                                                               , u rokovima predviđenim ponudom Dobavljača, virmanskim putem ili doznakom na račun Dobavljača.Valuta plaćanja je euro.
+Plaćanje će se vršiti na žiro račun Dobavljača broj:                                                                       , u rokovima predviđenim ponudom Dobavljača, virmanskim putem ili doznakom na račun Dobavljača.Valuta plaćanja je euro.
 
 
 
@@ -158,18 +158,19 @@ Roba mora biti u paletama pakovanja sledećih dimenzija: dužina 120 cm, širina
                 <textFieldExpression><![CDATA[$F{brojUgovora}]]></textFieldExpression>
             </textField>
             <textField>
-                <reportElement x="110" y="160" width="100" height="15" uuid="d8c9b2ce-3f99-4397-8d7f-09a79352adf9"/>
+                <reportElement x="110" y="160" width="80" height="15" uuid="d8c9b2ce-3f99-4397-8d7f-09a79352adf9"/>
                 <textFieldExpression><![CDATA[$F{nazivPonudjaca}]]></textFieldExpression>
             </textField>
             <textField>
-                <reportElement x="380" y="160" width="170" height="15" uuid="4dc58d72-2468-479b-977c-d29b7c6d1f62">
+                <reportElement x="330" y="160" width="220" height="15" uuid="4dc58d72-2468-479b-977c-d29b7c6d1f62">
                     <property name="com.jaspersoft.studio.unit.height" value="px"/>
                     <property name="com.jaspersoft.studio.unit.y" value="px"/>
+                    <property name="com.jaspersoft.studio.unit.width" value="px"/>
                 </reportElement>
                 <textFieldExpression><![CDATA[$F{bankaRacun}]]></textFieldExpression>
             </textField>
             <textField>
-                <reportElement x="180" y="172" width="160" height="15" uuid="5cda5c8e-6788-4b55-a19a-d53b63c45266">
+                <reportElement x="180" y="172" width="120" height="15" uuid="5cda5c8e-6788-4b55-a19a-d53b63c45266">
                     <property name="com.jaspersoft.studio.unit.height" value="px"/>
                     <property name="com.jaspersoft.studio.unit.y" value="px"/>
                 </reportElement>
@@ -183,7 +184,7 @@ Roba mora biti u paletama pakovanja sledećih dimenzija: dužina 120 cm, širina
                 <textFieldExpression><![CDATA[$F{brojDatumTenderskeDokumntacije}]]></textFieldExpression>
             </textField>
             <textField>
-                <reportElement x="280" y="311" width="165" height="15" uuid="752ca186-8127-4b4f-8f68-231a5b397e9e">
+                <reportElement x="280" y="312" width="165" height="15" uuid="752ca186-8127-4b4f-8f68-231a5b397e9e">
                     <property name="com.jaspersoft.studio.unit.y" value="px"/>
                 </reportElement>
                 <textFieldExpression><![CDATA[$F{brojDatumOdlukeIzbora}]]></textFieldExpression>
@@ -203,14 +204,14 @@ Roba mora biti u paletama pakovanja sledećih dimenzija: dužina 120 cm, širina
                 <textFieldExpression><![CDATA[$F{brojDatumPonude}]]></textFieldExpression>
             </textField>
             <textField>
-                <reportElement x="200" y="416" width="130" height="15" uuid="b8de104f-b694-4b56-9d31-ecfa7fecf8b9">
+                <reportElement x="200" y="416" width="70" height="15" uuid="b8de104f-b694-4b56-9d31-ecfa7fecf8b9">
                     <property name="com.jaspersoft.studio.unit.height" value="px"/>
                     <property name="com.jaspersoft.studio.unit.y" value="px"/>
                 </reportElement>
                 <textFieldExpression><![CDATA[$F{brojDatumPonude}]]></textFieldExpression>
             </textField>
             <textField>
-                <reportElement x="170" y="428" width="110" height="15" uuid="bf3ed294-e1e3-4f88-8537-da7f6171e450">
+                <reportElement x="170" y="428" width="90" height="15" uuid="bf3ed294-e1e3-4f88-8537-da7f6171e450">
                     <property name="com.jaspersoft.studio.unit.height" value="px"/>
                     <property name="com.jaspersoft.studio.unit.y" value="px"/>
                 </reportElement>
@@ -238,14 +239,14 @@ Roba mora biti u paletama pakovanja sledećih dimenzija: dužina 120 cm, širina
                 <textFieldExpression><![CDATA[$F{iznosUgovoraBezPdf}]]></textFieldExpression>
             </textField>
             <textField>
-                <reportElement x="270" y="650" width="160" height="15" uuid="604b143d-c126-4dad-9a5d-91c2f7a097e4">
+                <reportElement x="270" y="650" width="220" height="15" uuid="604b143d-c126-4dad-9a5d-91c2f7a097e4">
                     <property name="com.jaspersoft.studio.unit.height" value="px"/>
                     <property name="com.jaspersoft.studio.unit.y" value="px"/>
                 </reportElement>
                 <textFieldExpression><![CDATA[$F{bankaRacun}]]></textFieldExpression>
             </textField>
             <textField>
-                <reportElement x="470" y="440" width="80" height="15" uuid="c4cf2a55-effb-4c20-bd00-b5cc44acacef">
+                <reportElement x="400" y="440" width="150" height="15" uuid="c4cf2a55-effb-4c20-bd00-b5cc44acacef">
                     <property name="com.jaspersoft.studio.unit.height" value="px"/>
                     <property name="com.jaspersoft.studio.unit.y" value="px"/>
                     <property name="com.jaspersoft.studio.unit.width" value="px"/>
@@ -253,7 +254,7 @@ Roba mora biti u paletama pakovanja sledećih dimenzija: dužina 120 cm, širina
                 <textFieldExpression><![CDATA[$F{datumObjave}]]></textFieldExpression>
             </textField>
             <textField>
-                <reportElement x="220" y="160" width="150" height="15" uuid="d66bf8ef-debc-4603-9f63-95fe68a6ae94">
+                <reportElement x="193" y="160" width="126" height="15" uuid="d66bf8ef-debc-4603-9f63-95fe68a6ae94">
                     <property name="com.jaspersoft.studio.unit.height" value="px"/>
                 </reportElement>
                 <textFieldExpression><![CDATA[$F{adresaPonudjaca}]]></textFieldExpression>
@@ -386,11 +387,10 @@ Ugovorne strane saglasno izjavljuju da su pročitale, razumjele i da ugovorne od
 
 
  UGOVORNA STRANA                 		                                    UGOVORNA STRANA
-       DOBAVLJAČ     		                                                               N A R U Č I L A C
-     Izvršni direktor,								 Direktor,
-   Mirjana Mijušković, dipl ecc    			     		Radoman Dragaš, dipl. ecc
+       DOBAVLJAČ     		                                                                N A R U Č I L A C
+     Izvršni direktor,							  Direktor,
+   Mirjana Mijušković, dipl ecc
 
-_________________________________________                                                            _________________________________________
 
 ]]></text>
             </staticText>
