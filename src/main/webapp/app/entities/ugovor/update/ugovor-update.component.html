@@ -250,11 +250,25 @@
                 </small>
               </div>
 
+
+
+              <mat-form-field >
+                <mat-label>Sifra Ponudjaca</mat-label>
+                <mat-select formControlName="sifraPonudjaca" #sifraPonudjaca >
+                  <mat-option></mat-option>
+                  <mat-option *ngFor="let foo of ponudjacis " [value]="foo.id">
+                    {{foo.nazivPonudjaca }}
+                  </mat-option>
+
+                </mat-select>
+              </mat-form-field>
+
+
               <div class="form-group">
-                <mat-form-field>
-                  <mat-label>Sifra Ponudjaca</mat-label>
-                  <input matInput name="sifraPonudjaca" id="sifraPonudjaca" placeholder="" formControlName="sifraPonudjaca" #sifraPonudjaca />
-                </mat-form-field>
+<!--                <mat-form-field>-->
+<!--                  <mat-label>Sifra Ponudjaca</mat-label>-->
+<!--                  <input matInput name="sifraPonudjaca" id="sifraPonudjaca" placeholder="" formControlName="sifraPonudjaca" #sifraPonudjaca />-->
+<!--                </mat-form-field>-->
                 <div
                   *ngIf="
                   editForm.get('sifraPostupka')!.invalid &&

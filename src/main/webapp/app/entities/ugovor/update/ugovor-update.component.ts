@@ -7,6 +7,9 @@ import { finalize } from 'rxjs/operators';
 
 import { IUgovor, Ugovor } from '../ugovor.model';
 import { UgovorService } from '../service/ugovor.service';
+import {IPonudjaci} from "app/entities/ponudjaci/ponudjaci.model";
+import {PonudjaciService} from "app/entities/ponudjaci/service/ponudjaci.service";
+import {IPonude} from "app/entities/ponude/ponude.model";
 
 @Component({
   selector: 'jhi-ugovor-update',
@@ -15,6 +18,7 @@ import { UgovorService } from '../service/ugovor.service';
 })
 export class UgovorUpdateComponent implements OnInit {
   isSaving = false;
+  ponudjacis?: IPonudjaci[];
 
   editForm = this.fb.group({
     id: [],
@@ -31,14 +35,22 @@ export class UgovorUpdateComponent implements OnInit {
     sifraPonude: [null, [Validators.required]],
   });
 
-  constructor(protected ugovorService: UgovorService, protected activatedRoute: ActivatedRoute, protected fb: FormBuilder) {}
+  constructor(protected ugovorService: UgovorService, protected activatedRoute: ActivatedRoute, protected fb: FormBuilder,
+              protected ponudjaciService:PonudjaciService) {}
 
   ngOnInit(): void {
     this.activatedRoute.data.subscribe(({ ugovor }) => {
       this.updateForm(ugovor);
+      this.getAllPonudjaci();
     });
   }
-
+  public getAllPonudjaci(): void {
+    this.ponudjaciService.ponudjaciAll().subscribe((res: IPonude[]) => {
+      this.ponudjacis = res;
+      // eslint-disable-next-line no-console
+      console.log(res);
+    });
+  }
   previousState(): void {
     window.history.back();
   }
