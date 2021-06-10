@@ -31,9 +31,6 @@ public class Ugovor implements Serializable {
     @Column(name = "predmet_ugovora", nullable = false)
     private String predmetUgovora;
 
-    @NotNull
-    @Column(name = "naziv_ponudjaca", nullable = false)
-    private String nazivPonudjaca;
 
     @NotNull
     @Column(name = "broj_datum_tenderske_dokumntacije", nullable = false)
@@ -116,18 +113,6 @@ public class Ugovor implements Serializable {
         this.predmetUgovora = predmetUgovora;
     }
 
-    public String getNazivPonudjaca() {
-        return this.nazivPonudjaca;
-    }
-
-    public Ugovor nazivPonudjaca(String nazivPonudjaca) {
-        this.nazivPonudjaca = nazivPonudjaca;
-        return this;
-    }
-
-    public void setNazivPonudjaca(String nazivPonudjaca) {
-        this.nazivPonudjaca = nazivPonudjaca;
-    }
 
     public String getBrojDatumTenderskeDokumntacije() {
         return this.brojDatumTenderskeDokumntacije;
@@ -254,7 +239,6 @@ public class Ugovor implements Serializable {
             ", brojUgovora='" + getBrojUgovora() + "'" +
             ", datumUgovora='" + getDatumUgovora() + "'" +
             ", predmetUgovora='" + getPredmetUgovora() + "'" +
-            ", nazivPonudjaca='" + getNazivPonudjaca() + "'" +
             ", brojDatumTenderskeDokumntacije='" + getBrojDatumTenderskeDokumntacije() + "'" +
             ", brojDatumOdlukeIzbora='" + getBrojDatumOdlukeIzbora() + "'" +
             ", brojDatumPonude='" + getBrojDatumPonude() + "'" +

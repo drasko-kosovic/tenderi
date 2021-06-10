@@ -136,9 +136,7 @@ public class UgovorResource {
                     if (ugovor.getPredmetUgovora() != null) {
                         existingUgovor.setPredmetUgovora(ugovor.getPredmetUgovora());
                     }
-                    if (ugovor.getNazivPonudjaca() != null) {
-                        existingUgovor.setNazivPonudjaca(ugovor.getNazivPonudjaca());
-                    }
+
                     if (ugovor.getBrojDatumTenderskeDokumntacije() != null) {
                         existingUgovor.setBrojDatumTenderskeDokumntacije(ugovor.getBrojDatumTenderskeDokumntacije());
                     }

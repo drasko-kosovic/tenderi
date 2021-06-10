@@ -23,10 +23,7 @@
             <column name="predmet_ugovora" type="varchar(255)">
                 <constraints nullable="false" />
             </column>
-            <column name="naziv_ponudjaca" type="varchar(255)">
-                <constraints nullable="false" />
-            </column>
-            <column name="broj_datum_tenderske_dokumntacije" type="varchar(255)">
+           <column name="broj_datum_tenderske_dokumntacije" type="varchar(255)">
                 <constraints nullable="false" />
             </column>
             <column name="broj_datum_odluke_izbora" type="varchar(255)">
@@ -70,7 +67,6 @@
             <column name="broj_ugovora" type="string"/>
             <column name="datum_ugovora" type="date"/>
             <column name="predmet_ugovora" type="string"/>
-            <column name="naziv_ponudjaca" type="string"/>
             <column name="broj_datum_tenderske_dokumntacije" type="string"/>
             <column name="broj_datum_odluke_izbora" type="string"/>
             <column name="broj_datum_ponude" type="string"/>

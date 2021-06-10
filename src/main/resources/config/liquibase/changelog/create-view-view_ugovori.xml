@@ -8,7 +8,6 @@
         ugovor.broj_ugovora,
         ugovor.datum_ugovora,
         ugovor.predmet_ugovora,
-        ugovor.naziv_ponudjaca,
         ugovor.broj_datum_tenderske_dokumntacije,
         ugovor.broj_datum_odluke_izbora,
         ugovor.broj_datum_ponude,
@@ -19,7 +18,8 @@
         ponudjaci.adresa_ponudjaca,
         ponudjaci.banka_racun,
         postupci.datum_objave,
-        postupci.vrsta_postupka
+        postupci.vrsta_postupka,
+        ponudjaci.naziv_ponudjaca
         FROM ((ugovor
         JOIN ponudjaci ON
         (
