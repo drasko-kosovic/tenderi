@@ -13,8 +13,7 @@
         ugovor.broj_datum_ponude,
         ugovor.iznos_ugovora_bez_pdf,
         ugovor.sifra_postupka,
-        ugovor.sifra_ponude,
-        ugovor.ponudjaci_id
+        ugovor.sifra_ponude
         FROM ((ugovor
         JOIN ponudjaci ON
         (

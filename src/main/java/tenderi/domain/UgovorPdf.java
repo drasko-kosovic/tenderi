@@ -67,6 +67,7 @@ public class UgovorPdf implements Serializable {
     @Column(name = "vrsta_postupka")
     private String vrstaPostupka;
 
+
     public Long getId() {
         return id;
     }

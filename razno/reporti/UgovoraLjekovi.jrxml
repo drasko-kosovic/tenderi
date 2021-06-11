@@ -8,15 +8,13 @@
 	<queryString language="SQL">
 		<![CDATA[select * from  view_ugovor]]>
 	</queryString>
-	<field name="sifra_ponudjaca" class="java.lang.Integer">
-		<property name="com.jaspersoft.studio.field.label" value="sifra_ponudjaca"/>
+	<field name="datum_objave" class="java.sql.Date">
+		<property name="com.jaspersoft.studio.field.label" value="datum_objave"/>
 		<property name="com.jaspersoft.studio.field.tree.path" value="view_ugovor"/>
-		<property name="com.jaspersoft.studio.field.name" value="sifra_ponudjaca"/>
 	</field>
-	<field name="id" class="java.lang.Long">
-		<property name="com.jaspersoft.studio.field.label" value="id"/>
+	<field name="vrsta_postupka" class="java.lang.String">
+		<property name="com.jaspersoft.studio.field.label" value="vrsta_postupka"/>
 		<property name="com.jaspersoft.studio.field.tree.path" value="view_ugovor"/>
-		<property name="com.jaspersoft.studio.field.name" value="id"/>
 	</field>
 	<field name="broj_ugovora" class="java.lang.String">
 		<property name="com.jaspersoft.studio.field.label" value="broj_ugovora"/>
@@ -32,11 +30,6 @@
 		<property name="com.jaspersoft.studio.field.label" value="predmet_ugovora"/>
 		<property name="com.jaspersoft.studio.field.tree.path" value="view_ugovor"/>
 		<property name="com.jaspersoft.studio.field.name" value="predmet_ugovora"/>
-	</field>
-	<field name="naziv_ponudjaca" class="java.lang.String">
-		<property name="com.jaspersoft.studio.field.label" value="naziv_ponudjaca"/>
-		<property name="com.jaspersoft.studio.field.tree.path" value="view_ugovor"/>
-		<property name="com.jaspersoft.studio.field.name" value="naziv_ponudjaca"/>
 	</field>
 	<field name="broj_datum_tenderske_dokumntacije" class="java.lang.String">
 		<property name="com.jaspersoft.studio.field.label" value="broj_datum_tenderske_dokumntacije"/>
@@ -68,23 +61,8 @@
 		<property name="com.jaspersoft.studio.field.tree.path" value="view_ugovor"/>
 		<property name="com.jaspersoft.studio.field.name" value="sifra_ponude"/>
 	</field>
-	<field name="odgovorno_lice" class="java.lang.String">
-		<property name="com.jaspersoft.studio.field.label" value="odgovorno_lice"/>
-		<property name="com.jaspersoft.studio.field.tree.path" value="view_ugovor"/>
-		<property name="com.jaspersoft.studio.field.name" value="odgovorno_lice"/>
-	</field>
-	<field name="adresa_ponudjaca" class="java.lang.String">
-		<property name="com.jaspersoft.studio.field.label" value="adresa_ponudjaca"/>
-		<property name="com.jaspersoft.studio.field.tree.path" value="view_ugovor"/>
-		<property name="com.jaspersoft.studio.field.name" value="adresa_ponudjaca"/>
-	</field>
-	<field name="banka_racun" class="java.lang.String">
-		<property name="com.jaspersoft.studio.field.label" value="banka_racun"/>
-		<property name="com.jaspersoft.studio.field.tree.path" value="view_ugovor"/>
-		<property name="com.jaspersoft.studio.field.name" value="banka_racun"/>
-	</field>
-	<field name="datum_objave" class="java.sql.Date">
-		<property name="com.jaspersoft.studio.field.label" value="datum_objave"/>
+	<field name="ponudjaci_id" class="java.lang.Long">
+		<property name="com.jaspersoft.studio.field.label" value="ponudjaci_id"/>
 		<property name="com.jaspersoft.studio.field.tree.path" value="view_ugovor"/>
 	</field>
 	<background>
