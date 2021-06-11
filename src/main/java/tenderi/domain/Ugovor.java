@@ -10,7 +10,8 @@ import javax.validation.constraints.*;
  */
 @Entity
 @Table(name = "ugovor")
-public class Ugovor implements Serializable {
+public class
+Ugovor implements Serializable {
 
     private static final long serialVersionUID = 1L;
 
@@ -225,20 +226,20 @@ public class Ugovor implements Serializable {
         return getClass().hashCode();
     }
 
-    // prettier-ignore
     @Override
     public String toString() {
         return "Ugovor{" +
-            "id=" + getId() +
-            ", brojUgovora='" + getBrojUgovora() + "'" +
-            ", datumUgovora='" + getDatumUgovora() + "'" +
-            ", predmetUgovora='" + getPredmetUgovora() + "'" +
-            ", brojDatumTenderskeDokumntacije='" + getBrojDatumTenderskeDokumntacije() + "'" +
-            ", brojDatumOdlukeIzbora='" + getBrojDatumOdlukeIzbora() + "'" +
-            ", brojDatumPonude='" + getBrojDatumPonude() + "'" +
-            ", iznosUgovoraBezPdf=" + getIznosUgovoraBezPdf() +
-            ", sifraPostupka=" + getSifraPostupka() +
-            ", sifraPonude=" + getSifraPonude() +
-              "}";
+            "id=" + id +
+            ", brojUgovora='" + brojUgovora + '\'' +
+            ", datumUgovora=" + datumUgovora +
+            ", predmetUgovora='" + predmetUgovora + '\'' +
+            ", brojDatumTenderskeDokumntacije='" + brojDatumTenderskeDokumntacije + '\'' +
+            ", brojDatumOdlukeIzbora='" + brojDatumOdlukeIzbora + '\'' +
+            ", brojDatumPonude='" + brojDatumPonude + '\'' +
+            ", iznosUgovoraBezPdf=" + iznosUgovoraBezPdf +
+            ", sifraPostupka=" + sifraPostupka +
+            ", sifraPonude=" + sifraPonude +
+            ", ponudjaci=" + ponudjaci +
+            '}';
     }
 }
