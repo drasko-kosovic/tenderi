@@ -44,6 +44,7 @@
         </p></button>
         <button mat-menu-item [hidden]="isAuthenticated()"><p  mat-list-item routerLink="login">
           <mat-icon>account_circle</mat-icon>
+
           <span>Prijavi se </span>
         </p></button>
         <button mat-menu-item [hidden]="!isAuthenticated()"> <p  mat-list-item (click)="logout()">
