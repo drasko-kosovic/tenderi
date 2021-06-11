@@ -9,7 +9,7 @@ import { IUgovor, Ugovor } from '../ugovor.model';
 import { UgovorService } from '../service/ugovor.service';
 import {IPonudjaci} from "app/entities/ponudjaci/ponudjaci.model";
 import {PonudjaciService} from "app/entities/ponudjaci/service/ponudjaci.service";
-import {IPonude} from "app/entities/ponude/ponude.model";
+
 
 @Component({
   selector: 'jhi-ugovor-update',
@@ -20,6 +20,7 @@ export class UgovorUpdateComponent implements OnInit {
   isSaving = false;
   ponudjacis?: IPonudjaci[];
   ugovori?:IUgovor[];
+  nadji?:any;
 
   editForm = this.fb.group({
     id: [],
@@ -31,7 +32,7 @@ export class UgovorUpdateComponent implements OnInit {
     brojDatumPonude: [null, [Validators.required]],
     iznosUgovoraBezPdf: [null, [Validators.required]],
     sifraPostupka: [null, [Validators.required]],
-    sifraPonudjaca: [null, [Validators.required]],
+    ponudjaci_id: [null, [Validators.required]],
     sifraPonude: [null, [Validators.required]],
   });
 
@@ -45,7 +46,7 @@ export class UgovorUpdateComponent implements OnInit {
     });
   }
   public getAllPonudjaci(): void {
-    this.ponudjaciService.ponudjaciAll().subscribe((res: IPonude[]) => {
+    this.ponudjaciService.ponudjaciAll().subscribe((res: IPonudjaci[]) => {
       this.ponudjacis = res;
       // eslint-disable-next-line no-console
       console.log(res);

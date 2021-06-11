@@ -232,7 +232,7 @@
 
               <mat-form-field >
                 <mat-label>Sifra Ponudjaca</mat-label>
-                <mat-select formControlName="sifraPonudjaca" #sifraPonudjaca >
+                <mat-select  [(ngModel)]="nadji" formControlName="ponudjaci_id" #ponudjaci_id >
                   <mat-option></mat-option>
                   <mat-option *ngFor="let foo of ponudjacis " [value]="foo.id">
                     {{foo.nazivPonudjaca }}
@@ -241,34 +241,6 @@
                 </mat-select>
               </mat-form-field>
 
-
-              <div class="form-group">
-<!--                <mat-form-field>-->
-<!--                  <mat-label>Sifra Ponudjaca</mat-label>-->
-<!--                  <input matInput name="sifraPonudjaca" id="sifraPonudjaca" placeholder="" formControlName="sifraPonudjaca" #sifraPonudjaca />-->
-<!--                </mat-form-field>-->
-                <div
-                  *ngIf="
-                  editForm.get('sifraPostupka')!.invalid &&
-                  (editForm.get('sifraPonudjaca')!.dirty || editForm.get('sifraPonudjaca')!.touched)
-                "
-                >
-                  <small
-                    class="form-text text-danger"
-                    *ngIf="editForm.get('sifraPonudjaca')?.errors?.required"
-                    jhiTranslate="entity.validation.required"
-                  >
-                    This field is required.
-                  </small>
-                  <small
-                    class="form-text text-danger"
-                    [hidden]="!editForm.get('sifraPonudjaca')?.errors?.number"
-                    jhiTranslate="entity.validation.number"
-                  >
-                    This field should be a number.
-                  </small>
-                </div>
-              </div>
             </div>
 
             <div class="form-group">
