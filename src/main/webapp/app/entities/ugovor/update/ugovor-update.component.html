@@ -232,9 +232,11 @@
 
               <mat-form-field >
                 <mat-label>Sifra Ponudjaca</mat-label>
-                <mat-select  [(ngModel)]="nadji" formControlName="ponudjaci_id" #ponudjaci_id >
+                <mat-select  formControlName="ponudjaci" #ponudjaci >
                   <mat-option></mat-option>
-                  <mat-option *ngFor="let foo of ponudjacis " [value]="foo.id">
+                  <mat-option
+                    [value]="foo.id === editForm.get('ponudjaci')!.value?.id ? editForm.get('ponudjaci')!.value : foo"
+                    *ngFor="let foo of ponudjacis " >
                     {{foo.nazivPonudjaca }}
                   </mat-option>
 

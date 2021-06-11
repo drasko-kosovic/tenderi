@@ -53,13 +53,6 @@ Ugovor implements Serializable {
     @Column(name = "sifra_postupka", nullable = false)
     private Integer sifraPostupka;
 
-    public Ponudjaci getPonudjaci() {
-        return ponudjaci;
-    }
-
-    public void setPonudjaci(Ponudjaci ponudjaci) {
-        this.ponudjaci = ponudjaci;
-    }
 
     @NotNull
     @Column(name = "sifra_ponude", nullable = false)
@@ -82,6 +75,21 @@ Ugovor implements Serializable {
         this.id = id;
         return this;
     }
+
+    public Ponudjaci getPonudjaci() {
+        return this.ponudjaci;
+    }
+
+    public Ugovor ponudjaci(Ponudjaci ponudjaci) {
+        this.setPonudjaci(ponudjaci);
+        return this;
+    }
+
+    public void setPonudjaci(Ponudjaci ponudjaci) {
+        this.ponudjaci = ponudjaci;
+    }
+
+
 
     public String getBrojUgovora() {
         return this.brojUgovora;

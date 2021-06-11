@@ -1,4 +1,5 @@
 import * as dayjs from 'dayjs';
+import {IPonudjaci} from "app/entities/ponudjaci/ponudjaci.model";
 
 export interface IUgovor {
   id?: number;
@@ -12,7 +13,8 @@ export interface IUgovor {
   iznosUgovoraBezPdf?: number;
   sifraPostupka?: number;
   sifraPonude?: number;
-  ponudjaci_id?:number;
+  ponudjaci?: IPonudjaci | null;
+
 }
 
 export class Ugovor implements IUgovor {
@@ -28,7 +30,8 @@ export class Ugovor implements IUgovor {
     public iznosUgovoraBezPdf?: number,
     public sifraPostupka?: number,
     public sifraPonude?: number,
-    public ponudjaci_id?: number
+    public ponudjaci?: IPonudjaci | null,
+
   ) {}
 }
 

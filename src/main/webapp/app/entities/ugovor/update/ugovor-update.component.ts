@@ -32,7 +32,7 @@ export class UgovorUpdateComponent implements OnInit {
     brojDatumPonude: [null, [Validators.required]],
     iznosUgovoraBezPdf: [null, [Validators.required]],
     sifraPostupka: [null, [Validators.required]],
-    ponudjaci_id: [null, [Validators.required]],
+    ponudjaci: [null, [Validators.required]],
     sifraPonude: [null, [Validators.required]],
   });
 
@@ -98,7 +98,7 @@ export class UgovorUpdateComponent implements OnInit {
       iznosUgovoraBezPdf: ugovor.iznosUgovoraBezPdf,
       sifraPostupka: ugovor.sifraPostupka,
       sifraPonude: ugovor.sifraPonude,
-      ponudjaci_id: ugovor.ponudjaci_id,
+      ponudjaci: ugovor.ponudjaci,
     });
   }
 
@@ -115,7 +115,7 @@ export class UgovorUpdateComponent implements OnInit {
       iznosUgovoraBezPdf: this.editForm.get(['iznosUgovoraBezPdf'])!.value,
       sifraPostupka: this.editForm.get(['sifraPostupka'])!.value,
       sifraPonude: this.editForm.get(['sifraPonude'])!.value,
-      ponudjaci_id: this.editForm.get(['ponudjaci_id'])!.value,
+      ponudjaci: this.editForm.get(['ponudjaci'])!.value,
     };
   }
 }
