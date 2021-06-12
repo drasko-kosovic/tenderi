@@ -11,6 +11,7 @@ import {MatSort} from "@angular/material/sort";
 import {MatPaginator} from "@angular/material/paginator";
 import {ActivatedRoute, Router} from "@angular/router";
 import {AccountService} from "app/core/auth/account.service";
+import {SERVER_API_URL} from "app/app.constants";
 
 
 @Component({
@@ -22,6 +23,7 @@ export class SpecifikacijeComponent implements AfterViewInit, OnChanges, OnInit 
   specifikacijes?: ISpecifikacije[];
   account: Account | null = null;
   authSubscription?: Subscription;
+  public resourceUrlExcelDownload= SERVER_API_URL + 'api/specifikacije/file';
   public displayedColumns = [
     'sifra postupka',
     'broj partije',
@@ -102,6 +104,6 @@ export class SpecifikacijeComponent implements AfterViewInit, OnChanges, OnInit 
     });
   }
   DownloadExcel():void{
-    window.location.href='http://localhost:8080/api/specifikacije/file';
+    window.location.href=this.resourceUrlExcelDownload;
   }
 }

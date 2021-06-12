@@ -12,6 +12,7 @@ import { Subscription } from 'rxjs';
 import { AccountService } from 'app/core/auth/account.service';
 import {PonudeDeleteDialogComponent} from "app/entities/ponude/delete/ponude-delete-dialog.component";
 import {IPonudePonudjaci} from "app/entities/ponude/ponude_ponudjaci.model";
+import {SERVER_API_URL} from "app/app.constants";
 
 @Component({
   selector: 'jhi-ponude',
@@ -26,6 +27,7 @@ export class PonudeComponent implements AfterViewInit, OnChanges, OnInit {
   ukupnaPonudjena?: number;
   nadjiPonudjaca?: any;
   selected = 'option2';
+  public resourceUrlExcelDownload= SERVER_API_URL + 'api/file';
   public displayedColumns = [
     'sifra postupka',
     'sifraPonude',
@@ -120,7 +122,7 @@ export class PonudeComponent implements AfterViewInit, OnChanges, OnInit {
 
   }
   DownloadExcel():void{
-    window.location.href='http://localhost:8080/api/file';
+    window.location.href=this.resourceUrlExcelDownload;
   }
   delete(ponude: IPonude[]): void {
     const modalRef = this.modalService.open(PonudeDeleteDialogComponent, {backdrop: 'static'});
