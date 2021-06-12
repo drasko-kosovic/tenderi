@@ -21,5 +21,5 @@ public interface PrvorangiraniRepository extends JpaRepository<Prvorangirani, Lo
     List<Prvorangirani> findBySifraPonude(@Param("sifraPonude") Integer sifra);
 
 
-    List<Prvorangirani>findPrvorangiraniBySifraPostupkaAndSifraPonude(Integer sifraPostupka,Integer sifraPonude);
+    List<Prvorangirani>findPrvorangiraniBySifraPonude(Integer sifraPonude);
 }

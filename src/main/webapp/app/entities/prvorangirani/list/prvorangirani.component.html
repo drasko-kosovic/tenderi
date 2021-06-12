@@ -2,7 +2,7 @@
   <mat-icon matPrefix>search</mat-icon>
   <input type="search" (keyup)="doFilter(box.value)" #box matInput placeholder="Ponudjac" />
 </mat-form-field>
-
+<button (click)="getPrvorangiraniPonude()"></button>
 <button
   mat-raised-button
   (click)="exporter.exportTable('xlsx', { fileName: 'Prvorangirani', sheet: 'sheet_prvorangirani', Props: { Author: 'Draskoa' } })"

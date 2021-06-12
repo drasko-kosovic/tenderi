@@ -9,7 +9,7 @@ export type EntityArrayResponseType = HttpResponse<IPrvorangirani[]>;
 @Injectable({ providedIn: 'root' })
 export class PrvorangiraniService {
   public resourceUrl = this.applicationConfigService.getEndpointFor('api/prvorangirani');
-  // public resourceUrlPostupak = this.applicationConfigService.getEndpointFor('api/prvorangirani');
+  public resourceUrlPostupak = this.applicationConfigService.getEndpointFor('api/prvorangirani?sifraPonude=');
   constructor(protected http: HttpClient, private applicationConfigService: ApplicationConfigService) {}
   prvorangiraniAll(): any {
     return this.http.get<IPrvorangirani[]>(this.resourceUrl);
@@ -21,5 +21,9 @@ export class PrvorangiraniService {
 
   findPostupak(sifraPostupka: number): any {
     return this.http.get<IPrvorangirani>(`${this.resourceUrl}/${sifraPostupka}`);
+  }
+
+  getPrvorangiraniPonude(sifraPonude:number): any {
+    return this.http.get(`${this.getPrvorangiraniPonude(sifraPonude)}${sifraPonude}` );
   }
 }

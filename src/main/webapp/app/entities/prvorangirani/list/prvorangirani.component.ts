@@ -71,4 +71,8 @@ export class PrvorangiraniComponent implements OnChanges, AfterViewInit {
   getTotalCost(): number {
     return <number>this.prvorangiranis?.map(t => t.ponudjenaVrijednost).reduce((acc, value) => acc! + value!, 0);
   }
+
+  getPrvorangiraniPonude():any{
+    this.prvorangiraniService.getPrvorangiraniPonude(456,124).subscribe();
+  }
 }
