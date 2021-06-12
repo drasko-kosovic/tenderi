@@ -4,7 +4,6 @@ import { NgbModal } from '@ng-bootstrap/ng-bootstrap';
 import { ISpecifikacije } from '../specifikacije.model';
 import { SpecifikacijeService } from '../service/specifikacije.service';
 import { SpecifikacijeDeleteDialogComponent } from '../delete/specifikacije-delete-dialog.component';
-import {IPonude} from "app/entities/ponude/ponude.model";
 import {Account} from "app/core/auth/account.model";
 import {Subscription} from "rxjs";
 import {MatTableDataSource} from "@angular/material/table";
@@ -37,7 +36,7 @@ export class SpecifikacijeComponent implements AfterViewInit, OnChanges, OnInit 
     'edit',
   ];
 
-  public dataSource = new MatTableDataSource<IPonude>();
+  public dataSource = new MatTableDataSource<ISpecifikacije>();
 
   @ViewChild(MatSort) sort!: MatSort;
   @ViewChild(MatPaginator) paginator!: MatPaginator;
@@ -71,14 +70,6 @@ export class SpecifikacijeComponent implements AfterViewInit, OnChanges, OnInit 
     });
   }
 
-  // public getAllPonude(): void {
-  //   this.ponudeService.ponudeAll().subscribe((res: IPonude[]) => {
-  //     this.dataSource.data = res;
-  //     // eslint-disable-next-line no-console
-  //     console.log(res);
-  //   });
-  // }
-
   ngAfterViewInit(): void {
     this.dataSource.sort = this.sort;
     this.dataSource.paginator = this.paginator;
@@ -107,7 +98,7 @@ export class SpecifikacijeComponent implements AfterViewInit, OnChanges, OnInit 
 
     this.specifikacijaService.UploadExcel(formData).subscribe((result: { toString: () => string | undefined; }) => {
       this.message = result.toString();
-
+      this.getSifraPostupka();
     });
   }
   DownloadExcel():void{

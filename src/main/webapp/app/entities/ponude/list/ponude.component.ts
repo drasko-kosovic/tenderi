@@ -69,6 +69,7 @@ export class PonudeComponent implements AfterViewInit, OnChanges, OnInit {
 
   deleteSifra(): void {
   this.ponudeService.deleteSifraPonude(this.nadjiPonudjaca).subscribe();
+    this.getSifraPostupka();
   }
 
   public getAllPonude(): void {
@@ -114,7 +115,7 @@ export class PonudeComponent implements AfterViewInit, OnChanges, OnInit {
 
     this.ponudeService.UploadExcel(formData).subscribe((result: { toString: () => string | undefined; }) => {
       this.message = result.toString();
-
+     this.getSifraPostupka();
     });
 
   }
