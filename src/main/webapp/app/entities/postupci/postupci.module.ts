@@ -8,13 +8,12 @@ import { PostupciDeleteDialogComponent } from './delete/postupci-delete-dialog.c
 import { PostupciRoutingModule } from './route/postupci-routing.module';
 import { MatTableModule } from '@angular/material/table';
 import { MatPaginatorModule } from '@angular/material/paginator';
-import { PostupciListComponent } from 'app/entities/postupci/postupci-list/postupci-list.component';
 import { MatSortModule } from '@angular/material/sort';
 
 
 @NgModule({
   imports: [SharedModule, PostupciRoutingModule, MatTableModule, MatPaginatorModule, MatSortModule],
-  declarations: [PostupciComponent, PostupciDetailComponent, PostupciUpdateComponent, PostupciDeleteDialogComponent, PostupciListComponent],
+  declarations: [PostupciComponent, PostupciDetailComponent, PostupciUpdateComponent, PostupciDeleteDialogComponent],
   entryComponents: [PostupciDeleteDialogComponent],
 })
 export class PostupciModule {}
