@@ -32,6 +32,7 @@ export class UgovorComponent implements AfterViewInit, OnChanges, OnInit {
     'delete',
     'edit',
     'print',
+    'print-prvorangirani'
   ];
 
   public dataSource = new MatTableDataSource<IUgovor>();
