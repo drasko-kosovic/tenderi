@@ -3,10 +3,7 @@ package tenderi.web.rest;
 import java.util.List;
 import org.slf4j.Logger;
 import org.slf4j.LoggerFactory;
-import org.springframework.web.bind.annotation.GetMapping;
-import org.springframework.web.bind.annotation.PathVariable;
-import org.springframework.web.bind.annotation.RequestMapping;
-import org.springframework.web.bind.annotation.RestController;
+import org.springframework.web.bind.annotation.*;
 import tenderi.domain.Prvorangirani;
 import tenderi.repository.PrvorangiraniRepository;
 
@@ -33,5 +30,10 @@ public class PrvorangiraniResource {
     @GetMapping("/prvorangirani/{sifraPostupka}")
     public List<Prvorangirani> findByPostupakPrvorangirani(@PathVariable Integer sifraPostupka) {
         return prvorangiraniRepository.findBySifraPostupka(sifraPostupka);
+    }
+
+    @GetMapping("/prvorangirani/ugovor")
+    public List<Prvorangirani> findByPrvorangiraniUgovor(@RequestParam Integer sifraPostupka,@RequestParam Integer sifraPonude) {
+        return prvorangiraniRepository.findPrvorangiraniBySifraPostupkaAndSifraPonude(sifraPostupka,sifraPonude);
     }
 }
