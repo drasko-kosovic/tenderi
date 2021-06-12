@@ -57,11 +57,11 @@
   justify-content: flex-end;
   background-color: #3e8acc;
 }
-.footer{
-  margin-bottom: 10px;
-}
+
 h3{
-  font-weight: lighter;
+  //font-weight: lighter;
+
+  margin-top: 7px;
 }
 
 
@@ -95,6 +95,9 @@ h3{
 }
 #hover-zuto:hover{
   color: yellow;
+}
+.icon{
+  font-size: 35px;
 }
 
 

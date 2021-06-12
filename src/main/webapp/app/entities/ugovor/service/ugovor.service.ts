@@ -11,9 +11,6 @@ import { createRequestOption } from 'app/core/request/request-util';
 import { IUgovor, getUgovorIdentifier } from '../ugovor.model';
 import {SERVER_API_URL} from "app/app.constants";
 import {IPonude} from "app/entities/ponude/ponude.model";
-import {Prvorangirani} from "app/entities/prvorangirani/prvorangirani.model";
-
-
 export type EntityResponseType = HttpResponse<IUgovor>;
 export type EntityArrayResponseType = HttpResponse<IUgovor[]>;
 

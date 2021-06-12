@@ -23,7 +23,7 @@
 
   <mat-toolbar class="toolbar" color="primary">
     <button [hidden]="!isAuthenticated()" mat-icon-button (click)="snav.toggle()">
-      <mat-icon class="vece">menu</mat-icon>
+      <mat-icon class="icon">menu</mat-icon>
     </button>
     <div class="container">
       <div id="zuto-hover" [hidden]="!isAuthenticated()" class="container-item">
@@ -31,7 +31,7 @@
       </div>
       <div id="hover-zuto" class="container-item">
         <button mat-button [matMenuTriggerFor]="menu">
-          <mat-icon>account_circle</mat-icon>
+          <mat-icon class="icon">account_circle</mat-icon>
         </button>
       </div>
     </div>
@@ -66,6 +66,6 @@
     <router-outlet></router-outlet>
   </div>
 </mat-sidenav-container>
-<!--<jhi-footer></jhi-footer>-->
+<jhi-footer></jhi-footer>
 </body>
 
