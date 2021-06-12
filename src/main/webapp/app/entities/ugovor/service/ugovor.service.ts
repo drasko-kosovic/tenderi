@@ -23,6 +23,7 @@ export class UgovorService {
   public resourceUrlPdf = 'https://esjn-montefarm.herokuapp.com/api/report/ugovor/';
   public resourceUrlPdfLocal = 'http://localhost:8080/api/report/ugovor/';
   public resourceUrlPdfLocal2 = SERVER_API_URL + 'api/report/ugovor/';
+  public resourceUrlPdfPrvorangirani = SERVER_API_URL + 'api/report/prvorangirani';
   public resourceUrlPdfLocal1 = this.applicationConfigService.getEndpointFor('api/report/ugovor');
   constructor(protected http: HttpClient, private applicationConfigService: ApplicationConfigService) {}
 
