@@ -1,7 +1,5 @@
-
 <section fxLayout="column" fxLayoutAlign="center center" fxLayoutGap="10px">
   <mat-card class="example-container mat-elevation-z24">
-    <h2>Korisnici</h2>
     <div class="row justify-content-center">
       <div class="col-8">
         <form name="editForm" role="form" novalidate (ngSubmit)="save()" [formGroup]="editForm">
@@ -117,27 +115,26 @@
               </div>
             </div>
 
-            <div class="form-check">
-              <label class="form-check-label" for="activated">
-                 <span jhiTranslate="userManagement.activated">Activated</span>
-              </label>
-                <input
-                  class="form-check-input"
-                  [attr.disabled]="user.id === undefined ? 'disabled' : null"
-                  type="checkbox"
-                  id="activated"
-                  name="activated"
-                  formControlName="activated"
-                />
-
-            </div>
-
-<!--            <div class="form-group" *ngIf="languages && languages.length > 0">-->
-<!--              <label ></label>-->
-<!--              <select class="form-control" id="langKey" name="langKey" formControlName="langKey">-->
-<!--                <option *ngFor="let language of languages" [value]="language">{{ language | findLanguageFromKey }}</option>-->
-<!--              </select>-->
+<!--            <div class="form-check">-->
+<!--              <label class="form-check-label" for="activated">-->
+<!--                <input-->
+<!--                  class="form-check-input"-->
+<!--                  [attr.disabled]="user.id === undefined ? 'disabled' : null"-->
+<!--                  type="checkbox"-->
+<!--                  id="activated"-->
+<!--                  name="activated"-->
+<!--                  formControlName="activated"-->
+<!--                />-->
+<!--                <span jhiTranslate="userManagement.activated">Activated</span>-->
+<!--              </label>-->
 <!--            </div>-->
+
+            <div class="form-group" *ngIf="languages && languages.length > 0">
+              <label ></label>
+              <select class="form-control" id="langKey" name="langKey" formControlName="langKey">
+                <option *ngFor="let language of languages" [value]="language">{{ language | findLanguageFromKey }}</option>
+              </select>
+            </div>
 
             <div class="form-group">
               <label jhiTranslate="userManagement.profiles">Profiles</label>
