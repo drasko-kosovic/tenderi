@@ -22,7 +22,7 @@
 <input hidden  #fileInput type="file" id="file">
 
 <button id="UnseiExcel" *jhiHasAnyAuthority="'ROLE_ADMIN'" mat-raised-button
-        color="warn" (click)="uploadFile()">Unesi Excel</button>
+        color="warn" (click)="uploadFile()" matTooltip="Unesi Excel fajl">Unesi Excel</button>
 <button  *jhiHasAnyAuthority="'ROLE_ADMIN'" mat-raised-button color="accent" matTooltip="Napravi formu za unos Excel" (click)="DownloadExcel()"><mat-icon>download</mat-icon></button>
 
 <mat-card class="example-container mat-elevation-z24">

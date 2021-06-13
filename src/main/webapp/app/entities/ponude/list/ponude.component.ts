@@ -142,6 +142,7 @@ export class PonudeComponent implements AfterViewInit, OnChanges, OnInit {
 
   deleteSelected(): void {
     this.ponudeService.deleteSelected();
+    this.getSifraPostupka();
   }
 
 }
