@@ -161,19 +161,6 @@ public class PonudjaciResource {
         return ponudjaciRepository.findAll();
     }
 
-    @GetMapping("/ponudjaci")
-    public List<Ponudjaci> allPonudjaciDistinct() {
-
-        return ponudjaciRepository.allPonudjaciDistinct();
-    }
-
-
-    /**
-     * {@code GET  /ponudjacis/:id} : get the "id" ponudjaci.
-     *
-     * @param id the id of the ponudjaci to retrieve.
-     * @return the {@link ResponseEntity} with status {@code 200 (OK)} and with body the ponudjaci, or with status {@code 404 (Not Found)}.
-     */
     @GetMapping("/ponudjacis/{id}")
     public ResponseEntity<Ponudjaci> getPonudjaci(@PathVariable Long id) {
         log.debug("REST request to get Ponudjaci : {}", id);

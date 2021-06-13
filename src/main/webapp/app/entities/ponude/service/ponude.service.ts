@@ -96,7 +96,7 @@ export class PonudeService {
   }
 
   updatePersonSelected(id: number): void {
-    this.http.put(`${this.urlUpdateSeleced}/${id}`, null);
+    this.http.put(`${this.urlUpdateSeleced}/${id}`, null).subscribe();
   }
 
   deleteSelected(): void {

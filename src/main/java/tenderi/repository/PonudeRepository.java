@@ -30,6 +30,6 @@ public interface PonudeRepository extends JpaRepository<Ponude, Long> {
 
     @Modifying
     @Query("UPDATE Ponude p SET p.selected=true WHERE p.id = :Id")
-    void updateSlected(@Param("Id") int Id);
+    void updateSlected(@Param("Id") Long Id);
 
 }

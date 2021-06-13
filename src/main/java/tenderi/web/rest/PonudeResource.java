@@ -223,7 +223,7 @@ public class PonudeResource {
         ponudeRepository.deleteBySelected();
     }
     @PutMapping("/ponude/update/selected/{id}")
-    public void updatePonude(@PathVariable("id") int id) {
+    public void updatePonude(@PathVariable("id") Long id) {
         ponudeRepository.updateSlected(id);
     }
 
