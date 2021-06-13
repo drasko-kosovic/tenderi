@@ -22,7 +22,7 @@ export class UgovorService {
   public resourceUrlPdfLocal = 'http://localhost:8080/api/report/ugovor/';
   public resourceUrlPdfLocal2 = SERVER_API_URL + 'api/report/ugovor/';
   public resourceUrlPdfPrvorangirani = SERVER_API_URL + 'api/report/prvorangirani';
-  public resourceUrlPostupakPonudeeUgovor = this.applicationConfigService.getEndpointFor('api/prvorangirani');
+  public resourceUrlPostupakPonudeeUgovor = this.applicationConfigService.getEndpointFor('api/prvorangirani/ugovor');
   public resourceUrlPdfLocal1 = this.applicationConfigService.getEndpointFor('api/report/ugovor');
   constructor(protected http: HttpClient, private applicationConfigService: ApplicationConfigService) {}
   getPrvorangiraniPonude(sifraPostupka: number, sifraPonude: number): Observable<IPonude[]> {
