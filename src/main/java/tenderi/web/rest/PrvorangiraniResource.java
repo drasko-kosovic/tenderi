@@ -33,7 +33,7 @@ public class PrvorangiraniResource {
     }
 
     @GetMapping("/prvorangirani/ugovor")
-    public List<Prvorangirani> findByPrvorangiraniUgovor(@RequestParam Integer sifraPostupka,@RequestParam Integer sifraPonude) {
-        return prvorangiraniRepository.findBySifraPostupkaAndSifraPonude(sifraPostupka,sifraPonude);
+    public List<Prvorangirani> findByPrvorangiraniUgovor(@RequestParam Integer sifraPostupka, Integer sifraPonude) {
+        return prvorangiraniRepository.ugovorPrvorangirani(sifraPostupka,sifraPonude);
     }
 }
