@@ -13,8 +13,8 @@ export type EntityArrayResponseType = HttpResponse<IPonude[]>;
 
 @Injectable({ providedIn: 'root' })
 export class PonudeService {
-  public urlDeleSeleced = this.applicationConfigService.getEndpointFor('ponude/delete/selected');
-  public urlUpdateSeleced = this.applicationConfigService.getEndpointFor('/ponude/update/selected');
+  public urlDeleSeleced = this.applicationConfigService.getEndpointFor('api/ponude/delete/selected');
+  public urlUpdateSeleced = this.applicationConfigService.getEndpointFor('api/ponude/update/selected');
   public resourceUrl = this.applicationConfigService.getEndpointFor('api/ponudes');
   public resourceUrlSifraPonude = this.applicationConfigService.getEndpointFor('api/ponude');
   public resourceUrlExcelUpload = SERVER_API_URL + 'api/uploadfiles';
@@ -100,6 +100,6 @@ export class PonudeService {
   }
 
   deleteSelected(): void {
-    this.http.delete(`${this.urlUpdateSeleced}`);
+    this.http.delete(`${this.urlDeleSeleced}`).subscribe();
   }
 }
