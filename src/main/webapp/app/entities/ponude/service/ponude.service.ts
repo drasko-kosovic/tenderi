@@ -1,5 +1,5 @@
 import { Injectable } from '@angular/core';
-import {HttpClient, HttpHeaders, HttpParams, HttpResponse} from '@angular/common/http';
+import {HttpClient, HttpHeaders, HttpResponse} from '@angular/common/http';
 import { Observable } from 'rxjs';
 
 import { isPresent } from 'app/core/util/operators';
@@ -13,12 +13,12 @@ export type EntityArrayResponseType = HttpResponse<IPonude[]>;
 
 @Injectable({ providedIn: 'root' })
 export class PonudeService {
+  public urlUpdateSeleced =this.applicationConfigService.getEndpointFor('/ponude/update/selected/');
   public resourceUrl = this.applicationConfigService.getEndpointFor('api/ponudes');
   public resourceUrlSifraPonude = this.applicationConfigService.getEndpointFor('api/ponude');
   public resourceUrlExcelUpload= SERVER_API_URL + 'api/uploadfiles';
   public resourceUrlSifraPonudeDelete = this.applicationConfigService.getEndpointFor('api/ponude');
   public resourceUrlPostupakPonudeeUgovor = this.applicationConfigService.getEndpointFor('api/prvorangirani');
-
   public resourceUrlPonudePonudjaci = this.applicationConfigService.getEndpointFor('api/ponudjaci_ponude');
 
   constructor(protected http: HttpClient, private applicationConfigService: ApplicationConfigService) {}
@@ -92,6 +92,8 @@ export class PonudeService {
     return this.http.post(this.resourceUrlExcelUpload , formData, httpOptions)
   }
 
-
+  updatePonude(id: number): void {
+    this.http.put(this.urlUpdateSeleced, id);
+  }
 
 }

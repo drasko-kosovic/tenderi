@@ -22,14 +22,11 @@ public interface PrvorangiraniRepository extends JpaRepository<Prvorangirani, Lo
     List<Prvorangirani> findBySifraPonude(@Param("sifraPonude") Integer sifra);
 
 
-    List<Prvorangirani>findBySifraPostupkaAndSifraPonude(Integer sifraPostupka,Integer sifraPonude);
+    List<Prvorangirani> findBySifraPostupkaAndSifraPonude(@Param("sifraPostupka") Integer sifraPostupka, @Param("sifraPonude") Integer sifraPonude);
 
 
     @Modifying
     @Query("select p from Prvorangirani p  WHERE p.sifraPostupka=:sifraPostupka AND p.sifraPonude=:sifraPonude")
     public List<Prvorangirani> ugovorPrvorangirani(@Param("sifraPostupka") Integer sifraPostupka, @Param("sifraPonude") Integer sifraPonude);
-
-
-
 
 }

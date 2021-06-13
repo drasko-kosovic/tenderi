@@ -48,6 +48,17 @@ public class Ponude implements Serializable {
     @Column(name = "rok_isporuke", nullable = false)
     private Integer rokIsporuke;
 
+    @Column(name = "selected")
+    private Boolean selected;
+
+    public Boolean getSelected() {
+        return selected;
+    }
+
+    public void setSelected(Boolean selected) {
+        this.selected = selected;
+    }
+
     // jhipster-needle-entity-add-field - JHipster will add fields here
     public Long getId() {
         return id;

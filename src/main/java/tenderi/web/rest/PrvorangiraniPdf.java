@@ -45,7 +45,7 @@ public class PrvorangiraniPdf {
         Map<String, Object> params = new HashMap<>();
 
 
-        List<Prvorangirani> ugovor= prvorangiraniRepository.findBySifraPostupkaAndSifraPonude(sifraPostupka,sifraPonude);
+        List<Prvorangirani> ugovor= prvorangiraniRepository.ugovorPrvorangirani(sifraPostupka,sifraPonude);
 
         //Data source Set
         JRDataSource dataSource = new JRBeanCollectionDataSource(ugovor);

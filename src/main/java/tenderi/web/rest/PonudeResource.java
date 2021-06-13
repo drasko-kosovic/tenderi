@@ -213,20 +213,18 @@ public class PonudeResource {
             .headers(HeaderUtil.createEntityDeletionAlert(applicationName, true, ENTITY_NAME, id.toString()))
             .build();
     }
-
-//    @DeleteMapping("/ponude/{sifraPonude}")
-//    public ResponseEntity<Void> deletePonude(@PathVariable Integer sifraPonude) {
-//        log.debug("REST request to delete Ponude : {}", sifraPonude);
-//        ponudeRepository.deletePonudeSifraPonude(sifraPonude);
-//        return ResponseEntity
-//            .noContent()
-//            .headers(HeaderUtil.createEntityDeletionAlert(applicationName, true, ENTITY_NAME, sifraPonude.toString()))
-//            .build();
-//    }
-
     @DeleteMapping("/ponude/{sifraPonude}")
     public void deletePonudeSifra(@PathVariable Integer sifraPonude) {
        ponudeRepository.deletePonudeSifraPonude(sifraPonude);
-
     }
+
+    @DeleteMapping("/ponude/delete/selected")
+    public void delete() {
+        ponudeRepository.deleteBySelected();
+    }
+    @PutMapping("/ponude/update/selected/{id}")
+    public void updatePonude(@PathVariable("id") int id) {
+        ponudeRepository.updateSlected(id);
+    }
+
 }

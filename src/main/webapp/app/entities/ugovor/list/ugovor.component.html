@@ -69,14 +69,14 @@
     <ng-container matTooltip="Stampaj Ugoor" matColumnDef="print" stickyEnd>
       <th mat-header-cell *matHeaderCellDef></th>
       <td mat-cell *matCellDef="let element">
-        <mat-icon class="printer"  *jhiHasAnyAuthority="'ROLE_ADMIN'" id="print" type="submit" (click)="printUgovor(element.brojUgovora)" >print</mat-icon>
+        <mat-icon matTooltip="Stampaj Ugovor" class="printer"  *jhiHasAnyAuthority="'ROLE_ADMIN'" id="print" type="submit" (click)="printUgovor(element.brojUgovora)" >print</mat-icon>
       </td>
       <td mat-footer-cell *matFooterCellDef></td>
     </ng-container>
-    <ng-container matTooltip="Stampaj Anex" matColumnDef="print-prvorangirani" stickyEnd>
+    <ng-container  matColumnDef="print-prvorangirani" stickyEnd>
       <th mat-header-cell *matHeaderCellDef></th>
       <td mat-cell *matCellDef="let element">
-        <mat-icon  class="printer-prvorangirani"  *jhiHasAnyAuthority="'ROLE_ADMIN'"  id="print-prvorangirani" type="submit" (click)="getPrvorangiraniPonude(element.sifraPostupka,element.sifraPonude)" >print</mat-icon>
+        <mat-icon matTooltip="Stampaj Anex"  class="printer-prvorangirani"  *jhiHasAnyAuthority="'ROLE_ADMIN'"  id="print-prvorangirani" type="submit" (click)="printUgovorAnex(element.sifraPostupka,element.sifraPonude)" >print</mat-icon>
       </td>
       <td mat-footer-cell *matFooterCellDef></td>
     </ng-container>

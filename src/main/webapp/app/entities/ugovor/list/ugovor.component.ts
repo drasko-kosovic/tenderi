@@ -101,4 +101,14 @@ export class UgovorComponent implements AfterViewInit, OnChanges, OnInit {
     this.ugovorService.getPrvorangiraniPonude(sifraPostupka,sifraPonude).subscribe();
   }
 
+  printUgovorAnex(sifraPostupka:number,sifraPonude:number): any {
+    this.ugovorService.printReportAnexiUgovor(sifraPostupka,sifraPonude).subscribe((response: BlobPart) => {
+      const file = new Blob([response], { type: 'application/pdf' });
+      const fileURL = URL.createObjectURL(file);
+      window.open(fileURL);
+    });
+  }
+
+
+
 }

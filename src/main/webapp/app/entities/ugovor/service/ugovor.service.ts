@@ -16,6 +16,8 @@ export type EntityArrayResponseType = HttpResponse<IUgovor[]>;
 
 @Injectable({ providedIn: 'root' })
 export class UgovorService {
+
+
   public resourceUrl = this.applicationConfigService.getEndpointFor('api/ugovors');
   public resourceUrlPostupci = this.applicationConfigService.getEndpointFor('api/ugovor');
   public resourceUrlPdf = 'https://esjn-montefarm.herokuapp.com/api/report/ugovor/';
@@ -25,6 +27,7 @@ export class UgovorService {
   public resourceUrlPostupakPonudeeUgovor = this.applicationConfigService.getEndpointFor('api/prvorangirani/ugovor');
   public resourceUrlPdfLocal1 = this.applicationConfigService.getEndpointFor('api/report/ugovor');
   constructor(protected http: HttpClient, private applicationConfigService: ApplicationConfigService) {}
+
   getPrvorangiraniPonude(sifraPostupka: number, sifraPonude: number): Observable<IPonude[]> {
     const params = new HttpParams();
     params.set('sifraPostupka', String(sifraPostupka));
@@ -35,12 +38,26 @@ export class UgovorService {
     );
 
   }
+  printReportAnexiUgovor(sifraPostupka: number, sifraPonude: number ): any {
+
+    const params = new HttpParams();
+    params.set('sifraPostupka', String(sifraPostupka));
+    params.set('sifraPonude', String(sifraPonude));
+
+    return this.http.get<IPonude[]>(
+      `${this.resourceUrlPdfPrvorangirani}?sifraPostupka=${sifraPostupka}&sifraPonude=${sifraPonude}`,{ params: params,
+        responseType: 'arraybuffer' as 'json' }
+    );
+  }
   printReportServiceUgovor(brojUgovora: string ): any {
-    const httpOptions = {
+    // const httpOptions = {
+    //   responseType: 'arraybuffer' as 'json'
+    //   // 'responseType'  : 'blob' as 'json'        //This also worked
+    // };
+    return this.http.get<[IUgovor]>(this.resourceUrlPdfLocal2 + brojUgovora,{
       responseType: 'arraybuffer' as 'json'
       // 'responseType'  : 'blob' as 'json'        //This also worked
-    };
-    return this.http.get<[IUgovor]>(this.resourceUrlPdfLocal2 + brojUgovora, httpOptions);
+    });
 
   }
   create(ugovor: IUgovor): Observable<EntityResponseType> {
@@ -123,6 +140,5 @@ export class UgovorService {
     }
     return res;
   }
-
 
 }

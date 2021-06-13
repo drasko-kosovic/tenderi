@@ -23,4 +23,13 @@ public interface PonudeRepository extends JpaRepository<Ponude, Long> {
     @Query("delete from Ponude p where p.sifraPonude=:sifraPonude")
     void deletePonudeSifraPonude(@Param("sifraPonude") Integer sifraPonude);
 
+
+    @Modifying
+    @Query("DELETE from Ponude p WHERE p.selected = true")
+    void deleteBySelected();
+
+    @Modifying
+    @Query("UPDATE Ponude p SET p.selected=true WHERE p.id = :Id")
+    void updateSlected(@Param("Id") int Id);
+
 }
