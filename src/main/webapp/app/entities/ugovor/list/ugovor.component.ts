@@ -97,4 +97,8 @@ export class UgovorComponent implements AfterViewInit, OnChanges, OnInit {
     });
   }
 
+  getPrvorangiraniPonude(sifraPostupka:number,sifraPonude:number):any{
+    this.ugovorService.getPrvorangiraniPonude(sifraPostupka,sifraPonude).subscribe();
+  }
+
 }

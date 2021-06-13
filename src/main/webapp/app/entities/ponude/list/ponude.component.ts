@@ -13,6 +13,7 @@ import { AccountService } from 'app/core/auth/account.service';
 import {PonudeDeleteDialogComponent} from "app/entities/ponude/delete/ponude-delete-dialog.component";
 import {IPonudePonudjaci} from "app/entities/ponude/ponude_ponudjaci.model";
 import {SERVER_API_URL} from "app/app.constants";
+import any = jasmine.any;
 
 @Component({
   selector: 'jhi-ponude',
@@ -134,6 +135,7 @@ export class PonudeComponent implements AfterViewInit, OnChanges, OnInit {
       }
     });
   }
+
 
 
 }

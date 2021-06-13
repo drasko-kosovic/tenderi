@@ -1,5 +1,5 @@
 import { Injectable } from '@angular/core';
-import { HttpClient, HttpResponse } from '@angular/common/http';
+import {HttpClient, HttpParams, HttpResponse} from '@angular/common/http';
 import { Observable } from 'rxjs';
 import { map } from 'rxjs/operators';
 import * as dayjs from 'dayjs';
@@ -22,9 +22,19 @@ export class UgovorService {
   public resourceUrlPdfLocal = 'http://localhost:8080/api/report/ugovor/';
   public resourceUrlPdfLocal2 = SERVER_API_URL + 'api/report/ugovor/';
   public resourceUrlPdfPrvorangirani = SERVER_API_URL + 'api/report/prvorangirani';
+  public resourceUrlPostupakPonudeeUgovor = this.applicationConfigService.getEndpointFor('api/prvorangirani');
   public resourceUrlPdfLocal1 = this.applicationConfigService.getEndpointFor('api/report/ugovor');
   constructor(protected http: HttpClient, private applicationConfigService: ApplicationConfigService) {}
+  getPrvorangiraniPonude(sifraPostupka: number, sifraPonude: number): Observable<IPonude[]> {
+    const params = new HttpParams();
+    params.set('sifraPostupka', String(sifraPostupka));
+    params.set('sifraPonude', String(sifraPonude));
 
+    return this.http.get<IPonude[]>(
+      `${this.resourceUrlPostupakPonudeeUgovor}?sifraPostupka=${sifraPostupka}&sifraPonude=${sifraPonude}`,{ params: params }
+    );
+
+  }
   printReportServiceUgovor(brojUgovora: string ): any {
     const httpOptions = {
       responseType: 'arraybuffer' as 'json'
@@ -114,11 +124,5 @@ export class UgovorService {
     return res;
   }
 
-// printPrvorangirani():any{
-//     this.http.get<Prvorangirani>(this.resourceUrlPdfPrvorangirani,{
-//       params: {
-//         sifraPostupka: '456',
-//         sifraPonude: '124'
-//       });
-// }
+
 }
