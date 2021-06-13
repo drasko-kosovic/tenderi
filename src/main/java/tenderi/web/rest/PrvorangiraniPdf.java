@@ -36,7 +36,7 @@ public class PrvorangiraniPdf {
     @GetMapping(path = "/prvorangirani")
     @ResponseBody
 
-    public void getPdfUgovor(HttpServletResponse response, @RequestParam Integer sifraPonude) throws Exception {
+    public void getPdfUgovor(HttpServletResponse response, @RequestParam Integer sifraPostupka, @RequestParam Integer sifraPonude) throws Exception {
 
         Resource resource = context.getResource("classpath:reports/PrvorangiraniUgovor.jrxml");
         InputStream inputStream = resource.getInputStream();
@@ -45,7 +45,7 @@ public class PrvorangiraniPdf {
         Map<String, Object> params = new HashMap<>();
 
 
-        List<Prvorangirani> ugovor= prvorangiraniRepository.findPrvorangiraniBySifraPonude(sifraPonude);
+        List<Prvorangirani> ugovor= prvorangiraniRepository.findBySifraPostupkaAndSifraPonude(sifraPostupka,sifraPonude);
 
         //Data source Set
         JRDataSource dataSource = new JRBeanCollectionDataSource(ugovor);
