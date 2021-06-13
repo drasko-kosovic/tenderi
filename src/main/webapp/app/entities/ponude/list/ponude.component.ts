@@ -140,9 +140,8 @@ export class PonudeComponent implements AfterViewInit, OnChanges, OnInit {
     this.ponudeService.updatePersonSelected(id);
   }
 
-  // deleteSelected(): void {
-  //   this.ponudeService.de
-  // }
-
+  deleteSelected(): void {
+    this.ponudeService.deleteSelected();
+  }
 
 }

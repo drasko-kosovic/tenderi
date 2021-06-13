@@ -13,15 +13,17 @@ export type EntityArrayResponseType = HttpResponse<IPonude[]>;
 
 @Injectable({ providedIn: 'root' })
 export class PonudeService {
-  public urlUpdateSeleced =this.applicationConfigService.getEndpointFor('/ponude/update/selected');
+  public urlDeleSeleced = this.applicationConfigService.getEndpointFor('ponude/delete/selected');
+  public urlUpdateSeleced = this.applicationConfigService.getEndpointFor('/ponude/update/selected');
   public resourceUrl = this.applicationConfigService.getEndpointFor('api/ponudes');
   public resourceUrlSifraPonude = this.applicationConfigService.getEndpointFor('api/ponude');
-  public resourceUrlExcelUpload= SERVER_API_URL + 'api/uploadfiles';
+  public resourceUrlExcelUpload = SERVER_API_URL + 'api/uploadfiles';
   public resourceUrlSifraPonudeDelete = this.applicationConfigService.getEndpointFor('api/ponude');
   public resourceUrlPostupakPonudeeUgovor = this.applicationConfigService.getEndpointFor('api/prvorangirani');
   public resourceUrlPonudePonudjaci = this.applicationConfigService.getEndpointFor('api/ponudjaci_ponude');
 
-  constructor(protected http: HttpClient, private applicationConfigService: ApplicationConfigService) {}
+  constructor(protected http: HttpClient, private applicationConfigService: ApplicationConfigService) {
+  }
 
   findSiftraPostupak(sifra_postupka: number): any {
     return this.http.get<IPonude[]>(`${this.resourceUrlSifraPonude}/${sifra_postupka}`);
@@ -30,36 +32,37 @@ export class PonudeService {
   findSiftraPostupakPonudePonudjaci(sifra_postupka: number): any {
     return this.http.get<IPonude[]>(`${this.resourceUrlPonudePonudjaci}/${sifra_postupka}`);
   }
+
   ponudeAll(): any {
     return this.http.get<IPonude[]>(this.resourceUrl);
   }
 
   create(ponude: IPonude): Observable<EntityResponseType> {
-    return this.http.post<IPonude>(this.resourceUrl, ponude, { observe: 'response' });
+    return this.http.post<IPonude>(this.resourceUrl, ponude, {observe: 'response'});
   }
 
   update(ponude: IPonude): Observable<EntityResponseType> {
-    return this.http.put<IPonude>(`${this.resourceUrl}/${getPonudeIdentifier(ponude) as number}`, ponude, { observe: 'response' });
+    return this.http.put<IPonude>(`${this.resourceUrl}/${getPonudeIdentifier(ponude) as number}`, ponude, {observe: 'response'});
   }
 
   partialUpdate(ponude: IPonude): Observable<EntityResponseType> {
-    return this.http.patch<IPonude>(`${this.resourceUrl}/${getPonudeIdentifier(ponude) as number}`, ponude, { observe: 'response' });
+    return this.http.patch<IPonude>(`${this.resourceUrl}/${getPonudeIdentifier(ponude) as number}`, ponude, {observe: 'response'});
   }
 
   find(id: number): Observable<EntityResponseType> {
-    return this.http.get<IPonude>(`${this.resourceUrl}/${id}`, { observe: 'response' });
+    return this.http.get<IPonude>(`${this.resourceUrl}/${id}`, {observe: 'response'});
   }
 
   query(req?: any): Observable<EntityArrayResponseType> {
     const options = createRequestOption(req);
-    return this.http.get<IPonude[]>(this.resourceUrl, { params: options, observe: 'response' });
+    return this.http.get<IPonude[]>(this.resourceUrl, {params: options, observe: 'response'});
   }
 
   delete(id: number): Observable<HttpResponse<{}>> {
-    return this.http.delete(`${this.resourceUrl}/${id}`, { observe: 'response' });
+    return this.http.delete(`${this.resourceUrl}/${id}`, {observe: 'response'});
   }
 
-  deleteSifraPonude(sifraPonude: number):any {
+  deleteSifraPonude(sifraPonude: number): any {
     return this.http.delete(`${this.resourceUrlSifraPonudeDelete}/${sifraPonude}`);
   }
 
@@ -81,19 +84,22 @@ export class PonudeService {
   }
 
 
-  UploadExcel(formData: FormData):any {
+  UploadExcel(formData: FormData): any {
     const headers = new HttpHeaders();
 
     headers.append('Content-Type', 'multipart/form-data');
     headers.append('Accept', 'application/json');
 
-    const httpOptions = { headers: headers };
+    const httpOptions = {headers: headers};
 
-    return this.http.post(this.resourceUrlExcelUpload , formData, httpOptions)
+    return this.http.post(this.resourceUrlExcelUpload, formData, httpOptions)
   }
 
   updatePersonSelected(id: number): void {
     this.http.put(`${this.urlUpdateSeleced}/${id}`, null);
   }
 
+  deleteSelected(): void {
+    this.http.delete(`${this.urlUpdateSeleced}`);
+  }
 }
