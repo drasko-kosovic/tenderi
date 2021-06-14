@@ -3,19 +3,19 @@
   <mat-tab id="back" label="Specifikacija">
     <jhi-specifikacije [postupak]="sifra" ></jhi-specifikacije>
   </mat-tab>
-  <mat-tab  label="Ponude">
+  <mat-tab label="Ponude">
     <jhi-ponude [postupak]="sifra"></jhi-ponude>
   </mat-tab>
-  <mat-tab label="Bodovanje">
+  <mat-tab class="naslov" label="Bodovanje">
     <jhi-view-vrednovanje [postupak]="sifra"></jhi-view-vrednovanje>
   </mat-tab>
-  <mat-tab label="Prvorangirani">
+  <mat-tab class="naslov" label="Prvorangirani">
     <jhi-prvorangirani [postupak]="sifra"></jhi-prvorangirani>
   </mat-tab>
-  <mat-tab label="Nedostaju">
+  <mat-tab class="naslov" label="Nedostaju">
     <jhi-hvale-ponude [postupak]="sifra"></jhi-hvale-ponude>
   </mat-tab>
-  <mat-tab label="Ugovori">
+  <mat-tab class="naslov" label="Ugovori">
     <jhi-ugovor [postupak]="sifra"></jhi-ugovor>
   </mat-tab>
 </mat-tab-group>
