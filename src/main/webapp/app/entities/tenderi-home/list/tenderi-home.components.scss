@@ -1,18 +1,5 @@
-#back{
-  background-color: rgb(232 232 232);
-}
-::ng-deep .mat-tab-label .mat-tab-label-content {
-  font-size:17px;
-  //font-weight: lighter;
-}
-mat-tab.naslov{
-  background-color: red;
-}
-[aria-label=primary] {
-  background-color: blue;
-}
 .mat-tab-label {
-  background: #e8e8e8!important;
+  background:#d7d7d7!important;
   display: -webkit-box;
   display: flex;
   width: 100%;
@@ -24,4 +11,5 @@ mat-tab.naslov{
   min-width: -webkit-max-content;
   min-width: -moz-max-content;
   min-width: max-content;
+  font-weight:bold;
 }
