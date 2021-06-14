@@ -1,6 +1,6 @@
 mat-card {
-  width: 450px;
-  height: 650px;
+  width: 25%;
+  height: 100%;
   display: block;
   margin-left: auto;
   margin-right: auto;
@@ -10,6 +10,6 @@ section {
   vertical-align: middle;
   height: 100%;
 }
-input{
-  width: 400px;
+mat-form-field{
+  width: 300px;
 }
