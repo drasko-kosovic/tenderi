@@ -109,7 +109,7 @@ export class PonudeComponent implements AfterViewInit, OnChanges, OnInit {
   }
   ngOnInit(): void {
     this.authSubscription = this.accountService.getAuthenticationState().subscribe(account => (this.account = account));
-    this.getSifraPostupkaPonudePonudjaci();
+    // this.getSifraPostupkaPonudePonudjaci();
     // this.getSifraPostupkaPonudes();
     }
 
