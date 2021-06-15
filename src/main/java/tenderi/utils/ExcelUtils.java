@@ -27,6 +27,7 @@ public class ExcelUtils {
             "Zasticeni Naziv",
             "Ponudjena Vrijednost",
             "Rok Isporuke",
+            "Datum Ponude",
         };
         try (Workbook workbook = new XSSFWorkbook(); ByteArrayOutputStream out = new ByteArrayOutputStream();) {
             CreationHelper createHelper = workbook.getCreationHelper();
@@ -68,6 +69,7 @@ public class ExcelUtils {
                 row.createCell(6).setCellValue(ponudes.getZastceniNaziv());
                 row.createCell(7).setCellValue(ponudes.getPonudjenaVrijednost());
                 row.createCell(8).setCellValue(ponudes.getRokIsporuke());
+                row.createCell(9).setCellValue(ponudes.getDatumPonude());
             }
 
             workbook.write(out);
@@ -129,6 +131,9 @@ public class ExcelUtils {
                             break;
                         case 8:
                             ponude.setRokIsporuke((int) currentCell.getNumericCellValue());
+                            break;
+                        case 9:
+                            ponude.setDatumPonude(currentCell.getLocalDateTimeCellValue().toLocalDate());
                             break;
                         default:
                             break;

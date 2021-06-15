@@ -1,3 +1,5 @@
+import * as dayjs from 'dayjs';
+
 export interface IPonude {
   id?: number;
   sifraPostupka?: number;
@@ -8,6 +10,7 @@ export interface IPonude {
   zastceniNaziv?: string | null;
   ponudjenaVrijednost?: number;
   rokIsporuke?: number;
+  datumPonude?: dayjs.Dayjs;
 }
 
 export class Ponude implements IPonude {
@@ -20,7 +23,8 @@ export class Ponude implements IPonude {
     public nazivProizvodjaca?: string | null,
     public zastceniNaziv?: string | null,
     public ponudjenaVrijednost?: number,
-    public rokIsporuke?: number
+    public rokIsporuke?: number,
+    public datumPonude?: dayjs.Dayjs
   ) {}
 }
 

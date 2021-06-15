@@ -26,6 +26,7 @@ export class PonudeUpdateComponent implements OnInit {
     zastceniNaziv: [],
     ponudjenaVrijednost: [null, [Validators.required]],
     rokIsporuke: [null, [Validators.required]],
+    datumPonude: [],
   });
 
   constructor(protected ponudeService: PonudeService, protected activatedRoute: ActivatedRoute, protected fb: FormBuilder) {}
@@ -80,6 +81,7 @@ export class PonudeUpdateComponent implements OnInit {
       zastceniNaziv: ponude.zastceniNaziv,
       ponudjenaVrijednost: ponude.ponudjenaVrijednost,
       rokIsporuke: ponude.rokIsporuke,
+      datumPonude: ponude.datumPonude,
     });
   }
 
@@ -95,6 +97,7 @@ export class PonudeUpdateComponent implements OnInit {
       zastceniNaziv: this.editForm.get(['zastceniNaziv'])!.value,
       ponudjenaVrijednost: this.editForm.get(['ponudjenaVrijednost'])!.value,
       rokIsporuke: this.editForm.get(['rokIsporuke'])!.value,
+      datumPonude: this.editForm.get(['datumPonude'])!.value,
     };
   }
 }

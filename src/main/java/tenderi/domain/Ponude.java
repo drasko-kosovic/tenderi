@@ -1,8 +1,9 @@
 package tenderi.domain;
 
 import java.io.Serializable;
+import java.time.LocalDate;
 import javax.persistence.*;
-import javax.validation.constraints.*;
+import javax.validation.constraints.NotNull;
 
 /**
  * A Ponude.
@@ -50,6 +51,29 @@ public class Ponude implements Serializable {
 
     @Column(name = "selected")
     private Boolean selected;
+
+    @Column(name = "datum_ponude", nullable = true)
+    private LocalDate datumPonude;
+
+    @OneToOne
+    @JoinColumn(unique = true)
+    private Ponudjaci ponudjaci;
+
+    public Ponudjaci getPonudjaci() {
+        return ponudjaci;
+    }
+
+    public void setPonudjaci(Ponudjaci ponudjaci) {
+        this.ponudjaci = ponudjaci;
+    }
+
+    public LocalDate getDatumPonude() {
+        return datumPonude;
+    }
+
+    public void setDatumPonude(LocalDate datumPonude) {
+        this.datumPonude = datumPonude;
+    }
 
     public Boolean getSelected() {
         return selected;

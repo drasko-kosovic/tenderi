@@ -10,9 +10,9 @@ import { NgbModal } from '@ng-bootstrap/ng-bootstrap';
 import { Account } from 'app/core/auth/account.model';
 import { Subscription } from 'rxjs';
 import { AccountService } from 'app/core/auth/account.service';
-import {PonudeDeleteDialogComponent} from "app/entities/ponude/delete/ponude-delete-dialog.component";
-import {IPonudePonudjaci} from "app/entities/ponude/ponude_ponudjaci.model";
-import {SERVER_API_URL} from "app/app.constants";
+import { PonudeDeleteDialogComponent } from 'app/entities/ponude/delete/ponude-delete-dialog.component';
+import { IPonudePonudjaci } from 'app/entities/ponude/ponude_ponudjaci.model';
+import { SERVER_API_URL } from 'app/app.constants';
 
 @Component({
   selector: 'jhi-ponude',
@@ -20,14 +20,15 @@ import {SERVER_API_URL} from "app/app.constants";
   styleUrls: ['./ponude.component.scss'],
 })
 export class PonudeComponent implements AfterViewInit, OnChanges, OnInit {
-  ponude_ponudjaci?:IPonudePonudjaci[];
+  ponude_ponudjaci?: IPonudePonudjaci[];
   ponude?: IPonude[];
   account: Account | null = null;
   authSubscription?: Subscription;
   ukupnaPonudjena?: number;
   nadjiPonudjaca?: any;
+
   selected = 'option2';
-  public resourceUrlExcelDownload= SERVER_API_URL + 'api/file';
+  public resourceUrlExcelDownload = SERVER_API_URL + 'api/file';
   public displayedColumns = [
     'sifra postupka',
     'sifraPonude',
@@ -37,6 +38,7 @@ export class PonudeComponent implements AfterViewInit, OnChanges, OnInit {
     'zasticeni naziv',
     'ponudjena vrijednost',
     'rok isporuke',
+    'datum ponude',
     // 'delete',
     'edit',
     'delete selected',
@@ -57,8 +59,7 @@ export class PonudeComponent implements AfterViewInit, OnChanges, OnInit {
     protected router: Router,
     protected modalService: NgbModal,
     private accountService: AccountService
-  ) {
-  }
+  ) {}
 
   public getSifraPostupka(): void {
     this.ponudeService.findSiftraPostupak(this.postupak).subscribe((res: IPonude[]) => {
@@ -72,7 +73,7 @@ export class PonudeComponent implements AfterViewInit, OnChanges, OnInit {
   }
 
   deleteSifra(): void {
-  this.ponudeService.deleteSifraPonude(this.nadjiPonudjaca).subscribe();
+    this.ponudeService.deleteSifraPonude(this.nadjiPonudjaca).subscribe();
     this.getSifraPostupka();
   }
 
@@ -96,7 +97,7 @@ export class PonudeComponent implements AfterViewInit, OnChanges, OnInit {
 
   ngOnChanges(): void {
     this.getSifraPostupka();
-    this.getSifraPostupkaPonudePonudjaci()
+    this.getSifraPostupkaPonudePonudjaci();
   }
 
   isAuthenticated(): boolean {
@@ -111,23 +112,22 @@ export class PonudeComponent implements AfterViewInit, OnChanges, OnInit {
     this.authSubscription = this.accountService.getAuthenticationState().subscribe(account => (this.account = account));
     // this.getSifraPostupkaPonudePonudjaci();
     // this.getSifraPostupkaPonudes();
-    }
+  }
 
   uploadFile(): any {
     const formData = new FormData();
-    formData.append('uploadfiles', this.fileInput.nativeElement.files[0])
+    formData.append('uploadfiles', this.fileInput.nativeElement.files[0]);
 
-    this.ponudeService.UploadExcel(formData).subscribe((result: { toString: () => string | undefined; }) => {
+    this.ponudeService.UploadExcel(formData).subscribe((result: { toString: () => string | undefined }) => {
       this.message = result.toString();
-     this.getSifraPostupka();
+      this.getSifraPostupka();
     });
-
   }
-  DownloadExcel():void{
-    window.location.href=this.resourceUrlExcelDownload;
+  DownloadExcel(): void {
+    window.location.href = this.resourceUrlExcelDownload;
   }
   delete(ponude: IPonude[]): void {
-    const modalRef = this.modalService.open(PonudeDeleteDialogComponent, {backdrop: 'static'});
+    const modalRef = this.modalService.open(PonudeDeleteDialogComponent, { backdrop: 'static' });
     modalRef.componentInstance.ponude = ponude;
     // unsubscribe not needed because closed completes on modal close
     modalRef.closed.subscribe((reason: string) => {
@@ -136,7 +136,7 @@ export class PonudeComponent implements AfterViewInit, OnChanges, OnInit {
       }
     });
   }
-  updateSelected(id: number):any {
+  updateSelected(id: number): any {
     this.ponudeService.updatePersonSelected(id);
   }
 
@@ -144,5 +144,4 @@ export class PonudeComponent implements AfterViewInit, OnChanges, OnInit {
     this.ponudeService.deleteSelected();
     this.getSifraPostupka();
   }
-
 }

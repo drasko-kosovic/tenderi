@@ -1,10 +1,8 @@
 <section fxLayout="column" fxLayoutAlign="center center" fxLayoutGap="10px">
-  <mat-card class="example-container mat-elevation-z24" >
+  <mat-card class="example-container mat-elevation-z24">
     <div class="col-8">
       <form name="editForm" role="form" novalidate (ngSubmit)="save()" [formGroup]="editForm">
-        <h4 id="jhi-ponude-heading" data-cy="PonudeCreateUpdateHeading" >
-          Ponude
-        </h4>
+        <h4 id="jhi-ponude-heading" data-cy="PonudeCreateUpdateHeading">Ponude</h4>
 
         <div>
           <jhi-alert-error></jhi-alert-error>
@@ -16,8 +14,8 @@
             </mat-form-field>
             <div
               *ngIf="
-              editForm.get('sifraPostupka')!.invalid && (editForm.get('sifraPostupka')!.dirty || editForm.get('sifraPostupka')!.touched)
-            "
+                editForm.get('sifraPostupka')!.invalid && (editForm.get('sifraPostupka')!.dirty || editForm.get('sifraPostupka')!.touched)
+              "
             >
               <small
                 class="form-text text-danger"
@@ -41,7 +39,9 @@
               <mat-label>Sifra Ponude</mat-label>
               <input matInput name="sifraPonude" id="sifraPonude" placeholder="" formControlName="sifraPonude" #sifraPonude />
             </mat-form-field>
-            <div *ngIf="editForm.get('sifraPonude')!.invalid && (editForm.get('sifraPonude')!.dirty || editForm.get('sifraPonude')!.touched)">
+            <div
+              *ngIf="editForm.get('sifraPonude')!.invalid && (editForm.get('sifraPonude')!.dirty || editForm.get('sifraPonude')!.touched)"
+            >
               <small
                 class="form-text text-danger"
                 *ngIf="editForm.get('sifraPonude')?.errors?.required"
@@ -64,7 +64,9 @@
               <mat-label>Broj Partije</mat-label>
               <input matInput name="brojPartije" id="brojPartije" placeholder="" formControlName="brojPartije" #brojPartije />
             </mat-form-field>
-            <div *ngIf="editForm.get('brojPartije')!.invalid && (editForm.get('brojPartije')!.dirty || editForm.get('brojPartije')!.touched)">
+            <div
+              *ngIf="editForm.get('brojPartije')!.invalid && (editForm.get('brojPartije')!.dirty || editForm.get('brojPartije')!.touched)"
+            >
               <small
                 class="form-text text-danger"
                 *ngIf="editForm.get('brojPartije')?.errors?.required"
@@ -90,8 +92,9 @@
 
             <div
               *ngIf="
-              editForm.get('nazivPonudjaca')!.invalid && (editForm.get('nazivPonudjaca')!.dirty || editForm.get('nazivPonudjaca')!.touched)
-            "
+                editForm.get('nazivPonudjaca')!.invalid &&
+                (editForm.get('nazivPonudjaca')!.dirty || editForm.get('nazivPonudjaca')!.touched)
+              "
             >
               <small
                 class="form-text text-danger"
@@ -137,9 +140,9 @@
             </mat-form-field>
             <div
               *ngIf="
-              editForm.get('ponudjenaVrijednost')!.invalid &&
-              (editForm.get('ponudjenaVrijednost')!.dirty || editForm.get('ponudjenaVrijednost')!.touched)
-            "
+                editForm.get('ponudjenaVrijednost')!.invalid &&
+                (editForm.get('ponudjenaVrijednost')!.dirty || editForm.get('ponudjenaVrijednost')!.touched)
+              "
             >
               <small
                 class="form-text text-danger"
@@ -163,7 +166,9 @@
               <mat-label>Rok Isporuke</mat-label>
               <input matInput name="rokIsporuke" id="rokIsporuke" placeholder="" formControlName="rokIsporuke" #rokIsporuke />
             </mat-form-field>
-            <div *ngIf="editForm.get('rokIsporuke')!.invalid && (editForm.get('rokIsporuke')!.dirty || editForm.get('rokIsporuke')!.touched)">
+            <div
+              *ngIf="editForm.get('rokIsporuke')!.invalid && (editForm.get('rokIsporuke')!.dirty || editForm.get('rokIsporuke')!.touched)"
+            >
               <small
                 class="form-text text-danger"
                 *ngIf="editForm.get('rokIsporuke')?.errors?.required"
@@ -179,6 +184,37 @@
                 This field should be a number.
               </small>
             </div>
+          </div>
+        </div>
+
+        <div class="form-group">
+          <!--              <label class="form-control-label" jhiTranslate="tenderiApp.ugovor.datumPonude" for="field_datumPonude">Datum Ugovora</label>-->
+          <div class="input-group">
+            <input
+              id="field_datumPonude"
+              data-cy="datumPonude"
+              placeholder="Datum Ponude"
+              type="text"
+              class="form-control"
+              name="datumPonude"
+              ngbDatepicker
+              #datumPonudeDp="ngbDatepicker"
+              formControlName="datumPonude"
+            />
+            <span class="input-group-append">
+              <button type="button" class="btn btn-secondary" (click)="datumPonudeDp.toggle()">
+                <fa-icon icon="calendar-alt"></fa-icon>
+              </button>
+            </span>
+          </div>
+          <div *ngIf="editForm.get('datumPonude')!.invalid && (editForm.get('datumPonude')!.dirty || editForm.get('datumPonude')!.touched)">
+            <!--            <small-->
+            <!--              class="form-text text-danger"-->
+            <!--              *ngIf="editForm.get('datumPonude')?.errors?.required"-->
+            <!--              jhiTranslate="entity.validation.required"-->
+            <!--            >-->
+            <!--              This field is required.-->
+            <!--            </small>-->
           </div>
         </div>
 
@@ -201,6 +237,4 @@
       </form>
     </div>
   </mat-card>
-
-
 </section>
