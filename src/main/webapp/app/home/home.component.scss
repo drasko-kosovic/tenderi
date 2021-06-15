@@ -1,23 +1,22 @@
 .container {
-
   display: flex;
   flex-direction: row;
   justify-content: center;
-
 }
-.container-item{
-
+.container-item {
   width: 350px;
   margin-top: 110px;
   margin-left: 120px;
-
 }
 
-h2{
+h2 {
   font-weight: bold;
   color: black;
   font-size: 35px;
 }
-span{
+span {
   color: #e3321e;
+}
+.mat-form-field + .mat-form-field {
+  margin-left: 8px;
 }

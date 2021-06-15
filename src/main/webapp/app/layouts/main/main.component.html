@@ -1,75 +1,94 @@
-<body >
-<mat-sidenav-container   fullscreen id="pozadina-cijela">
-  <mat-sidenav   id="pozadina" mode="side" #snav #start>
-    <mat-nav-list id="crna">
-      <a mat-list-item routerLink="/">
-        <span id="firma">Montefarm ESJN</span>
-      </a>
-      <mat-divider></mat-divider>
-      <a [hidden]="!isAuthenticated()"
-         mat-list-item routerLink="postupci">
-        <mat-icon>question_answer</mat-icon>
-        <span>Postupci</span>
-      </a>
-      <mat-divider></mat-divider>
-      <a [hidden]="!isAuthenticated()" mat-list-item routerLink="ponudjaci">
-        <mat-icon>list</mat-icon>
-        <span>Ponudjaci</span>
-      </a>
-      <mat-divider></mat-divider>
-      <!--      <mat-list-item _ngcontent-gyw-c14="" class="mat-list-item ng-tns-c14-3 menu-list-item ng-star-inserted expanded" style=""><div class="mat-list-item-content" style="flex-direction: row; box-sizing: border-box; display: flex;"><div class="mat-list-item-ripple mat-ripple" mat-ripple=""></div><div class="mat-list-text"></div><span _ngcontent-gyw-c14="" class="my-table-span ng-tns-c14-3" style="margin-left: -2px;">Moja tabla</span><span _ngcontent-gyw-c14="" fxflex="" class="ng-tns-c14-3" style="flex: 1 1 0%; box-sizing: border-box; flex-direction: row; display: flex;"><span _ngcontent-gyw-c14="" class="ng-tns-c14-3" fxflex="" style="flex: 1 1 0%; box-sizing: border-box;"></span><mat-icon _ngcontent-gyw-c14="" class="mat-icon notranslate material-icons ng-trigger ng-trigger-indicatorRotateAnimation mat-icon-no-color" role="img" aria-hidden="true" style="transform: rotate(180deg);"> expand_more </mat-icon></span></div></mat-list-item>-->
-    </mat-nav-list>
-  </mat-sidenav>
+<body>
+  <mat-sidenav-container fullscreen id="pozadina-cijela">
+    <mat-sidenav id="pozadina" mode="side" #snav #start>
+      <mat-nav-list id="crna">
+        <a mat-list-item routerLink="/">
+          <span id="firma">Montefarm ESJN</span>
+        </a>
+        <mat-divider></mat-divider>
+        <a [hidden]="!isAuthenticated()" mat-list-item routerLink="postupci">
+          <mat-icon>question_answer</mat-icon>
+          <span>Postupci</span>
+        </a>
+        <mat-divider></mat-divider>
+        <a [hidden]="!isAuthenticated()" mat-list-item routerLink="ponudjaci">
+          <mat-icon>list</mat-icon>
+          <span>Ponudjaci</span>
+        </a>
+        <mat-divider></mat-divider>
+        <mat-accordion>
+          <mat-expansion-panel>
+            <mat-expansion-panel-header>
+              <mat-panel-title> Unosi </mat-panel-title>
+              <mat-panel-description> </mat-panel-description>
+            </mat-expansion-panel-header>
+            <a [hidden]="!isAuthenticated()" mat-list-item routerLink="postupci">
+              <mat-icon>question_answer</mat-icon>
+              <span>Postupci</span>
+            </a>
+            <mat-divider></mat-divider>
+            <a [hidden]="!isAuthenticated()" mat-list-item routerLink="ponudjaci">
+              <mat-icon>list</mat-icon>
+              <span>Ponudjaci</span>
+            </a>
+          </mat-expansion-panel>
+        </mat-accordion>
+        <!--      <mat-list-item _ngcontent-gyw-c14="" class="mat-list-item ng-tns-c14-3 menu-list-item ng-star-inserted expanded" style=""><div class="mat-list-item-content" style="flex-direction: row; box-sizing: border-box; display: flex;"><div class="mat-list-item-ripple mat-ripple" mat-ripple=""></div><div class="mat-list-text"></div><span _ngcontent-gyw-c14="" class="my-table-span ng-tns-c14-3" style="margin-left: -2px;">Moja tabla</span><span _ngcontent-gyw-c14="" fxflex="" class="ng-tns-c14-3" style="flex: 1 1 0%; box-sizing: border-box; flex-direction: row; display: flex;"><span _ngcontent-gyw-c14="" class="ng-tns-c14-3" fxflex="" style="flex: 1 1 0%; box-sizing: border-box;"></span><mat-icon _ngcontent-gyw-c14="" class="mat-icon notranslate material-icons ng-trigger ng-trigger-indicatorRotateAnimation mat-icon-no-color" role="img" aria-hidden="true" style="transform: rotate(180deg);"> expand_more </mat-icon></span></div></mat-list-item>-->
+      </mat-nav-list>
+    </mat-sidenav>
 
-  <mat-toolbar class="toolbar" color="primary">
-    <button [hidden]="!isAuthenticated()" mat-icon-button (click)="snav.toggle()">
-      <mat-icon class="icon">menu</mat-icon>
-    </button>
-    <div class="container">
-      <div id="zuto-hover" [hidden]="!isAuthenticated()" class="container-item">
-        <h3 >{{ account?.login }}</h3>
+    <mat-toolbar class="toolbar" color="primary">
+      <button [hidden]="!isAuthenticated()" mat-icon-button (click)="snav.toggle()">
+        <mat-icon class="icon">menu</mat-icon>
+      </button>
+      <div class="container">
+        <div id="zuto-hover" [hidden]="!isAuthenticated()" class="container-item">
+          <h3>{{ account?.login }}</h3>
+        </div>
+        <div id="hover-zuto" class="container-item">
+          <button mat-button [matMenuTriggerFor]="menu">
+            <mat-icon class="icon">account_circle</mat-icon>
+          </button>
+        </div>
       </div>
-      <div id="hover-zuto" class="container-item">
-        <button mat-button [matMenuTriggerFor]="menu">
-          <mat-icon class="icon">account_circle</mat-icon>
-        </button>
+
+      <div class="pull-right">
+        <mat-menu #menu="matMenu">
+          <button mat-menu-item [hidden]="!isAuthenticated()">
+            <p mat-list-item routerLink="/admin/user-management">
+              <mat-icon>format_align_justify</mat-icon>
+              <span>Korisnici</span>
+            </p>
+          </button>
+          <button mat-menu-item [hidden]="isAuthenticated()">
+            <p mat-list-item routerLink="login">
+              <mat-icon>account_circle</mat-icon>
+
+              <span>Prijavi se </span>
+            </p>
+          </button>
+          <button mat-menu-item [hidden]="!isAuthenticated()">
+            <p mat-list-item (click)="logout()">
+              <mat-icon>logout</mat-icon>
+              <span>Odjavi se</span>
+            </p>
+          </button>
+          <button mat-menu-item>
+            <p mat-list-item routerLink="account/register">
+              <mat-icon>person_add</mat-icon>
+              <span>Registruj se </span>
+            </p>
+          </button>
+        </mat-menu>
       </div>
+    </mat-toolbar>
+
+    <div class="main">
+      <router-outlet></router-outlet>
     </div>
-
-    <div class="pull-right">
-      <mat-menu  #menu="matMenu">
-        <button mat-menu-item [hidden]="!isAuthenticated()"> <p  mat-list-item routerLink="/admin/user-management">
-          <mat-icon>format_align_justify</mat-icon>
-          <span>Korisnici</span>
-        </p></button>
-        <button mat-menu-item [hidden]="isAuthenticated()"><p  mat-list-item routerLink="login">
-          <mat-icon>account_circle</mat-icon>
-
-          <span>Prijavi se </span>
-        </p></button>
-        <button mat-menu-item [hidden]="!isAuthenticated()"> <p  mat-list-item (click)="logout()">
-          <mat-icon>logout</mat-icon>
-          <span>Odjavi se</span>
-        </p></button>
-        <button mat-menu-item > <p mat-list-item routerLink="account/register">
-          <mat-icon>person_add</mat-icon>
-          <span>Registruj se </span>
-        </p></button>
-
-      </mat-menu>
-    </div>
-  </mat-toolbar>
-
-
-
-  <div class="main">
-    <router-outlet></router-outlet>
-  </div>
-</mat-sidenav-container>
-<jhi-footer></jhi-footer>
+  </mat-sidenav-container>
+  <jhi-footer></jhi-footer>
 </body>
 <div>
-
   <a routerLink="/login">link</a>
 </div>
-
