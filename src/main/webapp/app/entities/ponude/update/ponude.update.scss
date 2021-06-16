@@ -1,5 +1,5 @@
 mat-card {
-  width: 25%;
+  width: 30%;
   height: 100%;
   display: block;
   margin-left: auto;
@@ -10,6 +10,7 @@ section {
   vertical-align: middle;
   height: 100%;
 }
-mat-form-field{
+mat-form-field {
+  display: flex;
   width: 300px;
 }

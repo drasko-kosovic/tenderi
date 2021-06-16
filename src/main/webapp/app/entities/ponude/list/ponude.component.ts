@@ -141,6 +141,10 @@ export class PonudeComponent implements AfterViewInit, OnChanges, OnInit {
     this.modalService.open(content, { ariaLabelledBy: 'modal-basic-title' });
   }
 
+  open1(content1: any): any {
+    this.modalService.open(content1, { ariaLabelledBy: 'modal-basic-title' });
+  }
+
   updateSelected(id: number): any {
     this.ponudeService.updatePersonSelected(id);
   }

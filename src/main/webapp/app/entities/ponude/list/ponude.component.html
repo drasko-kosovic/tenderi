@@ -47,7 +47,7 @@
   <mat-icon>download</mat-icon>
 </button>
 
-<button *jhiHasAnyAuthority="'ROLE_ADMIN'" mat-raised-button matTooltip="Ukloni cijelu ponudu" color="warn" (click)="deleteSifra()">
+<button *jhiHasAnyAuthority="'ROLE_ADMIN'" mat-raised-button matTooltip="Ukloni cijelu ponudu" color="warn" (click)="open(content1)">
   <mat-icon>delete</mat-icon>
 </button>
 
@@ -65,7 +65,6 @@
   <button mat-raised-button (click)="exporter.exportTable('xlsx', { fileName: 'Ponude', sheet: 'sheet_name', Props: { Author: 'Talha' } })">
     <img src="../../../../content/images/icons8-microsoft-excel-48.png" alt="" />
   </button>
-  <button (click)="open(content)"></button>
   <table
     class="example-container mat-elevation-z8"
     mat-table
@@ -159,30 +158,32 @@
 
 <ng-template #content let-modal>
   <div class="modal-header">
-    <h4 class="modal-title" id="modal-basic-title">Profile update</h4>
+    <h4 class="modal-title" id="modal-basic-title">Brisanje</h4>
     <button type="button" class="close" aria-label="Close" (click)="modal.dismiss('Cross click')">
       <span aria-hidden="true">&times;</span>
     </button>
   </div>
   <div class="modal-body">
-    <!--    <form>-->
-    <!--      <div class="form-group">-->
-    <!--        <label for="dateOfBirth">Date of birth</label>-->
-    <!--        <div class="input-group">-->
-    <!--          <input id="dateOfBirth" class="form-control" placeholder="yyyy-mm-dd" name="dp" ngbDatepicker #dp="ngbDatepicker">-->
-    <!--          <div class="input-group-append">-->
-    <!--            <button class="btn btn-outline-secondary calendar" (click)="dp.toggle()" type="button"></button>-->
-    <!--          </div>-->
-    <!--        </div>-->
-    <!--      </div>-->
-    <!--    </form>-->
+    <h4>Dali ste sigurni da zeliet izbrisete selektovane partije</h4>
   </div>
   <div class="modal-footer">
-    <button type="button" class="btn btn-outline-dark" (click)="deleteSelected()" (click)="modal.close('Save click')">Delete</button>
-    <button type="button" class="btn btn-outline-dark" (click)="modal.close('Save click')">Save</button>
+    <button mat-raised-button color="warn" (click)="deleteSelected()" (click)="modal.close('Save click')">DA</button>
   </div>
 </ng-template>
 
-<!--<button class="btn btn-lg btn-outline-primary" (click)="open(content)">Launch demo modal</button>-->
+<ng-template #content1 let-modal>
+  <div class="modal-header">
+    <h4 class="modal-title">Brisanje</h4>
+    <button type="button" class="close" aria-label="Close" (click)="modal.dismiss('Cross click')">
+      <span aria-hidden="true">&times;</span>
+    </button>
+  </div>
+  <div class="modal-body">
+    <h4>Dali ste sigurni da zelite izbrisete cijelu ponude</h4>
+  </div>
+  <div class="modal-footer">
+    <button mat-raised-button color="warn" (click)="deleteSifra()" (click)="modal.close('Save click')">DA</button>
+  </div>
+</ng-template>
 
 <hr />
