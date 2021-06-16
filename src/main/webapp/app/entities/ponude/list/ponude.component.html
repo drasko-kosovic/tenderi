@@ -65,7 +65,7 @@
   <button mat-raised-button (click)="exporter.exportTable('xlsx', { fileName: 'Ponude', sheet: 'sheet_name', Props: { Author: 'Talha' } })">
     <img src="../../../../content/images/icons8-microsoft-excel-48.png" alt="" />
   </button>
-
+  <button (click)="open(content)"></button>
   <table
     class="example-container mat-elevation-z8"
     mat-table
@@ -130,18 +130,18 @@
     </ng-container>
 
     <ng-container matColumnDef="delete selected">
-      <th mat-header-cell *matHeaderCellDef>
-        <button mat-icon-button color="primary">
-          <mat-icon *jhiHasAnyAuthority="'ROLE_ADMIN'" id="delete-selected" (click)="deleteSelected()">delete</mat-icon>
-        </button>
-      </th>
+      <th mat-header-cell *matHeaderCellDef></th>
       <td mat-cell *matCellDef="let element">
         <mat-icon *jhiHasAnyAuthority="'ROLE_ADMIN'" id="delete" type="submit" (click)="delete(element)">delete</mat-icon>
       </td>
       <td mat-footer-cell *matFooterCellDef></td>
     </ng-container>
     <ng-container matColumnDef="select">
-      <th mat-header-cell *matHeaderCellDef></th>
+      <th mat-header-cell *matHeaderCellDef>
+        <button mat-icon-button color="primary">
+          <mat-icon *jhiHasAnyAuthority="'ROLE_ADMIN'" id="delete-selected" (click)="open(content)">delete</mat-icon>
+        </button>
+      </th>
       <td mat-cell *matCellDef="let element; let i = index">
         <section class="example-section">
           <mat-checkbox *jhiHasAnyAuthority="'ROLE_ADMIN'" class="example-margin" (click)="updateSelected(element.id)"></mat-checkbox>
@@ -156,3 +156,33 @@
   </table>
   <mat-paginator [pageSizeOptions]="[5, 10, 20]" showFirstLastButtons></mat-paginator>
 </mat-card>
+
+<ng-template #content let-modal>
+  <div class="modal-header">
+    <h4 class="modal-title" id="modal-basic-title">Profile update</h4>
+    <button type="button" class="close" aria-label="Close" (click)="modal.dismiss('Cross click')">
+      <span aria-hidden="true">&times;</span>
+    </button>
+  </div>
+  <div class="modal-body">
+    <!--    <form>-->
+    <!--      <div class="form-group">-->
+    <!--        <label for="dateOfBirth">Date of birth</label>-->
+    <!--        <div class="input-group">-->
+    <!--          <input id="dateOfBirth" class="form-control" placeholder="yyyy-mm-dd" name="dp" ngbDatepicker #dp="ngbDatepicker">-->
+    <!--          <div class="input-group-append">-->
+    <!--            <button class="btn btn-outline-secondary calendar" (click)="dp.toggle()" type="button"></button>-->
+    <!--          </div>-->
+    <!--        </div>-->
+    <!--      </div>-->
+    <!--    </form>-->
+  </div>
+  <div class="modal-footer">
+    <button type="button" class="btn btn-outline-dark" (click)="deleteSelected()">Delete</button>
+    <button type="button" class="btn btn-outline-dark" (click)="modal.close('Save click')">Save</button>
+  </div>
+</ng-template>
+
+<!--<button class="btn btn-lg btn-outline-primary" (click)="open(content)">Launch demo modal</button>-->
+
+<hr />

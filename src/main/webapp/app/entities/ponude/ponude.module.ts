@@ -10,12 +10,12 @@ import { MatPaginatorModule } from '@angular/material/paginator';
 import { MatTableModule } from '@angular/material/table';
 import { MatSortModule } from '@angular/material/sort';
 import { MatTableExporterModule } from 'mat-table-exporter';
-import {NgPipesModule} from "ngx-pipes";
-
+import { NgPipesModule } from 'ngx-pipes';
+import { DeleteSelectedComponent } from './delete-selected/delete-selected.component';
 
 @NgModule({
-    imports: [SharedModule, PonudeRoutingModule, MatPaginatorModule, MatTableModule, MatSortModule, MatTableExporterModule, NgPipesModule],
-  declarations: [PonudeComponent, PonudeDetailComponent, PonudeUpdateComponent, PonudeDeleteDialogComponent],
+  imports: [SharedModule, PonudeRoutingModule, MatPaginatorModule, MatTableModule, MatSortModule, MatTableExporterModule, NgPipesModule],
+  declarations: [PonudeComponent, PonudeDetailComponent, PonudeUpdateComponent, PonudeDeleteDialogComponent, DeleteSelectedComponent],
   entryComponents: [PonudeDeleteDialogComponent],
   exports: [PonudeComponent],
 })
