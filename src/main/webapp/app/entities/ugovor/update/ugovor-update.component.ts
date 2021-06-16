@@ -91,7 +91,7 @@ export class UgovorUpdateComponent implements OnInit {
       brojUgovora: ugovor.brojUgovora,
       datumUgovora: ugovor.datumUgovora,
       predmetUgovora: ugovor.predmetUgovora,
-      nazivPonudjaca: ugovor.nazivPonudjaca,
+
       brojDatumTenderskeDokumntacije: ugovor.brojDatumTenderskeDokumntacije,
       brojDatumOdlukeIzbora: ugovor.brojDatumOdlukeIzbora,
       brojDatumPonude: ugovor.brojDatumPonude,

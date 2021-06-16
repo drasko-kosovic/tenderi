@@ -6,7 +6,6 @@ export interface IUgovor {
   brojUgovora?: string;
   datumUgovora?: dayjs.Dayjs;
   predmetUgovora?: string;
-  nazivPonudjaca?: string;
   brojDatumTenderskeDokumntacije?: string;
   brojDatumOdlukeIzbora?: string;
   brojDatumPonude?: string;
@@ -23,7 +22,6 @@ export class Ugovor implements IUgovor {
     public brojUgovora?: string,
     public datumUgovora?: dayjs.Dayjs,
     public predmetUgovora?: string,
-    public nazivPonudjaca?: string,
     public brojDatumTenderskeDokumntacije?: string,
     public brojDatumOdlukeIzbora?: string,
     public brojDatumPonude?: string,
