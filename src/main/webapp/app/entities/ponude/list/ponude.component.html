@@ -178,7 +178,7 @@
     <!--    </form>-->
   </div>
   <div class="modal-footer">
-    <button type="button" class="btn btn-outline-dark" (click)="deleteSelected()">Delete</button>
+    <button type="button" class="btn btn-outline-dark" (click)="deleteSelected()" (click)="modal.close('Save click')">Delete</button>
     <button type="button" class="btn btn-outline-dark" (click)="modal.close('Save click')">Save</button>
   </div>
 </ng-template>
