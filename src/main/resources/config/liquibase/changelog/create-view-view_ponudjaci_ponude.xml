@@ -5,16 +5,16 @@
         SELECT DISTINCT
         ponude.sifra_postupka,
         ponude.sifra_ponude,
+        ponude.datum_ponude,
         ponudjaci.id,
         ponudjaci.naziv_ponudjaca
         FROM (ponude
         JOIN ponudjaci ON
         (
         (
-        (ponude.naziv_ponudjaca)::text = (ponudjaci.naziv_ponudjaca)::text
+        (ponude.ponudjaci_id) = (ponudjaci.id)
         )
         ))
-
     </createView>
   </changeSet>
 </databaseChangeLog>
