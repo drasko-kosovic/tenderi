@@ -59,6 +59,13 @@ public class ViewVrednovanje implements Serializable {
     @Column(name = "naziv_proizvodjaca")
     private String nazivProizvodjaca;
 
+    public String getNazivPonudjaca() {
+        return nazivPonudjaca;
+    }
+
+    @Column(name = "naziv_ponudjaca")
+    private String nazivPonudjaca;
+
     public Long getPonudjaci_id() {
         return ponudjaci_id;
     }

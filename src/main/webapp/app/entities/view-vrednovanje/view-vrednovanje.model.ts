@@ -17,7 +17,7 @@ export interface IViewVrednovanje {
   bodCijena?: number | null;
   bodRok?: number | null;
   bodUkupno?: number | null;
-  ponudjaci_id?:number;
+  ponudjaci?:number;
 }
 
 export class ViewVrednovanje implements IViewVrednovanje {
@@ -40,7 +40,7 @@ export class ViewVrednovanje implements IViewVrednovanje {
     public bodCijena?: number | null,
     public bodRok?: number | null,
     public bodUkupno?: number | null,
-    public ponudjaci_id?:number,
+    public ponudjaci?:number,
   ) {}
 }
 
