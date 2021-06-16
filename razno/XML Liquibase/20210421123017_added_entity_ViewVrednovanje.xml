@@ -25,7 +25,7 @@
             specifikacije.procijenjena_vrijednost,
             ponude.ponudjena_vrijednost,
             ponude.rok_isporuke,
-            ponude.ponudjaci_id,
+            ponude.naziv_ponudjaca,
             ponude.naziv_proizvodjaca,
             ((((90)::numeric)::double precision * min(ponude.ponudjena_vrijednost) OVER (PARTITION BY ponude.broj_partije, ponude.sifra_postupka)) / ponude.ponudjena_vrijednost) AS bod_cijena,
             ((((10)::numeric)::double precision * (min(ponude.rok_isporuke) OVER (PARTITION BY ponude.broj_partije, ponude.sifra_postupka))::double precision) / (ponude.rok_isporuke)::double precision) AS bod_rok,

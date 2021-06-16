@@ -17,7 +17,7 @@
         view_vrednovanje.procijenjena_vrijednost,
         view_vrednovanje.ponudjena_vrijednost,
         view_vrednovanje.rok_isporuke,
-        view_vrednovanje.ponudjaci_id
+        view_vrednovanje.naziv_ponudjaca
         FROM (view_vrednovanje
         JOIN maximalni_bod ON (((view_vrednovanje.broj_partije = maximalni_bod.broj_partije) AND (view_vrednovanje.sifra_postupka = maximalni_bod.sifra_postupka) AND (view_vrednovanje.bod_ukupno = maximalni_bod.maximalni_bod))))
 </createView>

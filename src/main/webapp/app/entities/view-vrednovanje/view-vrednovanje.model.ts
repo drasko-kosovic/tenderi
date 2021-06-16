@@ -13,11 +13,11 @@ export interface IViewVrednovanje {
   procijenjenaVrijednost?: number | null;
   ponudjenaVrijednost?: number | null;
   rokIsporuke?: number | null;
-  nazivPonudjaca?: string | null;
   nazivProizvodjaca?: string | null;
   bodCijena?: number | null;
   bodRok?: number | null;
   bodUkupno?: number | null;
+  ponudjaci_id?:number;
 }
 
 export class ViewVrednovanje implements IViewVrednovanje {
@@ -36,11 +36,11 @@ export class ViewVrednovanje implements IViewVrednovanje {
     public procijenjenaVrijednost?: number | null,
     public ponudjenaVrijednost?: number | null,
     public rokIsporuke?: number | null,
-    public nazivPonudjaca?: string | null,
     public nazivProizvodjaca?: string | null,
     public bodCijena?: number | null,
     public bodRok?: number | null,
-    public bodUkupno?: number | null
+    public bodUkupno?: number | null,
+    public ponudjaci_id?:number,
   ) {}
 }
 

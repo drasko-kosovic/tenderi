@@ -147,12 +147,7 @@ public class PonudeResource {
                     if (ponude.getBrojPartije() != null) {
                         existingPonude.setBrojPartije(ponude.getBrojPartije());
                     }
-                    if (ponude.getNazivPonudjaca() != null) {
-                        existingPonude.setNazivPonudjaca(ponude.getNazivPonudjaca());
-                    }
-                    if (ponude.getNazivProizvodjaca() != null) {
-                        existingPonude.setNazivProizvodjaca(ponude.getNazivProizvodjaca());
-                    }
+
                     if (ponude.getZastceniNaziv() != null) {
                         existingPonude.setZastceniNaziv(ponude.getZastceniNaziv());
                     }

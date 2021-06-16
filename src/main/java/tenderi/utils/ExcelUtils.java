@@ -23,7 +23,6 @@ public class ExcelUtils {
             "Sifra Ponude",
             "Broj Partije",
             "Naziv Ponudjaca",
-            "Naziv Proizvodjaca",
             "Zasticeni Naziv",
             "Ponudjena Vrijednost",
             "Rok Isporuke",
@@ -63,13 +62,11 @@ public class ExcelUtils {
                 row.createCell(1).setCellValue(ponudes.getSifraPostupka());
                 row.createCell(2).setCellValue(ponudes.getSifraPonude());
                 row.createCell(3).setCellValue(ponudes.getBrojPartije());
-
-                row.createCell(4).setCellValue(ponudes.getNazivPonudjaca());
-                row.createCell(5).setCellValue(ponudes.getNazivProizvodjaca());
-                row.createCell(6).setCellValue(ponudes.getZastceniNaziv());
-                row.createCell(7).setCellValue(ponudes.getPonudjenaVrijednost());
-                row.createCell(8).setCellValue(ponudes.getRokIsporuke());
-                row.createCell(9).setCellValue(ponudes.getDatumPonude());
+                row.createCell(4).setCellValue(ponudes.getNazivProizvodjaca());
+                row.createCell(5).setCellValue(ponudes.getZastceniNaziv());
+                row.createCell(6).setCellValue(ponudes.getPonudjenaVrijednost());
+                row.createCell(7).setCellValue(ponudes.getRokIsporuke());
+                row.createCell(8).setCellValue(ponudes.getDatumPonude());
             }
 
             workbook.write(out);
@@ -117,9 +114,7 @@ public class ExcelUtils {
                         case 3:
                             ponude.setBrojPartije((int) currentCell.getNumericCellValue());
                             break;
-                        case 4:
-                            ponude.setNazivPonudjaca(currentCell.getStringCellValue());
-                            break;
+
                         case 5:
                             ponude.setNazivProizvodjaca(currentCell.getStringCellValue());
                             break;

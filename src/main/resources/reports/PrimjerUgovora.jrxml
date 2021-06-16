@@ -23,11 +23,11 @@
         <property name="com.jaspersoft.studio.field.tree.path" value="view_ugovor"/>
         <property name="com.jaspersoft.studio.field.name" value="predmetUgovora"/>
     </field>
-    <field name="nazivPonudjaca" class="java.lang.String">
-        <property name="com.jaspersoft.studio.field.label" value="nazivPonudjaca"/>
-        <property name="com.jaspersoft.studio.field.tree.path" value="view_ugovor"/>
-        <property name="com.jaspersoft.studio.field.name" value="nazivPonudjaca"/>
-    </field>
+<!--    <field name="nazivPonudjaca" class="java.lang.String">-->
+<!--        <property name="com.jaspersoft.studio.field.label" value="nazivPonudjaca"/>-->
+<!--        <property name="com.jaspersoft.studio.field.tree.path" value="view_ugovor"/>-->
+<!--        <property name="com.jaspersoft.studio.field.name" value="nazivPonudjaca"/>-->
+<!--    </field>-->
     <field name="brojDatumTenderskeDokumntacije" class="java.lang.String">
         <property name="com.jaspersoft.studio.field.label" value="brojDatumTenderskeDokumntacije"/>
         <property name="com.jaspersoft.studio.field.tree.path" value="view_ugovor"/>
@@ -157,10 +157,10 @@ Roba mora biti u paletama pakovanja sledećih dimenzija: dužina 120 cm, širina
                 </reportElement>
                 <textFieldExpression><![CDATA[$F{brojUgovora}]]></textFieldExpression>
             </textField>
-            <textField>
-                <reportElement x="110" y="160" width="80" height="15" uuid="d8c9b2ce-3f99-4397-8d7f-09a79352adf9"/>
-                <textFieldExpression><![CDATA[$F{nazivPonudjaca}]]></textFieldExpression>
-            </textField>
+<!--            <textField>-->
+<!--                <reportElement x="110" y="160" width="80" height="15" uuid="d8c9b2ce-3f99-4397-8d7f-09a79352adf9"/>-->
+<!--                <textFieldExpression><![CDATA[$F{nazivPonudjaca}]]></textFieldExpression>-->
+<!--            </textField>-->
             <textField>
                 <reportElement x="330" y="160" width="220" height="15" uuid="4dc58d72-2468-479b-977c-d29b7c6d1f62">
                     <property name="com.jaspersoft.studio.unit.height" value="px"/>
@@ -194,7 +194,7 @@ Roba mora biti u paletama pakovanja sledećih dimenzija: dužina 120 cm, širina
                     <property name="com.jaspersoft.studio.unit.height" value="px"/>
                     <property name="com.jaspersoft.studio.unit.y" value="px"/>
                 </reportElement>
-                <textFieldExpression><![CDATA[$F{nazivPonudjaca}]]></textFieldExpression>
+<!--                <textFieldExpression><![CDATA[$F{nazivPonudjaca}]]></textFieldExpression>-->
             </textField>
             <textField>
                 <reportElement x="210" y="323" width="115" height="15" uuid="8743acd5-ce56-472d-912a-80fbafd52737">

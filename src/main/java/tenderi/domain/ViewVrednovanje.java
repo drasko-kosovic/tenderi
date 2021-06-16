@@ -56,11 +56,15 @@ public class ViewVrednovanje implements Serializable {
     @Column(name = "rok_isporuke")
     private Integer rokIsporuke;
 
-    @Column(name = "naziv_ponudjaca")
-    private String nazivPonudjaca;
-
     @Column(name = "naziv_proizvodjaca")
     private String nazivProizvodjaca;
+
+    public Long getPonudjaci_id() {
+        return ponudjaci_id;
+    }
+
+    @Column(name = "ponudjaci_id")
+    private Long ponudjaci_id;
 
     @Column(name = "bod_cijena")
     private Double bodCijena;
@@ -254,19 +258,6 @@ public class ViewVrednovanje implements Serializable {
         this.rokIsporuke = rokIsporuke;
     }
 
-    public String getNazivPonudjaca() {
-        return this.nazivPonudjaca;
-    }
-
-    public ViewVrednovanje nazivPonudjaca(String nazivPonudjaca) {
-        this.nazivPonudjaca = nazivPonudjaca;
-        return this;
-    }
-
-    public void setNazivPonudjaca(String nazivPonudjaca) {
-        this.nazivPonudjaca = nazivPonudjaca;
-    }
-
     public String getNazivProizvodjaca() {
         return this.nazivProizvodjaca;
     }
@@ -356,7 +347,6 @@ public class ViewVrednovanje implements Serializable {
             ", procijenjenaVrijednost=" + getProcijenjenaVrijednost() +
             ", ponudjenaVrijednost=" + getPonudjenaVrijednost() +
             ", rokIsporuke=" + getRokIsporuke() +
-            ", nazivPonudjaca='" + getNazivPonudjaca() + "'" +
             ", nazivProizvodjaca='" + getNazivProizvodjaca() + "'" +
             ", bodCijena=" + getBodCijena() +
             ", bodRok=" + getBodRok() +

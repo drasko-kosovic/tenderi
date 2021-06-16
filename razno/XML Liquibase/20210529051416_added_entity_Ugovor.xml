@@ -7,12 +7,33 @@
                         http://www.liquibase.org/xml/ns/dbchangelog-ext http://www.liquibase.org/xml/ns/dbchangelog/dbchangelog-ext.xsd">
 
     <!--
-        Added the entity Ponude.
+        Added the entity Ugovor.
     -->
-    <changeSet id="20210524184149-1" author="jhipster">
-        <createTable tableName="ponude">
+    <changeSet id="20210529051416-1" author="jhipster">
+        <createTable tableName="ugovor">
             <column name="id" type="bigint">
                 <constraints primaryKey="true" nullable="false"/>
+            </column>
+            <column name="broj_ugovora" type="varchar(255)">
+                <constraints nullable="false" />
+            </column>
+            <column name="datum_ugovora" type="date">
+                <constraints nullable="false" />
+            </column>
+            <column name="predmet_ugovora" type="varchar(255)">
+                <constraints nullable="false" />
+            </column>
+           <column name="broj_datum_tenderske_dokumntacije" type="varchar(255)">
+                <constraints nullable="false" />
+            </column>
+            <column name="broj_datum_odluke_izbora" type="varchar(255)">
+                <constraints nullable="false" />
+            </column>
+            <column name="broj_datum_ponude" type="varchar(255)">
+                <constraints nullable="false" />
+            </column>
+            <column name="iznos_ugovora_bez_pdf" type="integer">
+                <constraints nullable="false" />
             </column>
             <column name="sifra_postupka" type="integer">
                 <constraints nullable="false" />
@@ -20,32 +41,12 @@
             <column name="sifra_ponude" type="integer">
                 <constraints nullable="false" />
             </column>
-            <column name="broj_partije" type="integer">
-                <constraints nullable="false" />
-            </column>
-            <column name="naziv_proizvodjaca" type="varchar(255)">
-                <constraints nullable="true" />
-            </column>
-            <column name="zastceni_naziv" type="varchar(255)">
-                <constraints nullable="true" />
-            </column>
-            <column name="ponudjena_vrijednost" type="double">
-                <constraints nullable="false" />
-            </column>
-            <column name="rok_isporuke" type="integer">
-                <constraints nullable="false" />
-            </column>
-            <column name="selected" type="boolean">
-                <constraints nullable="true" />
-            </column>
-            <column name="datum_ponude" type="date">
-                <constraints nullable="true" />
-            </column>
-            <column name="ponudjaci_id" type="bigint">
-                <constraints nullable="true" unique="true" uniqueConstraintName="ux_ponude__ponudjaci_id" />
+           <column name="ponudjaci_id" type="bigint">
+                <constraints nullable="true" unique="true" uniqueConstraintName="ux_ugovor__ponudjaci_id" />
             </column>
             <!-- jhipster-needle-liquibase-add-column - JHipster will add columns here -->
         </createTable>
     </changeSet>
+
 
 </databaseChangeLog>

@@ -32,8 +32,6 @@ public class Ponude implements Serializable {
     private Integer brojPartije;
 
 
-    @Column(name = "naziv_ponudjaca", nullable =true)
-    private String nazivPonudjaca;
 
     @Column(name = "naziv_proizvodjaca")
     private String nazivProizvodjaca;
@@ -136,18 +134,8 @@ public class Ponude implements Serializable {
         this.brojPartije = brojPartije;
     }
 
-    public String getNazivPonudjaca() {
-        return this.nazivPonudjaca;
-    }
 
-    public Ponude nazivPonudjaca(String nazivPonudjaca) {
-        this.nazivPonudjaca = nazivPonudjaca;
-        return this;
-    }
 
-    public void setNazivPonudjaca(String nazivPonudjaca) {
-        this.nazivPonudjaca = nazivPonudjaca;
-    }
 
     public String getNazivProizvodjaca() {
         return this.nazivProizvodjaca;
@@ -220,7 +208,7 @@ public class Ponude implements Serializable {
         return getClass().hashCode();
     }
 
-    // prettier-ignore
+
     @Override
     public String toString() {
         return "Ponude{" +
@@ -228,7 +216,6 @@ public class Ponude implements Serializable {
             ", sifraPostupka=" + getSifraPostupka() +
             ", sifraPonude=" + getSifraPonude() +
             ", brojPartije=" + getBrojPartije() +
-            ", nazivPonudjaca='" + getNazivPonudjaca() + "'" +
             ", nazivProizvodjaca='" + getNazivProizvodjaca() + "'" +
             ", zastceniNaziv='" + getZastceniNaziv() + "'" +
             ", ponudjenaVrijednost=" + getPonudjenaVrijednost() +
