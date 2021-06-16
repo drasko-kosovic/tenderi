@@ -84,40 +84,40 @@
             </div>
           </div>
 
-          <div class="form-group">
-            <mat-form-field>
-              <mat-label>Naziv Ponudjaca</mat-label>
-              <input matInput name="nazivPonudjaca" id="nazivPonudjaca" placeholder="" formControlName="nazivPonudjaca" #nazivPonudjaca />
-            </mat-form-field>
+<!--          <div class="form-group">-->
+<!--            <mat-form-field>-->
+<!--              <mat-label>Naziv Ponudjaca</mat-label>-->
+<!--              <input matInput name="nazivPonudjaca" id="nazivPonudjaca" placeholder="" formControlName="nazivPonudjaca" #nazivPonudjaca />-->
+<!--            </mat-form-field>-->
 
-            <div
-              *ngIf="
-                editForm.get('nazivPonudjaca')!.invalid &&
-                (editForm.get('nazivPonudjaca')!.dirty || editForm.get('nazivPonudjaca')!.touched)
-              "
-            >
-              <small
-                class="form-text text-danger"
-                *ngIf="editForm.get('nazivPonudjaca')?.errors?.required"
-                jhiTranslate="entity.validation.required"
-              >
-                This field is required.
-              </small>
-            </div>
-          </div>
+<!--            <div-->
+<!--              *ngIf="-->
+<!--                editForm.get('nazivPonudjaca')!.invalid &&-->
+<!--                (editForm.get('nazivPonudjaca')!.dirty || editForm.get('nazivPonudjaca')!.touched)-->
+<!--              "-->
+<!--            >-->
+<!--              <small-->
+<!--                class="form-text text-danger"-->
+<!--                *ngIf="editForm.get('nazivPonudjaca')?.errors?.required"-->
+<!--                jhiTranslate="entity.validation.required"-->
+<!--              >-->
+<!--                This field is required.-->
+<!--              </small>-->
+<!--            </div>-->
+<!--          </div>-->
 
-          <div class="form-group"></div>
-          <mat-form-field>
-            <mat-label>Naziv Proizvodjaca</mat-label>
-            <input
-              matInput
-              name="nazivProizvodjaca"
-              id="nazivProizvodjaca"
-              placeholder=""
-              formControlName="nazivProizvodjaca"
-              #nazivProizvodjaca
-            />
-          </mat-form-field>
+<!--          <div class="form-group"></div>-->
+<!--          <mat-form-field>-->
+<!--            <mat-label>Naziv Proizvodjaca</mat-label>-->
+<!--            <input-->
+<!--              matInput-->
+<!--              name="nazivProizvodjaca"-->
+<!--              id="nazivProizvodjaca"-->
+<!--              placeholder=""-->
+<!--              formControlName="nazivProizvodjaca"-->
+<!--              #nazivProizvodjaca-->
+<!--            />-->
+<!--          </mat-form-field>-->
 
           <div class="form-group">
             <mat-form-field>
@@ -217,6 +217,21 @@
             <!--            </small>-->
           </div>
         </div>
+
+        <mat-form-field >
+          <mat-label>Sifra Ponudjaca</mat-label>
+          <mat-select  formControlName="ponudjaci" #ponudjaci >
+            <mat-option></mat-option>
+            <mat-option
+              [value]="foo.id === editForm.get('ponudjaci')!.value?.id ? editForm.get('ponudjaci')!.value : foo"
+              *ngFor="let foo of ponudjacis " >
+              {{foo.nazivPonudjaca }}
+            </mat-option>
+
+          </mat-select>
+        </mat-form-field>
+
+
 
         <div>
           <button type="button" id="cancel-save" mat-raised-button color="warn" (click)="previousState()">
