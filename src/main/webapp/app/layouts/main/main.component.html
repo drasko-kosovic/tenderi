@@ -6,40 +6,40 @@
           <span id="firma">Montefarm ESJN</span>
         </a>
         <mat-divider></mat-divider>
-        <a [hidden]="!isAuthenticated()" mat-list-item routerLink="postupci">
+        <a class="hower" [hidden]="!isAuthenticated()" mat-list-item routerLink="postupci">
           <mat-icon>question_answer</mat-icon>
           <span>Postupci</span>
         </a>
         <mat-divider></mat-divider>
-        <a [hidden]="!isAuthenticated()" mat-list-item routerLink="ponudjaci">
+        <a class="hower" [hidden]="!isAuthenticated()" mat-list-item routerLink="ponudjaci">
           <mat-icon>question_answer</mat-icon>
           <span>Ponudjaci</span>
         </a>
         <mat-divider></mat-divider>
         <mat-accordion>
-          <mat-expansion-panel >
+          <mat-expansion-panel>
             <mat-expansion-panel-header>
               <mat-panel-title> Novi Podaci </mat-panel-title>
               <mat-panel-description> </mat-panel-description>
             </mat-expansion-panel-header>
-            <a [hidden]="!isAuthenticated()" mat-list-item [routerLink]="['/postupci/new']">
+            <a class="hower" [hidden]="!isAuthenticated()" mat-list-item [routerLink]="['/postupci/new']">
               <mat-icon>list</mat-icon>
               <span>Dodaj Postupak</span>
             </a>
             <mat-divider></mat-divider>
-            <a [hidden]="!isAuthenticated()" mat-list-item [routerLink]="['/ponude/new']">
+            <a class="hower" [hidden]="!isAuthenticated()" mat-list-item [routerLink]="['/ponude/new']">
               <mat-icon>list</mat-icon>
               <span>Dodaj Ponuda</span>
             </a>
-            <a [hidden]="!isAuthenticated()" mat-list-item [routerLink]="['/specifikacije/new']">
+            <a class="hower" [hidden]="!isAuthenticated()" mat-list-item [routerLink]="['/specifikacije/new']">
               <mat-icon>list</mat-icon>
               <span>Dodaj Specifikaciju</span>
             </a>
-            <a [hidden]="!isAuthenticated()" mat-list-item [routerLink]="['/ponudjaci/new']">
+            <a class="hower" [hidden]="!isAuthenticated()" mat-list-item [routerLink]="['/ponudjaci/new']">
               <mat-icon>list</mat-icon>
               <span>Dodaj Ponudjaca</span>
             </a>
-            <a [hidden]="!isAuthenticated()" mat-list-item [routerLink]="['/ugovor/new']">
+            <a class="hower" [hidden]="!isAuthenticated()" mat-list-item [routerLink]="['/ugovor/new']">
               <mat-icon>list</mat-icon>
               <span>Dodaj Ugovor</span>
             </a>
@@ -101,4 +101,3 @@
   </mat-sidenav-container>
   <jhi-footer></jhi-footer>
 </body>
-

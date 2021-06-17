@@ -35,40 +35,35 @@
 .main {
   margin: 20px;
 }
-.right{
+.right {
   margin-left: 89%;
-  }
-#heder{
+}
+#heder {
   //border-style: dashed;
   padding-bottom: 10px;
 }
-#firma{
+#firma {
   font-weight: bold;
-  color:red;
+  color: red;
   font-family: sans-serif;
   font-style: italic;
-
 }
-#pozadina{
+#pozadina {
   background-color: rgb(232 232 232);
 }
-#menu-login{
+#menu-login {
   display: flex;
   justify-content: flex-end;
   background-color: #3e8acc;
 }
 
-h3{
+h3 {
   //font-weight: lighter;
 
   margin-top: 7px;
 }
 
-
-
-
-
-.container{
+.container {
   display: flex;
   height: 50px;
   margin-right: 2px;
@@ -76,11 +71,8 @@ h3{
   flex-wrap: wrap;
   justify-content: flex-end;
   padding-right: 5px;
-
-
-
 }
-.container-item{
+.container-item {
   color: white;
   width: 50px;
   height: 80%;
@@ -88,20 +80,20 @@ h3{
   text-align: center;
   //border-style: dashed;
   text-align: center;
-
 }
-#zuto-hover:hover{
+#zuto-hover:hover {
   color: yellow;
 }
-#hover-zuto:hover{
+#hover-zuto:hover {
   color: yellow;
 }
-.icon{
+.hower:hover {
+  background-color: black;
+  color: white;
+}
+.icon {
   font-size: 35px;
 }
-mat-expansion-panel{
+mat-expansion-panel {
   background-color: rgb(232 232 232);
 }
-
-
-
