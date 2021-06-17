@@ -167,6 +167,7 @@
     <h4>Dali ste sigurni da zeliet izbrisete selektovane partije</h4>
   </div>
   <div class="modal-footer">
+    <button mat-raised-button color="primary" (click)="modal.close('Save click')">NE</button>
     <button mat-raised-button color="warn" (click)="deleteSelected()" (click)="modal.close('Save click')">DA</button>
   </div>
 </ng-template>
@@ -182,6 +183,7 @@
     <h4>Dali ste sigurni da zelite izbrisete cijelu ponude</h4>
   </div>
   <div class="modal-footer">
+    <button mat-raised-button color="primary" (click)="modal.close('Save click')">NE</button>
     <button mat-raised-button color="warn" (click)="deleteSifra()" (click)="modal.close('Save click')">DA</button>
   </div>
 </ng-template>
