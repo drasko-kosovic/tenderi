@@ -8,7 +8,9 @@ import org.springframework.context.ApplicationContext;
 import org.springframework.core.io.Resource;
 import org.springframework.http.MediaType;
 import org.springframework.web.bind.annotation.*;
+import tenderi.domain.Anex;
 import tenderi.domain.Prvorangirani;
+import tenderi.repository.AnexRepository;
 import tenderi.repository.PrvorangiraniRepository;
 import tenderi.repository.UgovorPdfRepository;
 
@@ -30,7 +32,7 @@ public class PrvorangiraniPdf {
 
 
     @Autowired
-    PrvorangiraniRepository prvorangiraniRepository;
+    AnexRepository anexRepository;
 
 
     @GetMapping(path = "/prvorangirani")
@@ -45,10 +47,10 @@ public class PrvorangiraniPdf {
         Map<String, Object> params = new HashMap<>();
 
 
-        List<Prvorangirani> ugovor= prvorangiraniRepository.findBySifraPostupkaAndSifraPonude(sifraPostupka,sifraPonude);
+        List<Anex> anex= anexRepository.findBySifraPostupkaAndSifraPonude(sifraPostupka,sifraPonude);
 
         //Data source Set
-        JRDataSource dataSource = new JRBeanCollectionDataSource(ugovor);
+        JRDataSource dataSource = new JRBeanCollectionDataSource(anex);
         params.put("datasource", dataSource);
 
         //Make jasperPrint

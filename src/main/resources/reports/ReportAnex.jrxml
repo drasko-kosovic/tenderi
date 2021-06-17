@@ -14,87 +14,97 @@
         </conditionalStyle>
     </style>
     <queryString language="SQL">
-        <![CDATA[select * from view_prvorangirani]]>
+        <![CDATA[select * from view_anex]]>
     </queryString>
     <field name="id" class="java.lang.Long">
         <property name="com.jaspersoft.studio.field.name" value="id"/>
         <property name="com.jaspersoft.studio.field.label" value="id"/>
-        <property name="com.jaspersoft.studio.field.tree.path" value="view_prvorangirani"/>
+        <property name="com.jaspersoft.studio.field.tree.path" value="view_anex"/>
     </field>
     <field name="sifraPostupka" class="java.lang.Integer">
         <property name="com.jaspersoft.studio.field.name" value="sifraPostupka"/>
         <property name="com.jaspersoft.studio.field.label" value="sifraPostupka"/>
-        <property name="com.jaspersoft.studio.field.tree.path" value="view_prvorangirani"/>
+        <property name="com.jaspersoft.studio.field.tree.path" value="view_anex"/>
     </field>
     <field name="sifraPonude" class="java.lang.Integer">
         <property name="com.jaspersoft.studio.field.name" value="sifraPonude"/>
         <property name="com.jaspersoft.studio.field.label" value="sifraPonude"/>
-        <property name="com.jaspersoft.studio.field.tree.path" value="view_prvorangirani"/>
+        <property name="com.jaspersoft.studio.field.tree.path" value="view_anex"/>
     </field>
     <field name="brojPartije" class="java.lang.Integer">
         <property name="com.jaspersoft.studio.field.name" value="brojPartije"/>
         <property name="com.jaspersoft.studio.field.label" value="brojPartije"/>
-        <property name="com.jaspersoft.studio.field.tree.path" value="view_prvorangirani"/>
+        <property name="com.jaspersoft.studio.field.tree.path" value="view_anex"/>
     </field>
     <field name="atc" class="java.lang.String">
         <property name="com.jaspersoft.studio.field.name" value="atc"/>
         <property name="com.jaspersoft.studio.field.label" value="atc"/>
-        <property name="com.jaspersoft.studio.field.tree.path" value="view_prvorangirani"/>
+        <property name="com.jaspersoft.studio.field.tree.path" value="view_anex"/>
     </field>
     <field name="inn" class="java.lang.String">
         <property name="com.jaspersoft.studio.field.name" value="inn"/>
         <property name="com.jaspersoft.studio.field.label" value="inn"/>
-        <property name="com.jaspersoft.studio.field.tree.path" value="view_prvorangirani"/>
+        <property name="com.jaspersoft.studio.field.tree.path" value="view_anex"/>
     </field>
     <field name="zastceniNaziv" class="java.lang.String">
         <property name="com.jaspersoft.studio.field.name" value="zastceniNaziv"/>
         <property name="com.jaspersoft.studio.field.label" value="zastceniNaziv"/>
-        <property name="com.jaspersoft.studio.field.tree.path" value="view_prvorangirani"/>
+        <property name="com.jaspersoft.studio.field.tree.path" value="view_anex"/>
     </field>
     <field name="farmaceutskiOblikLijeka" class="java.lang.String">
         <property name="com.jaspersoft.studio.field.name" value="farmaceutskiOblikLijeka"/>
         <property name="com.jaspersoft.studio.field.label" value="farmaceutskiOblikLijeka"/>
-        <property name="com.jaspersoft.studio.field.tree.path" value="view_prvorangirani"/>
+        <property name="com.jaspersoft.studio.field.tree.path" value="view_anex"/>
     </field>
     <field name="jacinaLijeka" class="java.lang.String">
         <property name="com.jaspersoft.studio.field.name" value="jacinaLijeka"/>
         <property name="com.jaspersoft.studio.field.label" value="jacinaLijeka"/>
-        <property name="com.jaspersoft.studio.field.tree.path" value="view_prvorangirani"/>
+        <property name="com.jaspersoft.studio.field.tree.path" value="view_anex"/>
     </field>
     <field name="pakovanje" class="java.lang.String">
         <property name="com.jaspersoft.studio.field.name" value="pakovanje"/>
         <property name="com.jaspersoft.studio.field.label" value="pakovanje"/>
-        <property name="com.jaspersoft.studio.field.tree.path" value="view_prvorangirani"/>
+        <property name="com.jaspersoft.studio.field.tree.path" value="view_anex"/>
     </field>
     <field name="trazenaKolicina" class="java.lang.Integer">
         <property name="com.jaspersoft.studio.field.name" value="trazenaKolicina"/>
         <property name="com.jaspersoft.studio.field.label" value="trazenaKolicina"/>
-        <property name="com.jaspersoft.studio.field.tree.path" value="view_prvorangirani"/>
+        <property name="com.jaspersoft.studio.field.tree.path" value="view_anex"/>
     </field>
     <field name="procijenjenaVrijednost" class="java.lang.Double">
         <property name="com.jaspersoft.studio.field.name" value="procijenjenaVrijednost"/>
         <property name="com.jaspersoft.studio.field.label" value="procijenjenaVrijednost"/>
-        <property name="com.jaspersoft.studio.field.tree.path" value="view_prvorangirani"/>
+        <property name="com.jaspersoft.studio.field.tree.path" value="view_anex"/>
     </field>
     <field name="ponudjenaVrijednost" class="java.lang.Double">
         <property name="com.jaspersoft.studio.field.name" value="ponudjenaVrijednost"/>
         <property name="com.jaspersoft.studio.field.label" value="ponudjenaVrijednost"/>
-        <property name="com.jaspersoft.studio.field.tree.path" value="view_prvorangirani"/>
+        <property name="com.jaspersoft.studio.field.tree.path" value="view_anex"/>
     </field>
     <field name="rokIsporuke" class="java.lang.Integer">
         <property name="com.jaspersoft.studio.field.name" value="rokIsporuke"/>
         <property name="com.jaspersoft.studio.field.label" value="rokIsporuke"/>
-        <property name="com.jaspersoft.studio.field.tree.path" value="view_prvorangirani"/>
+        <property name="com.jaspersoft.studio.field.tree.path" value="view_anex"/>
     </field>
     <field name="ponudjaci_id" class="java.lang.Long">
         <property name="com.jaspersoft.studio.field.name" value="ponudjaci_id"/>
         <property name="com.jaspersoft.studio.field.label" value="ponudjaci_id"/>
-        <property name="com.jaspersoft.studio.field.tree.path" value="view_prvorangirani"/>
+        <property name="com.jaspersoft.studio.field.tree.path" value="view_anex"/>
     </field>
     <field name="nazivPonudjaca" class="java.lang.String">
         <property name="com.jaspersoft.studio.field.name" value="nazivPonudjaca"/>
         <property name="com.jaspersoft.studio.field.label" value="nazivPonudjaca"/>
-        <property name="com.jaspersoft.studio.field.tree.path" value="view_prvorangirani"/>
+        <property name="com.jaspersoft.studio.field.tree.path" value="view_anex"/>
+    </field>
+    <field name="brojUgovora" class="java.lang.String">
+        <property name="com.jaspersoft.studio.field.name" value="brojUgovora"/>
+        <property name="com.jaspersoft.studio.field.label" value="brojUgovora"/>
+        <property name="com.jaspersoft.studio.field.tree.path" value="view_anex"/>
+    </field>
+    <field name="datumUgovora" class="java.sql.Date">
+        <property name="com.jaspersoft.studio.field.name" value="datumUgovora"/>
+        <property name="com.jaspersoft.studio.field.label" value="datumUgovora"/>
+        <property name="com.jaspersoft.studio.field.tree.path" value="view_anex"/>
     </field>
     <background>
         <band splitType="Stretch"/>
@@ -145,6 +155,13 @@
                 </textElement>
                 <text><![CDATA[Ponudjac:]]></text>
             </staticText>
+            <textField>
+                <reportElement x="300" y="10" width="180" height="19" uuid="089bd9f3-b68d-43dc-86fc-a652626e91f4"/>
+                <textElement>
+                    <font size="11" isBold="true"/>
+                </textElement>
+                <textFieldExpression><![CDATA[$F{brojUgovora}]]></textFieldExpression>
+            </textField>
         </band>
     </title>
     <pageHeader>
