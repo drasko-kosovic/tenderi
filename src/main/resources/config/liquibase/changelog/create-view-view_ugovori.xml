@@ -11,16 +11,17 @@
         ugovor.id,
         ugovor.broj_ugovora,
         ugovor.datum_ugovora,
-        ugovor.predmet_ugovora,
-        ugovor.broj_datum_tenderske_dokumntacije,
         ugovor.broj_datum_odluke_izbora,
-        ugovor.broj_datum_ponude,
         ugovor.iznos_ugovora_bez_pdf,
         ugovor.sifra_postupka,
         ugovor.sifra_ponude,
-        postupci.opis_postupka,
-        ponudjaci.naziv_ponudjaca
-        FROM ((ugovor
+        ponudjaci.naziv_ponudjaca,
+        ponude.datum_ponude,
+        postupci.broj_tendera,
+        postupci.opis_postupka AS predmet_ugovora,
+        concat(ugovor.sifra_ponude, '  ', (postupci.datum_objave)::character varying) AS broj_datum_ponude,
+        concat(postupci.broj_tendera, '  ', (postupci.datum_objave)::character varying) AS broj_datum_tenderske_dokumntacije
+        FROM (((ugovor
         JOIN ponudjaci ON
         (
         (ugovor.ponudjaci_id = ponudjaci.id)
@@ -28,6 +29,13 @@
         JOIN postupci ON
         (
         (ugovor.sifra_postupka = postupci.sifra_postupka)
+        ))
+        JOIN ponude ON
+        (
+        (
+        (ugovor.sifra_postupka = ponude.sifra_postupka) AND
+        (ugovor.sifra_ponude = ponude.sifra_ponude)
+        )
         ))
 </createView>
   </changeSet>

@@ -59,4 +59,11 @@ public class UgovorPdf {
     }
 
 
+
+    @GetMapping("/ugovori/{brojUgovora}")
+    public List<tenderi.domain.UgovorPdf> getUgovor(@PathVariable String brojUgovora) {
+        return ugovorPdfRepository.findUgovorPdfByBrojUgovora(brojUgovora);
+    }
+
+
 }

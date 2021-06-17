@@ -27,7 +27,6 @@ export class UgovorComponent implements AfterViewInit, OnChanges, OnInit {
     'sifra ponude',
     'broj ugovora',
     'datum ugovora',
-    'predmet ugovora',
     'naziv ponudjaca',
     'delete',
     'edit',

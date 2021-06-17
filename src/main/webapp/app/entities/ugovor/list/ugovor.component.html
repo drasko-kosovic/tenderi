@@ -41,11 +41,6 @@
       <td mat-cell *matCellDef="let element">{{ element.datumUgovora }}</td>
       <td mat-footer-cell *matFooterCellDef></td>
     </ng-container>
-    <ng-container matColumnDef="predmet ugovora">
-      <th mat-header-cell *matHeaderCellDef mat-sort-header>Predmet Ugovora</th>
-      <td mat-cell *matCellDef="let element">{{ element.predmetUgovora }}</td>
-      <td mat-footer-cell *matFooterCellDef></td>
-    </ng-container>
     <ng-container matColumnDef="naziv ponudjaca">
       <th mat-header-cell *matHeaderCellDef mat-sort-header>Ponudjac</th>
       <td mat-cell *matCellDef="let element">{{ element.ponudjaci?.nazivPonudjaca}}</td>

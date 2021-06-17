@@ -20,18 +20,10 @@
             <column name="datum_ugovora" type="date">
                 <constraints nullable="false" />
             </column>
-            <column name="predmet_ugovora" type="varchar(255)">
-                <constraints nullable="false" />
-            </column>
-           <column name="broj_datum_tenderske_dokumntacije" type="varchar(255)">
-                <constraints nullable="false" />
-            </column>
             <column name="broj_datum_odluke_izbora" type="varchar(255)">
                 <constraints nullable="false" />
             </column>
-            <column name="broj_datum_ponude" type="varchar(255)">
-                <constraints nullable="false" />
-            </column>
+
             <column name="iznos_ugovora_bez_pdf" type="integer">
                 <constraints nullable="false" />
             </column>

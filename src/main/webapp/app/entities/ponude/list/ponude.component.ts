@@ -13,7 +13,6 @@ import { AccountService } from 'app/core/auth/account.service';
 import { PonudeDeleteDialogComponent } from 'app/entities/ponude/delete/ponude-delete-dialog.component';
 import { IPonudePonudjaci } from 'app/entities/ponude/ponude_ponudjaci.model';
 import { SERVER_API_URL } from 'app/app.constants';
-import { DeleteSelectedComponent } from 'app/entities/ponude/delete-selected/delete-selected.component';
 
 @Component({
   selector: 'jhi-ponude',

@@ -133,19 +133,7 @@ public class UgovorResource {
                     if (ugovor.getDatumUgovora() != null) {
                         existingUgovor.setDatumUgovora(ugovor.getDatumUgovora());
                     }
-                    if (ugovor.getPredmetUgovora() != null) {
-                        existingUgovor.setPredmetUgovora(ugovor.getPredmetUgovora());
-                    }
 
-                    if (ugovor.getBrojDatumTenderskeDokumntacije() != null) {
-                        existingUgovor.setBrojDatumTenderskeDokumntacije(ugovor.getBrojDatumTenderskeDokumntacije());
-                    }
-                    if (ugovor.getBrojDatumOdlukeIzbora() != null) {
-                        existingUgovor.setBrojDatumOdlukeIzbora(ugovor.getBrojDatumOdlukeIzbora());
-                    }
-                    if (ugovor.getBrojDatumPonude() != null) {
-                        existingUgovor.setBrojDatumPonude(ugovor.getBrojDatumPonude());
-                    }
                     if (ugovor.getIznosUgovoraBezPdf() != null) {
                         existingUgovor.setIznosUgovoraBezPdf(ugovor.getIznosUgovoraBezPdf());
                     }

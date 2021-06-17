@@ -29,21 +29,9 @@ Ugovor implements Serializable {
     private LocalDate datumUgovora;
 
     @NotNull
-    @Column(name = "predmet_ugovora", nullable = false)
-    private String predmetUgovora;
-
-
-    @NotNull
-    @Column(name = "broj_datum_tenderske_dokumntacije", nullable = false)
-    private String brojDatumTenderskeDokumntacije;
-
-    @NotNull
     @Column(name = "broj_datum_odluke_izbora", nullable = false)
     private String brojDatumOdlukeIzbora;
 
-    @NotNull
-    @Column(name = "broj_datum_ponude", nullable = false)
-    private String brojDatumPonude;
 
     @NotNull
     @Column(name = "iznos_ugovora_bez_pdf", nullable = false)
@@ -117,32 +105,6 @@ Ugovor implements Serializable {
         this.datumUgovora = datumUgovora;
     }
 
-    public String getPredmetUgovora() {
-        return this.predmetUgovora;
-    }
-
-    public Ugovor predmetUgovora(String predmetUgovora) {
-        this.predmetUgovora = predmetUgovora;
-        return this;
-    }
-
-    public void setPredmetUgovora(String predmetUgovora) {
-        this.predmetUgovora = predmetUgovora;
-    }
-
-
-    public String getBrojDatumTenderskeDokumntacije() {
-        return this.brojDatumTenderskeDokumntacije;
-    }
-
-    public Ugovor brojDatumTenderskeDokumntacije(String brojDatumTenderskeDokumntacije) {
-        this.brojDatumTenderskeDokumntacije = brojDatumTenderskeDokumntacije;
-        return this;
-    }
-
-    public void setBrojDatumTenderskeDokumntacije(String brojDatumTenderskeDokumntacije) {
-        this.brojDatumTenderskeDokumntacije = brojDatumTenderskeDokumntacije;
-    }
 
     public String getBrojDatumOdlukeIzbora() {
         return this.brojDatumOdlukeIzbora;
@@ -157,18 +119,7 @@ Ugovor implements Serializable {
         this.brojDatumOdlukeIzbora = brojDatumOdlukeIzbora;
     }
 
-    public String getBrojDatumPonude() {
-        return this.brojDatumPonude;
-    }
 
-    public Ugovor brojDatumPonude(String brojDatumPonude) {
-        this.brojDatumPonude = brojDatumPonude;
-        return this;
-    }
-
-    public void setBrojDatumPonude(String brojDatumPonude) {
-        this.brojDatumPonude = brojDatumPonude;
-    }
 
     public Integer getIznosUgovoraBezPdf() {
 
@@ -240,10 +191,7 @@ Ugovor implements Serializable {
             "id=" + id +
             ", brojUgovora='" + brojUgovora + '\'' +
             ", datumUgovora=" + datumUgovora +
-            ", predmetUgovora='" + predmetUgovora + '\'' +
-            ", brojDatumTenderskeDokumntacije='" + brojDatumTenderskeDokumntacije + '\'' +
             ", brojDatumOdlukeIzbora='" + brojDatumOdlukeIzbora + '\'' +
-            ", brojDatumPonude='" + brojDatumPonude + '\'' +
             ", iznosUgovoraBezPdf=" + iznosUgovoraBezPdf +
             ", sifraPostupka=" + sifraPostupka +
             ", sifraPonude=" + sifraPonude +

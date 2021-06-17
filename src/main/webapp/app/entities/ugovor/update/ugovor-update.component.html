@@ -63,53 +63,53 @@
               </div>
             </div>
 
-            <div class="form-group">
-              <mat-form-field>
-                <mat-label>Predmet Ugovora</mat-label>
-                <input matInput name="predmetUgovora" id="predmetUgovora" placeholder="" formControlName="predmetUgovora" #predmetUgovora />
-              </mat-form-field>
-              <div
-                *ngIf="
-                editForm.get('predmetUgovora')!.invalid &&
-                (editForm.get('predmetUgovora')!.dirty || editForm.get('predmetUgovora')!.touched)
-              "
-              >
-                <small
-                  class="form-text text-danger"
-                  *ngIf="editForm.get('predmetUgovora')?.errors?.required"
-                  jhiTranslate="entity.validation.required"
-                >
-                  This field is required.
-                </small>
-              </div>
-            </div>
-            <div class="form-group">
-              <mat-form-field>
-                <mat-label>Broj i DatumTenderske Dokumntacije</mat-label>
-                <input
-                  matInput
-                  name="brojDatumTenderskeDokumntacije"
-                  id="brojDatumTenderskeDokumntacije"
-                  placeholder=""
-                  formControlName="brojDatumTenderskeDokumntacije"
-                  #brojDatumTenderskeDokumntacije
-                />
-              </mat-form-field>
-              <div
-                *ngIf="
-                editForm.get('brojDatumTenderskeDokumntacije')!.invalid &&
-                (editForm.get('brojDatumTenderskeDokumntacije')!.dirty || editForm.get('brojDatumTenderskeDokumntacije')!.touched)
-              "
-              >
-                <small
-                  class="form-text text-danger"
-                  *ngIf="editForm.get('brojDatumTenderskeDokumntacije')?.errors?.required"
-                  jhiTranslate="entity.validation.required"
-                >
-                  This field is required.
-                </small>
-              </div>
-            </div>
+<!--            <div class="form-group">-->
+<!--              <mat-form-field>-->
+<!--                <mat-label>Predmet Ugovora</mat-label>-->
+<!--                <input matInput name="predmetUgovora" id="predmetUgovora" placeholder="" formControlName="predmetUgovora" #predmetUgovora />-->
+<!--              </mat-form-field>-->
+<!--              <div-->
+<!--                *ngIf="-->
+<!--                editForm.get('predmetUgovora')!.invalid &&-->
+<!--                (editForm.get('predmetUgovora')!.dirty || editForm.get('predmetUgovora')!.touched)-->
+<!--              "-->
+<!--              >-->
+<!--                <small-->
+<!--                  class="form-text text-danger"-->
+<!--                  *ngIf="editForm.get('predmetUgovora')?.errors?.required"-->
+<!--                  jhiTranslate="entity.validation.required"-->
+<!--                >-->
+<!--                  This field is required.-->
+<!--                </small>-->
+<!--              </div>-->
+<!--            </div>-->
+<!--            <div class="form-group">-->
+<!--              <mat-form-field>-->
+<!--                <mat-label>Broj i DatumTenderske Dokumntacije</mat-label>-->
+<!--                <input-->
+<!--                  matInput-->
+<!--                  name="brojDatumTenderskeDokumntacije"-->
+<!--                  id="brojDatumTenderskeDokumntacije"-->
+<!--                  placeholder=""-->
+<!--                  formControlName="brojDatumTenderskeDokumntacije"-->
+<!--                  #brojDatumTenderskeDokumntacije-->
+<!--                />-->
+<!--              </mat-form-field>-->
+<!--              <div-->
+<!--                *ngIf="-->
+<!--                editForm.get('brojDatumTenderskeDokumntacije')!.invalid &&-->
+<!--                (editForm.get('brojDatumTenderskeDokumntacije')!.dirty || editForm.get('brojDatumTenderskeDokumntacije')!.touched)-->
+<!--              "-->
+<!--              >-->
+<!--                <small-->
+<!--                  class="form-text text-danger"-->
+<!--                  *ngIf="editForm.get('brojDatumTenderskeDokumntacije')?.errors?.required"-->
+<!--                  jhiTranslate="entity.validation.required"-->
+<!--                >-->
+<!--                  This field is required.-->
+<!--                </small>-->
+<!--              </div>-->
+<!--            </div>-->
 
             <div class="form-group">
               <mat-form-field>
@@ -139,33 +139,33 @@
               </div>
             </div>
 
-            <div class="form-group">
-              <mat-form-field>
-                <mat-label>Broj i Datum Ponude</mat-label>
-                <input
-                  matInput
-                  name="brojDatumPonude"
-                  id="brojDatumPonude"
-                  placeholder=""
-                  formControlName="brojDatumPonude"
-                  #brojDatumPonude
-                />
-              </mat-form-field>
-              <div
-                *ngIf="
-                editForm.get('brojDatumPonude')!.invalid &&
-                (editForm.get('brojDatumPonude')!.dirty || editForm.get('brojDatumPonude')!.touched)
-              "
-              >
-                <small
-                  class="form-text text-danger"
-                  *ngIf="editForm.get('brojDatumPonude')?.errors?.required"
-                  jhiTranslate="entity.validation.required"
-                >
-                  This field is required.
-                </small>
-              </div>
-            </div>
+<!--            <div class="form-group">-->
+<!--              <mat-form-field>-->
+<!--                <mat-label>Broj i Datum Ponude</mat-label>-->
+<!--                <input-->
+<!--                  matInput-->
+<!--                  name="brojDatumPonude"-->
+<!--                  id="brojDatumPonude"-->
+<!--                  placeholder=""-->
+<!--                  formControlName="brojDatumPonude"-->
+<!--                  #brojDatumPonude-->
+<!--                />-->
+<!--              </mat-form-field>-->
+<!--              <div-->
+<!--                *ngIf="-->
+<!--                editForm.get('brojDatumPonude')!.invalid &&-->
+<!--                (editForm.get('brojDatumPonude')!.dirty || editForm.get('brojDatumPonude')!.touched)-->
+<!--              "-->
+<!--              >-->
+<!--                <small-->
+<!--                  class="form-text text-danger"-->
+<!--                  *ngIf="editForm.get('brojDatumPonude')?.errors?.required"-->
+<!--                  jhiTranslate="entity.validation.required"-->
+<!--                >-->
+<!--                  This field is required.-->
+<!--                </small>-->
+<!--              </div>-->
+<!--            </div>-->
 
             <div class="form-group">
               <mat-form-field>
