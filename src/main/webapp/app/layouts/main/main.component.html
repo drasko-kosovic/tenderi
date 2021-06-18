@@ -17,7 +17,7 @@
         </a>
         <mat-divider></mat-divider>
         <mat-accordion>
-          <mat-expansion-panel>
+          <mat-expansion-panel *jhiHasAnyAuthority="'ROLE_ADMIN'">
             <mat-expansion-panel-header>
               <mat-panel-title> Novi Podaci </mat-panel-title>
               <mat-panel-description> </mat-panel-description>
