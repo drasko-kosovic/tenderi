@@ -44,7 +44,7 @@
     "languages": ["sr", "en"],
     "lastLiquibaseTimestamp": 1622265256000,
     "entities": ["Ugovor"],
-    "herokuAppName": "montefarm",
+    "herokuAppName": "tenderi",
     "herokuDeployType": "git",
     "herokuJavaVersion": "11"
   }

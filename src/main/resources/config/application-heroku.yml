@@ -12,7 +12,7 @@
 
 eureka:
   instance:
-    hostname: montefarm.herokuapp.com
+    hostname: tenderi.herokuapp.com
     non-secure-port: 80
     prefer-ip-address: false
 
