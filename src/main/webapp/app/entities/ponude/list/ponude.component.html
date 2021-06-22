@@ -1,7 +1,17 @@
-<mat-form-field class="container-search">
-  <mat-icon matPrefix>search</mat-icon>
+<!--<mat-form-field class="container-search">-->
+<!--  <mat-icon matPrefix>search</mat-icon>-->
 
-  <input type="search" (keyup)="doFilter(box.value)" #box matInput placeholder="Ponudjac" />
+<!--  <input type="search" (keyup)="doFilter(box.value)" #box matInput placeholder="Ponudjac" />-->
+<!--</mat-form-field>-->
+
+<mat-form-field *jhiHasAnyAuthority="'ROLE_ADMIN'">
+  <mat-label>Nadji</mat-label>
+  <mat-select (selectionChange)="getSifraPonude()" [(ngModel)]="nadjiPonudjaca">
+    <mat-option></mat-option>
+    <mat-option *ngFor="let foo of ponude_ponudjaci" [value]="foo.sifraPonude">
+      {{ foo.nazivPonudjaca }}
+    </mat-option>
+  </mat-select>
 </mat-form-field>
 <button
   *jhiHasAnyAuthority="'ROLE_ADMIN'"
@@ -51,15 +61,15 @@
   <mat-icon>delete</mat-icon>
 </button>
 
-<mat-form-field *jhiHasAnyAuthority="'ROLE_ADMIN'">
-  <mat-label>Select an option</mat-label>
-  <mat-select [(ngModel)]="nadjiPonudjaca">
-    <mat-option></mat-option>
-    <mat-option *ngFor="let foo of ponude_ponudjaci" [value]="foo.sifraPonude">
-      {{ foo.nazivPonudjaca }}
-    </mat-option>
-  </mat-select>
-</mat-form-field>
+<!--<mat-form-field *jhiHasAnyAuthority="'ROLE_ADMIN'">-->
+<!--  <mat-label>Select an option</mat-label>-->
+<!--  <mat-select [(ngModel)]="nadjiPonudjaca">-->
+<!--    <mat-option></mat-option>-->
+<!--    <mat-option *ngFor="let foo of ponude_ponudjaci" [value]="foo.sifraPonude">-->
+<!--      {{ foo.nazivPonudjaca }}-->
+<!--    </mat-option>-->
+<!--  </mat-select>-->
+<!--</mat-form-field>-->
 
 <mat-card class="example-container mat-elevation-z24">
   <button mat-raised-button (click)="exporter.exportTable('xlsx', { fileName: 'Ponude', sheet: 'sheet_name', Props: { Author: 'Talha' } })">

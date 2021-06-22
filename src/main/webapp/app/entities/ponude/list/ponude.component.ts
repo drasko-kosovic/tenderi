@@ -66,6 +66,14 @@ export class PonudeComponent implements AfterViewInit, OnChanges, OnInit {
       this.dataSource.data = res;
     });
   }
+
+  public getSifraPonude(): void {
+    this.ponudeService.findSiftraPonude(this.nadjiPonudjaca).subscribe((res: IPonude[]) => {
+      this.dataSource.data = res;
+      this.dataSource.filter = this.nadjiPonudjaca.trim().toLocaleLowerCase();
+      this.ukupnaPonudjena = this.dataSource.filteredData.map(t => t.ponudjenaVrijednost).reduce((acc, value) => acc! + value!, 0);
+    });
+  }
   public getSifraPostupkaPonudePonudjaci(): void {
     this.ponudeService.findSiftraPostupakPonudePonudjaci(this.postupak).subscribe((res: IPonudePonudjaci[]) => {
       this.ponude_ponudjaci = res;

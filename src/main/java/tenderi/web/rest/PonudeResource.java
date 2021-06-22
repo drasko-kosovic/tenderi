@@ -75,12 +75,15 @@ public class PonudeResource {
         return ponudeRepository.findBySifraPostupka(sifra_postupka);
     }
 
+    @GetMapping("/ponude-sifra-ponude/{sifra_ponude}")
+    public List<Ponude> getSifraPonude(@PathVariable Integer sifra_ponude) {
+        return ponudeRepository.findBySifraPonude(sifra_ponude);
+    }
+
     @GetMapping("/ponude/all")
     public List<Ponude> getAll() {
         return ponudeRepository.allPonude();
     }
-
-
 
     @PutMapping("/ponudes/{id}")
     public ResponseEntity<Ponude> updatePonude(
@@ -208,18 +211,19 @@ public class PonudeResource {
             .headers(HeaderUtil.createEntityDeletionAlert(applicationName, true, ENTITY_NAME, id.toString()))
             .build();
     }
+
     @DeleteMapping("/ponude/{sifraPonude}")
     public void deletePonudeSifra(@PathVariable Integer sifraPonude) {
-       ponudeRepository.deletePonudeSifraPonude(sifraPonude);
+        ponudeRepository.deletePonudeSifraPonude(sifraPonude);
     }
 
     @DeleteMapping("/ponude/delete/selected")
     public void delete() {
         ponudeRepository.deleteBySelected();
     }
+
     @PutMapping("/ponude/update/selected/{id}")
     public void updatePonude(@PathVariable("id") Long id) {
         ponudeRepository.updateSlected(id);
     }
-
 }
