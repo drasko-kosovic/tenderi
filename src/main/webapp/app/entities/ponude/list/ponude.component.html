@@ -4,7 +4,7 @@
 <!--  <input type="search" (keyup)="doFilter(box.value)" #box matInput placeholder="Ponudjac" />-->
 <!--</mat-form-field>-->
 
-<mat-form-field *jhiHasAnyAuthority="'ROLE_ADMIN'">
+<mat-form-field>
   <mat-label>Nadji</mat-label>
   <mat-select (selectionChange)="getSifraPonude()" [(ngModel)]="nadjiPonudjaca">
     <mat-option></mat-option>
@@ -163,7 +163,7 @@
     <tr mat-row *matRowDef="let row; columns: displayedColumns"></tr>
     <tr mat-footer-row *matFooterRowDef="displayedColumns"></tr>
   </table>
-  <mat-paginator [pageSizeOptions]="[5, 10, 20]" showFirstLastButtons></mat-paginator>
+  <mat-paginator [pageSizeOptions]="[10, 20]" showFirstLastButtons></mat-paginator>
 </mat-card>
 
 <ng-template #content let-modal>
