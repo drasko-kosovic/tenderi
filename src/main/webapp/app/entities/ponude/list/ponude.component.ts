@@ -38,7 +38,7 @@ export class PonudeComponent implements AfterViewInit, OnChanges, OnInit {
     'zasticeni naziv',
     'ponudjena vrijednost',
     'rok isporuke',
-    'datum ponude',
+
     // 'delete',
     'edit',
     'delete selected',
