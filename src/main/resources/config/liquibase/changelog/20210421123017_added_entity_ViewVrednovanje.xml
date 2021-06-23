@@ -10,42 +10,29 @@
         Added the entity ViewVrednovanje.
     -->
     <changeSet author="Drasko" id="view-vrednovanje">
-        <createView catalogName="vrednovanje-esjn" schemaName="public" viewName="view_vrednovanje">
-            SELECT ponude.id,
-            ponude.sifra_postupka,
-            ponude.sifra_ponude,
-            ponude.broj_partije,
-            specifikacije.atc,
-            specifikacije.inn,
-            ponude.zastceni_naziv,
-            specifikacije.farmaceutski_oblik_lijeka,
-            specifikacije.jacina_lijeka,
-            specifikacije.pakovanje,
-            specifikacije.trazena_kolicina,
-            specifikacije.procijenjena_vrijednost,
-            ponude.ponudjena_vrijednost,
-            ponude.rok_isporuke,
-            ponude.ponudjaci_id,
-            ponude.naziv_proizvodjaca,
-            ((((90)::numeric)::double precision * min(ponude.ponudjena_vrijednost) OVER
-            (PARTITION BY ponude.broj_partije, ponude.sifra_postupka)) /
-            ponude.ponudjena_vrijednost) AS bod_cijena,
-            ((((10)::numeric)::double
-            precision * (min(ponude.rok_isporuke) OVER (PARTITION BY
-            ponude.broj_partije, ponude.sifra_postupka))::double precision) /
-            (ponude.rok_isporuke)::double precision) AS bod_rok,
-            (((((90)::numeric)::double precision * min(ponude.ponudjena_vrijednost)
-            OVER (PARTITION BY ponude.broj_partije, ponude.sifra_postupka)) /
-            ponude.ponudjena_vrijednost) + ((((10 * min(ponude.rok_isporuke) OVER
-            (PARTITION BY ponude.broj_partije, ponude.sifra_postupka)) /
-            ponude.rok_isporuke))::numeric)::double precision) AS bod_ukupno,
-            ponudjaci.naziv_ponudjaca
-            FROM ((ponude
-            JOIN specifikacije ON (((ponude.sifra_postupka =
-            specifikacije.sifra_postupka) AND (ponude.broj_partije =
-            specifikacije.broj_partije))))
-            JOIN ponudjaci ON ((ponude.ponudjaci_id
-            = ponudjaci.id)))
+        <createView catalogName="esjn-tenderi" schemaName="public" viewName="view_vrednovanje">
+            SELECT
+            view_vrednovanje0.id,
+            view_vrednovanje0.sifra_postupka,
+            view_vrednovanje0.sifra_ponude,
+            view_vrednovanje0.broj_partije,
+            view_vrednovanje0.atc,
+            view_vrednovanje0.inn,
+            view_vrednovanje0.zastceni_naziv,
+            view_vrednovanje0.farmaceutski_oblik_lijeka,
+            view_vrednovanje0.jacina_lijeka,
+            view_vrednovanje0.pakovanje,
+            view_vrednovanje0.trazena_kolicina,
+            view_vrednovanje0.procijenjena_vrijednost,
+            view_vrednovanje0.ponudjena_vrijednost,
+            view_vrednovanje0.rok_isporuke,
+            view_vrednovanje0.ponudjaci_id,
+            view_vrednovanje0.naziv_proizvodjaca,
+            view_vrednovanje0.bod_cijena,
+            view_vrednovanje0.bod_rok,
+            (view_vrednovanje0.bod_cijena + view_vrednovanje0.bod_rok) AS bod_ukupno,
+            view_vrednovanje0.naziv_ponudjaca
+            FROM view_vrednovanje0
         </createView>
     </changeSet>
 
