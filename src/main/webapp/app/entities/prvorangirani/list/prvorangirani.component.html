@@ -1,13 +1,13 @@
-<mat-form-field class="container-search">
-  <mat-icon matPrefix>search</mat-icon>
-  <input type="search" (keyup)="doFilter(box.value)" #box matInput placeholder="Ponudjac" />
-</mat-form-field>
 <button
   mat-raised-button
   (click)="exporter.exportTable('xlsx', { fileName: 'Prvorangirani', sheet: 'sheet_prvorangirani', Props: { Author: 'Draskoa' } })"
 >
   <img src="../../../../content/images/icons8-microsoft-excel-48.png" alt="" />
 </button>
+<mat-form-field class="container-search">
+  <mat-icon matPrefix>search</mat-icon>
+  <input type="search" (keyup)="doFilter(box.value)" #box matInput placeholder="Ponudjac" />
+</mat-form-field>
 <mat-card class="example-container mat-elevation-z8">
   <table mat-table id="ExampleTable" matTableExporter [dataSource]="dataSource" matSort matSortStart="desc" #exporter="matTableExporter">
     <ng-container matColumnDef="sifra postupka">

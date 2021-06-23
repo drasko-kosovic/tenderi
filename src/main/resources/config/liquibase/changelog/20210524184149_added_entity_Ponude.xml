@@ -42,7 +42,7 @@
                 <constraints nullable="true" />
             </column>
             <column name="ponudjaci_id" type="bigint">
-                <constraints nullable="true" unique="true" uniqueConstraintName="ux_ponude__ponudjaci_id" />
+
             </column>
             <!-- jhipster-needle-liquibase-add-column - JHipster will add columns here -->
         </createTable>

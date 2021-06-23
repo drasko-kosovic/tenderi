@@ -45,6 +45,10 @@ export class PonudeComponent implements AfterViewInit, OnChanges, OnInit {
     'select',
   ];
 
+
+
+
+
   public dataSource = new MatTableDataSource<IPonude>();
 
   @ViewChild(MatSort) sort!: MatSort;
@@ -60,7 +64,9 @@ export class PonudeComponent implements AfterViewInit, OnChanges, OnInit {
     protected modalService: NgbModal,
     private accountService: AccountService
   ) {}
-
+  public calculateTotal():any {
+    return this.ponude?.reduce((accum, curr) => accum + curr.ponudjenaVrijednost!, 0);
+  }
   public getSifraPostupka(): void {
     this.ponudeService.findSiftraPostupak(this.postupak).subscribe((res: IPonude[]) => {
       this.dataSource.data = res;
