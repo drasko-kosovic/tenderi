@@ -1,4 +1,3 @@
-
 <button
   mat-raised-button
   (click)="exporter.exportTable('xlsx', { fileName: 'Prvorangirani', sheet: 'sheet_prvorangirani', Props: { Author: 'Draskoa' } })"
@@ -19,7 +18,7 @@
   <input type="search" (keyup)="doFilter(box.value)" #box matInput placeholder="" />
 </mat-form-field>
 <mat-card class="example-container mat-elevation-z8">
-  <div >
+  <div>
     <table mat-table id="ExampleTable" matTableExporter [dataSource]="dataSource" matSort matSortStart="desc" #exporter="matTableExporter">
       <ng-container matColumnDef="id">
         <th mat-header-cell *matHeaderCellDef mat-sort-header>Id</th>
@@ -69,12 +68,13 @@
       <ng-container matColumnDef="pakovanje">
         <th mat-header-cell *matHeaderCellDef mat-sort-header>Pakovanje</th>
         <td mat-cell *matCellDef="let element">{{ element.pakovanje }}</td>
-        <td mat-footer-cell *matFooterCellDef></td> </ng-container>
+        <td mat-footer-cell *matFooterCellDef></td>
+      </ng-container>
 
       <ng-container matColumnDef="procijenjena vrijednost">
         <th mat-header-cell *matHeaderCellDef mat-sort-header>Procijenjena vrijednost</th>
         <td mat-cell *matCellDef="let element">{{ element.procijenjenaVrijednost | number: '1.2-2' }}</td>
-        <td mat-footer-cell *matFooterCellDef>{{ getTotalCostProcijenjena() | number: '1.2-2' }}</td>
+        <td mat-footer-cell *matFooterCellDef>Ukupno Procijenjena:{{ getTotalCostProcijenjena() | number: '1.2-2' }}</td>
       </ng-container>
       <ng-container matColumnDef="kolicina">
         <th mat-header-cell *matHeaderCellDef mat-sort-header>Kolicina</th>
@@ -84,7 +84,7 @@
       <ng-container matColumnDef="ponudjena vrijednost">
         <th mat-header-cell *matHeaderCellDef mat-sort-header>Ponudjena Cijena</th>
         <td mat-cell *matCellDef="let element">{{ element.ponudjenaVrijednost | number: '1.2-2' }}</td>
-        <td mat-footer-cell *matFooterCellDef>{{ getTotalCost() | number: '1.2-2' }}</td>
+        <td mat-footer-cell *matFooterCellDef>Ukupno Ponudjena:{{ getTotalCost() | number: '1.2-2' }}</td>
       </ng-container>
       <ng-container matColumnDef="rok isporuke">
         <th mat-header-cell *matHeaderCellDef mat-sort-header>Rok Isporuke</th>
@@ -123,6 +123,4 @@
     </table>
     <mat-paginator [pageSizeOptions]="[5, 10, 20]" showFirstLastButtons></mat-paginator>
   </div>
-
-
 </mat-card>

@@ -1,11 +1,11 @@
-import {AfterViewInit, Component, Input, OnChanges, ViewChild} from '@angular/core';
-import {IViewVrednovanje} from '../view-vrednovanje.model';
-import {ViewVrednovanjeService} from '../service/view-vrednovanje.service';
-import {MatTableDataSource} from '@angular/material/table';
-import {MatSort} from '@angular/material/sort';
-import {MatPaginator} from '@angular/material/paginator';
-import {IPonudePonudjaci} from "app/entities/ponude/ponude_ponudjaci.model";
-import {PonudeService} from "app/entities/ponude/service/ponude.service";
+import { AfterViewInit, Component, Input, OnChanges, ViewChild } from '@angular/core';
+import { IViewVrednovanje } from '../view-vrednovanje.model';
+import { ViewVrednovanjeService } from '../service/view-vrednovanje.service';
+import { MatTableDataSource } from '@angular/material/table';
+import { MatSort } from '@angular/material/sort';
+import { MatPaginator } from '@angular/material/paginator';
+import { IPonudePonudjaci } from 'app/entities/ponude/ponude_ponudjaci.model';
+import { PonudeService } from 'app/entities/ponude/service/ponude.service';
 
 @Component({
   selector: 'jhi-view-vrednovanje',
@@ -46,8 +46,7 @@ export class ViewVrednovanjeComponent implements AfterViewInit, OnChanges {
   @ViewChild(MatPaginator) paginator!: MatPaginator;
   @Input() postupak: any;
 
-  constructor(protected vrednovanjeService: ViewVrednovanjeService, protected ponudeService: PonudeService) {
-  }
+  constructor(protected vrednovanjeService: ViewVrednovanjeService, protected ponudeService: PonudeService) {}
 
   public getAllVrednovanjei(): void {
     this.vrednovanjeService.vrednovanjeAll().subscribe((res: IViewVrednovanje[]) => {
@@ -80,7 +79,6 @@ export class ViewVrednovanjeComponent implements AfterViewInit, OnChanges {
     });
   }
 
-
   doFilter = (iznos: string): any => {
     this.dataSource.filter = iznos.trim().toLocaleLowerCase();
     this.ukupnaPonudjena = this.dataSource.filteredData.map(t => t.ponudjenaVrijednost).reduce((acc, value) => acc! + value!, 0);
@@ -90,6 +88,9 @@ export class ViewVrednovanjeComponent implements AfterViewInit, OnChanges {
   public getAllPostupciVrednovanjei(): void {
     this.vrednovanjeService.findPostupak(this.postupak).subscribe((res: IViewVrednovanje[]) => {
       this.dataSource.data = res;
+      this.viewVrednovanjes = res;
+      this.getTotalCost();
+      this.getTotalCostProcijenjena();
       // eslint-disable-next-line no-console
       console.log(res);
     });
