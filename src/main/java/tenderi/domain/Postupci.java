@@ -3,7 +3,7 @@ package tenderi.domain;
 import java.io.Serializable;
 import java.time.LocalDate;
 import javax.persistence.*;
-import javax.validation.constraints.*;
+import javax.validation.constraints.NotNull;
 
 /**
  * A Postupci.
@@ -37,6 +37,9 @@ public class Postupci implements Serializable {
     @Column(name = "datum_objave")
     private LocalDate datumObjave;
 
+    @Column(name = "datum_otvaranja")
+    private LocalDate datumOtvaranja;
+
     // jhipster-needle-entity-add-field - JHipster will add fields here
     public Long getId() {
         return id;
@@ -44,6 +47,14 @@ public class Postupci implements Serializable {
 
     public void setId(Long id) {
         this.id = id;
+    }
+
+    public LocalDate getDatumOtvaranja() {
+        return datumOtvaranja;
+    }
+
+    public void setDatumOtvaranja(LocalDate datumOtvaranja) {
+        this.datumOtvaranja = datumOtvaranja;
     }
 
     public Postupci id(Long id) {
