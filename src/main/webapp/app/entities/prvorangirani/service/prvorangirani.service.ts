@@ -11,6 +11,7 @@ export type EntityArrayResponseType = HttpResponse<IPrvorangirani[]>;
 export class PrvorangiraniService {
   public resourceUrl = this.applicationConfigService.getEndpointFor('api/prvorangirani');
   public resourceUrlPostupak = this.applicationConfigService.getEndpointFor('api/prvorangirani');
+  public resourceUrlPonude = this.applicationConfigService.getEndpointFor('api/prvorangirani-ponude');
 
   constructor(protected http: HttpClient, private applicationConfigService: ApplicationConfigService) {
   }
@@ -25,6 +26,10 @@ export class PrvorangiraniService {
 
   findPostupak(sifraPostupka: number): any {
     return this.http.get<IPrvorangirani>(`${this.resourceUrl}/${sifraPostupka}`);
+  }
+
+  findPonude(sifraPonude: number): any {
+    return this.http.get<IPrvorangirani>(`${this.resourceUrlPonude}/${sifraPonude}`);
   }
 
   getPrvorangiraniPonude(sifraPostupka: number, sifraPonude: number): Observable<IPonude[]> {

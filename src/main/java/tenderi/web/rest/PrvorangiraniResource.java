@@ -32,6 +32,11 @@ public class PrvorangiraniResource {
         return prvorangiraniRepository.findBySifraPostupka(sifraPostupka);
     }
 
+    @GetMapping("/prvorangirani-ponude/{sifraPonude}")
+    public List<Prvorangirani> findByPonudePrvorangirani(@PathVariable Integer sifraPonude) {
+        return prvorangiraniRepository.findBySifraPonude(sifraPonude);
+    }
+
     @GetMapping("/prvorangirani/ugovor")
     public List<Prvorangirani> findByPrvorangiraniUgovor(@RequestParam Integer sifraPostupka, Integer sifraPonude) {
         return prvorangiraniRepository.findBySifraPostupkaAndSifraPonude(sifraPostupka,sifraPonude);

@@ -1,9 +1,9 @@
-import { AfterViewInit, Component, Input, OnChanges, ViewChild } from '@angular/core';
-import { IViewVrednovanje } from '../view-vrednovanje.model';
-import { ViewVrednovanjeService } from '../service/view-vrednovanje.service';
-import { MatTableDataSource } from '@angular/material/table';
-import { MatSort } from '@angular/material/sort';
-import { MatPaginator } from '@angular/material/paginator';
+import {AfterViewInit, Component, Input, OnChanges, ViewChild} from '@angular/core';
+import {IViewVrednovanje} from '../view-vrednovanje.model';
+import {ViewVrednovanjeService} from '../service/view-vrednovanje.service';
+import {MatTableDataSource} from '@angular/material/table';
+import {MatSort} from '@angular/material/sort';
+import {MatPaginator} from '@angular/material/paginator';
 import {IPonudePonudjaci} from "app/entities/ponude/ponude_ponudjaci.model";
 import {PonudeService} from "app/entities/ponude/service/ponude.service";
 
@@ -14,6 +14,7 @@ import {PonudeService} from "app/entities/ponude/service/ponude.service";
 })
 export class ViewVrednovanjeComponent implements AfterViewInit, OnChanges {
   viewVrednovanjes?: IViewVrednovanje[];
+  ponude_ponudjaci?: IPonudePonudjaci[];
   ukupnaPonudjena?: number | null | undefined;
   ukupnaProcijenjena?: number | null | undefined;
   nadjiPonudjaca?: any;
@@ -27,11 +28,13 @@ export class ViewVrednovanjeComponent implements AfterViewInit, OnChanges {
     'farmaceutski oblik',
     'jacina lijeka',
     'pakovanje',
-    'kolicina',
+
     'procijenjena vrijednost',
+    'kolicina',
     'ponudjena vrijednost',
     'rok isporuke',
     'naziv ponudjaca',
+
     'naziv proizvodjaca',
     'bod cijena',
     'bod rok',
@@ -43,7 +46,8 @@ export class ViewVrednovanjeComponent implements AfterViewInit, OnChanges {
   @ViewChild(MatPaginator) paginator!: MatPaginator;
   @Input() postupak: any;
 
-  constructor(protected vrednovanjeService: ViewVrednovanjeService,protected ponudeService:PonudeService) {}
+  constructor(protected vrednovanjeService: ViewVrednovanjeService, protected ponudeService: PonudeService) {
+  }
 
   public getAllVrednovanjei(): void {
     this.vrednovanjeService.vrednovanjeAll().subscribe((res: IViewVrednovanje[]) => {
@@ -52,8 +56,13 @@ export class ViewVrednovanjeComponent implements AfterViewInit, OnChanges {
       console.log(res);
     });
   }
+
   getTotalCost(): any {
     return this.viewVrednovanjes?.map(t => t.ponudjenaVrijednost).reduce((acc, value) => acc! + value!, 0);
+  }
+
+  getTotalCostProcijenjena(): any {
+    return this.viewVrednovanjes?.map(t => t.procijenjenaVrijednost).reduce((acc, value) => acc! + value!, 0);
   }
 
   public getSifraPonude(): void {
@@ -61,13 +70,15 @@ export class ViewVrednovanjeComponent implements AfterViewInit, OnChanges {
       this.dataSource.data = res;
       this.viewVrednovanjes = res;
       this.getTotalCost();
+      this.getTotalCostProcijenjena();
     });
   }
-  // public getSifraPostupkaPonudePonudjaci(): void {
-  //   this.ponudeService.findSiftraPostupakPonudePonudjaci(this.postupak).subscribe((res: IPonudePonudjaci[]) => {
-  //     this.ponude_ponudjaci = res;
-  //   });
-  // }
+
+  public getSifraPostupkaPonudePonudjaci(): void {
+    this.ponudeService.findSiftraPostupakPonudePonudjaci(this.postupak).subscribe((res: IPonudePonudjaci[]) => {
+      this.ponude_ponudjaci = res;
+    });
+  }
 
 
   doFilter = (iznos: string): any => {
@@ -86,6 +97,7 @@ export class ViewVrednovanjeComponent implements AfterViewInit, OnChanges {
 
   ngOnChanges(): void {
     this.getAllPostupciVrednovanjei();
+    this.getSifraPostupkaPonudePonudjaci();
   }
 
   ngAfterViewInit(): void {

@@ -5,7 +5,7 @@ import { Observable } from 'rxjs';
 import { ApplicationConfigService } from 'app/core/config/application-config.service';
 
 import { IViewVrednovanje } from '../view-vrednovanje.model';
-import {IPonude} from "app/entities/ponude/ponude.model";
+
 
 export type EntityResponseType = HttpResponse<IViewVrednovanje>;
 export type EntityArrayResponseType = HttpResponse<IViewVrednovanje[]>;
