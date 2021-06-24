@@ -73,6 +73,18 @@ public class Prvorangirani implements Serializable {
         return ponudjaci_id;
     }
 
+    public Double getBodCijena() {
+        return bodCijena;
+    }
+
+    public Double getBodRok() {
+        return bodRok;
+    }
+
+    public Double getBodUkupno() {
+        return bodUkupno;
+    }
+
     public String getNazivPonudjaca() {
         return nazivPonudjaca;
     }
@@ -80,6 +92,14 @@ public class Prvorangirani implements Serializable {
     @Column(name = "naziv_ponudjaca")
     private String nazivPonudjaca;
 
+    @Column(name = "bod_cijena")
+    private Double bodCijena;
+
+    @Column(name = "bod_rok")
+    private Double bodRok;
+
+    @Column(name = "bod_ukupno")
+    private Double bodUkupno;
 
 
     public Long getId() {

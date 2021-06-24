@@ -30,12 +30,15 @@ export class PrvorangiraniComponent implements OnChanges, AfterViewInit {
     'farmaceutski oblik',
     'jacina lijeka',
     'pakovanje',
-    'kolicina',
     'procijenjena vrijednost',
+    'kolicina',
     'ponudjena vrijednost',
     'rok isporuke',
     'naziv ponudjaca',
     'naziv proizvodjaca',
+    'bod cijena',
+    'bod rok',
+    'bod ukupno',
   ];
 
   public dataSource = new MatTableDataSource<IPrvorangirani>();
