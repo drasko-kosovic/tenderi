@@ -25,13 +25,13 @@ export class ViewVrednovanjeComponent implements AfterViewInit, OnChanges {
     'atc',
     'inn',
     'zasticeni naziv',
+    'procijenjena vrijednost',
+    'kolicina',
+    'ponudjena vrijednost',
     'farmaceutski oblik',
     'jacina lijeka',
     'pakovanje',
 
-    'procijenjena vrijednost',
-    'kolicina',
-    'ponudjena vrijednost',
     'rok isporuke',
     'naziv ponudjaca',
 

@@ -41,11 +41,27 @@ tr.mat-footer-row {
 
   width: 260px;
 }
-#nadji-fajl{
+#nadji-fajl {
   color: white;
   background-color: yellowgreen;
 }
-#UnseiExcel{
+#UnseiExcel {
   color: white;
   background-color: green;
+}
+.example-container {
+  height: 450px;
+  overflow: auto;
+}
+
+table {
+  width: 100%;
+}
+
+tr.mat-footer-row {
+  font-weight: bold;
+}
+
+.mat-table-sticky {
+  border-top: 1px solid #e0e0e0;
 }
