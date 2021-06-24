@@ -18,7 +18,8 @@
         view_vrednovanje.ponudjena_vrijednost,
         view_vrednovanje.rok_isporuke,
         view_vrednovanje.ponudjaci_id,
-        ponudjaci.naziv_ponudjaca
+        ponudjaci.naziv_ponudjaca,
+        view_vrednovanje.naziv_proizvodjaca
         FROM ((view_vrednovanje
         JOIN maximalni_bod ON
         (

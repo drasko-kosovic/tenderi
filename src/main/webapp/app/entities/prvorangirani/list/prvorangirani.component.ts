@@ -30,6 +30,7 @@ export class PrvorangiraniComponent implements OnChanges, AfterViewInit {
     'ponudjena vrijednost',
     'rok isporuke',
     'naziv ponudjaca',
+    'naziv proizvodjaca',
   ];
 
   public dataSource = new MatTableDataSource<IPrvorangirani>();

@@ -4,6 +4,8 @@ import { ViewVrednovanjeService } from '../service/view-vrednovanje.service';
 import { MatTableDataSource } from '@angular/material/table';
 import { MatSort } from '@angular/material/sort';
 import { MatPaginator } from '@angular/material/paginator';
+import {IPonudePonudjaci} from "app/entities/ponude/ponude_ponudjaci.model";
+import {PonudeService} from "app/entities/ponude/service/ponude.service";
 
 @Component({
   selector: 'jhi-view-vrednovanje',
@@ -14,6 +16,7 @@ export class ViewVrednovanjeComponent implements AfterViewInit, OnChanges {
   viewVrednovanjes?: IViewVrednovanje[];
   ukupnaPonudjena?: number | null | undefined;
   ukupnaProcijenjena?: number | null | undefined;
+  nadjiPonudjaca?: any;
   public displayedColumns = [
     'sifra postupka',
     'sifra ponude',
@@ -40,7 +43,7 @@ export class ViewVrednovanjeComponent implements AfterViewInit, OnChanges {
   @ViewChild(MatPaginator) paginator!: MatPaginator;
   @Input() postupak: any;
 
-  constructor(protected vrednovanjeService: ViewVrednovanjeService) {}
+  constructor(protected vrednovanjeService: ViewVrednovanjeService,protected ponudeService:PonudeService) {}
 
   public getAllVrednovanjei(): void {
     this.vrednovanjeService.vrednovanjeAll().subscribe((res: IViewVrednovanje[]) => {
@@ -49,6 +52,24 @@ export class ViewVrednovanjeComponent implements AfterViewInit, OnChanges {
       console.log(res);
     });
   }
+  getTotalCost(): any {
+    return this.viewVrednovanjes?.map(t => t.ponudjenaVrijednost).reduce((acc, value) => acc! + value!, 0);
+  }
+
+  public getSifraPonude(): void {
+    this.vrednovanjeService.findSiftraPonude(this.nadjiPonudjaca).subscribe((res: IViewVrednovanje[]) => {
+      this.dataSource.data = res;
+      this.viewVrednovanjes = res;
+      this.getTotalCost();
+    });
+  }
+  // public getSifraPostupkaPonudePonudjaci(): void {
+  //   this.ponudeService.findSiftraPostupakPonudePonudjaci(this.postupak).subscribe((res: IPonudePonudjaci[]) => {
+  //     this.ponude_ponudjaci = res;
+  //   });
+  // }
+
+
   doFilter = (iznos: string): any => {
     this.dataSource.filter = iznos.trim().toLocaleLowerCase();
     this.ukupnaPonudjena = this.dataSource.filteredData.map(t => t.ponudjenaVrijednost).reduce((acc, value) => acc! + value!, 0);

@@ -52,4 +52,9 @@ public class ViewVrednovanjeResource {
     public List<ViewVrednovanje> getViewVrednovanje(@PathVariable Integer sifraPostupka) {
         return viewVrednovanjeRepository.findBySifraPotupka(sifraPostupka);
     }
+
+    @GetMapping("/vrednovanje-ponude/{sifraPonude}")
+    public List<ViewVrednovanje> getViewVrednovanjeSifraPonude(@PathVariable Integer sifraPonude) {
+        return viewVrednovanjeRepository.findBySifraPonude(sifraPonude);
+    }
 }

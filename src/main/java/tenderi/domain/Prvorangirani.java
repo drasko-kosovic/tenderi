@@ -59,8 +59,15 @@ public class Prvorangirani implements Serializable {
     @Column(name = "rok_isporuke")
     private Integer rokIsporuke;
 
+    public String getNazivProizvodjaca() {
+        return nazivProizvodjaca;
+    }
+
     @Column(name = "ponudjaci_id")
     private Long ponudjaci_id;
+
+    @Column(name = "naziv_proizvodjaca")
+    private String nazivProizvodjaca;
 
     public Long getPonudjaci_id() {
         return ponudjaci_id;
