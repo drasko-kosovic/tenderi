@@ -40,7 +40,7 @@ tr.mat-footer-row {
   width: 40px;
 }
 .example-container {
-  height: 650px;
+  height: 750px;
   overflow: auto;
 }
 
@@ -54,4 +54,8 @@ tr.mat-footer-row {
 
 .mat-table-sticky {
   border-top: 1px solid #e0e0e0;
+}
+.heder {
+  background-color: #F5EEEEFF;
+  font-weight: bold;
 }
