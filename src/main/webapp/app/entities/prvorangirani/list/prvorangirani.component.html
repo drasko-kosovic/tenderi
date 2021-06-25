@@ -18,7 +18,7 @@
   <input type="search" (keyup)="doFilter(box.value)" #box matInput placeholder="" />
 </mat-form-field>
 <div class="example-container mat-elevation-z8">
-  <mat-card class="example-container mat-elevation-z8">
+<!--  <mat-card class="example-container mat-elevation-z8">-->
     <table mat-table id="ExampleTable" matTableExporter [dataSource]="dataSource" matSort matSortStart="desc" #exporter="matTableExporter">
       <ng-container matColumnDef="sifra postupka">
         <th mat-header-cell *matHeaderCellDef mat-sort-header>Sifra Postupka</th>
@@ -117,5 +117,5 @@
       <tr mat-footer-row *matFooterRowDef="displayedColumns; sticky: true"></tr>
     </table>
     <!--    <mat-paginator [pageSizeOptions]="[10, 20, 50, 100]" showFirstLastButtons></mat-paginator>-->
-  </mat-card>
+<!--  </mat-card>-->
 </div>
