@@ -5,7 +5,7 @@
     data-cy="entityCreateButton"
     mat-raised-button
     color="primary"
-    [routerLink]="['/postupci/new']"
+    (click)="addNew()"
   >
     <fa-icon icon="plus"></fa-icon>
     <span>Novi Postupak</span>
@@ -77,7 +77,7 @@
     <tr mat-row *matRowDef="let row; columns: displayedColumns"></tr>
   </table>
 
-  <mat-paginator [pageSizeOptions]="[5, 10, 20]" showFirstLastButtons></mat-paginator>
+  <mat-paginator [pageSizeOptions]="[10, 20]" showFirstLastButtons></mat-paginator>
   <button type="button" id="cancel-save" mat-raised-button color="warn" (click)="previousState()">
     <fa-icon icon="ban"></fa-icon>&nbsp;<span>Nazad</span>
   </button>

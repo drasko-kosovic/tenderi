@@ -1,0 +1,26 @@
+<mat-dialog-content class="mat-typography">
+  <form class="mat-dialog-content" #formControl="ngForm">
+    <!--      <mat-form-field color="accent">-->
+    <!--        <input matInput placeholder="id" [(ngModel)]="data.id" name="id">-->
+    <!--      </mat-form-field>-->
+    <mat-form-field color="accent">
+      <input matInput placeholder="sifra postupka" [(ngModel)]="data.sifraPostupka" name="sifraPostupka" />
+    </mat-form-field>
+
+    <mat-form-field color="accent">
+      <input matInput placeholder="opis postupka" [(ngModel)]="data.opisPostupka" name="opisPostupka" />
+    </mat-form-field>
+
+    <mat-form-field color="accent">
+      <input matInput placeholder="vrsta postupka" [(ngModel)]="data.vrstaPostupka" name="vrstaPostupka" />
+    </mat-form-field>
+
+    <mat-form-field color="accent">
+      <input matInput placeholder="datum objave" [(ngModel)]="data.datumObjave" name="datumObjave" />
+    </mat-form-field>
+  </form>
+</mat-dialog-content>
+<mat-dialog-actions align="end">
+  <button mat-raised-button color="warn" mat-dialog-close>Odlozi</button>
+  <button mat-raised-button color="primary" (click)="confirmAdd()" [mat-dialog-close]="true" cdkFocusInitial>Sacuvaj</button>
+</mat-dialog-actions>
