@@ -4,15 +4,13 @@
 put Sass variables here:
 eg $input-color: red;
 ****************************/
-@import '~bootswatch/dist/materia/variables';
+//@import '~bootswatch/dist/materia/variables';
 // Override Bootstrap variables
 @import 'bootstrap-variables';
+//@import "~@angular/material/prebuilt-themes/indigo-pink.css";
 // Import Bootstrap source files from node_modules
 @import '~bootstrap/scss/bootstrap';
-@import '~bootswatch/dist/materia/bootswatch';
-
-
-
+//@import '~bootswatch/dist/materia/bootswatch';
 
 @import '~@angular/material/theming';
 @include mat-core();
@@ -46,10 +44,10 @@ $mat-custom-theme: (
     A200: $light-primary-text,
     A400: $light-primary-text,
     A700: $light-primary-text,
-  )
+  ),
 );
 
-$primary:mat-palette($mat-custom-theme,900);
-$accent:mat-palette($mat-pink,A200,A100,A400);
-$theme:mat-light-theme($primary,$accent);
+$primary: mat-palette($mat-custom-theme, 900);
+$accent: mat-palette($mat-pink, A200, A100, A400);
+$theme: mat-light-theme($primary, $accent);
 @include angular-material-theme($theme);
