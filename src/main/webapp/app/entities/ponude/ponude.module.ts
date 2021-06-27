@@ -12,7 +12,7 @@ import { MatSortModule } from '@angular/material/sort';
 import { MatTableExporterModule } from 'mat-table-exporter';
 import { NgPipesModule } from 'ngx-pipes';
 import { DeleteSelectedComponent } from './delete-selected/delete-selected.component';
-import { AddDialogComponent } from 'app/entities/ponude/add/add.dialog.component';
+import { AddDialogPonudeComponent } from 'app/entities/ponude/add/add.dialog.component';
 
 @NgModule({
   imports: [SharedModule, PonudeRoutingModule, MatPaginatorModule, MatTableModule, MatSortModule, MatTableExporterModule, NgPipesModule],
@@ -22,7 +22,7 @@ import { AddDialogComponent } from 'app/entities/ponude/add/add.dialog.component
     PonudeUpdateComponent,
     PonudeDeleteDialogComponent,
     DeleteSelectedComponent,
-    AddDialogComponent,
+    AddDialogPonudeComponent,
   ],
   entryComponents: [PonudeDeleteDialogComponent],
   exports: [PonudeComponent],

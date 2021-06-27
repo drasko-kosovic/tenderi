@@ -6,15 +6,15 @@ import { PostupciService } from 'app/entities/postupci/service/postupci.service'
 import { HttpResponse } from '@angular/common/http';
 
 @Component({
-  selector: 'jhi-add.dialog',
+  selector: 'jhi-add.dialog.postupci',
 
   templateUrl: './add.dialog.component.html',
   styleUrls: ['./add.dialog.component.scss'],
 })
-export class AddDialogComponent {
+export class AddDialogPostupciComponent {
   postupaks?: IPostupci[];
   constructor(
-    public dialogRef: MatDialogRef<AddDialogComponent>,
+    public dialogRef: MatDialogRef<AddDialogPostupciComponent>,
     @Inject(MAT_DIALOG_DATA) public data: IPostupci,
     public postupciService: PostupciService
   ) {}

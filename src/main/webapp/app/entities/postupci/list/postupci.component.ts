@@ -11,7 +11,7 @@ import { NgbModal } from '@ng-bootstrap/ng-bootstrap';
 import { MatDialog } from '@angular/material/dialog';
 import { PostupciUpdateComponent } from 'app/entities/postupci/update/postupci-update.component';
 import * as dayjs from 'dayjs';
-import { AddDialogComponent } from 'app/entities/postupci/add/add.dialog.component';
+import { AddDialogPostupciComponent } from 'app/entities/postupci/add/add.dialog.component';
 
 @Component({
   selector: 'jhi-postupci',
@@ -64,7 +64,7 @@ export class PostupciComponent implements OnInit, AfterViewInit {
     });
   }
   addNew(): any {
-    const dialogRef = this.dialog.open(AddDialogComponent, {
+    const dialogRef = this.dialog.open(AddDialogPostupciComponent, {
       data: { Postupci: {} },
     });
   }

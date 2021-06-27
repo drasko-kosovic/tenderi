@@ -10,15 +10,15 @@ import { IPonude } from 'app/entities/ponude/ponude.model';
 import { PonudeService } from 'app/entities/ponude/service/ponude.service';
 
 @Component({
-  selector: 'jhi-add.dialog',
+  selector: 'jhi-add.dialog.ponude',
 
   templateUrl: './add.dialog.component.html',
   styleUrls: ['./add.dialog.component.scss'],
 })
-export class AddDialogComponent {
+export class AddDialogPonudeComponent {
   ponude?: IPonude[];
   constructor(
-    public dialogRef: MatDialogRef<AddDialogComponent>,
+    public dialogRef: MatDialogRef<AddDialogPonudeComponent>,
     @Inject(MAT_DIALOG_DATA) public data: IPonude,
     public ponudeSevice: PonudeService
   ) {}

@@ -10,7 +10,7 @@ import { MatPaginatorModule } from '@angular/material/paginator';
 import { MatTableModule } from '@angular/material/table';
 import { MatSortModule } from '@angular/material/sort';
 import { MatTableExporterModule } from 'mat-table-exporter';
-import { AddDialogComponent } from 'app/entities/specifikacije/add/add.dialog.component';
+import { AddDialogSpecifikacijeComponent } from 'app/entities/specifikacije/add/add.dialog.component';
 
 @NgModule({
   imports: [SharedModule, SpecifikacijeRoutingModule, MatPaginatorModule, MatTableModule, MatSortModule, MatTableExporterModule],
@@ -19,7 +19,7 @@ import { AddDialogComponent } from 'app/entities/specifikacije/add/add.dialog.co
     SpecifikacijeDetailComponent,
     SpecifikacijeUpdateComponent,
     SpecifikacijeDeleteDialogComponent,
-    AddDialogComponent,
+    AddDialogSpecifikacijeComponent,
   ],
   entryComponents: [SpecifikacijeDeleteDialogComponent],
   exports: [SpecifikacijeComponent],

@@ -10,8 +10,9 @@ import { VERSION } from 'app/app.constants';
 import { MatSidenav } from '@angular/material/sidenav';
 import { Account } from 'app/core/auth/account.model';
 import { Subscription } from 'rxjs';
-import { AddDialogComponent } from 'app/entities/postupci/add/add.dialog.component';
+
 import { MatDialog } from '@angular/material/dialog';
+import { AddDialogPostupciComponent } from 'app/entities/postupci/add/add.dialog.component';
 @Component({
   selector: 'jhi-main',
   templateUrl: './main.component.html',
@@ -41,7 +42,7 @@ export class MainComponent implements OnInit {
     }
   }
   addNew(): any {
-    const dialogRef = this.dialog.open(AddDialogComponent, {
+    const dialogRef = this.dialog.open(AddDialogPostupciComponent, {
       data: { Postupci: {} },
     });
   }

@@ -14,7 +14,7 @@ import { AccountService } from 'app/core/auth/account.service';
 import { SERVER_API_URL } from 'app/app.constants';
 import { MatDialog } from '@angular/material/dialog';
 import { SpecifikacijeUpdateComponent } from 'app/entities/specifikacije/update/specifikacije-update.component';
-import { AddDialogComponent } from 'app/entities/specifikacije/add/add.dialog.component';
+import { AddDialogSpecifikacijeComponent } from 'app/entities/specifikacije/add/add.dialog.component';
 
 @Component({
   selector: 'jhi-specifikacije',
@@ -92,7 +92,7 @@ export class SpecifikacijeComponent implements AfterViewInit, OnChanges, OnInit 
     });
   }
   addNew(): any {
-    const dialogRef = this.dialog.open(AddDialogComponent, {
+    const dialogRef = this.dialog.open(AddDialogSpecifikacijeComponent, {
       data: { Specifikacije: {} },
     });
   }

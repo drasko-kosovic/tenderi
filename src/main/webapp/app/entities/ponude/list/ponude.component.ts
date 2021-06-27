@@ -17,7 +17,7 @@ import { MatDialog } from '@angular/material/dialog';
 import * as dayjs from 'dayjs';
 import { IPonudjaci } from 'app/entities/ponudjaci/ponudjaci.model';
 import { PonudeUpdateComponent } from 'app/entities/ponude/update/ponude-update.component';
-import { AddDialogComponent } from 'app/entities/ponude/add/add.dialog.component';
+import { AddDialogPonudeComponent } from 'app/entities/ponude/add/add.dialog.component';
 
 @Component({
   selector: 'jhi-ponude',
@@ -107,7 +107,7 @@ export class PonudeComponent implements AfterViewInit, OnChanges, OnInit {
     });
   }
   addNew(): any {
-    const dialogRef = this.dialog.open(AddDialogComponent, {
+    const dialogRef = this.dialog.open(AddDialogPonudeComponent, {
       data: { Ponude: {} },
     });
   }
