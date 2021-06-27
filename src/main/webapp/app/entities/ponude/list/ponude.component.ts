@@ -13,6 +13,11 @@ import { AccountService } from 'app/core/auth/account.service';
 import { PonudeDeleteDialogComponent } from 'app/entities/ponude/delete/ponude-delete-dialog.component';
 import { IPonudePonudjaci } from 'app/entities/ponude/ponude_ponudjaci.model';
 import { SERVER_API_URL } from 'app/app.constants';
+import { MatDialog } from '@angular/material/dialog';
+import * as dayjs from 'dayjs';
+import { IPonudjaci } from 'app/entities/ponudjaci/ponudjaci.model';
+import { PonudeUpdateComponent } from 'app/entities/ponude/update/ponude-update.component';
+import { AddDialogComponent } from 'app/entities/ponude/add/add.dialog.component';
 
 @Component({
   selector: 'jhi-ponude',
@@ -26,7 +31,7 @@ export class PonudeComponent implements AfterViewInit, OnChanges, OnInit {
   authSubscription?: Subscription;
   ukupnaPonudjena?: number;
   nadjiPonudjaca?: any;
-
+  id?: number;
   selected = 'option2';
   public resourceUrlExcelDownload = SERVER_API_URL + 'api/file';
   public displayedColumns = [
@@ -58,7 +63,8 @@ export class PonudeComponent implements AfterViewInit, OnChanges, OnInit {
     protected activatedRoute: ActivatedRoute,
     protected router: Router,
     protected modalService: NgbModal,
-    private accountService: AccountService
+    private accountService: AccountService,
+    protected dialog: MatDialog
   ) {}
   getTotalCost(): any {
     return this.ponude?.map(t => t.ponudjenaVrijednost).reduce((acc, value) => acc! + value!, 0);
@@ -67,6 +73,42 @@ export class PonudeComponent implements AfterViewInit, OnChanges, OnInit {
     this.ponudeService.findSiftraPostupak(this.postupak).subscribe((res: IPonude[]) => {
       this.dataSource.data = res;
       this.ponude = res;
+    });
+  }
+
+  startEdit(
+    id?: number,
+    sifraPostupka?: number,
+    sifraPonude?: number,
+    brojPartije?: number,
+    nazivPonudjaca?: string,
+    nazivProizvodjaca?: string | null,
+    zastceniNaziv?: string | null,
+    ponudjenaVrijednost?: number,
+    rokIsporuke?: number,
+    datumPonude?: dayjs.Dayjs,
+    ponudjaci?: IPonudjaci | null
+  ): any {
+    this.id = id;
+    const dialogRef = this.dialog.open(PonudeUpdateComponent, {
+      data: {
+        id,
+        sifraPostupka,
+        sifraPonude,
+        brojPartije,
+        nazivPonudjaca,
+        nazivProizvodjaca,
+        zastceniNaziv,
+        ponudjenaVrijednost,
+        rokIsporuke,
+        datumPonude,
+        ponudjaci,
+      },
+    });
+  }
+  addNew(): any {
+    const dialogRef = this.dialog.open(AddDialogComponent, {
+      data: { Ponude: {} },
     });
   }
 
