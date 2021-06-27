@@ -1,4 +1,4 @@
-import { Component, OnInit } from '@angular/core';
+import { Component, Inject, OnInit } from '@angular/core';
 import { HttpResponse } from '@angular/common/http';
 import { FormBuilder, Validators } from '@angular/forms';
 import { ActivatedRoute } from '@angular/router';
@@ -7,20 +7,20 @@ import { finalize } from 'rxjs/operators';
 
 import { IUgovor, Ugovor } from '../ugovor.model';
 import { UgovorService } from '../service/ugovor.service';
-import {IPonudjaci} from "app/entities/ponudjaci/ponudjaci.model";
-import {PonudjaciService} from "app/entities/ponudjaci/service/ponudjaci.service";
-
+import { IPonudjaci } from 'app/entities/ponudjaci/ponudjaci.model';
+import { PonudjaciService } from 'app/entities/ponudjaci/service/ponudjaci.service';
+import { MAT_DIALOG_DATA, MatDialogRef } from '@angular/material/dialog';
 
 @Component({
   selector: 'jhi-ugovor-update',
   templateUrl: './ugovor-update.component.html',
-  styleUrls:['./ugovor.scss']
+  styleUrls: ['./ugovor.scss'],
 })
 export class UgovorUpdateComponent implements OnInit {
   isSaving = false;
   ponudjacis?: IPonudjaci[];
-  ugovori?:IUgovor[];
-  nadji?:any;
+  ugovori?: IUgovor[];
+  nadji?: any;
 
   editForm = this.fb.group({
     id: [],
@@ -33,8 +33,14 @@ export class UgovorUpdateComponent implements OnInit {
     sifraPonude: [null, [Validators.required]],
   });
 
-  constructor(protected ugovorService: UgovorService, protected activatedRoute: ActivatedRoute, protected fb: FormBuilder,
-              protected ponudjaciService:PonudjaciService) {}
+  constructor(
+    protected ugovorService: UgovorService,
+    protected activatedRoute: ActivatedRoute,
+    protected fb: FormBuilder,
+    protected ponudjaciService: PonudjaciService,
+    public dialogRef: MatDialogRef<UgovorUpdateComponent>,
+    @Inject(MAT_DIALOG_DATA) public data: any
+  ) {}
 
   ngOnInit(): void {
     this.activatedRoute.data.subscribe(({ ugovor }) => {
@@ -48,6 +54,10 @@ export class UgovorUpdateComponent implements OnInit {
       // eslint-disable-next-line no-console
       console.log(res);
     });
+  }
+
+  updateEdit(): void {
+    this.ugovorService.update(this.data).subscribe();
   }
   previousState(): void {
     window.history.back();

@@ -39,7 +39,7 @@
               <mat-icon>list</mat-icon>
               <span>Dodaj Ponudjaca</span>
             </a>
-            <a class="hower" [hidden]="!isAuthenticated()" mat-list-item [routerLink]="['/ugovor/new']">
+            <a class="hower" [hidden]="!isAuthenticated()" mat-list-item (click)="addNewUgovori()">
               <mat-icon>list</mat-icon>
               <span>Dodaj Ugovor</span>
             </a>

@@ -10,10 +10,11 @@ import { MatTableModule } from '@angular/material/table';
 import { MatPaginatorModule } from '@angular/material/paginator';
 import { MatSortModule } from '@angular/material/sort';
 import { MatTableExporterModule } from 'mat-table-exporter';
+import { AddDialogUgovorComponent } from 'app/entities/ugovor/add/add.dialog.ugovor.component';
 
 @NgModule({
   imports: [SharedModule, UgovorRoutingModule, MatTableModule, MatPaginatorModule, MatSortModule, MatTableExporterModule],
-  declarations: [UgovorComponent, UgovorDetailComponent, UgovorUpdateComponent, UgovorDeleteDialogComponent],
+  declarations: [UgovorComponent, UgovorDetailComponent, UgovorUpdateComponent, UgovorDeleteDialogComponent, AddDialogUgovorComponent],
   entryComponents: [UgovorDeleteDialogComponent],
   exports: [UgovorComponent],
 })

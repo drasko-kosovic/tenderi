@@ -5,7 +5,7 @@
   data-cy="entityCreateButton"
   mat-raised-button
   color="primary"
-  [routerLink]="['/ugovor/new']"
+  (click)="addNew()"
 >
   <fa-icon icon="plus"></fa-icon>
   <span>Novi Ugovor</span>
@@ -43,7 +43,7 @@
     </ng-container>
     <ng-container matColumnDef="naziv ponudjaca">
       <th mat-header-cell *matHeaderCellDef mat-sort-header>Ponudjac</th>
-      <td mat-cell *matCellDef="let element">{{ element.ponudjaci?.nazivPonudjaca}}</td>
+      <td mat-cell *matCellDef="let element">{{ element.ponudjaci?.nazivPonudjaca }}</td>
       <td mat-footer-cell *matFooterCellDef></td>
     </ng-container>
     <ng-container matColumnDef="delete" stickyEnd>
@@ -56,7 +56,23 @@
     <ng-container matColumnDef="edit" stickyEnd>
       <th mat-header-cell *matHeaderCellDef></th>
       <td mat-cell *matCellDef="let element">
-        <mat-icon *jhiHasAnyAuthority="'ROLE_ADMIN'" id="edit" type="submit" [routerLink]="['/ugovor', element.id, 'edit']">edit</mat-icon>
+        <mat-icon
+          *jhiHasAnyAuthority="'ROLE_ADMIN'"
+          id="edit"
+          (click)="
+            startEdit(
+              element.id,
+              element.brojUgovora,
+              element.datumUgovora,
+              element.brojDatumOdlukeIzbora,
+              element.iznosUgovoraBezPdf,
+              element.sifraPostupka,
+              element.sifraPonude,
+              element.ponudjaci
+            )
+          "
+          >edit</mat-icon
+        >
       </td>
       <td mat-footer-cell *matFooterCellDef></td>
     </ng-container>
@@ -64,18 +80,33 @@
     <ng-container matTooltip="Stampaj Ugoor" matColumnDef="print" stickyEnd>
       <th mat-header-cell *matHeaderCellDef></th>
       <td mat-cell *matCellDef="let element">
-        <mat-icon matTooltip="Stampaj Ugovor" class="printer"  *jhiHasAnyAuthority="'ROLE_ADMIN'" id="print" type="submit" (click)="printUgovor(element.brojUgovora)" >print</mat-icon>
+        <mat-icon
+          matTooltip="Stampaj Ugovor"
+          class="printer"
+          *jhiHasAnyAuthority="'ROLE_ADMIN'"
+          id="print"
+          type="submit"
+          (click)="printUgovor(element.brojUgovora)"
+          >print</mat-icon
+        >
       </td>
       <td mat-footer-cell *matFooterCellDef></td>
     </ng-container>
-    <ng-container  matColumnDef="print-prvorangirani" stickyEnd>
+    <ng-container matColumnDef="print-prvorangirani" stickyEnd>
       <th mat-header-cell *matHeaderCellDef></th>
       <td mat-cell *matCellDef="let element">
-        <mat-icon matTooltip="Stampaj Anex"  class="printer-prvorangirani"  *jhiHasAnyAuthority="'ROLE_ADMIN'"  id="print-prvorangirani" type="submit" (click)="printUgovorAnex(element.sifraPostupka,element.sifraPonude)" >print</mat-icon>
+        <mat-icon
+          matTooltip="Stampaj Anex"
+          class="printer-prvorangirani"
+          *jhiHasAnyAuthority="'ROLE_ADMIN'"
+          id="print-prvorangirani"
+          type="submit"
+          (click)="printUgovorAnex(element.sifraPostupka, element.sifraPonude)"
+          >print</mat-icon
+        >
       </td>
       <td mat-footer-cell *matFooterCellDef></td>
     </ng-container>
-
 
     <tr mat-header-row *matHeaderRowDef="displayedColumns"></tr>
     <tr mat-row *matRowDef="let row; columns: displayedColumns"></tr>

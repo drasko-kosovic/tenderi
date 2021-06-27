@@ -16,6 +16,7 @@ import { AddDialogPostupciComponent } from 'app/entities/postupci/add/add.dialog
 import { AddDialogPonudeComponent } from 'app/entities/ponude/add/add.dialog.ponude.component';
 import { AddDialogSpecifikacijeComponent } from 'app/entities/specifikacije/add/add.dialog.specifikacije.component';
 import { AddDialogPonudjaciComponent } from 'app/entities/ponudjaci/add/add.dialog.ponudjaci.component';
+import { AddDialogUgovorComponent } from 'app/entities/ugovor/add/add.dialog.ugovor.component';
 
 @Component({
   selector: 'jhi-main',
@@ -64,6 +65,11 @@ export class MainComponent implements OnInit {
   addNewPonudjaci(): any {
     const dialogRef = this.dialog.open(AddDialogPonudjaciComponent, {
       data: { Ponudjaci: {} },
+    });
+  }
+  addNewUgovori(): any {
+    const dialogRef = this.dialog.open(AddDialogUgovorComponent, {
+      data: { Ugovor: {} },
     });
   }
 
