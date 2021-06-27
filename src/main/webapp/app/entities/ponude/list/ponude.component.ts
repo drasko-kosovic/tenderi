@@ -17,7 +17,7 @@ import { MatDialog } from '@angular/material/dialog';
 import * as dayjs from 'dayjs';
 import { IPonudjaci } from 'app/entities/ponudjaci/ponudjaci.model';
 import { PonudeUpdateComponent } from 'app/entities/ponude/update/ponude-update.component';
-import { AddDialogPonudeComponent } from 'app/entities/ponude/add/add.dialog.component';
+import { AddDialogPonudeComponent } from 'app/entities/ponude/add/add.dialog.ponude.component';
 
 @Component({
   selector: 'jhi-ponude',

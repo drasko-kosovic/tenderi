@@ -27,11 +27,11 @@
               <span>Dodaj Postupak</span>
             </a>
             <mat-divider></mat-divider>
-            <a class="hower" [hidden]="!isAuthenticated()" mat-list-item [routerLink]="['/ponude/new']">
+            <a class="hower" [hidden]="!isAuthenticated()" mat-list-item (click)="addNewPonude()">
               <mat-icon>list</mat-icon>
               <span>Dodaj Ponuda</span>
             </a>
-            <a class="hower" [hidden]="!isAuthenticated()" mat-list-item [routerLink]="['/specifikacije/new']">
+            <a class="hower" [hidden]="!isAuthenticated()" mat-list-item (click)="addNewSpecifikacije()">
               <mat-icon>list</mat-icon>
               <span>Dodaj Specifikaciju</span>
             </a>

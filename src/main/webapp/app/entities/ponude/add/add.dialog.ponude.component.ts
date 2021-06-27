@@ -1,11 +1,8 @@
 import { Component, Inject } from '@angular/core';
 
 import { MAT_DIALOG_DATA, MatDialogRef } from '@angular/material/dialog';
-import { IPostupci } from 'app/entities/postupci/postupci.model';
-import { PostupciService } from 'app/entities/postupci/service/postupci.service';
 import { HttpResponse } from '@angular/common/http';
-import { ISpecifikacije } from 'app/entities/specifikacije/specifikacije.model';
-import { SpecifikacijeService } from 'app/entities/specifikacije/service/specifikacije.service';
+
 import { IPonude } from 'app/entities/ponude/ponude.model';
 import { PonudeService } from 'app/entities/ponude/service/ponude.service';
 

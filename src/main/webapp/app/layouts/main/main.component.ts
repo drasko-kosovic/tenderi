@@ -13,6 +13,9 @@ import { Subscription } from 'rxjs';
 
 import { MatDialog } from '@angular/material/dialog';
 import { AddDialogPostupciComponent } from 'app/entities/postupci/add/add.dialog.component';
+import { AddDialogPonudeComponent } from 'app/entities/ponude/add/add.dialog.ponude.component';
+import { AddDialogSpecifikacijeComponent } from 'app/entities/specifikacije/add/add.dialog.specifikacije.component';
+
 @Component({
   selector: 'jhi-main',
   templateUrl: './main.component.html',
@@ -46,6 +49,17 @@ export class MainComponent implements OnInit {
       data: { Postupci: {} },
     });
   }
+  addNewPonude(): any {
+    const dialogRef = this.dialog.open(AddDialogPonudeComponent, {
+      data: { Ponude: {} },
+    });
+  }
+  addNewSpecifikacije(): any {
+    const dialogRef = this.dialog.open(AddDialogSpecifikacijeComponent, {
+      data: { Specifikacije: {} },
+    });
+  }
+
   ngOnInit(): void {
     this.profileService.getProfileInfo().subscribe(profileInfo => {
       this.inProduction = profileInfo.inProduction;
