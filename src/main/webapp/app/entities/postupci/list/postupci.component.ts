@@ -8,6 +8,9 @@ import { HttpResponse } from '@angular/common/http';
 import { PostupciDeleteDialogComponent } from 'app/entities/postupci/delete/postupci-delete-dialog.component';
 import { ActivatedRoute, Router } from '@angular/router';
 import { NgbModal } from '@ng-bootstrap/ng-bootstrap';
+import { MatDialog } from '@angular/material/dialog';
+import { PostupciUpdateComponent } from 'app/entities/postupci/update/postupci-update.component';
+import * as dayjs from 'dayjs';
 
 @Component({
   selector: 'jhi-postupci',
@@ -16,7 +19,7 @@ import { NgbModal } from '@ng-bootstrap/ng-bootstrap';
 })
 export class PostupciComponent implements OnInit, AfterViewInit {
   postupaks?: IPostupci[];
-
+  id?: number;
   public displayedColumns = ['sifra postupka', 'opis postupka', 'vrsta postupka', 'datum objave', 'broj tendera', 'delete', 'edit'];
   public dataSource = new MatTableDataSource<IPostupci>();
 
@@ -27,7 +30,8 @@ export class PostupciComponent implements OnInit, AfterViewInit {
     protected postupciService: PostupciService,
     protected activatedRoute: ActivatedRoute,
     protected router: Router,
-    protected modalService: NgbModal
+    protected modalService: NgbModal,
+    public dialog: MatDialog
   ) {}
 
   loadAll(): void {
@@ -37,6 +41,26 @@ export class PostupciComponent implements OnInit, AfterViewInit {
   }
   previousState(): void {
     window.history.back();
+  }
+  startEdit(
+    id?: number,
+    sifraPostupka?: number,
+    brojTendera?: string | null,
+    opisPostupka?: string,
+    vrstaPostupka?: string,
+    datumObjave?: dayjs.Dayjs | null
+  ): any {
+    this.id = id;
+    const dialogRef = this.dialog.open(PostupciUpdateComponent, {
+      data: {
+        id,
+        sifraPostupka,
+        brojTendera,
+        opisPostupka,
+        vrstaPostupka,
+        datumObjave,
+      },
+    });
   }
 
   delete(postupci: IPostupci[]): void {

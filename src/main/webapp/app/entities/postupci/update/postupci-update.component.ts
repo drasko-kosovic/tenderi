@@ -1,4 +1,4 @@
-import { Component, OnInit } from '@angular/core';
+import { Component, Inject, OnInit } from '@angular/core';
 import { HttpResponse } from '@angular/common/http';
 import { FormBuilder, Validators } from '@angular/forms';
 import { ActivatedRoute } from '@angular/router';
@@ -7,6 +7,7 @@ import { finalize } from 'rxjs/operators';
 
 import { IPostupci, Postupci } from '../postupci.model';
 import { PostupciService } from '../service/postupci.service';
+import { MAT_DIALOG_DATA, MatDialogRef } from '@angular/material/dialog';
 
 @Component({
   selector: 'jhi-postupci-update',
@@ -25,14 +26,22 @@ export class PostupciUpdateComponent implements OnInit {
     datumObjave: [null, [Validators.required]],
   });
 
-  constructor(protected postupciService: PostupciService, protected activatedRoute: ActivatedRoute, protected fb: FormBuilder) {}
+  constructor(
+    protected postupciService: PostupciService,
+    protected activatedRoute: ActivatedRoute,
+    protected fb: FormBuilder,
+    public dialogRef: MatDialogRef<PostupciUpdateComponent>,
+    @Inject(MAT_DIALOG_DATA) public data: any
+  ) {}
 
   ngOnInit(): void {
     this.activatedRoute.data.subscribe(({ postupci }) => {
       this.updateForm(postupci);
     });
   }
-
+  updateEdit(): void {
+    this.postupciService.update(this.data).subscribe();
+  }
   previousState(): void {
     window.history.back();
   }
