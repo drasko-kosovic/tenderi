@@ -1,4 +1,4 @@
-import { Component, OnInit } from '@angular/core';
+import { Component, Inject, OnInit } from '@angular/core';
 import { HttpResponse } from '@angular/common/http';
 import { FormBuilder, Validators } from '@angular/forms';
 import { ActivatedRoute } from '@angular/router';
@@ -7,12 +7,13 @@ import { finalize } from 'rxjs/operators';
 
 import { IPonudjaci, Ponudjaci } from '../ponudjaci.model';
 import { PonudjaciService } from '../service/ponudjaci.service';
+import { MAT_DIALOG_DATA, MatDialogRef } from '@angular/material/dialog';
+import { PonudeUpdateComponent } from 'app/entities/ponude/update/ponude-update.component';
 
 @Component({
   selector: 'jhi-ponudjaci-update',
   templateUrl: './ponudjaci-update.component.html',
-  styleUrls:['./ponudjaci-update.scss'],
-
+  styleUrls: ['./ponudjaci-update.scss'],
 })
 export class PonudjaciUpdateComponent implements OnInit {
   isSaving = false;
@@ -25,14 +26,22 @@ export class PonudjaciUpdateComponent implements OnInit {
     bankaRacun: [],
   });
 
-  constructor(protected ponudjaciService: PonudjaciService, protected activatedRoute: ActivatedRoute, protected fb: FormBuilder) {}
+  constructor(
+    protected ponudjaciService: PonudjaciService,
+    protected activatedRoute: ActivatedRoute,
+    protected fb: FormBuilder,
+    public dialogRef: MatDialogRef<PonudeUpdateComponent>,
+    @Inject(MAT_DIALOG_DATA) public data: any
+  ) {}
 
   ngOnInit(): void {
     this.activatedRoute.data.subscribe(({ ponudjaci }) => {
       this.updateForm(ponudjaci);
     });
   }
-
+  updateEdit(): void {
+    this.ponudjaciService.update(this.data).subscribe();
+  }
   previousState(): void {
     window.history.back();
   }

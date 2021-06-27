@@ -35,7 +35,7 @@
               <mat-icon>list</mat-icon>
               <span>Dodaj Specifikaciju</span>
             </a>
-            <a class="hower" [hidden]="!isAuthenticated()" mat-list-item [routerLink]="['/ponudjaci/new']">
+            <a class="hower" [hidden]="!isAuthenticated()" mat-list-item (click)="addNewPonudjaci()">
               <mat-icon>list</mat-icon>
               <span>Dodaj Ponudjaca</span>
             </a>
