@@ -1,4 +1,4 @@
-import { Component, OnInit } from '@angular/core';
+import { Component, Inject, OnInit } from '@angular/core';
 import { HttpResponse } from '@angular/common/http';
 import { FormBuilder, Validators } from '@angular/forms';
 import { ActivatedRoute } from '@angular/router';
@@ -7,11 +7,12 @@ import { finalize } from 'rxjs/operators';
 
 import { ISpecifikacije, Specifikacije } from '../specifikacije.model';
 import { SpecifikacijeService } from '../service/specifikacije.service';
+import { MAT_DIALOG_DATA, MatDialogRef } from '@angular/material/dialog';
 
 @Component({
   selector: 'jhi-specifikacije-update',
   templateUrl: './specifikacije-update.component.html',
-  styleUrls:['./specifikacije-update.scss']
+  styleUrls: ['./specifikacije-update.scss'],
 })
 export class SpecifikacijeUpdateComponent implements OnInit {
   isSaving = false;
@@ -29,14 +30,22 @@ export class SpecifikacijeUpdateComponent implements OnInit {
     procijenjenaVrijednost: [null, [Validators.required]],
   });
 
-  constructor(protected specifikacijeService: SpecifikacijeService, protected activatedRoute: ActivatedRoute, protected fb: FormBuilder) {}
+  constructor(
+    protected specifikacijeService: SpecifikacijeService,
+    protected activatedRoute: ActivatedRoute,
+    protected fb: FormBuilder,
+    public dialogRef: MatDialogRef<SpecifikacijeUpdateComponent>,
+    @Inject(MAT_DIALOG_DATA) public data: any
+  ) {}
 
   ngOnInit(): void {
     this.activatedRoute.data.subscribe(({ specifikacije }) => {
       this.updateForm(specifikacije);
     });
   }
-
+  updateEdit(): void {
+    this.specifikacijeService.update(this.data).subscribe();
+  }
   previousState(): void {
     window.history.back();
   }

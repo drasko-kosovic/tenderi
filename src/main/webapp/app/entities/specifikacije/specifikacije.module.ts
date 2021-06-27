@@ -6,17 +6,22 @@ import { SpecifikacijeDetailComponent } from './detail/specifikacije-detail.comp
 import { SpecifikacijeUpdateComponent } from './update/specifikacije-update.component';
 import { SpecifikacijeDeleteDialogComponent } from './delete/specifikacije-delete-dialog.component';
 import { SpecifikacijeRoutingModule } from './route/specifikacije-routing.module';
-import {MatPaginatorModule} from "@angular/material/paginator";
-import {MatTableModule} from "@angular/material/table";
-import {MatSortModule} from "@angular/material/sort";
-import {MatTableExporterModule} from "mat-table-exporter";
+import { MatPaginatorModule } from '@angular/material/paginator';
+import { MatTableModule } from '@angular/material/table';
+import { MatSortModule } from '@angular/material/sort';
+import { MatTableExporterModule } from 'mat-table-exporter';
+import { AddDialogComponent } from 'app/entities/specifikacije/add/add.dialog.component';
 
 @NgModule({
   imports: [SharedModule, SpecifikacijeRoutingModule, MatPaginatorModule, MatTableModule, MatSortModule, MatTableExporterModule],
-    declarations: [SpecifikacijeComponent, SpecifikacijeDetailComponent, SpecifikacijeUpdateComponent, SpecifikacijeDeleteDialogComponent],
-    entryComponents: [SpecifikacijeDeleteDialogComponent],
-    exports: [
-        SpecifikacijeComponent
-    ]
+  declarations: [
+    SpecifikacijeComponent,
+    SpecifikacijeDetailComponent,
+    SpecifikacijeUpdateComponent,
+    SpecifikacijeDeleteDialogComponent,
+    AddDialogComponent,
+  ],
+  entryComponents: [SpecifikacijeDeleteDialogComponent],
+  exports: [SpecifikacijeComponent],
 })
 export class SpecifikacijeModule {}
