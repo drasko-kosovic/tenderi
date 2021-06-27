@@ -10,6 +10,8 @@ import { VERSION } from 'app/app.constants';
 import { MatSidenav } from '@angular/material/sidenav';
 import { Account } from 'app/core/auth/account.model';
 import { Subscription } from 'rxjs';
+import { AddDialogComponent } from 'app/entities/postupci/add/add.dialog.component';
+import { MatDialog } from '@angular/material/dialog';
 @Component({
   selector: 'jhi-main',
   templateUrl: './main.component.html',
@@ -31,13 +33,18 @@ export class MainComponent implements OnInit {
     private translateService: TranslateService,
     private sessionStorage: SessionStorageService,
     private profileService: ProfileService,
-    private router: Router
+    private router: Router,
+    public dialog: MatDialog
   ) {
     if (VERSION) {
       this.version = VERSION.toLowerCase().startsWith('v') ? VERSION : 'v' + VERSION;
     }
   }
-
+  addNew(): any {
+    const dialogRef = this.dialog.open(AddDialogComponent, {
+      data: { Postupci: {} },
+    });
+  }
   ngOnInit(): void {
     this.profileService.getProfileInfo().subscribe(profileInfo => {
       this.inProduction = profileInfo.inProduction;

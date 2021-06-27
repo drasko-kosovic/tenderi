@@ -22,7 +22,7 @@
               <mat-panel-title> Novi Podaci </mat-panel-title>
               <mat-panel-description> </mat-panel-description>
             </mat-expansion-panel-header>
-            <a class="hower" [hidden]="!isAuthenticated()" mat-list-item [routerLink]="['/postupci/new']">
+            <a class="hower" [hidden]="!isAuthenticated()" mat-list-item (click)="addNew()">
               <mat-icon>list</mat-icon>
               <span>Dodaj Postupak</span>
             </a>
@@ -100,5 +100,4 @@
     </div>
     <jhi-footer></jhi-footer>
   </mat-sidenav-container>
-
 </body>
