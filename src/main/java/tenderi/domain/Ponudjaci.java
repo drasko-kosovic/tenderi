@@ -18,12 +18,12 @@ public class Ponudjaci implements Serializable {
     @SequenceGenerator(name = "sequenceGenerator")
     private Long id;
 
-    @NotNull
-    @Column(name = "naziv_ponudjaca", nullable = false)
+
+    @Column(name = "naziv_ponudjaca")
     private String nazivPonudjaca;
 
-    @NotNull
-    @Column(name = "odgovorno_lice", nullable = false)
+
+    @Column(name = "odgovorno_lice")
     private String odgovornoLice;
 
     @Column(name = "adresa_ponudjaca")

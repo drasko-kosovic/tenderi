@@ -2,8 +2,8 @@ export interface IPonudjaci {
   id?: number;
   nazivPonudjaca?: string;
   odgovornoLice?: string;
-  adresaPonudjaca?: string | null;
-  bankaRacun?: string | null;
+  adresaPonudjaca?: string ;
+  bankaRacun?: string ;
 }
 
 export class Ponudjaci implements IPonudjaci {
@@ -11,8 +11,8 @@ export class Ponudjaci implements IPonudjaci {
     public id?: number,
     public nazivPonudjaca?: string,
     public odgovornoLice?: string,
-    public adresaPonudjaca?: string | null,
-    public bankaRacun?: string | null
+    public adresaPonudjaca?: string ,
+    public bankaRacun?: string
   ) {}
 }
 
