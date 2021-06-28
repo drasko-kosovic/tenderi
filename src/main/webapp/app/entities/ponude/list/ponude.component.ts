@@ -130,13 +130,6 @@ export class PonudeComponent implements AfterViewInit, OnChanges, OnInit {
     this.getSifraPostupka();
   }
 
-  public getAllPonude(): void {
-    this.ponudeService.ponudeAll().subscribe((res: IPonude[]) => {
-      this.dataSource.data = res;
-      // eslint-disable-next-line no-console
-      console.log(res);
-    });
-  }
 
   ngAfterViewInit(): void {
     this.dataSource.sort = this.sort;

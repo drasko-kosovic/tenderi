@@ -1,10 +1,10 @@
 <h2 mat-dialog-title>Ponude</h2>
 <mat-dialog-content class="mat-typography">
-  <form class="mat-dialog-content" #formControl="ngForm">
-    <mat-form-field color="accent">
-      <input matInput placeholder="sifra postupka" [(ngModel)]="data.sifraPostupka" name="sifraPostupka" />
+  <form name="editForm" role="form" novalidate  [formGroup]="editForm">
+    <mat-form-field>
+      <mat-label>Sifra Postupka</mat-label>
+      <input matInput name="sifraPostupka" id="sifraPostupka" placeholder="" formControlName="sifraPostupka" #sifraPostupka />
     </mat-form-field>
-
     <mat-form-field color="accent">
       <input matInput placeholder="sifra ponude" [(ngModel)]="data.sifraPonude" name="sifraPonude" />
     </mat-form-field>
@@ -35,9 +35,19 @@
       <input matInput placeholder="Rok Isporuke" [(ngModel)]="data.rokIsporuke" name="rokIsporuke" />
     </mat-form-field>
 
-    <mat-form-field color="accent">
-      <input matInput placeholder="Ponudjaci" [(ngModel)]="data.ponudjaci" name="ponudjaci" />
+    <mat-form-field >
+      <mat-label>Sifra Ponudjaca</mat-label>
+      <mat-select   formControlName="ponudjaci" #ponudjaci >
+        <mat-option></mat-option>
+        <mat-option
+          [value]="foo.id === editForm.get('ponudjaci')!.value?.id ? editForm.get('ponudjaci')!.value : foo"
+          *ngFor="let foo of ponudjacis " >
+          {{foo.nazivPonudjaca }}
+        </mat-option>
+
+      </mat-select>
     </mat-form-field>
+
   </form>
 </mat-dialog-content>
 <mat-dialog-actions align="end">

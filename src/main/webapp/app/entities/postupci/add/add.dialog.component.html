@@ -1,21 +1,47 @@
 <h2 mat-dialog-title>Postupci</h2>
 <mat-dialog-content class="mat-typography">
   <form class="mat-dialog-content" #formControl="ngForm">
-    <mat-form-field color="accent">
+    <mat-form-field color="primary">
       <input matInput placeholder="sifra postupka" [(ngModel)]="data.sifraPostupka" name="sifraPostupka" />
     </mat-form-field>
-
-    <mat-form-field color="accent">
-      <input matInput placeholder="opis postupka" [(ngModel)]="data.opisPostupka" name="opisPostupka" />
+    <mat-form-field color="primary">
+      <input matInput placeholder="Broj Tendera" [(ngModel)]="data.brojTendera" name="brojTendera" />
     </mat-form-field>
 
-    <mat-form-field color="accent">
-      <input matInput placeholder="vrsta postupka" [(ngModel)]="data.vrstaPostupka" name="vrstaPostupka" />
+    <mat-form-field appearance="standard">
+      <mat-label>Vrsta Postupka</mat-label>
+      <mat-select [(value)]="data.vrstaPostupka" #vrstaPostupka>
+        <mat-option value="ljekovi">Ljekovi</mat-option>
+        <mat-option value="potrosni">Potrosni</mat-option>
+      </mat-select>
+    </mat-form-field>
+    <mat-form-field color="primary">
+      <input matInput class="form-control" placeholder="opis postupka" [(ngModel)]="data.opisPostupka" name="opisPostupka" />
     </mat-form-field>
 
-    <mat-form-field color="accent">
-      <input matInput placeholder="datum objave" [(ngModel)]="data.datumObjave" name="datumObjave" />
-    </mat-form-field>
+    <div class="form-group">
+      <div class="input-group">
+        <input
+          id="field_datumObjave"
+          data-cy="datumObjave"
+          placeholder="Datum Objave"
+          type="text"
+          class="form-control"
+          name="datumObjave"
+          ngbDatepicker
+          #datumUgovoraDp="ngbDatepicker"
+          [(ngModel)]="data.datumObjave"
+        />
+        <span class="input-group-append">
+                <button type="button" class="btn btn-secondary" (click)="datumUgovoraDp.toggle()">
+                  <fa-icon icon="calendar-alt" size="1x"></fa-icon>
+                </button>
+              </span>
+      </div>
+
+    </div>
+
+
   </form>
 </mat-dialog-content>
 <mat-dialog-actions align="end">

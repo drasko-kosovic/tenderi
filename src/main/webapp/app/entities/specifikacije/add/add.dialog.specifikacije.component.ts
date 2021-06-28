@@ -30,7 +30,6 @@ export class AddDialogSpecifikacijeComponent {
 
   public confirmAdd(): void {
     this.specifikacijeService.create(this.data).subscribe();
-    window.location.reload();
-    // this.loadAll();
+
   }
 }

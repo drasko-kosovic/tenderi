@@ -30,7 +30,7 @@ export class AddDialogPostupciComponent {
 
   public confirmAdd(): void {
     this.postupciService.create(this.data).subscribe();
-    window.location.reload();
-    // this.loadAll();
+    // window.location.reload();
+
   }
 }

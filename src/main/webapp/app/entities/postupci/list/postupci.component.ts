@@ -19,7 +19,7 @@ import { AddDialogPostupciComponent } from 'app/entities/postupci/add/add.dialog
   styleUrls: ['./postupci.component.scss'],
 })
 export class PostupciComponent implements OnInit, AfterViewInit {
-  postupaks?: IPostupci[];
+  postupaks?: HttpResponse<IPostupci[]>;
   id?: number;
   public displayedColumns = ['sifra postupka', 'opis postupka', 'vrsta postupka', 'datum objave', 'broj tendera', 'delete', 'edit'];
   public dataSource = new MatTableDataSource<IPostupci>();
@@ -38,6 +38,7 @@ export class PostupciComponent implements OnInit, AfterViewInit {
   loadAll(): void {
     this.postupciService.query().subscribe((res: HttpResponse<IPostupci[]>) => {
       this.dataSource.data = res.body ?? [];
+      this.postupaks=res;
     });
   }
   previousState(): void {

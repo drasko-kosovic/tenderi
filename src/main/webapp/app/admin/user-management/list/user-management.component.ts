@@ -53,7 +53,9 @@ export class UserManagementComponent implements AfterViewInit, OnInit {
       console.log(res);
     });
   }
-
+  previousState(): void {
+    window.history.back();
+  }
   delete(user: IUser[]): void {
     const modalRef = this.modalService.open(UserManagementDeleteDialogComponent, { backdrop: 'static' });
     modalRef.componentInstance.user = user;
