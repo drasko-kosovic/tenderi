@@ -56,6 +56,11 @@ tr.mat-footer-row {
   border-top: 1px solid #e0e0e0;
 }
 .heder {
-  background-color: #F5EEEEFF;
-  font-weight: bold;
+  background-color: green;
+  font-weight: normal;
+  color: white;
+}
+
+th.mat-header-cell {
+  color: white;
 }

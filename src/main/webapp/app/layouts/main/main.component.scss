@@ -24,6 +24,7 @@
 .container {
   display: flex;
   justify-content: flex-end;
+  font-weight: normal;
 }
 .container-item {
   color: white;
@@ -96,4 +97,7 @@ h3 {
 }
 mat-expansion-panel {
   background-color: rgb(232 232 232);
+}
+mat-sidenav-container {
+  font-weight: normal;
 }

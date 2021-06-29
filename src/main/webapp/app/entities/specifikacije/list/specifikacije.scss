@@ -50,13 +50,10 @@ tr.mat-footer-row {
   background-color: green;
 }
 
-
 .example-container {
   height: 650px;
   overflow: auto;
 }
-
-
 
 .example-container {
   height: 650px;
@@ -76,7 +73,12 @@ tr.mat-footer-row {
 }
 
 .heder {
-  background-color: #F5EEEEFF;
-  font-weight: bold;
+  background-color: green;
+  font-weight: normal;
+  color: white;
 }
 
+th.mat-header-cell {
+  color: white;
+  font-weight: normal;
+}

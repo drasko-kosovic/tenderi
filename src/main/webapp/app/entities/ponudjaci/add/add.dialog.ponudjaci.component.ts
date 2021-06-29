@@ -4,7 +4,7 @@ import { MAT_DIALOG_DATA, MatDialogRef } from '@angular/material/dialog';
 import { HttpResponse } from '@angular/common/http';
 import { IPonudjaci } from 'app/entities/ponudjaci/ponudjaci.model';
 import { PonudjaciService } from 'app/entities/ponudjaci/service/ponudjaci.service';
-import {FormBuilder, Validators} from "@angular/forms";
+import { FormBuilder, Validators } from '@angular/forms';
 
 @Component({
   selector: 'jhi-add.dialog.postupci',
@@ -43,7 +43,6 @@ export class AddDialogPonudjaciComponent {
 
   public confirmAdd(): void {
     this.ponudjaciService.create(this.data).subscribe();
-
   }
 
   protected updateForm(ponudjaci: IPonudjaci): void {
@@ -56,14 +55,14 @@ export class AddDialogPonudjaciComponent {
     });
   }
 
-  protected createFromForm(): IPonudjaci {
-    return {
-      ...new Ponudjaci(),
-      id: this.editForm.get(['id'])!.value,
-      nazivPonudjaca: this.editForm.get(['nazivPonudjaca'])!.value,
-      odgovornoLice: this.editForm.get(['odgovornoLice'])!.value,
-      adresaPonudjaca: this.editForm.get(['adresaPonudjaca'])!.value,
-      bankaRacun: this.editForm.get(['bankaRacun'])!.value,
-    };
-  }
+  // protected createFromForm(): IPonudjaci {
+  //   return {
+  //     ...new Ponudjaci(),
+  //     id: this.editForm.get(['id'])!.value,
+  //     nazivPonudjaca: this.editForm.get(['nazivPonudjaca'])!.value,
+  //     odgovornoLice: this.editForm.get(['odgovornoLice'])!.value,
+  //     adresaPonudjaca: this.editForm.get(['adresaPonudjaca'])!.value,
+  //     bankaRacun: this.editForm.get(['bankaRacun'])!.value,
+  //   };
+  // }
 }
