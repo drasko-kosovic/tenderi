@@ -17,18 +17,18 @@ import {FormBuilder, Validators} from "@angular/forms";
 export class AddDialogPonudeComponent implements OnInit{
   ponude?: IPonude[];
   ponudjacis?: IPonudjaci[];
-  editForm = this.fb.group({
-    id: [],
-    sifraPostupka: [null, [Validators.required]],
-    sifraPonude: [null, [Validators.required]],
-    brojPartije: [null, [Validators.required]],
-    nazivProizvodjaca: [],
-    zastceniNaziv: [],
-    ponudjenaVrijednost: [null, [Validators.required]],
-    rokIsporuke: [null, [Validators.required]],
-    datumPonude: [],
-    ponudjaci: [null, [Validators.required]],
-  });
+  // editForm = this.fb.group({
+  //   id: [],
+  //   sifraPostupka: [null, [Validators.required]],
+  //   sifraPonude: [null, [Validators.required]],
+  //   brojPartije: [null, [Validators.required]],
+  //   nazivProizvodjaca: [],
+  //   zastceniNaziv: [],
+  //   ponudjenaVrijednost: [null, [Validators.required]],
+  //   rokIsporuke: [null, [Validators.required]],
+  //   datumPonude: [],
+  //   ponudjaci: [null, [Validators.required]],
+  // });
   constructor(
     public dialogRef: MatDialogRef<AddDialogPonudeComponent>,
     protected ponudjaciService: PonudjaciService,

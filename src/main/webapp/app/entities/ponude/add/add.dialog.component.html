@@ -52,18 +52,18 @@
       <input matInput placeholder="Rok Isporuke" [(ngModel)]="data.rokIsporuke" name="rokIsporuke" />
     </mat-form-field>
 
-    <mat-form-field>
-      <mat-label>Sifra Ponudjaca</mat-label>
-      <mat-select formControlName="ponudjaci" #ponudjaci>
-        <mat-option></mat-option>
-        <mat-option
-          [value]="foo.id === editForm.get('ponudjaci')!.value?.id ? editForm.get('ponudjaci')!.value : foo"
-          *ngFor="let foo of ponudjacis"
-        >
-          {{ foo.nazivPonudjaca }}
-        </mat-option>
-      </mat-select>
-    </mat-form-field>
+<!--    <mat-form-field>-->
+<!--      <mat-label>Sifra Ponudjaca</mat-label>-->
+<!--      <mat-select [(ngModel)]="data.ponudjaci.id" #ponudjaci>-->
+<!--        <mat-option></mat-option>-->
+<!--        <mat-option-->
+<!--          [value]="foo.id"-->
+<!--          *ngFor="let foo of ponudjacis"-->
+<!--        >-->
+<!--          {{ foo.nazivPonudjaca }}-->
+<!--        </mat-option>-->
+<!--      </mat-select>-->
+<!--    </mat-form-field>-->
   </form>
 </mat-dialog-content>
 <mat-dialog-actions align="end">

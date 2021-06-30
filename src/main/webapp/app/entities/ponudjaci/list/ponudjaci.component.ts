@@ -66,6 +66,9 @@ export class PonudjaciComponent implements AfterViewInit, OnInit {
     const dialogRef = this.dialog.open(AddDialogPonudjaciComponent, {
       data: { Postupci: {} },
     });
+    dialogRef.afterClosed().subscribe((result) => {
+      this.ponudjacis=result;
+    });
   }
 
   previousState(): void {
