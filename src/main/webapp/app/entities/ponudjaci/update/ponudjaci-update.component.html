@@ -1,24 +1,18 @@
-<h2 mat-dialog-title>Ponuđaci</h2>
-<mat-dialog-content class="mat-typography">
-  <form class="mat-dialog-content" #formControl="ngForm">
-    <mat-form-field color="accent">
-      <input matInput placeholder="Naziv Ponudjaca" [(ngModel)]="data.nazivPonudjaca" name="nazivPonudjaca" />
-    </mat-form-field>
+<h2 mat-dialog-title>{{ nazivPonudjaca }}</h2>
+<mat-dialog-content [formGroup]="editForm">
+  <mat-form-field>
+    <input matInput placeholder="naziv Ponudjaca" formControlName="nazivPonudjaca" />
+  </mat-form-field>
 
-    <mat-form-field color="accent">
-      <input matInput placeholder="Odgovorno Lice" [(ngModel)]="data.odgovornoLice" name="odgovornoLice" />
-    </mat-form-field>
-
-    <mat-form-field color="accent">
-      <input matInput placeholder="Adresa Ponudjaca" [(ngModel)]="data.adresaPonudjaca" name="adresaPonudjaca" />
-    </mat-form-field>
-
-    <mat-form-field color="accent">
-      <input matInput placeholder="Racun tekuci" [(ngModel)]="data.bankaRacun" name="bankaRacun" />
-    </mat-form-field>
-  </form>
+  <mat-form-field>
+    <input matInput placeholder="adresaPonudjaca" formControlName="adresaPonudjaca" />
+  </mat-form-field>
+  <mat-form-field>
+    <input matInput placeholder="bankaRacun" formControlName="bankaRacun" />
+  </mat-form-field>
 </mat-dialog-content>
-<mat-dialog-actions align="end">
-  <button mat-raised-button color="warn" mat-dialog-close>Odlozi</button>
-  <button mat-raised-button color="primary" (click)="updateEdit()" [mat-dialog-close]="true" cdkFocusInitial>Sacuvaj</button>
+
+<mat-dialog-actions>
+  <button class="mat-raised-button" (click)="close()">Close</button>
+  <button class="mat-raised-button mat-primary" (click)="save()">Save</button>
 </mat-dialog-actions>

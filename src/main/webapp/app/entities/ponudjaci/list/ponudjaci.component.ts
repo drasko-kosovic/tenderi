@@ -11,7 +11,7 @@ import { MatSort } from '@angular/material/sort';
 import { MatPaginator } from '@angular/material/paginator';
 import { ActivatedRoute, Router } from '@angular/router';
 import { AccountService } from 'app/core/auth/account.service';
-import { MatDialog } from '@angular/material/dialog';
+import { MatDialog, MatDialogConfig } from '@angular/material/dialog';
 import { AddDialogPonudjaciComponent } from 'app/entities/ponudjaci/add/add.dialog.ponudjaci.component';
 import { PonudjaciUpdateComponent } from 'app/entities/ponudjaci/update/ponudjaci-update.component';
 import * as dayjs from 'dayjs';
@@ -51,26 +51,6 @@ export class PonudjaciComponent implements AfterViewInit, OnInit {
     });
   }
 
-  startEdit(id?: number, nazivPonudjaca?: string, odgovornoLice?: string, adresaPonudjaca?: string, bankaRacun?: string): any {
-    this.id = id;
-    const dialogRef = this.dialog.open(PonudjaciUpdateComponent, {
-      data: {
-        nazivPonudjaca,
-        odgovornoLice,
-        adresaPonudjaca,
-        bankaRacun,
-      },
-    });
-  }
-  addNew(): any {
-    const dialogRef = this.dialog.open(AddDialogPonudjaciComponent, {
-      data: { Postupci: {} },
-    });
-    dialogRef.afterClosed().subscribe((result) => {
-      this.ponudjacis=result;
-    });
-  }
-
   previousState(): void {
     window.history.back();
   }
@@ -96,5 +76,36 @@ export class PonudjaciComponent implements AfterViewInit, OnInit {
 
   ngOnInit(): void {
     this.getAllPonudjaci();
+  }
+
+  startEdit({ id, nazivPonudjaca, odgovornoLice, adresaPonudjaca, bankaRacun }: IPonudjaci): any {
+    const dialogConfig = new MatDialogConfig();
+
+    dialogConfig.disableClose = true;
+    dialogConfig.autoFocus = true;
+
+    dialogConfig.data = {
+      id,
+      nazivPonudjaca,
+      odgovornoLice,
+      adresaPonudjaca,
+      bankaRacun,
+    };
+
+    const dialogRef = this.dialog.open(PonudjaciUpdateComponent, dialogConfig);
+
+    dialogRef.afterClosed().subscribe(
+      // eslint-disable-next-line no-console
+      val => console.log('Dialog output:', val)
+    );
+  }
+
+  addNew(): any {
+    const dialogRef = this.dialog.open(AddDialogPonudjaciComponent, {
+      data: { Postupci: {} },
+    });
+    dialogRef.afterClosed().subscribe(result => {
+      this.ponudjacis = result;
+    });
   }
 }
