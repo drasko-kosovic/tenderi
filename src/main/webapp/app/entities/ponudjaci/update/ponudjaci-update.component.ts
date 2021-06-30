@@ -23,20 +23,20 @@ export class PonudjaciUpdateComponent {
     protected activatedRoute: ActivatedRoute,
     protected fb: FormBuilder,
     private dialogRef: MatDialogRef<PonudjaciUpdateComponent>,
-    @Inject(MAT_DIALOG_DATA) { id, nazivPonudjaca, odgovornoLice, adresaPonudjaca, bankaRacun }: Ponudjaci
+    @Inject(MAT_DIALOG_DATA) public data: any
   ) {
-    this.nazivPonudjaca = nazivPonudjaca;
+    this.nazivPonudjaca = data.nazivPonudjaca;
     this.editForm = this.fb.group({
       id: [],
-      nazivPonudjaca: [nazivPonudjaca, [Validators.required]],
-      odgovornoLice: [odgovornoLice, [Validators.required]],
-      adresaPonudjaca: [adresaPonudjaca],
-      bankaRacun: [bankaRacun],
+      nazivPonudjaca: [data.nazivPonudjaca, [Validators.required]],
+      odgovornoLice: [data.odgovornoLice, [Validators.required]],
+      adresaPonudjaca: [data.adresaPonudjaca],
+      bankaRacun: [data.bankaRacun],
     });
   }
 
   updateEdit(): void {
-    this.ponudjaciService.update(this.editForm.value.id).subscribe();
+    this.ponudjaciService.update(this.data).subscribe();
   }
 
   save(): any {
