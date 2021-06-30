@@ -34,6 +34,11 @@ export class PonudjaciUpdateComponent {
       bankaRacun: [bankaRacun],
     });
   }
+
+  updateEdit(): void {
+    this.ponudjaciService.update(this.editForm.value.id).subscribe();
+  }
+
   save(): any {
     this.dialogRef.close(this.editForm.value);
   }

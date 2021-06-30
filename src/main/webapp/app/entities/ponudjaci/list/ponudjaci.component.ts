@@ -48,6 +48,7 @@ export class PonudjaciComponent implements AfterViewInit, OnInit {
       this.dataSource.data = res;
       // eslint-disable-next-line no-console
       console.log(res);
+      this.ponudjacis = res;
     });
   }
 
@@ -97,9 +98,12 @@ export class PonudjaciComponent implements AfterViewInit, OnInit {
     dialogRef.afterClosed().subscribe(
       // eslint-disable-next-line no-console
       val => console.log('Dialog output:', val)
+      // this.ponudjacis=val;
     );
   }
-
+  // updateEdit(): void {
+  //   this.ponudjaciService.update().subscribe();
+  // }
   addNew(): any {
     const dialogRef = this.dialog.open(AddDialogPonudjaciComponent, {
       data: { Postupci: {} },
