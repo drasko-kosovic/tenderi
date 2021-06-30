@@ -11,6 +11,19 @@ th.mat-header-cell {
   font-weight: normal;
   background-color: grey;
 }
+mat-form-field  {
+  display: flex;
+  width: 90%;
+
+}
+textarea {
+ width: 90%;
+}
+.mat-typography {
+  width: 400px;
+  height: 100%;
+}
+
 
 body,
 h1,

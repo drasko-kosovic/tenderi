@@ -1,8 +1,9 @@
 <h2 mat-dialog-title>Postupci</h2>
+<mat-divider></mat-divider>
 <mat-dialog-content class="mat-typography">
   <form class="mat-dialog-content" #formControl="ngForm">
     <mat-form-field color="primary">
-      <input matInput placeholder="sifra postupka" [(ngModel)]="data.sifraPostupka" name="sifraPostupka" />
+      <input matInput placeholder="Šifra postupka" [(ngModel)]="data.sifraPostupka" name="sifraPostupka" />
     </mat-form-field>
     <mat-form-field color="primary">
       <input matInput placeholder="Broj Tendera" [(ngModel)]="data.brojTendera" name="brojTendera" />
@@ -16,7 +17,7 @@
       </mat-select>
     </mat-form-field>
     <mat-form-field color="primary">
-      <input matInput class="form-control" placeholder="opis postupka" [(ngModel)]="data.opisPostupka" name="opisPostupka" />
+      <input matInput class="form-control" placeholder="Opis postupka" [(ngModel)]="data.opisPostupka" name="opisPostupka" />
     </mat-form-field>
 
     <div class="form-group">
