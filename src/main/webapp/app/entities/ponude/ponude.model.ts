@@ -12,7 +12,7 @@ export interface IPonude {
   ponudjenaVrijednost?: number;
   rokIsporuke?: number;
   datumPonude?: dayjs.Dayjs;
-  ponudjaci?: IPonudjaci | null;
+  ponudjaci_id?:number;
 }
 
 export class Ponude implements IPonude {
@@ -27,7 +27,7 @@ export class Ponude implements IPonude {
     public ponudjenaVrijednost?: number,
     public rokIsporuke?: number,
     public datumPonude?: dayjs.Dayjs,
-    public ponudjaci?: IPonudjaci | null,
+    public ponudjaci_id?:number,
   ) {}
 }
 

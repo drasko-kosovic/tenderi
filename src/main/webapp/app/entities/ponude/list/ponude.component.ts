@@ -81,13 +81,12 @@ export class PonudeComponent implements AfterViewInit, OnChanges, OnInit {
     sifraPostupka?: number,
     sifraPonude?: number,
     brojPartije?: number,
-    nazivPonudjaca?: string,
     nazivProizvodjaca?: string | null,
     zastceniNaziv?: string | null,
     ponudjenaVrijednost?: number,
     rokIsporuke?: number,
     datumPonude?: dayjs.Dayjs,
-    ponudjaci?: IPonudjaci | null
+    ponudjaci_id?:number,
   ): any {
     this.id = id;
     const dialogRef = this.dialog.open(PonudeUpdateComponent, {
@@ -96,13 +95,12 @@ export class PonudeComponent implements AfterViewInit, OnChanges, OnInit {
         sifraPostupka,
         sifraPonude,
         brojPartije,
-        nazivPonudjaca,
         nazivProizvodjaca,
         zastceniNaziv,
         ponudjenaVrijednost,
         rokIsporuke,
         datumPonude,
-        ponudjaci,
+        ponudjaci_id,
       },
     });
   }

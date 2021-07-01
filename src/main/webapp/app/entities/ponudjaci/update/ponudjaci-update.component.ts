@@ -1,20 +1,21 @@
 import { Component, Inject, OnInit } from '@angular/core';
-import { HttpResponse } from '@angular/common/http';
+
 import { FormBuilder, FormGroup, Validators } from '@angular/forms';
 import { ActivatedRoute } from '@angular/router';
-import { Observable } from 'rxjs';
-import { finalize } from 'rxjs/operators';
+
 
 import { IPonudjaci, Ponudjaci } from '../ponudjaci.model';
 import { PonudjaciService } from '../service/ponudjaci.service';
 import { MAT_DIALOG_DATA, MatDialogRef } from '@angular/material/dialog';
+
 
 @Component({
   selector: 'jhi-ponudjaci-update',
   templateUrl: './ponudjaci-update.component.html',
   styleUrls: ['./ponudjaci-update.scss'],
 })
-export class PonudjaciUpdateComponent {
+export class PonudjaciUpdateComponent implements OnInit{
+  ponudjacis?: IPonudjaci[];
   isSaving = false;
   editForm: FormGroup;
   nazivPonudjaca: string | undefined;
@@ -34,16 +35,34 @@ export class PonudjaciUpdateComponent {
       bankaRacun: [data.bankaRacun],
     });
   }
-
-  updateEdit(): void {
-    this.ponudjaciService.update(this.data).subscribe();
-  }
-
-  save(): any {
-    this.dialogRef.close(this.editForm.value);
+  ngOnInit(): void {
+    this.activatedRoute.data.subscribe(({ ponudjaci }) => {
+      this.updateForm(ponudjaci);
+    });
   }
 
   close(): any {
     this.dialogRef.close();
+  }
+  protected updateForm(ponudjaci: IPonudjaci): void {
+    this.editForm.patchValue({
+      id: ponudjaci.id,
+      nazivPonudjaca: ponudjaci.nazivPonudjaca,
+      odgovornoLice: ponudjaci.odgovornoLice,
+      adresaPonudjaca: ponudjaci.adresaPonudjaca,
+      bankaRacun: ponudjaci.bankaRacun,
+
+    });
+  }
+  protected createFromForm(): IPonudjaci {
+    return {
+      ...new Ponudjaci(),
+      id: this.editForm.get(['id'])!.value,
+      nazivPonudjaca: this.editForm.get(['nazivPonudjaca'])!.value,
+      odgovornoLice: this.editForm.get(['odgovornoLice'])!.value,
+      adresaPonudjaca: this.editForm.get(['adresaPonudjaca'])!.value,
+      bankaRacun: this.editForm.get(['bankaRacun'])!.value,
+
+    };
   }
 }

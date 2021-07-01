@@ -1,5 +1,5 @@
 <h2 mat-dialog-title>{{ nazivPonudjaca }}</h2>
-<mat-dialog-content [formGroup]="editForm">
+<mat-dialog-content [formGroup]="editForm" #form>
   <mat-form-field>
     <input matInput placeholder="naziv Ponudjaca" formControlName="nazivPonudjaca" />
   </mat-form-field>
@@ -14,5 +14,5 @@
 
 <mat-dialog-actions>
   <button class="mat-raised-button" (click)="close()">Close</button>
-  <button class="mat-raised-button mat-primary" (click)="updateEdit()">Save</button>
+  <button class="mat-raised-button mat-primary" (click)="save()">Save</button>
 </mat-dialog-actions>
