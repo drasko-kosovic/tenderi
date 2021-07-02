@@ -12,7 +12,7 @@
             *ngIf="editForm.get('sifraPostupka')?.errors?.required"
             jhiTranslate="entity.validation.required"
           >
-            This field is required.
+            Obavezno polje.
           </small>
           <small
             class="form-text text-danger"
@@ -26,10 +26,30 @@
 
       <mat-form-field color="accent">
         <input matInput class="form-control" placeholder="broj tendera" formControlName="brojTendera" name="brojTendera" />
+        <div *ngIf="editForm.get('brojTendera')!.invalid && (editForm.get('brojTendera')!.dirty || editForm.get('brojTendera')!.touched)">
+          <small
+            class="form-text text-danger"
+            *ngIf="editForm.get('brojTendera')?.errors?.required"
+            jhiTranslate="entity.validation.required"
+          >
+            Obavezno polje.
+          </small>
+        </div>
       </mat-form-field>
 
       <mat-form-field color="accent">
         <input matInput class="form-control" placeholder="opis postupka" formControlName="opisPostupka" name="opisPostupka" />
+        <div
+          *ngIf="editForm.get('opisPostupka')!.invalid && (editForm.get('opisPostupka')!.dirty || editForm.get('opisPostupka')!.touched)"
+        >
+          <small
+            class="form-text text-danger"
+            *ngIf="editForm.get('opisPostupka')?.errors?.required"
+            jhiTranslate="entity.validation.required"
+          >
+            Obavezno polje.
+          </small>
+        </div>
       </mat-form-field>
 
       <mat-form-field appearance="standard">
@@ -38,6 +58,17 @@
           <mat-option value="ljekovi">Ljekovi</mat-option>
           <mat-option value="potrosni">Potrosni</mat-option>
         </mat-select>
+        <div
+          *ngIf="editForm.get('vrstaPostupka')!.invalid && (editForm.get('vrstaPostupka')!.dirty || editForm.get('vrstaPostupka')!.touched)"
+        >
+          <small
+            class="form-text text-danger"
+            *ngIf="editForm.get('vrstaPostupka')?.errors?.required"
+            jhiTranslate="entity.validation.required"
+          >
+            Obavezno polje.
+          </small>
+        </div>
       </mat-form-field>
 
       <div class="form-group">
