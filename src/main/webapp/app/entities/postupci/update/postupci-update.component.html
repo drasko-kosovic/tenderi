@@ -1,20 +1,35 @@
 <h2 mat-dialog-title>Postupci</h2>
 <mat-dialog-content class="mat-typography">
-  <form class="mat-dialog-content" #formControl="ngForm">
+  <form name="editForm" role="form" novalidate [formGroup]="editForm">
     <div>
       <mat-form-field color="accent">
-        <input matInput placeholder="partija" [(ngModel)]="data.id" name="id" />
-      </mat-form-field>
-      <mat-form-field color="accent">
-        <input matInput class="form-control" placeholder="sifraPostupka" [(ngModel)]="data.sifraPostupka" name="sifraPostupka" />
+        <input matInput class="form-control" placeholder="sifraPostupka" formControlName="sifraPostupka" name="sifraPostupka" />
+        <div
+          *ngIf="editForm.get('sifraPostupka')!.invalid && (editForm.get('sifraPostupka')!.dirty || editForm.get('sifraPostupka')!.touched)"
+        >
+          <small
+            class="form-text text-danger"
+            *ngIf="editForm.get('sifraPostupka')?.errors?.required"
+            jhiTranslate="entity.validation.required"
+          >
+            This field is required.
+          </small>
+          <small
+            class="form-text text-danger"
+            [hidden]="!editForm.get('sifraPostupka')?.errors?.number"
+            jhiTranslate="entity.validation.number"
+          >
+            This field should be a number.
+          </small>
+        </div>
       </mat-form-field>
 
       <mat-form-field color="accent">
-        <input matInput class="form-control" placeholder="broj tendera" [(ngModel)]="data.brojTendera" name="brojTendera" />
+        <input matInput class="form-control" placeholder="broj tendera" formControlName="brojTendera" name="brojTendera" />
       </mat-form-field>
 
       <mat-form-field color="accent">
-        <input matInput class="form-control" placeholder="opis postupka" [(ngModel)]="data.opisPostupka" name="opisPostupka" />
+        <input matInput class="form-control" placeholder="opis postupka" formControlName="opisPostupka" name="opisPostupka" />
       </mat-form-field>
 
       <mat-form-field appearance="standard">
@@ -22,7 +37,7 @@
         <mat-select formControlName="vrstaPostupka" #vrstaPostupka>
           <mat-option value="ljekovi">Ljekovi</mat-option>
           <mat-option value="potrosni">Potrosni</mat-option>
-      </mat-select>
+        </mat-select>
       </mat-form-field>
 
       <div class="form-group">
@@ -39,19 +54,17 @@
             formControlName="datumObjave"
           />
           <span class="input-group-append">
-                <button type="button" class="btn btn-secondary" (click)="datumUgovoraDp.toggle()">
-                  <fa-icon icon="calendar-alt" size="1x"></fa-icon>
-                </button>
-              </span>
+            <button type="button" class="btn btn-secondary" (click)="datumUgovoraDp.toggle()">
+              <fa-icon icon="calendar-alt" size="1x"></fa-icon>
+            </button>
+          </span>
         </div>
-
       </div>
-
     </div>
-
   </form>
 </mat-dialog-content>
 <mat-dialog-actions align="end">
   <button mat-raised-button color="warn" mat-dialog-close>Odlozi</button>
-  <button mat-raised-button color="primary" (click)="updateEdit()" [mat-dialog-close]="true" cdkFocusInitial>Sacuvaj</button>
+  <button mat-raised-button color="primary" (click)="save()" [mat-dialog-close]="true" cdkFocusInitial>Sacuvaj</button>
+  <button mat-raised-button color="primary" (click)="confirmAdd()" [mat-dialog-close]="true" cdkFocusInitial>Dodaj</button>
 </mat-dialog-actions>

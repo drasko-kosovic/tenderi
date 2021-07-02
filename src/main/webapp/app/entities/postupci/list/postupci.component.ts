@@ -38,7 +38,7 @@ export class PostupciComponent implements OnInit, AfterViewInit {
   loadAll(): void {
     this.postupciService.query().subscribe((res: HttpResponse<IPostupci[]>) => {
       this.dataSource.data = res.body ?? [];
-      this.postupaks=res;
+      this.postupaks = res;
     });
   }
   previousState(): void {
@@ -63,11 +63,27 @@ export class PostupciComponent implements OnInit, AfterViewInit {
         datumObjave,
       },
     });
+    dialogRef.afterClosed().subscribe(
+      // eslint-disable-next-line no-console
+      val =>
+        this.postupciService.query().subscribe((res: HttpResponse<IPostupci[]>) => {
+          this.dataSource.data = res.body ?? [];
+          this.postupaks = res;
+        })
+    );
   }
   addNew(): any {
-    const dialogRef = this.dialog.open(AddDialogPostupciComponent, {
+    const dialogRef = this.dialog.open(PostupciUpdateComponent, {
       data: { Postupci: {} },
     });
+    dialogRef.afterClosed().subscribe(
+      // eslint-disable-next-line no-console
+      val =>
+        this.postupciService.query().subscribe((res: HttpResponse<IPostupci[]>) => {
+          this.dataSource.data = res.body ?? [];
+          this.postupaks = res;
+        })
+    );
   }
   delete(postupci: IPostupci[]): void {
     const modalRef = this.modalService.open(PostupciDeleteDialogComponent, { size: 'lg', backdrop: 'static' });

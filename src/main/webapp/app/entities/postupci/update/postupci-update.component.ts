@@ -1,7 +1,7 @@
 import { Component, Inject, OnInit } from '@angular/core';
 import { HttpResponse } from '@angular/common/http';
-import { FormBuilder, Validators } from '@angular/forms';
-import { ActivatedRoute } from '@angular/router';
+import { FormBuilder, FormGroup, Validators } from '@angular/forms';
+import { ActivatedRoute, Router } from '@angular/router';
 import { Observable } from 'rxjs';
 import { finalize } from 'rxjs/operators';
 
@@ -16,34 +16,38 @@ import { MAT_DIALOG_DATA, MatDialogRef } from '@angular/material/dialog';
 })
 export class PostupciUpdateComponent implements OnInit {
   isSaving = false;
-
-  editForm = this.fb.group({
-    id: [],
-    sifraPostupka: [],
-    brojTendera: [],
-    opisPostupka: [],
-    vrstaPostupka: [],
-    datumObjave: [null, [Validators.required]],
-  });
-
+  editForm: FormGroup;
   constructor(
     protected postupciService: PostupciService,
     protected activatedRoute: ActivatedRoute,
     protected fb: FormBuilder,
-    public dialogRef: MatDialogRef<PostupciUpdateComponent>,
-    @Inject(MAT_DIALOG_DATA) public data: any
-  ) {}
+    private router: Router,
+    private dialogRef: MatDialogRef<PostupciUpdateComponent>,
+    @Inject(MAT_DIALOG_DATA) { id, sifraPostupka, brojTendera, opisPostupka, vrstaPostupka, datumObjave }: Postupci
+  ) {
+    this.editForm = this.fb.group({
+      id: [id],
+      sifraPostupka: [sifraPostupka, [Validators.required]],
+      brojTendera: [brojTendera, [Validators.required]],
+      opisPostupka: [opisPostupka, [Validators.required]],
+      vrstaPostupka: [vrstaPostupka, [Validators.required]],
+      datumObjave: [datumObjave],
+    });
+  }
 
   ngOnInit(): void {
     this.activatedRoute.data.subscribe(({ postupci }) => {
       this.updateForm(postupci);
     });
   }
-  updateEdit(): void {
-    this.postupciService.update(this.data).subscribe();
-  }
   previousState(): void {
-    window.history.back();
+    // window.history.back();
+    this.router.navigate(['/postupci']);
+  }
+  public confirmAdd(): void {
+    const postupci = this.createFromForm();
+    this.subscribeToSaveResponse(this.postupciService.create(postupci));
+    this.dialogRef.close();
   }
 
   save(): void {
@@ -55,7 +59,9 @@ export class PostupciUpdateComponent implements OnInit {
       this.subscribeToSaveResponse(this.postupciService.create(postupci));
     }
   }
-
+  close(): any {
+    this.dialogRef.close();
+  }
   protected subscribeToSaveResponse(result: Observable<HttpResponse<IPostupci>>): void {
     result.pipe(finalize(() => this.onSaveFinalize())).subscribe(
       () => this.onSaveSuccess(),
