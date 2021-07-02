@@ -3,7 +3,7 @@
   <form name="editForm" role="form" novalidate [formGroup]="editForm">
     <div>
       <mat-form-field color="accent">
-        <input matInput class="form-control" placeholder="sifraPostupka" formControlName="sifraPostupka" name="sifraPostupka" />
+        <input matInput placeholder="sifraPostupka" formControlName="sifraPostupka" name="sifraPostupka" />
         <div
           *ngIf="editForm.get('sifraPostupka')!.invalid && (editForm.get('sifraPostupka')!.dirty || editForm.get('sifraPostupka')!.touched)"
         >
@@ -25,7 +25,7 @@
       </mat-form-field>
 
       <mat-form-field color="accent">
-        <input matInput class="form-control" placeholder="broj tendera" formControlName="brojTendera" name="brojTendera" />
+        <input matInput placeholder="broj tendera" formControlName="brojTendera" name="brojTendera" />
         <div *ngIf="editForm.get('brojTendera')!.invalid && (editForm.get('brojTendera')!.dirty || editForm.get('brojTendera')!.touched)">
           <small
             class="form-text text-danger"
@@ -38,7 +38,7 @@
       </mat-form-field>
 
       <mat-form-field color="accent">
-        <input matInput class="form-control" placeholder="opis postupka" formControlName="opisPostupka" name="opisPostupka" />
+        <input matInput placeholder="opis postupka" formControlName="opisPostupka" name="opisPostupka" />
         <div
           *ngIf="editForm.get('opisPostupka')!.invalid && (editForm.get('opisPostupka')!.dirty || editForm.get('opisPostupka')!.touched)"
         >
@@ -78,7 +78,6 @@
             data-cy="datumObjave"
             placeholder="Datum Objave"
             type="text"
-            class="form-control"
             name="datumObjave"
             ngbDatepicker
             #datumUgovoraDp="ngbDatepicker"
