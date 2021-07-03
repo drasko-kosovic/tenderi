@@ -190,7 +190,27 @@
     <ng-container matColumnDef="edit" stickyEnd>
       <th mat-header-cell *matHeaderCellDef></th>
       <td mat-cell *matCellDef="let element">
-        <mat-icon *jhiHasAnyAuthority="'ROLE_ADMIN'" id="edit" type="submit" [routerLink]="['./', element.login, 'edit']">edit</mat-icon>
+        <mat-icon
+          *jhiHasAnyAuthority="'ROLE_ADMIN'"
+          id="edit"
+          (click)="
+            startEdit(
+              element.id,
+              element.login,
+              element.firstName,
+              element.lastName,
+              element.email,
+              element.activated,
+              element.langKey,
+              element.authorities,
+              element.createdBy,
+              element.createdDate,
+              element.lastModifiedBy,
+              element.lastModifiedDate
+            )
+          "
+          >edit</mat-icon
+        >
       </td>
       <td mat-footer-cell *matFooterCellDef></td>
     </ng-container>
