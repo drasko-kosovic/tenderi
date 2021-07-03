@@ -1,13 +1,14 @@
 import { Component, Inject, OnInit } from '@angular/core';
 import { HttpResponse } from '@angular/common/http';
-import { FormBuilder, Validators } from '@angular/forms';
-import { ActivatedRoute } from '@angular/router';
+import { FormBuilder, FormGroup, Validators } from '@angular/forms';
+import { ActivatedRoute, Router } from '@angular/router';
 import { Observable } from 'rxjs';
 import { finalize } from 'rxjs/operators';
 
 import { ISpecifikacije, Specifikacije } from '../specifikacije.model';
 import { SpecifikacijeService } from '../service/specifikacije.service';
 import { MAT_DIALOG_DATA, MatDialogRef } from '@angular/material/dialog';
+import { Postupci } from 'app/entities/postupci/postupci.model';
 
 @Component({
   selector: 'jhi-specifikacije-update',
@@ -16,38 +17,44 @@ import { MAT_DIALOG_DATA, MatDialogRef } from '@angular/material/dialog';
 })
 export class SpecifikacijeUpdateComponent implements OnInit {
   isSaving = false;
-
-  editForm = this.fb.group({
-    id: [],
-    sifraPostupka: [null, [Validators.required]],
-    brojPartije: [null, [Validators.required]],
-    atc: [],
-    inn: [],
-    farmaceutskiOblikLijeka: [],
-    jacinaLijeka: [],
-    trazenaKolicina: [null, [Validators.required]],
-    pakovanje: [],
-    procijenjenaVrijednost: [null, [Validators.required]],
-  });
+  editForm: FormGroup | undefined;
 
   constructor(
     protected specifikacijeService: SpecifikacijeService,
     protected activatedRoute: ActivatedRoute,
     protected fb: FormBuilder,
-    public dialogRef: MatDialogRef<SpecifikacijeUpdateComponent>,
-    @Inject(MAT_DIALOG_DATA) public data: any
-  ) {}
+    private router: Router,
+    private dialogRef: MatDialogRef<SpecifikacijeUpdateComponent>,
+    @Inject(MAT_DIALOG_DATA) { id, sifraPostupka, brojPartije, opisPostupka, vrstaPostupka, datumObjave }: Specifikacije
+  ) {
+    this.editForm = this.fb.group({
+      id: [],
+      sifraPostupka: [null, [Validators.required]],
+      brojPartije: [null, [Validators.required]],
+      atc: [],
+      inn: [],
+      farmaceutskiOblikLijeka: [],
+      jacinaLijeka: [],
+      trazenaKolicina: [null, [Validators.required]],
+      pakovanje: [],
+      procijenjenaVrijednost: [null, [Validators.required]],
+    });
+  }
 
   ngOnInit(): void {
     this.activatedRoute.data.subscribe(({ specifikacije }) => {
       this.updateForm(specifikacije);
     });
   }
-  updateEdit(): void {
-    this.specifikacijeService.update(this.data).subscribe();
-  }
+
   previousState(): void {
-    window.history.back();
+    // window.history.back();
+    this.router.navigate(['/specifikacije']);
+  }
+  public confirmAdd(): void {
+    const postupci = this.createFromForm();
+    this.subscribeToSaveResponse(this.specifikacijeService.create(specifikacije));
+    this.dialogRef.close();
   }
 
   save(): void {

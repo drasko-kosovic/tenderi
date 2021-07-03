@@ -14,7 +14,7 @@ import { AccountService } from 'app/core/auth/account.service';
 import { SERVER_API_URL } from 'app/app.constants';
 import { MatDialog } from '@angular/material/dialog';
 import { SpecifikacijeUpdateComponent } from 'app/entities/specifikacije/update/specifikacije-update.component';
-import { AddDialogSpecifikacijeComponent } from 'app/entities/specifikacije/add/add.dialog.specifikacije.component';
+import { HttpResponse } from '@angular/common/http';
 
 @Component({
   selector: 'jhi-specifikacije',
@@ -22,7 +22,7 @@ import { AddDialogSpecifikacijeComponent } from 'app/entities/specifikacije/add/
   styleUrls: ['./specifikacije.scss'],
 })
 export class SpecifikacijeComponent implements AfterViewInit, OnChanges, OnInit {
-  specifikacijes?: ISpecifikacije[];
+  specifikacijes?: HttpResponse<ISpecifikacije[]>;
   account: Account | null = null;
   authSubscription?: Subscription;
   id?: number;
@@ -92,9 +92,17 @@ export class SpecifikacijeComponent implements AfterViewInit, OnChanges, OnInit 
     });
   }
   addNew(): any {
-    const dialogRef = this.dialog.open(AddDialogSpecifikacijeComponent, {
+    const dialogRef = this.dialog.open(SpecifikacijeUpdateComponent, {
       data: { Specifikacije: {} },
     });
+    dialogRef.afterClosed().subscribe(
+      // eslint-disable-next-line no-console
+      val =>
+        this.specifikacijaService.query().subscribe((res: HttpResponse<ISpecifikacije[]>) => {
+          this.dataSource.data = res.body ?? [];
+          this.specifikacijes = res;
+        })
+    );
   }
 
   delete(specifikacije: ISpecifikacije[]): void {
