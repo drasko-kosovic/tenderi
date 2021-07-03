@@ -2,43 +2,43 @@
 <mat-dialog-content class="mat-typography">
   <form class="mat-dialog-content" #formControl="ngForm">
     <mat-form-field color="accent">
-      <input matInput placeholder="sifra postupka" [(ngModel)]="data.sifraPostupka" name="sifraPostupka" />
+      <input matInput placeholder="sifra postupka" formControlName="sifraPostupka" name="sifraPostupka" />
     </mat-form-field>
 
     <mat-form-field color="accent">
-      <input matInput placeholder="broj partije" [(ngModel)]="data.brojPartije" name="brojPartije" />
+      <input matInput placeholder="broj partije" formControlName="brojPartije" name="brojPartije" />
     </mat-form-field>
 
     <mat-form-field color="accent">
-      <input matInput placeholder="atc" [(ngModel)]="data.atc" name="atc" />
+      <input matInput placeholder="atc" formControlName="atc" name="atc" />
     </mat-form-field>
 
     <mat-form-field color="accent">
-      <textarea matInput placeholder="inn" [(ngModel)]="data.inn" name="inn" ></textarea>
-
+      <textarea matInput placeholder="inn" formControlName="inn" name="inn"></textarea>
     </mat-form-field>
 
     <mat-form-field color="accent">
-      <input matInput placeholder="Farmaceutski Oblik" [(ngModel)]="data.farmaceutskiOblikLijeka" name="farmaceutskiOblikLijeka" />
+      <input matInput placeholder="Farmaceutski Oblik" formControlName="farmaceutskiOblikLijeka" name="farmaceutskiOblikLijeka" />
     </mat-form-field>
 
     <mat-form-field color="accent">
-      <input matInput placeholder="Jacina Lijeka" [(ngModel)]="data.jacinaLijeka" name="jacinaLijeka" />
+      <input matInput placeholder="Jacina Lijeka" formControlName="jacinaLijeka" name="jacinaLijeka" />
     </mat-form-field>
     <mat-form-field color="accent">
-      <input matInput placeholder="Trazena Kolicina" [(ngModel)]="data.trazenaKolicina" name="trazenaKolicina" />
+      <input matInput placeholder="Trazena Kolicina" formControlName="trazenaKolicina" name="trazenaKolicina" />
     </mat-form-field>
     <mat-form-field color="accent">
-      <input matInput placeholder="pakovanje" [(ngModel)]="data.pakovanje" name="pakovanje" />
+      <input matInput placeholder="pakovanje" formControlName="pakovanje" name="pakovanje" />
     </mat-form-field>
 
     <mat-form-field color="accent">
-      <input matInput placeholder="procijenjenaVrijednose" [(ngModel)]="data.procijenjenaVrijednost" name="procijenjenaVrijednost" />
+      <input matInput placeholder="procijenjenaVrijednose" formControlName="procijenjenaVrijednost" name="procijenjenaVrijednost" />
     </mat-form-field>
   </form>
 </mat-dialog-content>
 
 <mat-dialog-actions align="end">
-  <button mat-raised-button color="warn" mat-dialog-close (click)="previousState()">Odlozi</button>
-  <button mat-raised-button color="primary" (click)="updateEdit()" [mat-dialog-close]="true" cdkFocusInitial>Sacuvaj</button>
+  <button mat-raised-button color="warn" mat-dialog-close>Odlozi</button>
+  <button mat-raised-button color="primary" (click)="save()" [mat-dialog-close]="true" cdkFocusInitial>Sacuvaj</button>
+  <button mat-raised-button color="primary" (click)="confirmAdd()" [mat-dialog-close]="true" cdkFocusInitial>Dodaj</button>
 </mat-dialog-actions>

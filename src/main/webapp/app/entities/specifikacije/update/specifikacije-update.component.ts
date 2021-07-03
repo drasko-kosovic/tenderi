@@ -17,7 +17,7 @@ import { Postupci } from 'app/entities/postupci/postupci.model';
 })
 export class SpecifikacijeUpdateComponent implements OnInit {
   isSaving = false;
-  editForm: FormGroup | undefined;
+  editForm: FormGroup;
 
   constructor(
     protected specifikacijeService: SpecifikacijeService,
@@ -25,7 +25,8 @@ export class SpecifikacijeUpdateComponent implements OnInit {
     protected fb: FormBuilder,
     private router: Router,
     private dialogRef: MatDialogRef<SpecifikacijeUpdateComponent>,
-    @Inject(MAT_DIALOG_DATA) { id, sifraPostupka, brojPartije, opisPostupka, vrstaPostupka, datumObjave }: Specifikacije
+    @Inject(MAT_DIALOG_DATA)
+    { id, sifraPostupka, brojPartije, atc, inn, farmaceutskiOblikLijeka, jacinaLijeka, trazenaKolicina }: Specifikacije
   ) {
     this.editForm = this.fb.group({
       id: [],
@@ -52,7 +53,7 @@ export class SpecifikacijeUpdateComponent implements OnInit {
     this.router.navigate(['/specifikacije']);
   }
   public confirmAdd(): void {
-    const postupci = this.createFromForm();
+    const specifikacije = this.createFromForm();
     this.subscribeToSaveResponse(this.specifikacijeService.create(specifikacije));
     this.dialogRef.close();
   }
