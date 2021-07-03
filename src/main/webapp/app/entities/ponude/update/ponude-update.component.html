@@ -3,19 +3,59 @@
   <form name="editForm" role="form" novalidate [formGroup]="editForm">
     <mat-form-field>
       <input matInput placeholder="sifra postupka" formControlName="sifraPostupka" name="sifraPostupka" />
+      <div
+        *ngIf="editForm.get('sifraPostupka')!.invalid && (editForm.get('sifraPostupka')!.dirty || editForm.get('sifraPostupka')!.touched)"
+      >
+        <small
+          class="form-text text-danger"
+          *ngIf="editForm.get('sifraPostupka')?.errors?.required"
+          jhiTranslate="entity.validation.required"
+        >
+          Obavezno polje.
+        </small>
+      </div>
     </mat-form-field>
 
     <mat-form-field>
       <input matInput placeholder="sifra ponude" formControlName="sifraPonude" name="sifraPonude" />
+      <div *ngIf="editForm.get('sifraPonude')!.invalid && (editForm.get('sifraPonude')!.dirty || editForm.get('sifraPonude')!.touched)">
+        <small
+          class="form-text text-danger"
+          *ngIf="editForm.get('sifraPonude')?.errors?.required"
+          jhiTranslate="entity.validation.required"
+        >
+          Obavezno polje.
+        </small>
+      </div>
     </mat-form-field>
 
     <mat-form-field>
       <input matInput placeholder="Broj Partije" formControlName="brojPartije" name="brojPartije" />
+      <div *ngIf="editForm.get('brojPartije')!.invalid && (editForm.get('brojPartije')!.dirty || editForm.get('brojPartije')!.touched)">
+        <small
+          class="form-text text-danger"
+          *ngIf="editForm.get('brojPartije')?.errors?.required"
+          jhiTranslate="entity.validation.required"
+        >
+          Obavezno polje.
+        </small>
+      </div>
     </mat-form-field>
 
-    <mat-form-field>
-      <input matInput placeholder="Naziv Ponudjaca" formControlName="nazivPonudjaca" name="nazivPonudjaca" />
-    </mat-form-field>
+    <!--    <mat-form-field>-->
+    <!--      <input matInput placeholder="Naziv Ponudjaca" formControlName="nazivPonudjaca" name="nazivPonudjaca" />-->
+    <!--      <div-->
+    <!--        *ngIf="editForm.get('nazivPonudjaca')!.invalid && (editForm.get('nazivPonudjaca')!.dirty || editForm.get('nazivPonudjaca')!.touched)"-->
+    <!--      >-->
+    <!--        <small-->
+    <!--          class="form-text text-danger"-->
+    <!--          *ngIf="editForm.get('nazivPonudjaca')?.errors?.required"-->
+    <!--          jhiTranslate="entity.validation.required"-->
+    <!--        >-->
+    <!--          Obavezno polje.-->
+    <!--        </small>-->
+    <!--      </div>-->
+    <!--    </mat-form-field>-->
 
     <mat-form-field>
       <input matInput placeholder="Naziv Proizvodjaca" formControlName="nazivProizvodjaca" name="nazivProizvodjaca" />
@@ -26,6 +66,20 @@
     </mat-form-field>
     <mat-form-field>
       <input matInput placeholder="Ponudjena Cijena" formControlName="ponudjenaVrijednost" name="ponudjenaVrijednost" />
+      <div
+        *ngIf="
+          editForm.get('ponudjenaVrijednost')!.invalid &&
+          (editForm.get('ponudjenaVrijednost')!.dirty || editForm.get('ponudjenaVrijednost')!.touched)
+        "
+      >
+        <small
+          class="form-text text-danger"
+          *ngIf="editForm.get('ponudjenaVrijednost')?.errors?.required"
+          jhiTranslate="entity.validation.required"
+        >
+          Obavezno polje.
+        </small>
+      </div>
     </mat-form-field>
     <mat-form-field>
       <input matInput placeholder="datumPonude" formControlName="datumPonude" name="datumPonude" />
@@ -33,6 +87,15 @@
 
     <mat-form-field>
       <input matInput placeholder="Rok Isporuke" formControlName="rokIsporuke" name="rokIsporuke" />
+      <div *ngIf="editForm.get('rokIsporuke')!.invalid && (editForm.get('rokIsporuke')!.dirty || editForm.get('rokIsporuke')!.touched)">
+        <small
+          class="form-text text-danger"
+          *ngIf="editForm.get('rokIsporuke')?.errors?.required"
+          jhiTranslate="entity.validation.required"
+        >
+          Obavezno polje.
+        </small>
+      </div>
     </mat-form-field>
 
     <mat-form-field>

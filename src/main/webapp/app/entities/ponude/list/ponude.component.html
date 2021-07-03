@@ -135,8 +135,16 @@
     </ng-container>
     <ng-container matColumnDef="select">
       <th mat-header-cell *matHeaderCellDef>
-        <button mat-icon-button color="primary">
-          <mat-icon *jhiHasAnyAuthority="'ROLE_ADMIN'" id="delete-selected" (click)="open(content)">delete</mat-icon>
+        <button
+          mat-raised-button
+          color="warn"
+          type="button"
+          matTooltip="Obrisi izabrane pozicije"
+          *jhiHasAnyAuthority="'ROLE_ADMIN'"
+          id="delete-selected"
+          (click)="open(content)"
+        >
+          Partije
         </button>
       </th>
       <td mat-cell *matCellDef="let element; let i = index">
