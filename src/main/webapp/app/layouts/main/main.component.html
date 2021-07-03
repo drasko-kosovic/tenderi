@@ -10,26 +10,21 @@
           <mat-icon>question_answer</mat-icon>
           <span>Postupci</span>
         </a>
-        <mat-divider></mat-divider>
-        <a class="hower" [hidden]="!isAuthenticated()" mat-list-item routerLink="ponudjaci">
-          <mat-icon>question_answer</mat-icon>
-          <span>Ponudjaci</span>
-        </a>
-        <mat-divider></mat-divider>
+        <!--        <mat-divider></mat-divider>-->
+        <!--        <a class="hower" [hidden]="!isAuthenticated()" mat-list-item routerLink="ponudjaci">-->
+        <!--          <mat-icon>question_answer</mat-icon>-->
+        <!--          <span>Ponudjaci</span>-->
+        <!--        </a>-->
+        <!--        <mat-divider></mat-divider>-->
         <mat-accordion>
-          <mat-expansion-panel *jhiHasAnyAuthority="'ROLE_ADMIN'">
+          <mat-expansion-panel>
             <mat-expansion-panel-header>
               <mat-panel-title>Moja Tabla </mat-panel-title>
               <mat-panel-description> </mat-panel-description>
             </mat-expansion-panel-header>
-            <a class="hower" [hidden]="!isAuthenticated()" mat-list-item (click)="addNew()">
+            <a class="hower" mat-list-item routerLink="ponudjaci">
               <mat-icon>list</mat-icon>
-              <span>Dodaj Postupak</span>
-            </a>
-
-            <a class="hower" [hidden]="!isAuthenticated()" mat-list-item (click)="addNewPonudjaci()">
-              <mat-icon>list</mat-icon>
-              <span>Dodaj Ponudjaca</span>
+              <span>Ponudjaci</span>
             </a>
           </mat-expansion-panel>
         </mat-accordion>
