@@ -1,10 +1,12 @@
-import { Component, OnInit } from '@angular/core';
-import { FormBuilder, Validators } from '@angular/forms';
+import { Component, Inject, OnInit } from '@angular/core';
+import { FormBuilder, FormGroup, Validators } from '@angular/forms';
 import { ActivatedRoute } from '@angular/router';
 
 import { LANGUAGES } from 'app/config/language.constants';
 import { User } from '../user-management.model';
 import { UserManagementService } from '../service/user-management.service';
+import { MAT_DIALOG_DATA, MatDialogRef } from '@angular/material/dialog';
+import { Postupci } from 'app/entities/postupci/postupci.model';
 
 @Component({
   selector: 'jhi-user-mgmt-update',
@@ -16,27 +18,48 @@ export class UserManagementUpdateComponent implements OnInit {
   languages = LANGUAGES;
   authorities: string[] = [];
   isSaving = false;
+  editForm: FormGroup;
 
-  editForm = this.fb.group({
-    id: [],
-    login: [
-      '',
-      [
-        Validators.required,
-        Validators.minLength(1),
-        Validators.maxLength(50),
-        Validators.pattern('^[a-zA-Z0-9!$&*+=?^_`{|}~.-]+@[a-zA-Z0-9-]+(?:\\.[a-zA-Z0-9-]+)*$|^[_.@A-Za-z0-9-]+$'),
+  constructor(
+    private userService: UserManagementService,
+    private route: ActivatedRoute,
+    private fb: FormBuilder,
+    private dialogRef: MatDialogRef<UserManagementUpdateComponent>,
+    @Inject(MAT_DIALOG_DATA)
+    {
+      id,
+      login,
+      firstName,
+      lastName,
+      email,
+      activated,
+      langKey,
+      authorities,
+      createdBy,
+      createdDate,
+      lastModifiedBy,
+      lastModifiedDate,
+    }: User
+  ) {
+    this.editForm = this.fb.group({
+      id: [id],
+      login: [
+        login,
+        [
+          Validators.required,
+          Validators.minLength(1),
+          Validators.maxLength(50),
+          Validators.pattern('^[a-zA-Z0-9!$&*+=?^_`{|}~.-]+@[a-zA-Z0-9-]+(?:\\.[a-zA-Z0-9-]+)*$|^[_.@A-Za-z0-9-]+$'),
+        ],
       ],
-    ],
-    firstName: ['', [Validators.maxLength(50)]],
-    lastName: ['', [Validators.maxLength(50)]],
-    email: ['', [Validators.minLength(5), Validators.maxLength(254), Validators.email]],
-    activated: [],
-    langKey: [],
-    authorities: [],
-  });
-
-  constructor(private userService: UserManagementService, private route: ActivatedRoute, private fb: FormBuilder) {}
+      firstName: [firstName, [Validators.maxLength(50)]],
+      lastName: [lastName, [Validators.maxLength(50)]],
+      email: [email, [Validators.minLength(5), Validators.maxLength(254), Validators.email]],
+      activated: [activated],
+      langKey: [langKey],
+      authorities: [authorities],
+    });
+  }
 
   ngOnInit(): void {
     this.route.data.subscribe(({ user }) => {
