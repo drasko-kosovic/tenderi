@@ -10,18 +10,17 @@
   <fa-icon icon="plus"></fa-icon>
   <span>Nova Specifikacija</span>
 </button>
+
 <mat-button-toggle-group name="fontStyle" aria-label="Font Style">
-  <mat-button-toggle *jhiHasAnyAuthority="'ROLE_ADMIN'" matTooltip="Nadji Excel fajl" (click)="fileInput.click()"
-    >Nadji Fajl</mat-button-toggle
-  >
-
-  <!--  <input class="form-control" type="file" #fileInput />-->
-  <input hidden #fileInput type="file" id="file" />
-
-  <mat-button-toggle *jhiHasAnyAuthority="'ROLE_ADMIN'" (click)="uploadFile()" matTooltip="Unesi Excel fajl">Dodaj Fajl</mat-button-toggle>
   <mat-button-toggle *jhiHasAnyAuthority="'ROLE_ADMIN'" matTooltip="Napravi formu za unos Excel" (click)="DownloadExcel()"
     >Napravi Obrazac</mat-button-toggle
   >
+
+  <mat-button-toggle *jhiHasAnyAuthority="'ROLE_ADMIN'" (click)="uploadFile()" matTooltip="Unesi Excel fajl">Dodaj Fajl</mat-button-toggle>
+  <mat-button-toggle *jhiHasAnyAuthority="'ROLE_ADMIN'" matTooltip="Nadji Excel fajl" (click)="fileInput.click()"
+    >Nadji Fajl</mat-button-toggle
+  >
+  <input hidden #fileInput type="file" id="file" />
 </mat-button-toggle-group>
 <mat-form-field class="container-search">
   <mat-icon matPrefix>search</mat-icon>
