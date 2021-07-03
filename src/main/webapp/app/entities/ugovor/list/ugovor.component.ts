@@ -14,12 +14,8 @@ import { AccountService } from 'app/core/auth/account.service';
 import { MatDialog } from '@angular/material/dialog';
 import * as dayjs from 'dayjs';
 import { IPonudjaci } from 'app/entities/ponudjaci/ponudjaci.model';
-import { PonudeUpdateComponent } from 'app/entities/ponude/update/ponude-update.component';
-import { AddDialogPonudeComponent } from 'app/entities/ponude/add/add.dialog.ponude.component';
-import { AddDialogUgovorComponent } from 'app/entities/ugovor/add/add.dialog.ugovor.component';
 import { UgovorUpdateComponent } from 'app/entities/ugovor/update/ugovor-update.component';
 import { HttpResponse } from '@angular/common/http';
-import { IPostupci } from 'app/entities/postupci/postupci.model';
 
 @Component({
   selector: 'jhi-ugovor',

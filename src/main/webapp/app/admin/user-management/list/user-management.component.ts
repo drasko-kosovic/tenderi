@@ -11,10 +11,7 @@ import { MatPaginator } from '@angular/material/paginator';
 import { UserManagementService } from 'app/admin/user-management/service/user-management.service';
 import { UserManagementDeleteDialogComponent } from 'app/admin/user-management/delete/user-management-delete-dialog.component';
 import { MatDialog } from '@angular/material/dialog';
-import * as dayjs from 'dayjs';
-import { PostupciUpdateComponent } from 'app/entities/postupci/update/postupci-update.component';
 import { HttpResponse } from '@angular/common/http';
-import { IPostupci } from 'app/entities/postupci/postupci.model';
 import { UserManagementUpdateComponent } from 'app/admin/user-management/update/user-management-update.component';
 
 @Component({
@@ -77,7 +74,7 @@ export class UserManagementComponent implements AfterViewInit, OnInit {
     lastModifiedDate?: Date
   ): any {
     this.id = id;
-    const dialogRef = this.dialog.open(PostupciUpdateComponent, {
+    const dialogRef = this.dialog.open(UserManagementUpdateComponent, {
       data: {
         id,
         login,

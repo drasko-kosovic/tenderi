@@ -6,7 +6,6 @@ import { LANGUAGES } from 'app/config/language.constants';
 import { User } from '../user-management.model';
 import { UserManagementService } from '../service/user-management.service';
 import { MAT_DIALOG_DATA, MatDialogRef } from '@angular/material/dialog';
-import { Postupci } from 'app/entities/postupci/postupci.model';
 
 @Component({
   selector: 'jhi-user-mgmt-update',
@@ -58,6 +57,10 @@ export class UserManagementUpdateComponent implements OnInit {
       activated: [activated],
       langKey: [langKey],
       authorities: [authorities],
+      createdBy: [createdBy],
+      createdDate: [createdDate],
+      lastModifiedBy: [lastModifiedBy],
+      lastModifiedDate: [lastModifiedDate],
     });
   }
 
