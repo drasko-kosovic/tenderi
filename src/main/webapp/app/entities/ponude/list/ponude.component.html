@@ -23,6 +23,13 @@
   <mat-button-toggle *jhiHasAnyAuthority="'ROLE_ADMIN'" matTooltip="Nadji Excel fajl" (click)="fileInput.click()"
     >Nadji Fajl</mat-button-toggle
   >
+
+  <mat-button-toggle
+    *jhiHasAnyAuthority="'ROLE_ADMIN'"
+    matTooltip=" Excel fajl"
+    (click)="exporter.exportTable('xlsx', { fileName: 'Ponude', sheet: 'sheet_name', Props: { Author: 'Talha' } })"
+    ><img src="../../../../content/images/icons8-microsoft-excel-48.png" alt=""
+  /></mat-button-toggle>
 </mat-button-toggle-group>
 
 <mat-form-field>
@@ -40,9 +47,9 @@
 </mat-form-field>
 <div class="example-container mat-elevation-z8">
   <!--  <mat-card class="example-container mat-elevation-z24">-->
-  <button mat-raised-button (click)="exporter.exportTable('xlsx', { fileName: 'Ponude', sheet: 'sheet_name', Props: { Author: 'Talha' } })">
-    <img src="../../../../content/images/icons8-microsoft-excel-48.png" alt="" />
-  </button>
+  <!--  <button mat-raised-button (click)="exporter.exportTable('xlsx', { fileName: 'Ponude', sheet: 'sheet_name', Props: { Author: 'Talha' } })">-->
+  <!--    <img src="../../../../content/images/icons8-microsoft-excel-48.png" alt="" />-->
+  <!--  </button>-->
   <table
     class="example-container mat-elevation-z8"
     mat-table
