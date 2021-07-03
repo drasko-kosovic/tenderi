@@ -48,7 +48,12 @@
     <ng-container matColumnDef="edit" stickyEnd>
       <th mat-header-cell *matHeaderCellDef></th>
       <td mat-cell *matCellDef="let element">
-        <mat-icon *jhiHasAnyAuthority="'ROLE_ADMIN'" id="edit" (click)="startEdit(element)">edit</mat-icon>
+        <mat-icon
+          *jhiHasAnyAuthority="'ROLE_ADMIN'"
+          id="edit"
+          (click)="startEdit(element.nazivPonudjaca, element.id, element.odgovornoLice, element.bankaRacun, element.adresaPonudjaca)"
+          >edit</mat-icon
+        >
       </td>
       <td mat-footer-cell *matFooterCellDef></td>
     </ng-container>

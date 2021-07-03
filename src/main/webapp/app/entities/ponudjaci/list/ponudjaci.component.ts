@@ -16,6 +16,8 @@ import { AddDialogPonudjaciComponent } from 'app/entities/ponudjaci/add/add.dial
 import { PonudjaciUpdateComponent } from 'app/entities/ponudjaci/update/ponudjaci-update.component';
 import * as dayjs from 'dayjs';
 import { PostupciUpdateComponent } from 'app/entities/postupci/update/postupci-update.component';
+import { HttpResponse } from '@angular/common/http';
+import { IPostupci } from 'app/entities/postupci/postupci.model';
 
 @Component({
   selector: 'jhi-ponudjaci',
@@ -23,7 +25,7 @@ import { PostupciUpdateComponent } from 'app/entities/postupci/update/postupci-u
   styleUrls: ['./ponudjaci.scss'],
 })
 export class PonudjaciComponent implements AfterViewInit, OnInit {
-  ponudjacis?: IPonudjaci[];
+  ponudjacis?: HttpResponse<IPostupci[]>;
   account: Account | null = null;
   authSubscription?: Subscription;
   id?: number;
@@ -48,13 +50,14 @@ export class PonudjaciComponent implements AfterViewInit, OnInit {
       this.dataSource.data = res;
       // eslint-disable-next-line no-console
       console.log(res);
-      this.ponudjacis = res;
+      // this.ponudjacis = res;
     });
   }
 
   previousState(): void {
     window.history.back();
   }
+
   delete(ponudjaci: IPonudjaci[]): void {
     const modalRef = this.modalService.open(PonudjaciDeleteDialogComponent, { backdrop: 'static' });
     modalRef.componentInstance.ponudjaci = ponudjaci;
@@ -79,37 +82,38 @@ export class PonudjaciComponent implements AfterViewInit, OnInit {
     this.getAllPonudjaci();
   }
 
-  startEdit({ id, nazivPonudjaca, odgovornoLice, adresaPonudjaca, bankaRacun }: IPonudjaci): any {
-    const dialogConfig = new MatDialogConfig();
-
-    dialogConfig.disableClose = true;
-    dialogConfig.autoFocus = true;
-
-    dialogConfig.data = {
-      id,
-      nazivPonudjaca,
-      odgovornoLice,
-      adresaPonudjaca,
-      bankaRacun,
-    };
-
-    const dialogRef = this.dialog.open(PonudjaciUpdateComponent, dialogConfig);
-
+  startEdit(id?: number, nazivPonudjaca?: number, odgovornoLice?: string | null, dresaPonudjaca?: string, bankaRacun?: string): any {
+    this.id = id;
+    const dialogRef = this.dialog.open(PonudjaciUpdateComponent, {
+      data: {
+        id,
+        nazivPonudjaca,
+        odgovornoLice,
+        dresaPonudjaca,
+        bankaRacun,
+      },
+    });
     dialogRef.afterClosed().subscribe(
       // eslint-disable-next-line no-console
-      val => console.log('Dialog output:', val)
-      // this.ponudjacis=val;
+      val =>
+        this.ponudjaciService.query().subscribe((res: HttpResponse<IPostupci[]>) => {
+          this.dataSource.data = res.body ?? [];
+          this.ponudjacis = res;
+        })
     );
   }
-  // updateEdit(): void {
-  //   this.ponudjaciService.update().subscribe();
-  // }
+
   addNew(): any {
-    const dialogRef = this.dialog.open(AddDialogPonudjaciComponent, {
+    const dialogRef = this.dialog.open(PostupciUpdateComponent, {
       data: { Postupci: {} },
     });
-    dialogRef.afterClosed().subscribe(result => {
-      this.ponudjacis = result;
-    });
+    dialogRef.afterClosed().subscribe(
+      // eslint-disable-next-line no-console
+      val =>
+        this.ponudjaciService.query().subscribe((res: HttpResponse<IPostupci[]>) => {
+          this.dataSource.data = res.body ?? [];
+          this.ponudjacis = res;
+        })
+    );
   }
 }
