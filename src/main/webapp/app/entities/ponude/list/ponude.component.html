@@ -9,42 +9,24 @@
   <fa-icon icon="plus"></fa-icon>
   <span>Nova Ponuda</span>
 </button>
-<button
-  *jhiHasAnyAuthority="'ROLE_ADMIN'"
-  id="nadji-fajl"
-  type="button"
-  matTooltip="Izaberi Excel fajl"
-  mat-raised-button
-  (click)="fileInput.click()"
->
-  <mat-icon>attachment</mat-icon>
-</button>
-<!--  <input class="form-control" type="file" #fileInput />-->
-<input hidden #fileInput type="file" id="file" />
+<mat-button-toggle-group name="fontStyle" aria-label="Font Style">
+  <mat-button-toggle *jhiHasAnyAuthority="'ROLE_ADMIN'" matTooltip="Nadji Excel fajl" (click)="fileInput.click()"
+    >Nadji Fajl</mat-button-toggle
+  >
 
-<button
-  id="UnseiExcel"
-  *jhiHasAnyAuthority="'ROLE_ADMIN'"
-  mat-raised-button
-  matTooltip="Unesi podatke iz Ecela u bazu"
-  color="warn"
-  (click)="uploadFile()"
->
-  Unesi Excel
-</button>
-<button
-  *jhiHasAnyAuthority="'ROLE_ADMIN'"
-  mat-raised-button
-  color="accent"
-  matTooltip="Napravi formu za unos Excel"
-  (click)="DownloadExcel()"
->
-  <mat-icon>download</mat-icon>
-</button>
+  <!--  <input class="form-control" type="file" #fileInput />-->
+  <input hidden #fileInput type="file" id="file" />
 
-<button *jhiHasAnyAuthority="'ROLE_ADMIN'" mat-raised-button matTooltip="Ukloni cijelu ponudu" color="warn" (click)="open(content1)">
-  <mat-icon>delete</mat-icon>
-</button>
+  <mat-button-toggle *jhiHasAnyAuthority="'ROLE_ADMIN'" (click)="uploadFile()" matTooltip="Unesi Excel fajl">Dodaj Fajl</mat-button-toggle>
+  <mat-button-toggle *jhiHasAnyAuthority="'ROLE_ADMIN'" matTooltip="Napravi formu za unos Excel" (click)="DownloadExcel()"
+    >Napravi Obrazac</mat-button-toggle
+  >
+
+  <mat-button-toggle *jhiHasAnyAuthority="'ROLE_ADMIN'" matTooltip="Ukloni cijelu ponudu" (click)="open(content1)"
+    >Ukloni Ponudu</mat-button-toggle
+  >
+</mat-button-toggle-group>
+
 <mat-form-field>
   <mat-label>Ponudjaci</mat-label>
   <mat-select (selectionChange)="getSifraPonude()" [(ngModel)]="nadjiPonudjaca">
