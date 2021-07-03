@@ -136,7 +136,7 @@
     data-cy="entityCreateButton"
     mat-raised-button
     color="primary"
-    (click)="addNew()"
+    [routerLink]="['./new']"
   >
     <fa-icon icon="plus"></fa-icon>
     <span>Novi Korisnik</span>
@@ -190,26 +190,7 @@
     <ng-container matColumnDef="edit" stickyEnd>
       <th mat-header-cell *matHeaderCellDef></th>
       <td mat-cell *matCellDef="let element">
-        <mat-icon
-          *jhiHasAnyAuthority="'ROLE_ADMIN'"
-          id="edit"
-          type="submit"
-          (click)="
-            startEdit(
-              element.id,
-              element.login,
-              element.firstName,
-              element.lastName,
-              element.email,
-              element.langKey,
-              element.authorities,
-              element.createdBy,
-              element.lastModifiedBy,
-              element.lastModifiedDate
-            )
-          "
-          >edit</mat-icon
-        >
+        <mat-icon *jhiHasAnyAuthority="'ROLE_ADMIN'" id="edit" type="submit" [routerLink]="['./', element.login, 'edit']">edit</mat-icon>
       </td>
       <td mat-footer-cell *matFooterCellDef></td>
     </ng-container>

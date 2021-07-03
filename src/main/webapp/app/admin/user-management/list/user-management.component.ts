@@ -10,12 +10,6 @@ import { MatSort } from '@angular/material/sort';
 import { MatPaginator } from '@angular/material/paginator';
 import { UserManagementService } from 'app/admin/user-management/service/user-management.service';
 import { UserManagementDeleteDialogComponent } from 'app/admin/user-management/delete/user-management-delete-dialog.component';
-import { MatDialog } from '@angular/material/dialog';
-import * as dayjs from 'dayjs';
-import { PostupciUpdateComponent } from 'app/entities/postupci/update/postupci-update.component';
-import { HttpResponse } from '@angular/common/http';
-import { IPostupci } from 'app/entities/postupci/postupci.model';
-import { UserManagementUpdateComponent } from 'app/admin/user-management/update/user-management-update.component';
 
 @Component({
   selector: 'jhi-user-mgmt',
@@ -25,7 +19,7 @@ import { UserManagementUpdateComponent } from 'app/admin/user-management/update/
 export class UserManagementComponent implements AfterViewInit, OnInit {
   currentAccount: Account | null = null;
   users: User[] | null = null;
-  id?: number;
+
   public displayedColumns = [
     'login',
     'email',
@@ -48,8 +42,7 @@ export class UserManagementComponent implements AfterViewInit, OnInit {
     protected activatedRoute: ActivatedRoute,
     protected router: Router,
     protected modalService: NgbModal,
-    private accountService: AccountService,
-    public dialog: MatDialog
+    private accountService: AccountService
   ) {}
 
   public getAllUsers(): void {
@@ -62,58 +55,6 @@ export class UserManagementComponent implements AfterViewInit, OnInit {
   previousState(): void {
     window.history.back();
   }
-  startEdit(
-    id?: number,
-    login?: string,
-    firstName?: string,
-    lastName?: string,
-    email?: string,
-    activated?: boolean,
-    langKey?: string,
-    authorities?: string[],
-    createdBy?: string,
-    createdDate?: Date,
-    lastModifiedBy?: string,
-    lastModifiedDate?: Date
-  ): any {
-    this.id = id;
-    const dialogRef = this.dialog.open(UserManagementUpdateComponent, {
-      data: {
-        id,
-        login,
-        firstName,
-        lastName,
-        email,
-        activated,
-        langKey,
-        authorities,
-        createdBy,
-        createdDate,
-        lastModifiedBy,
-        lastModifiedDate,
-      },
-    });
-    dialogRef.afterClosed().subscribe(
-      // eslint-disable-next-line no-console
-      val =>
-        this.userService.query().subscribe((res: HttpResponse<IUser[]>) => {
-          this.dataSource.data = res.body ?? [];
-        })
-    );
-  }
-  addNew(): any {
-    const dialogRef = this.dialog.open(PostupciUpdateComponent, {
-      data: { User: {} },
-    });
-    dialogRef.afterClosed().subscribe(
-      // eslint-disable-next-line no-console
-      val =>
-        this.userService.query().subscribe((res: HttpResponse<IUser[]>) => {
-          this.dataSource.data = res.body ?? [];
-        })
-    );
-  }
-
   delete(user: IUser[]): void {
     const modalRef = this.modalService.open(UserManagementDeleteDialogComponent, { backdrop: 'static' });
     modalRef.componentInstance.user = user;
