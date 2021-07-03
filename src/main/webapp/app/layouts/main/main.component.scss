@@ -51,6 +51,7 @@
 }
 #pozadina {
   background-color: rgb(232 232 232);
+  //width: 200px;
 }
 #menu-login {
   display: flex;
@@ -59,8 +60,6 @@
 }
 
 h3 {
-  //font-weight: lighter;
-
   margin-top: 7px;
 }
 
@@ -82,12 +81,7 @@ h3 {
   //border-style: dashed;
   text-align: center;
 }
-//#zuto-hover:hover {
-//  color: yellow;
-//}
-//#hover-zuto:hover {
-//  color: yellow;
-//}
+
 .hower:hover {
   background-color: black;
   color: white;
@@ -100,4 +94,7 @@ mat-expansion-panel {
 }
 mat-sidenav-container {
   font-weight: normal;
+}
+mat-panel-title {
+  font-size: medium;
 }
