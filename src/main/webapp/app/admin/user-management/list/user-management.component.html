@@ -136,7 +136,7 @@
     data-cy="entityCreateButton"
     mat-raised-button
     color="primary"
-    [routerLink]="['./new']"
+    (click)="addNew()"
   >
     <fa-icon icon="plus"></fa-icon>
     <span>Novi Korisnik</span>

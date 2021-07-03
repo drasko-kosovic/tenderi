@@ -80,7 +80,9 @@ export class UserManagementUpdateComponent implements OnInit {
   previousState(): void {
     window.history.back();
   }
-
+  close(): any {
+    this.dialogRef.close();
+  }
   save(): void {
     this.isSaving = true;
     this.updateUser(this.user);
