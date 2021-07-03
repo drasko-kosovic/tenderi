@@ -18,6 +18,8 @@ import { PonudeUpdateComponent } from 'app/entities/ponude/update/ponude-update.
 import { AddDialogPonudeComponent } from 'app/entities/ponude/add/add.dialog.ponude.component';
 import { AddDialogUgovorComponent } from 'app/entities/ugovor/add/add.dialog.ugovor.component';
 import { UgovorUpdateComponent } from 'app/entities/ugovor/update/ugovor-update.component';
+import { HttpResponse } from '@angular/common/http';
+import { IPostupci } from 'app/entities/postupci/postupci.model';
 
 @Component({
   selector: 'jhi-ugovor',
@@ -25,7 +27,7 @@ import { UgovorUpdateComponent } from 'app/entities/ugovor/update/ugovor-update.
   styleUrls: ['./ugovor.scss'],
 })
 export class UgovorComponent implements AfterViewInit, OnChanges, OnInit {
-  ugovor?: IUgovor[];
+  ugovor?: HttpResponse<IUgovor[]>;
   account: Account | null = null;
   authSubscription?: Subscription;
   id?: number;
@@ -84,11 +86,27 @@ export class UgovorComponent implements AfterViewInit, OnChanges, OnInit {
         ponudjaci,
       },
     });
+    dialogRef.afterClosed().subscribe(
+      // eslint-disable-next-line no-console
+      val =>
+        this.ugovorService.query().subscribe((res: HttpResponse<IUgovor[]>) => {
+          this.dataSource.data = res.body ?? [];
+          this.ugovor = res;
+        })
+    );
   }
   addNew(): any {
     const dialogRef = this.dialog.open(AddDialogUgovorComponent, {
       data: { Ugovore: {} },
     });
+    dialogRef.afterClosed().subscribe(
+      // eslint-disable-next-line no-console
+      val =>
+        this.ugovorService.query().subscribe((res: HttpResponse<IUgovor[]>) => {
+          this.dataSource.data = res.body ?? [];
+          this.ugovor = res;
+        })
+    );
   }
 
   delete(ugovor: IUgovor[]): void {
@@ -114,8 +132,7 @@ export class UgovorComponent implements AfterViewInit, OnChanges, OnInit {
   }
 
   ngOnInit(): void {
-    this.authSubscription = this.accountService.getAuthenticationState().subscribe(account => (this.account = account));
-    this.getAllPonudjaci();
+    this.getSifraPostupka();
   }
 
   printUgovor(broj: string): any {
@@ -126,13 +143,13 @@ export class UgovorComponent implements AfterViewInit, OnChanges, OnInit {
     });
   }
 
-  public getAllPonudjaci(): void {
-    this.ugovorService.ponudjaciAll().subscribe((res: IUgovor[]) => {
-      this.ugovor = res;
-      // eslint-disable-next-line no-console
-      console.log(res);
-    });
-  }
+  // public getAllPonudjaci(): void {
+  //   this.ugovorService.ponudjaciAll().subscribe((res: IUgovor[]) => {
+  //     this.ugovor = res;
+  //     // eslint-disable-next-line no-console
+  //     console.log(res);
+  //   });
+  // }
 
   getPrvorangiraniPonude(sifraPostupka: number, sifraPonude: number): any {
     this.ugovorService.getPrvorangiraniPonude(sifraPostupka, sifraPonude).subscribe();
