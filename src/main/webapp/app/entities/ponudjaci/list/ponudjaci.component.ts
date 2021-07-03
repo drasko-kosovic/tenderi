@@ -82,14 +82,14 @@ export class PonudjaciComponent implements AfterViewInit, OnInit {
     this.getAllPonudjaci();
   }
 
-  startEdit(id?: number, nazivPonudjaca?: number, odgovornoLice?: string | null, dresaPonudjaca?: string, bankaRacun?: string): any {
+  startEdit(id?: number, nazivPonudjaca?: number, odgovornoLice?: string | null, adresaPonudjaca?: string, bankaRacun?: string): any {
     this.id = id;
     const dialogRef = this.dialog.open(PonudjaciUpdateComponent, {
       data: {
         id,
         nazivPonudjaca,
         odgovornoLice,
-        dresaPonudjaca,
+        adresaPonudjaca,
         bankaRacun,
       },
     });
@@ -104,8 +104,8 @@ export class PonudjaciComponent implements AfterViewInit, OnInit {
   }
 
   addNew(): any {
-    const dialogRef = this.dialog.open(PostupciUpdateComponent, {
-      data: { Postupci: {} },
+    const dialogRef = this.dialog.open(PonudjaciUpdateComponent, {
+      data: { Ponudjaci: {} },
     });
     dialogRef.afterClosed().subscribe(
       // eslint-disable-next-line no-console
