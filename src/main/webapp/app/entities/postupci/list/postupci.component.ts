@@ -11,7 +11,6 @@ import { NgbModal } from '@ng-bootstrap/ng-bootstrap';
 import { MatDialog } from '@angular/material/dialog';
 import { PostupciUpdateComponent } from 'app/entities/postupci/update/postupci-update.component';
 import * as dayjs from 'dayjs';
-import { AddDialogPostupciComponent } from 'app/entities/postupci/add/add.dialog.component';
 
 @Component({
   selector: 'jhi-postupci',

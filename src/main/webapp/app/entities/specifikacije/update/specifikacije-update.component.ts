@@ -26,19 +26,30 @@ export class SpecifikacijeUpdateComponent implements OnInit {
     private router: Router,
     private dialogRef: MatDialogRef<SpecifikacijeUpdateComponent>,
     @Inject(MAT_DIALOG_DATA)
-    { id, sifraPostupka, brojPartije, atc, inn, farmaceutskiOblikLijeka, jacinaLijeka, trazenaKolicina }: Specifikacije
+    {
+      id,
+      sifraPostupka,
+      brojPartije,
+      atc,
+      inn,
+      farmaceutskiOblikLijeka,
+      jacinaLijeka,
+      trazenaKolicina,
+      pakovanje,
+      procijenjenaVrijednost,
+    }: Specifikacije
   ) {
     this.editForm = this.fb.group({
-      id: [],
-      sifraPostupka: [null, [Validators.required]],
-      brojPartije: [null, [Validators.required]],
-      atc: [],
-      inn: [],
-      farmaceutskiOblikLijeka: [],
-      jacinaLijeka: [],
-      trazenaKolicina: [null, [Validators.required]],
-      pakovanje: [],
-      procijenjenaVrijednost: [null, [Validators.required]],
+      id: [id],
+      sifraPostupka: [sifraPostupka, [Validators.required]],
+      brojPartije: [brojPartije, [Validators.required]],
+      atc: [atc],
+      inn: [inn],
+      farmaceutskiOblikLijeka: [farmaceutskiOblikLijeka],
+      jacinaLijeka: [jacinaLijeka],
+      trazenaKolicina: [trazenaKolicina, [Validators.required]],
+      pakovanje: [pakovanje],
+      procijenjenaVrijednost: [procijenjenaVrijednost, [Validators.required]],
     });
   }
 

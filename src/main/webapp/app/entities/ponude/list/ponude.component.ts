@@ -15,9 +15,9 @@ import { IPonudePonudjaci } from 'app/entities/ponude/ponude_ponudjaci.model';
 import { SERVER_API_URL } from 'app/app.constants';
 import { MatDialog } from '@angular/material/dialog';
 import * as dayjs from 'dayjs';
-import { IPonudjaci } from 'app/entities/ponudjaci/ponudjaci.model';
 import { PonudeUpdateComponent } from 'app/entities/ponude/update/ponude-update.component';
-import { AddDialogPonudeComponent } from 'app/entities/ponude/add/add.dialog.ponude.component';
+import { PonudjaciUpdateComponent } from 'app/entities/ponudjaci/update/ponudjaci-update.component';
+import { HttpResponse } from '@angular/common/http';
 
 @Component({
   selector: 'jhi-ponude',
@@ -86,7 +86,7 @@ export class PonudeComponent implements AfterViewInit, OnChanges, OnInit {
     ponudjenaVrijednost?: number,
     rokIsporuke?: number,
     datumPonude?: dayjs.Dayjs,
-    ponudjaci_id?:number,
+    ponudjaci_id?: number
   ): any {
     this.id = id;
     const dialogRef = this.dialog.open(PonudeUpdateComponent, {
@@ -103,9 +103,18 @@ export class PonudeComponent implements AfterViewInit, OnChanges, OnInit {
         ponudjaci_id,
       },
     });
+    dialogRef.afterClosed().subscribe(
+      // eslint-disable-next-line no-console
+      val =>
+        this.ponudeService.query().subscribe((res: HttpResponse<IPonude[]>) => {
+          this.dataSource.data = res.body ?? [];
+          // this.ponude = res;
+        })
+    );
   }
+
   addNew(): any {
-    const dialogRef = this.dialog.open(AddDialogPonudeComponent, {
+    const dialogRef = this.dialog.open(PonudeUpdateComponent, {
       data: { Ponude: {} },
     });
   }
@@ -127,7 +136,6 @@ export class PonudeComponent implements AfterViewInit, OnChanges, OnInit {
     this.ponudeService.deleteSifraPonude(this.nadjiPonudjaca).subscribe();
     this.getSifraPostupka();
   }
-
 
   ngAfterViewInit(): void {
     this.dataSource.sort = this.sort;

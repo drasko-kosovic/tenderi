@@ -1,46 +1,47 @@
 <h2 mat-dialog-title>Ponude</h2>
 <mat-dialog-content class="mat-typography">
-  <form class="mat-dialog-content" #formControl="ngForm">
-    <mat-form-field color="accent">
-      <input matInput placeholder="sifra postupka" [(ngModel)]="data.sifraPostupka" name="sifraPostupka" />
+  <form name="editForm" role="form" novalidate [formGroup]="editForm">
+    <mat-form-field>
+      <input matInput placeholder="sifra postupka" formControlName="sifraPostupka" name="sifraPostupka" />
     </mat-form-field>
 
-    <mat-form-field color="accent">
-      <input matInput placeholder="sifra ponude" [(ngModel)]="data.sifraPonude" name="sifraPonude" />
+    <mat-form-field>
+      <input matInput placeholder="sifra ponude" formControlName="sifraPonude" name="sifraPonude" />
     </mat-form-field>
 
-    <mat-form-field color="accent">
-      <input matInput placeholder="Broj Partije" [(ngModel)]="data.brojPartije" name="brojPartije" />
+    <mat-form-field>
+      <input matInput placeholder="Broj Partije" formControlName="brojPartije" name="brojPartije" />
     </mat-form-field>
 
-    <mat-form-field color="accent">
-      <input matInput placeholder="Naziv Ponudjaca" [(ngModel)]="data.nazivPonudjaca" name="nazivPonudjaca" />
+    <mat-form-field>
+      <input matInput placeholder="Naziv Ponudjaca" formControlName="nazivPonudjaca" name="nazivPonudjaca" />
     </mat-form-field>
 
-    <mat-form-field color="accent">
-      <input matInput placeholder="Naziv Proizvodjaca" [(ngModel)]="data.nazivProizvodjaca" name="nazivProizvodjaca" />
+    <mat-form-field>
+      <input matInput placeholder="Naziv Proizvodjaca" formControlName="nazivProizvodjaca" name="nazivProizvodjaca" />
     </mat-form-field>
 
-    <mat-form-field color="accent">
-      <textarea matInput placeholder="Zastceni Naziv" [(ngModel)]="data.zastceniNaziv" name="zastceniNaziv" ></textarea>
+    <mat-form-field>
+      <textarea matInput placeholder="Zastceni Naziv" formControlName="zastceniNaziv" name="zastceniNaziv"></textarea>
     </mat-form-field>
-    <mat-form-field color="accent">
-      <input matInput placeholder="Ponudjena Cijena" [(ngModel)]="data.ponudjenaVrijednost" name="ponudjenaVrijednost" />
+    <mat-form-field>
+      <input matInput placeholder="Ponudjena Cijena" formControlName="ponudjenaVrijednost" name="ponudjenaVrijednost" />
     </mat-form-field>
-    <mat-form-field color="accent">
-      <input matInput placeholder="datumPonude" [(ngModel)]="data.datumPonude" name="datumPonude" />
-    </mat-form-field>
-
-    <mat-form-field color="accent">
-      <input matInput placeholder="Rok Isporuke" [(ngModel)]="data.rokIsporuke" name="rokIsporuke" />
+    <mat-form-field>
+      <input matInput placeholder="datumPonude" formControlName="datumPonude" name="datumPonude" />
     </mat-form-field>
 
-    <mat-form-field color="accent">
-      <input matInput placeholder="Ponudjaci" [(ngModel)]="data.ponudjaci" name="ponudjaci" />
+    <mat-form-field>
+      <input matInput placeholder="Rok Isporuke" formControlName="rokIsporuke" name="rokIsporuke" />
+    </mat-form-field>
+
+    <mat-form-field>
+      <input matInput placeholder="Ponudjaci" formControlName="ponudjaci" name="ponudjaci" />
     </mat-form-field>
   </form>
 </mat-dialog-content>
 <mat-dialog-actions align="end">
   <button mat-raised-button color="warn" mat-dialog-close>Odlozi</button>
-  <button mat-raised-button color="primary" (click)="updateEdit()" [mat-dialog-close]="true" cdkFocusInitial>Sacuvaj</button>
+  <button mat-raised-button color="primary" (click)="save()" [mat-dialog-close]="true" cdkFocusInitial>Sacuvaj</button>
+  <button mat-raised-button color="primary" (click)="confirmAdd()" [mat-dialog-close]="true" cdkFocusInitial>Dodaj</button>
 </mat-dialog-actions>
