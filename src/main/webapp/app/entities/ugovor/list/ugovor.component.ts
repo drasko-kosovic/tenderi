@@ -96,7 +96,7 @@ export class UgovorComponent implements AfterViewInit, OnChanges, OnInit {
     );
   }
   addNew(): any {
-    const dialogRef = this.dialog.open(AddDialogUgovorComponent, {
+    const dialogRef = this.dialog.open(UgovorUpdateComponent, {
       data: { Ugovore: {} },
     });
     dialogRef.afterClosed().subscribe(
@@ -142,14 +142,6 @@ export class UgovorComponent implements AfterViewInit, OnChanges, OnInit {
       window.open(fileURL);
     });
   }
-
-  // public getAllPonudjaci(): void {
-  //   this.ugovorService.ponudjaciAll().subscribe((res: IUgovor[]) => {
-  //     this.ugovor = res;
-  //     // eslint-disable-next-line no-console
-  //     console.log(res);
-  //   });
-  // }
 
   getPrvorangiraniPonude(sifraPostupka: number, sifraPonude: number): any {
     this.ugovorService.getPrvorangiraniPonude(sifraPostupka, sifraPonude).subscribe();

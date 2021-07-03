@@ -1,6 +1,6 @@
 import { Component, Inject, OnInit } from '@angular/core';
 import { HttpResponse } from '@angular/common/http';
-import { FormBuilder, Validators } from '@angular/forms';
+import { FormBuilder, FormGroup, Validators } from '@angular/forms';
 import { ActivatedRoute } from '@angular/router';
 import { Observable } from 'rxjs';
 import { finalize } from 'rxjs/operators';
@@ -21,17 +21,7 @@ export class UgovorUpdateComponent implements OnInit {
   ponudjacis?: IPonudjaci[];
   ugovori?: IUgovor[];
   nadji?: any;
-
-  editForm = this.fb.group({
-    id: [],
-    brojUgovora: [null, [Validators.required]],
-    datumUgovora: [null, [Validators.required]],
-    brojDatumOdlukeIzbora: [null, [Validators.required]],
-    iznosUgovoraBezPdf: [null, [Validators.required]],
-    sifraPostupka: [null, [Validators.required]],
-    ponudjaci: [null, [Validators.required]],
-    sifraPonude: [null, [Validators.required]],
-  });
+  editForm: FormGroup;
 
   constructor(
     protected ugovorService: UgovorService,
@@ -39,8 +29,20 @@ export class UgovorUpdateComponent implements OnInit {
     protected fb: FormBuilder,
     protected ponudjaciService: PonudjaciService,
     public dialogRef: MatDialogRef<UgovorUpdateComponent>,
-    @Inject(MAT_DIALOG_DATA) public data: any
-  ) {}
+    @Inject(MAT_DIALOG_DATA)
+    { id, brojUgovora, datumUgovora, brojDatumOdlukeIzbora, iznosUgovoraBezPdf, sifraPostupka, sifraPonude, ponudjaci }: Ugovor
+  ) {
+    this.editForm = this.fb.group({
+      id: [id],
+      brojUgovora: [brojUgovora, [Validators.required]],
+      datumUgovora: [datumUgovora, [Validators.required]],
+      brojDatumOdlukeIzbora: [brojDatumOdlukeIzbora, [Validators.required]],
+      iznosUgovoraBezPdf: [iznosUgovoraBezPdf, [Validators.required]],
+      sifraPostupka: [sifraPostupka, [Validators.required]],
+      ponudjaci: [ponudjaci, [Validators.required]],
+      sifraPonude: [sifraPonude, [Validators.required]],
+    });
+  }
 
   ngOnInit(): void {
     this.activatedRoute.data.subscribe(({ ugovor }) => {
@@ -56,11 +58,14 @@ export class UgovorUpdateComponent implements OnInit {
     });
   }
 
-  updateEdit(): void {
-    this.ugovorService.update(this.data).subscribe();
-  }
   previousState(): void {
     window.history.back();
+  }
+
+  public confirmAdd(): void {
+    const ugovor = this.createFromForm();
+    this.subscribeToSaveResponse(this.ugovorService.create(ugovor));
+    this.dialogRef.close();
   }
 
   save(): void {
@@ -72,7 +77,9 @@ export class UgovorUpdateComponent implements OnInit {
       this.subscribeToSaveResponse(this.ugovorService.create(ugovor));
     }
   }
-
+  close(): any {
+    this.dialogRef.close();
+  }
   protected subscribeToSaveResponse(result: Observable<HttpResponse<IUgovor>>): void {
     result.pipe(finalize(() => this.onSaveFinalize())).subscribe(
       () => this.onSaveSuccess(),

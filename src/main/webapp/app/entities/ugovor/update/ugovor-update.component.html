@@ -1,35 +1,102 @@
 <h2 mat-dialog-title>Ugovor</h2>
 <mat-dialog-content class="mat-typography">
-  <form class="mat-dialog-content" #formControl="ngForm">
+  <form name="editForm" role="form" novalidate [formGroup]="editForm">
     <mat-form-field color="accent">
-      <input matInput placeholder="sifra postupka" [(ngModel)]="data.sifraPostupka" name="sifraPostupka" />
+      <input matInput placeholder="sifra postupka" formControlName="sifraPostupka" name="sifraPostupka" />
+      <div
+        *ngIf="editForm.get('sifraPostupka')!.invalid && (editForm.get('sifraPostupka')!.dirty || editForm.get('sifraPostupka')!.touched)"
+      >
+        <small
+          class="form-text text-danger"
+          *ngIf="editForm.get('sifraPostupka')?.errors?.required"
+          jhiTranslate="entity.validation.required"
+        >
+          Obavezno polje.
+        </small>
+      </div>
     </mat-form-field>
 
     <mat-form-field color="accent">
-      <input matInput placeholder="sifra ponude" [(ngModel)]="data.sifraPonude" name="sifraPonude" />
+      <input matInput placeholder="sifra ponude" formControlName="sifraPonude" name="sifraPonude" />
+      <div *ngIf="editForm.get('sifraPonude')!.invalid && (editForm.get('sifraPonude')!.dirty || editForm.get('sifraPonude')!.touched)">
+        <small
+          class="form-text text-danger"
+          *ngIf="editForm.get('sifraPonude')?.errors?.required"
+          jhiTranslate="entity.validation.required"
+        >
+          Obavezno polje.
+        </small>
+      </div>
     </mat-form-field>
 
     <mat-form-field color="accent">
-      <input matInput placeholder="Broj Ugovora" [(ngModel)]="data.brojUgovora" name="brojUgovora" />
+      <input matInput placeholder="Broj Ugovora" formControlName="brojUgovora" name="brojUgovora" />
+      <div *ngIf="editForm.get('brojUgovora')!.invalid && (editForm.get('brojUgovora')!.dirty || editForm.get('brojUgovora')!.touched)">
+        <small
+          class="form-text text-danger"
+          *ngIf="editForm.get('brojUgovora')?.errors?.required"
+          jhiTranslate="entity.validation.required"
+        >
+          Obavezno polje.
+        </small>
+      </div>
     </mat-form-field>
 
     <mat-form-field color="accent">
-      <input matInput placeholder="Datum Ugovora" [(ngModel)]="data.datumUgovora" name="datumUgovora" />
+      <input matInput placeholder="Datum Ugovora" formControlName="datumUgovora" name="datumUgovora" />
+      <div *ngIf="editForm.get('datumUgovora')!.invalid && (editForm.get('datumUgovora')!.dirty || editForm.get('datumUgovora')!.touched)">
+        <small
+          class="form-text text-danger"
+          *ngIf="editForm.get('datumUgovora')?.errors?.required"
+          jhiTranslate="entity.validation.required"
+        >
+          Obavezno polje.
+        </small>
+      </div>
     </mat-form-field>
 
     <mat-form-field color="accent">
-      <input matInput placeholder="Broj Datum Odluke Izbora" [(ngModel)]="data.brojDatumOdlukeIzbora" name="brojDatumOdlukeIzbora" />
+      <input matInput placeholder="Broj Datum Odluke Izbora" formControlName="brojDatumOdlukeIzbora" name="brojDatumOdlukeIzbora" />
+      <div
+        *ngIf="
+          editForm.get('brojDatumOdlukeIzbora')!.invalid &&
+          (editForm.get('brojDatumOdlukeIzbora')!.dirty || editForm.get('brojDatumOdlukeIzbora')!.touched)
+        "
+      >
+        <small
+          class="form-text text-danger"
+          *ngIf="editForm.get('brojDatumOdlukeIzbora')?.errors?.required"
+          jhiTranslate="entity.validation.required"
+        >
+          Obavezno polje.
+        </small>
+      </div>
     </mat-form-field>
 
     <mat-form-field color="accent">
-      <input matInput placeholder="iznos Ugovora Bez PDV" [(ngModel)]="data.iznosUgovoraBezPdf" name="iznosUgovoraBezPdf" />
+      <input matInput placeholder="iznos Ugovora Bez PDV" formControlName="iznosUgovoraBezPdf" name="iznosUgovoraBezPdf" />
+      <div
+        *ngIf="
+          editForm.get('iznosUgovoraBezPdf')!.invalid &&
+          (editForm.get('iznosUgovoraBezPdf')!.dirty || editForm.get('iznosUgovoraBezPdf')!.touched)
+        "
+      >
+        <small
+          class="form-text text-danger"
+          *ngIf="editForm.get('iznosUgovoraBezPdf')?.errors?.required"
+          jhiTranslate="entity.validation.required"
+        >
+          Obavezno polje.
+        </small>
+      </div>
     </mat-form-field>
     <mat-form-field color="accent">
-      <input matInput placeholder="Ponudjac" [(ngModel)]="data.ponudjaci" name="ponudjaci" />
+      <input matInput placeholder="Ponudjac" formControlName="ponudjaci" name="ponudjaci" />
     </mat-form-field>
   </form>
 </mat-dialog-content>
 <mat-dialog-actions align="end">
   <button mat-raised-button color="warn" mat-dialog-close>Odlozi</button>
-  <button mat-raised-button color="primary" (click)="updateEdit()" [mat-dialog-close]="true" cdkFocusInitial>Sacuvaj</button>
+  <button mat-raised-button color="primary" (click)="save()" [mat-dialog-close]="true" cdkFocusInitial>Sacuvaj</button>
+  <button mat-raised-button color="primary" (click)="confirmAdd()" [mat-dialog-close]="true" cdkFocusInitial>Dodaj</button>
 </mat-dialog-actions>
