@@ -1,11 +1,5 @@
 package tenderi.utils;
 
-import org.apache.poi.ss.usermodel.*;
-import org.apache.poi.xssf.usermodel.XSSFWorkbook;
-import org.springframework.web.multipart.MultipartFile;
-import tenderi.domain.Ponude;
-import tenderi.domain.Specifikacije;
-
 import java.io.ByteArrayInputStream;
 import java.io.ByteArrayOutputStream;
 import java.io.IOException;
@@ -13,6 +7,11 @@ import java.io.InputStream;
 import java.util.ArrayList;
 import java.util.Iterator;
 import java.util.List;
+import org.apache.poi.ss.usermodel.*;
+import org.apache.poi.xssf.usermodel.XSSFWorkbook;
+import org.springframework.web.multipart.MultipartFile;
+import tenderi.domain.Ponude;
+import tenderi.domain.Specifikacije;
 
 public class ExcelUtilsSpecifikacije {
 
@@ -29,8 +28,8 @@ public class ExcelUtilsSpecifikacije {
             "Jacina Lijeka",
             "Kolicina",
             "Pakovanje",
+            "Jedinica Mjere",
             "Procijenjena",
-
         };
         try (Workbook workbook = new XSSFWorkbook(); ByteArrayOutputStream out = new ByteArrayOutputStream();) {
             CreationHelper createHelper = workbook.getCreationHelper();
@@ -71,8 +70,8 @@ public class ExcelUtilsSpecifikacije {
                 row.createCell(7).setCellValue(specifikacijes.getJacinaLijeka());
                 row.createCell(8).setCellValue(specifikacijes.getTrazenaKolicina());
                 row.createCell(9).setCellValue(specifikacijes.getPakovanje());
-                row.createCell(10).setCellValue(specifikacijes.getProcijenjenaVrijednost());
-
+                row.createCell(10).setCellValue(specifikacijes.getJedinicaMjere());
+                row.createCell(11).setCellValue(specifikacijes.getProcijenjenaVrijednost());
             }
 
             workbook.write(out);
@@ -114,11 +113,9 @@ public class ExcelUtilsSpecifikacije {
                         case 1:
                             specifikacije.setSifraPostupka((int) currentCell.getNumericCellValue());
                             break;
-
                         case 2:
                             specifikacije.setBrojPartije((int) currentCell.getNumericCellValue());
                             break;
-
                         case 3:
                             specifikacije.setAtc(currentCell.getStringCellValue());
 
@@ -144,10 +141,13 @@ public class ExcelUtilsSpecifikacije {
 
                             break;
                         case 9:
+                            specifikacije.setJedinicaMjere(currentCell.getStringCellValue());
+
+                            break;
+                        case 10:
                             specifikacije.setProcijenjenaVrijednost((double) currentCell.getNumericCellValue());
 
                             break;
-
                         default:
                             break;
                     }

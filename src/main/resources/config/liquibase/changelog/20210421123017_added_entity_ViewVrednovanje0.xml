@@ -21,6 +21,7 @@
             specifikacije.farmaceutski_oblik_lijeka,
             specifikacije.jacina_lijeka,
             specifikacije.pakovanje,
+            specifikacije.jedinica_mjere,
             specifikacije.trazena_kolicina,
             specifikacije.procijenjena_vrijednost,
             ponude.ponudjena_vrijednost,

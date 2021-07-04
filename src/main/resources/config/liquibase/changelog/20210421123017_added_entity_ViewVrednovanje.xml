@@ -22,6 +22,7 @@
             view_vrednovanje0.farmaceutski_oblik_lijeka,
             view_vrednovanje0.jacina_lijeka,
             view_vrednovanje0.pakovanje,
+            view_vrednovanje0.jedinica_mjere,
             view_vrednovanje0.trazena_kolicina,
             view_vrednovanje0.procijenjena_vrijednost,
             view_vrednovanje0.ponudjena_vrijednost,
