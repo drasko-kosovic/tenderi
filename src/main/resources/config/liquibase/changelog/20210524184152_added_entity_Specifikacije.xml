@@ -38,6 +38,9 @@
             <column name="pakovanje" type="varchar(255)">
                 <constraints nullable="true" />
             </column>
+            <column name="jedinica_mjere" type="varchar(255)">
+                <constraints nullable="true" />
+            </column>
             <column name="procijenjena_vrijednost" type="double">
                 <constraints nullable="false" />
             </column>

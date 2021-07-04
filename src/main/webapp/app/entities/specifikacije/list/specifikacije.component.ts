@@ -36,6 +36,7 @@ export class SpecifikacijeComponent implements AfterViewInit, OnChanges, OnInit 
     'jacina lijeka',
     'trazena kolicina',
     'pakovanje',
+    'jedinica mjere',
     'procijenjena vrijednost',
     'delete',
     'edit',
@@ -73,6 +74,7 @@ export class SpecifikacijeComponent implements AfterViewInit, OnChanges, OnInit 
     jacinaLijeka?: string | null,
     trazenaKolicina?: number,
     pakovanje?: string | null,
+    jedinicaMjere?: string | null,
     procijenjenaVrijednost?: number
   ): any {
     this.id = id;
@@ -87,6 +89,7 @@ export class SpecifikacijeComponent implements AfterViewInit, OnChanges, OnInit 
         jacinaLijeka,
         trazenaKolicina,
         pakovanje,
+        jedinicaMjere,
         procijenjenaVrijednost,
       },
     });

@@ -8,6 +8,7 @@ export interface ISpecifikacije {
   jacinaLijeka?: string | null;
   trazenaKolicina?: number;
   pakovanje?: string | null;
+  jedinicaMjere?: string | null;
   procijenjenaVrijednost?: number;
 }
 
@@ -22,6 +23,7 @@ export class Specifikacije implements ISpecifikacije {
     public jacinaLijeka?: string | null,
     public trazenaKolicina?: number,
     public pakovanje?: string | null,
+    public jedinicaMjere?: string | null,
     public procijenjenaVrijednost?: number
   ) {}
 }

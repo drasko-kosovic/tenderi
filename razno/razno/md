@@ -3,3 +3,6 @@ npm install --save @angular/material@10.2.7 @angular/cdk @angular/animations@
 font jasper pdf   DejaVu Sans
 
 java.time.LocalDate
+
+kad cekiram to se vraca u stanje koje je bilo prije
+ne cekirno znaci da osatavljem nove promjene za te stavke

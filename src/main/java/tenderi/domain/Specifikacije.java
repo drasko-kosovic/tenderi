@@ -38,12 +38,23 @@ public class Specifikacije implements Serializable {
     @Column(name = "jacina_lijeka")
     private String jacinaLijeka;
 
+    public String getJedinicaMjere() {
+        return jedinicaMjere;
+    }
+
+    public void setJedinicaMjere(String jedinicaMjere) {
+        this.jedinicaMjere = jedinicaMjere;
+    }
+
     @NotNull
     @Column(name = "trazena_kolicina", nullable = false)
     private Integer trazenaKolicina;
 
     @Column(name = "pakovanje")
     private String pakovanje;
+
+    @Column(name = "jedinica_mjere")
+    private String jedinicaMjere;
 
     @NotNull
     @Column(name = "procijenjena_vrijednost", nullable = false)

@@ -36,6 +36,7 @@ export class SpecifikacijeUpdateComponent implements OnInit {
       jacinaLijeka,
       trazenaKolicina,
       pakovanje,
+      jedinicaMjere,
       procijenjenaVrijednost,
     }: Specifikacije
   ) {
@@ -49,6 +50,7 @@ export class SpecifikacijeUpdateComponent implements OnInit {
       jacinaLijeka: [jacinaLijeka],
       trazenaKolicina: [trazenaKolicina, [Validators.required]],
       pakovanje: [pakovanje],
+      jedinicaMjere: [jedinicaMjere],
       procijenjenaVrijednost: [procijenjenaVrijednost, [Validators.required]],
     });
   }
