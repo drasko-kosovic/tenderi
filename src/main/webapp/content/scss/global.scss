@@ -6,24 +6,26 @@
 /* ==============================================================
 Bootstrap tweaks
 ===============================================================*/
+#jh-create-entity {
+  background-color: #2ba01dff;
+}
+
 th.mat-header-cell {
   color: white;
   font-weight: normal;
   background-color: grey;
 }
-mat-form-field  {
+mat-form-field {
   display: flex;
   width: 90%;
-
 }
 textarea {
- width: 90%;
+  width: 90%;
 }
 .mat-typography {
   width: 400px;
   height: 100%;
 }
-
 
 body,
 h1,
