@@ -12,14 +12,9 @@ import { Account } from 'app/core/auth/account.model';
 import { Subscription } from 'rxjs';
 
 import { MatDialog } from '@angular/material/dialog';
-import { AddDialogPostupciComponent } from 'app/entities/postupci/add/add.dialog.component';
 import { AddDialogPonudeComponent } from 'app/entities/ponude/add/add.dialog.ponude.component';
-import { AddDialogSpecifikacijeComponent } from 'app/entities/specifikacije/add/add.dialog.specifikacije.component';
-import { AddDialogPonudjaciComponent } from 'app/entities/ponudjaci/add/add.dialog.ponudjaci.component';
-import { AddDialogUgovorComponent } from 'app/entities/ugovor/add/add.dialog.ugovor.component';
 import { PostupciUpdateComponent } from 'app/entities/postupci/update/postupci-update.component';
-import { HttpResponse } from '@angular/common/http';
-import { IPostupci } from 'app/entities/postupci/postupci.model';
+import { RegisterComponent } from 'app/account/register/register.component';
 
 @Component({
   selector: 'jhi-main',
@@ -59,21 +54,8 @@ export class MainComponent implements OnInit {
       data: { Ponude: {} },
     });
   }
-  addNewSpecifikacije(): any {
-    const dialogRef = this.dialog.open(AddDialogSpecifikacijeComponent, {
-      data: { Specifikacije: {} },
-    });
-  }
-
-  addNewPonudjaci(): any {
-    const dialogRef = this.dialog.open(AddDialogPonudjaciComponent, {
-      data: { Ponudjaci: {} },
-    });
-  }
-  addNewUgovori(): any {
-    const dialogRef = this.dialog.open(AddDialogUgovorComponent, {
-      data: { Ugovor: {} },
-    });
+  addNewRegistracija(): any {
+    const dialogRef = this.dialog.open(RegisterComponent);
   }
 
   ngOnInit(): void {

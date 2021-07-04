@@ -10,12 +10,6 @@
           <mat-icon>question_answer</mat-icon>
           <span>Postupci</span>
         </a>
-        <!--        <mat-divider></mat-divider>-->
-        <!--        <a class="hower" [hidden]="!isAuthenticated()" mat-list-item routerLink="ponudjaci">-->
-        <!--          <mat-icon>question_answer</mat-icon>-->
-        <!--          <span>Ponudjaci</span>-->
-        <!--        </a>-->
-        <!--        <mat-divider></mat-divider>-->
         <mat-accordion>
           <mat-expansion-panel>
             <mat-expansion-panel-header>
@@ -69,7 +63,7 @@
             </p>
           </button>
           <button mat-menu-item>
-            <p mat-list-item routerLink="account/register">
+            <p mat-list-item (click)="addNewRegistracija()">
               <mat-icon>person_add</mat-icon>
               <span>Registruj se </span>
             </p>
