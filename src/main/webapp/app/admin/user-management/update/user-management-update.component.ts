@@ -1,4 +1,4 @@
-import { Component, Inject, OnInit } from '@angular/core';
+import { AfterViewInit, Component, Inject, OnInit } from '@angular/core';
 import { FormBuilder, FormGroup, Validators } from '@angular/forms';
 import { ActivatedRoute } from '@angular/router';
 
@@ -17,6 +17,7 @@ export class UserManagementUpdateComponent implements OnInit {
   languages = LANGUAGES;
   authorities: string[] = [];
   isSaving = false;
+
   editForm: FormGroup;
 
   constructor(
@@ -63,7 +64,6 @@ export class UserManagementUpdateComponent implements OnInit {
       lastModifiedDate: [lastModifiedDate],
     });
   }
-
   ngOnInit(): void {
     this.route.data.subscribe(({ user }) => {
       if (user) {
@@ -75,14 +75,14 @@ export class UserManagementUpdateComponent implements OnInit {
       }
     });
     this.userService.authorities().subscribe(authorities => (this.authorities = authorities));
+    // eslint-disable-next-line no-console
+    console.log('da');
   }
 
   previousState(): void {
     window.history.back();
   }
-  close(): any {
-    this.dialogRef.close();
-  }
+
   save(): void {
     this.isSaving = true;
     this.updateUser(this.user);

@@ -89,7 +89,13 @@
   </form>
 </mat-dialog-content>
 <mat-dialog-actions align="end">
-  <button mat-raised-button color="warn" mat-dialog-close (click)="close()">Odlozi</button>
-  <button mat-raised-button color="primary" (click)="save()" [mat-dialog-close]="true" cdkFocusInitial>Sacuvaj</button>
-  <button mat-raised-button color="primary" [mat-dialog-close]="true" cdkFocusInitial>Dodaj</button>
+  <div>
+    <button type="button" mat-raised-button color="warn" (click)="previousState()">
+      <fa-icon icon="ban"></fa-icon>&nbsp;<span jhiTranslate="entity.action.cancel">Cancel</span>
+    </button>
+
+    <button type="button" (click)="save()" [disabled]="editForm.invalid || isSaving" mat-raised-button color="primary">
+      <fa-icon icon="save"></fa-icon>&nbsp;<span jhiTranslate="entity.action.save">Save</span>
+    </button>
+  </div>
 </mat-dialog-actions>
