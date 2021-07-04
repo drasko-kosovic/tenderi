@@ -43,7 +43,7 @@
 
       <div class="pull-right">
         <mat-menu #menu="matMenu">
-          <button mat-menu-item [hidden]="!isAuthenticated()">
+          <button *ngIf="account?.login == 'drasko'" mat-menu-item [hidden]="!isAuthenticated()">
             <p mat-list-item routerLink="/admin/user-management">
               <mat-icon>format_align_justify</mat-icon>
               <span>Korisnici</span>
