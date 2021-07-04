@@ -52,7 +52,9 @@ export class RegisterComponent implements AfterViewInit {
       this.login.nativeElement.focus();
     }
   }
-
+  close(): any {
+    this.dialogRef.close();
+  }
   register(): void {
     this.doNotMatch = false;
     this.error = false;

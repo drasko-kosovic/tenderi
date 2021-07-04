@@ -1,4 +1,4 @@
-<h2 mat-dialog-title>Registration</h2>
+<h2 mat-dialog-title>Registracija</h2>
 <mat-dialog-content class="mat-typography">
   <div>
     <div class="row justify-content-center">
@@ -183,10 +183,11 @@
   </div>
 </mat-dialog-content>
 <mat-dialog-actions align="end">
-  <button type="button" id="cancel-save" mat-raised-button color="warn" (click)="previousState()">
-    <fa-icon icon="ban"></fa-icon>&nbsp;<span jhiTranslate="entity.action.cancel">Cancel</span>
+  <button type="button" id="cancel-save" mat-raised-button color="warn" (click)="close()">
+    <fa-icon icon="ban"></fa-icon>&nbsp;<span>OK</span>
   </button>
   <button
+    *ngIf="!success"
     type="button"
     (click)="register()"
     mat-raised-button
