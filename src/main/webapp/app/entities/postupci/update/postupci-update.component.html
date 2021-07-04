@@ -2,7 +2,7 @@
 <mat-dialog-content class="mat-typography">
   <form name="editForm" role="form" novalidate [formGroup]="editForm">
     <div>
-      <mat-form-field color="accent">
+      <mat-form-field>
         <input matInput placeholder="sifraPostupka" formControlName="sifraPostupka" name="sifraPostupka" />
         <div
           *ngIf="editForm.get('sifraPostupka')!.invalid && (editForm.get('sifraPostupka')!.dirty || editForm.get('sifraPostupka')!.touched)"
@@ -24,7 +24,7 @@
         </div>
       </mat-form-field>
 
-      <mat-form-field color="accent">
+      <mat-form-field>
         <input matInput class="form-control" placeholder="broj tendera" formControlName="brojTendera" name="brojTendera" />
         <div *ngIf="editForm.get('brojTendera')!.invalid && (editForm.get('brojTendera')!.dirty || editForm.get('brojTendera')!.touched)">
           <small
@@ -37,7 +37,7 @@
         </div>
       </mat-form-field>
 
-      <mat-form-field color="accent">
+      <mat-form-field>
         <input matInput class="form-control" placeholder="opis postupka" formControlName="opisPostupka" name="opisPostupka" />
         <div
           *ngIf="editForm.get('opisPostupka')!.invalid && (editForm.get('opisPostupka')!.dirty || editForm.get('opisPostupka')!.touched)"
