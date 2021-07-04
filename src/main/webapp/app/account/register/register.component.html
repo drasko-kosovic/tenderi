@@ -1,307 +1,200 @@
-<!--  <mat-dialog-content class="mat-typography">-->
-
-<!--    <div>-->
-<!--      <div class="row justify-content-center">-->
-<!--        <div class="col-md-8">-->
-<!--          <h1 jhiTranslate="register.title" data-cy="registerTitle">Registration</h1>-->
-
-<!--          <div class="alert alert-success" *ngIf="success" jhiTranslate="register.messages.success">-->
-<!--            <strong>Registration saved!</strong> Please check your email for confirmation.-->
-<!--          </div>-->
-
-<!--          <div class="alert alert-danger" *ngIf="error" jhiTranslate="register.messages.error.fail">-->
-<!--            <strong>Registration failed!</strong> Please try again later.-->
-<!--          </div>-->
-
-<!--          <div class="alert alert-danger" *ngIf="errorUserExists" jhiTranslate="register.messages.error.userexists">-->
-<!--            <strong>Login name already registered!</strong> Please choose another one.-->
-<!--          </div>-->
-
-<!--          <div class="alert alert-danger" *ngIf="errorEmailExists" jhiTranslate="register.messages.error.emailexists">-->
-<!--            <strong>Email is already in use!</strong> Please choose another one.-->
-<!--          </div>-->
-
-<!--          <div class="alert alert-danger" *ngIf="doNotMatch" jhiTranslate="global.messages.error.dontmatch">-->
-<!--            The password and its confirmation do not match!-->
-<!--          </div>-->
-<!--        </div>-->
-<!--      </div>-->
-
-<!--      <div class="row justify-content-center">-->
-<!--        <div class="col-md-8">-->
-<!--          <form name="form" role="form" (ngSubmit)="register()" [formGroup]="registerForm" *ngIf="!success">-->
-<!--            <div class="form-group">-->
-<!--              <mat-form-field>-->
-<!--                <mat-label>Login</mat-label>-->
-<!--                <input matInput name="login" id="login" placeholder="" formControlName="login" #login />-->
-<!--              </mat-form-field>-->
-
-<!--              <div *ngIf="registerForm.get('login')!.invalid && (registerForm.get('login')!.dirty || registerForm.get('login')!.touched)">-->
-<!--                <small-->
-<!--                  class="form-text text-danger"-->
-<!--                  *ngIf="registerForm.get('login')?.errors?.required"-->
-<!--                  jhiTranslate="register.messages.validate.login.required"-->
-<!--                >-->
-<!--                  Your username is required.-->
-<!--                </small>-->
-
-<!--                <small-->
-<!--                  class="form-text text-danger"-->
-<!--                  *ngIf="registerForm.get('login')?.errors?.minlength"-->
-<!--                  jhiTranslate="register.messages.validate.login.minlength"-->
-<!--                >-->
-<!--                  Your username is required to be at least 1 character.-->
-<!--                </small>-->
-
-<!--                <small-->
-<!--                  class="form-text text-danger"-->
-<!--                  *ngIf="registerForm.get('login')?.errors?.maxlength"-->
-<!--                  jhiTranslate="register.messages.validate.login.maxlength"-->
-<!--                >-->
-<!--                  Your username cannot be longer than 50 characters.-->
-<!--                </small>-->
-
-<!--                <small-->
-<!--                  class="form-text text-danger"-->
-<!--                  *ngIf="registerForm.get('login')?.errors?.pattern"-->
-<!--                  jhiTranslate="register.messages.validate.login.pattern"-->
-<!--                >-->
-<!--                  Your username can only contain letters and digits.-->
-<!--                </small>-->
-<!--              </div>-->
-<!--            </div>-->
-
-<!--            <div class="form-group">-->
-<!--              <mat-form-field>-->
-<!--                <mat-label>E Mail</mat-label>-->
-<!--                <input matInput name="email" id="email" placeholder="" formControlName="email" #email />-->
-<!--              </mat-form-field>-->
-
-<!--              <div *ngIf="registerForm.get('email')!.invalid && (registerForm.get('email')!.dirty || registerForm.get('email')!.touched)">-->
-<!--                <small-->
-<!--                  class="form-text text-danger"-->
-<!--                  *ngIf="registerForm.get('email')?.errors?.required"-->
-<!--                  jhiTranslate="global.messages.validate.email.required"-->
-<!--                >-->
-<!--                  Your email is required.-->
-<!--                </small>-->
-
-<!--                <small-->
-<!--                  class="form-text text-danger"-->
-<!--                  *ngIf="registerForm.get('email')?.errors?.invalid"-->
-<!--                  jhiTranslate="global.messages.validate.email.invalid"-->
-<!--                >-->
-<!--                  Your email is invalid.-->
-<!--                </small>-->
-
-<!--                <small-->
-<!--                  class="form-text text-danger"-->
-<!--                  *ngIf="registerForm.get('email')?.errors?.minlength"-->
-<!--                  jhiTranslate="global.messages.validate.email.minlength"-->
-<!--                >-->
-<!--                  Your email is required to be at least 5 characters.-->
-<!--                </small>-->
-
-<!--                <small-->
-<!--                  class="form-text text-danger"-->
-<!--                  *ngIf="registerForm.get('email')?.errors?.maxlength"-->
-<!--                  jhiTranslate="global.messages.validate.email.maxlength"-->
-<!--                >-->
-<!--                  Your email cannot be longer than 100 characters.-->
-<!--                </small>-->
-<!--              </div>-->
-<!--            </div>-->
-
-<!--            <div class="form-group">-->
-<!--              <mat-form-field>-->
-<!--                <mat-label>Sifra</mat-label>-->
-<!--                <input matInput name="password" id="password" placeholder="" formControlName="password" #lpassword />-->
-<!--              </mat-form-field>-->
-
-<!--              &lt;!&ndash;            <input&ndash;&gt;-->
-<!--              &lt;!&ndash;              type="password"&ndash;&gt;-->
-<!--              &lt;!&ndash;              class="form-control"&ndash;&gt;-->
-<!--              &lt;!&ndash;              id="password"&ndash;&gt;-->
-<!--              &lt;!&ndash;              name="password"&ndash;&gt;-->
-<!--              &lt;!&ndash;              placeholder="{{ 'global.form.newpassword.placeholder' | translate }}"&ndash;&gt;-->
-<!--              &lt;!&ndash;              formControlName="password"&ndash;&gt;-->
-<!--              &lt;!&ndash;              data-cy="firstPassword"&ndash;&gt;-->
-<!--              &lt;!&ndash;            />&ndash;&gt;-->
-
-<!--              <div-->
-<!--                *ngIf="-->
-<!--                registerForm.get('password')!.invalid && (registerForm.get('password')!.dirty || registerForm.get('password')!.touched)-->
-<!--              "-->
-<!--              >-->
-<!--                <small-->
-<!--                  class="form-text text-danger"-->
-<!--                  *ngIf="registerForm.get('password')?.errors?.required"-->
-<!--                  jhiTranslate="global.messages.validate.newpassword.required"-->
-<!--                >-->
-<!--                  Your password is required.-->
-<!--                </small>-->
-
-<!--                <small-->
-<!--                  class="form-text text-danger"-->
-<!--                  *ngIf="registerForm.get('password')?.errors?.minlength"-->
-<!--                  jhiTranslate="global.messages.validate.newpassword.minlength"-->
-<!--                >-->
-<!--                  Your password is required to be at least 4 characters.-->
-<!--                </small>-->
-
-<!--                <small-->
-<!--                  class="form-text text-danger"-->
-<!--                  *ngIf="registerForm.get('password')?.errors?.maxlength"-->
-<!--                  jhiTranslate="global.messages.validate.newpassword.maxlength"-->
-<!--                >-->
-<!--                  Your password cannot be longer than 50 characters.-->
-<!--                </small>-->
-<!--              </div>-->
-
-<!--              <jhi-password-strength-bar [passwordToCheck]="registerForm.get('password')!.value"></jhi-password-strength-bar>-->
-<!--            </div>-->
-
-<!--            <div class="form-group">-->
-<!--              <mat-form-field>-->
-<!--                <mat-label>Potvrdi sifru</mat-label>-->
-<!--                <input-->
-<!--                  matInput-->
-<!--                  name="confirmPassword"-->
-<!--                  id="confirmPassword"-->
-<!--                  placeholder=""-->
-<!--                  formControlName="confirmPassword"-->
-<!--                  #confirmPassword-->
-<!--                />-->
-<!--              </mat-form-field>-->
-<!--              <div-->
-<!--                *ngIf="-->
-<!--                registerForm.get('confirmPassword')!.invalid &&-->
-<!--                (registerForm.get('confirmPassword')!.dirty || registerForm.get('confirmPassword')!.touched)-->
-<!--              "-->
-<!--              >-->
-<!--                <small-->
-<!--                  class="form-text text-danger"-->
-<!--                  *ngIf="registerForm.get('confirmPassword')?.errors?.required"-->
-<!--                  jhiTranslate="global.messages.validate.confirmpassword.required"-->
-<!--                >-->
-<!--                  Your confirmation password is required.-->
-<!--                </small>-->
-
-<!--                <small-->
-<!--                  class="form-text text-danger"-->
-<!--                  *ngIf="registerForm.get('confirmPassword')?.errors?.minlength"-->
-<!--                  jhiTranslate="global.messages.validate.confirmpassword.minlength"-->
-<!--                >-->
-<!--                  Your confirmation password is required to be at least 4 characters.-->
-<!--                </small>-->
-
-<!--                <small-->
-<!--                  class="form-text text-danger"-->
-<!--                  *ngIf="registerForm.get('confirmPassword')?.errors?.maxlength"-->
-<!--                  jhiTranslate="global.messages.validate.confirmpassword.maxlength"-->
-<!--                >-->
-<!--                  Your confirmation password cannot be longer than 50 characters.-->
-<!--                </small>-->
-<!--              </div>-->
-<!--            </div>-->
-<!--            <button type="button" id="cancel-save" mat-raised-button color="warn" (click)="previousState()">-->
-<!--              <fa-icon icon="ban"></fa-icon>&nbsp;<span jhiTranslate="entity.action.cancel">Cancel</span>-->
-<!--            </button>-->
-<!--            <button-->
-<!--              type="submit"-->
-<!--              mat-raised-button-->
-<!--              color="primary"-->
-<!--              [disabled]="registerForm.invalid"-->
-<!--              jhiTranslate="register.form.button"-->
-<!--              data-cy="submit"-->
-<!--            >-->
-<!--              Register-->
-<!--            </button>-->
-<!--          </form>-->
-<!--        </div>-->
-<!--      </div>-->
-<!--    </div>-->
-
-<!--  </mat-dialog-content>-->
-<h2 mat-dialog-title>Install Angular</h2>
+<h2 mat-dialog-title>Registration</h2>
 <mat-dialog-content class="mat-typography">
-  <h3>Develop across all platforms</h3>
-  <p>
-    Learn one way to build applications with Angular and reuse your code and abilities to build apps for any deployment target. For web,
-    mobile web, native mobile and native desktop.
-  </p>
+  <div>
+    <div class="row justify-content-center">
+      <div class="col-md-8">
+        <div class="alert alert-success" *ngIf="success" jhiTranslate="register.messages.success">
+          <strong>Registration saved!</strong> Please check your email for confirmation.
+        </div>
 
-  <h3>Speed &amp; Performance</h3>
-  <p>
-    Achieve the maximum speed possible on the Web Platform today, and take it further, via Web Workers and server-side rendering. Angular
-    puts you in control over scalability. Meet huge data requirements by building data models on RxJS, Immutable.js or another push-model.
-  </p>
+        <div class="alert alert-danger" *ngIf="error" jhiTranslate="register.messages.error.fail">
+          <strong>Registration failed!</strong> Please try again later.
+        </div>
 
-  <h3>Incredible tooling</h3>
-  <p>
-    Build features quickly with simple, declarative templates. Extend the template language with your own components and use a wide array of
-    existing components. Get immediate Angular-specific help and feedback with nearly every IDE and editor. All this comes together so you
-    can focus on building amazing apps rather than trying to make the code work.
-  </p>
+        <div class="alert alert-danger" *ngIf="errorUserExists" jhiTranslate="register.messages.error.userexists">
+          <strong>Login name already registered!</strong> Please choose another one.
+        </div>
 
-  <h3>Loved by millions</h3>
-  <p>
-    From prototype through global deployment, Angular delivers the productivity and scalable infrastructure that supports Google's largest
-    applications.
-  </p>
+        <div class="alert alert-danger" *ngIf="errorEmailExists" jhiTranslate="register.messages.error.emailexists">
+          <strong>Email is already in use!</strong> Please choose another one.
+        </div>
 
-  <h3>What is Angular?</h3>
+        <div class="alert alert-danger" *ngIf="doNotMatch" jhiTranslate="global.messages.error.dontmatch">
+          The password and its confirmation do not match!
+        </div>
+      </div>
+    </div>
+    <form name="form" role="form" [formGroup]="registerForm" *ngIf="!success">
+      <div class="form-group">
+        <mat-form-field>
+          <mat-label>Login</mat-label>
+          <input matInput name="login" id="login" placeholder="" formControlName="login" #login />
+        </mat-form-field>
 
-  <p>
-    Angular is a platform that makes it easy to build applications with the web. Angular combines declarative templates, dependency
-    injection, end to end tooling, and integrated best practices to solve development challenges. Angular empowers developers to build
-    applications that live on the web, mobile, or the desktop
-  </p>
+        <div *ngIf="registerForm.get('login')!.invalid && (registerForm.get('login')!.dirty || registerForm.get('login')!.touched)">
+          <small
+            class="form-text text-danger"
+            *ngIf="registerForm.get('login')?.errors?.required"
+            jhiTranslate="register.messages.validate.login.required"
+          >
+            Your username is required.
+          </small>
 
-  <h3>Architecture overview</h3>
+          <small
+            class="form-text text-danger"
+            *ngIf="registerForm.get('login')?.errors?.minlength"
+            jhiTranslate="register.messages.validate.login.minlength"
+          >
+            Your username is required to be at least 1 character.
+          </small>
 
-  <p>
-    Angular is a platform and framework for building client applications in HTML and TypeScript. Angular is itself written in TypeScript. It
-    implements core and optional functionality as a set of TypeScript libraries that you import into your apps.
-  </p>
+          <small
+            class="form-text text-danger"
+            *ngIf="registerForm.get('login')?.errors?.maxlength"
+            jhiTranslate="register.messages.validate.login.maxlength"
+          >
+            Your username cannot be longer than 50 characters.
+          </small>
 
-  <p>
-    The basic building blocks of an Angular application are NgModules, which provide a compilation context for components. NgModules collect
-    related code into functional sets; an Angular app is defined by a set of NgModules. An app always has at least a root module that
-    enables bootstrapping, and typically has many more feature modules.
-  </p>
+          <small
+            class="form-text text-danger"
+            *ngIf="registerForm.get('login')?.errors?.pattern"
+            jhiTranslate="register.messages.validate.login.pattern"
+          >
+            Your username can only contain letters and digits.
+          </small>
+        </div>
+      </div>
 
-  <p>
-    Components define views, which are sets of screen elements that Angular can choose among and modify according to your program logic and
-    data. Every app has at least a root component.
-  </p>
+      <div class="form-group">
+        <mat-form-field>
+          <mat-label>E Mail</mat-label>
+          <input matInput name="email" id="email" placeholder="" formControlName="email" #email />
+        </mat-form-field>
 
-  <p>
-    Components use services, which provide specific functionality not directly related to views. Service providers can be injected into
-    components as dependencies, making your code modular, reusable, and efficient.
-  </p>
+        <div *ngIf="registerForm.get('email')!.invalid && (registerForm.get('email')!.dirty || registerForm.get('email')!.touched)">
+          <small
+            class="form-text text-danger"
+            *ngIf="registerForm.get('email')?.errors?.required"
+            jhiTranslate="global.messages.validate.email.required"
+          >
+            Your email is required.
+          </small>
 
-  <p>
-    Both components and services are simply classes, with decorators that mark their type and provide metadata that tells Angular how to use
-    them.
-  </p>
+          <small
+            class="form-text text-danger"
+            *ngIf="registerForm.get('email')?.errors?.invalid"
+            jhiTranslate="global.messages.validate.email.invalid"
+          >
+            Your email is invalid.
+          </small>
 
-  <p>
-    The metadata for a component class associates it with a template that defines a view. A template combines ordinary HTML with Angular
-    directives and binding markup that allow Angular to modify the HTML before rendering it for display.
-  </p>
+          <small
+            class="form-text text-danger"
+            *ngIf="registerForm.get('email')?.errors?.minlength"
+            jhiTranslate="global.messages.validate.email.minlength"
+          >
+            Your email is required to be at least 5 characters.
+          </small>
 
-  <p>
-    The metadata for a service class provides the information Angular needs to make it available to components through Dependency Injection
-    (DI).
-  </p>
+          <small
+            class="form-text text-danger"
+            *ngIf="registerForm.get('email')?.errors?.maxlength"
+            jhiTranslate="global.messages.validate.email.maxlength"
+          >
+            Your email cannot be longer than 100 characters.
+          </small>
+        </div>
+      </div>
 
-  <p>
-    An app's components typically define many views, arranged hierarchically. Angular provides the Router service to help you define
-    navigation paths among views. The router provides sophisticated in-browser navigational capabilities.
-  </p>
+      <div class="form-group">
+        <mat-form-field>
+          <mat-label>Sifra</mat-label>
+          <input matInput name="password" id="password" placeholder="" formControlName="password" #lpassword />
+        </mat-form-field>
+        <div
+          *ngIf="registerForm.get('password')!.invalid && (registerForm.get('password')!.dirty || registerForm.get('password')!.touched)"
+        >
+          <small
+            class="form-text text-danger"
+            *ngIf="registerForm.get('password')?.errors?.required"
+            jhiTranslate="global.messages.validate.newpassword.required"
+          >
+            Your password is required.
+          </small>
+
+          <small
+            class="form-text text-danger"
+            *ngIf="registerForm.get('password')?.errors?.minlength"
+            jhiTranslate="global.messages.validate.newpassword.minlength"
+          >
+            Your password is required to be at least 4 characters.
+          </small>
+
+          <small
+            class="form-text text-danger"
+            *ngIf="registerForm.get('password')?.errors?.maxlength"
+            jhiTranslate="global.messages.validate.newpassword.maxlength"
+          >
+            Your password cannot be longer than 50 characters.
+          </small>
+        </div>
+
+        <jhi-password-strength-bar [passwordToCheck]="registerForm.get('password')!.value"></jhi-password-strength-bar>
+      </div>
+
+      <div class="form-group">
+        <mat-form-field>
+          <mat-label>Potvrdi sifru</mat-label>
+          <input matInput name="confirmPassword" id="confirmPassword" placeholder="" formControlName="confirmPassword" #confirmPassword />
+        </mat-form-field>
+        <div
+          *ngIf="
+            registerForm.get('confirmPassword')!.invalid &&
+            (registerForm.get('confirmPassword')!.dirty || registerForm.get('confirmPassword')!.touched)
+          "
+        >
+          <small
+            class="form-text text-danger"
+            *ngIf="registerForm.get('confirmPassword')?.errors?.required"
+            jhiTranslate="global.messages.validate.confirmpassword.required"
+          >
+            Your confirmation password is required.
+          </small>
+
+          <small
+            class="form-text text-danger"
+            *ngIf="registerForm.get('confirmPassword')?.errors?.minlength"
+            jhiTranslate="global.messages.validate.confirmpassword.minlength"
+          >
+            Your confirmation password is required to be at least 4 characters.
+          </small>
+
+          <small
+            class="form-text text-danger"
+            *ngIf="registerForm.get('confirmPassword')?.errors?.maxlength"
+            jhiTranslate="global.messages.validate.confirmpassword.maxlength"
+          >
+            Your confirmation password cannot be longer than 50 characters.
+          </small>
+        </div>
+      </div>
+    </form>
+  </div>
 </mat-dialog-content>
 <mat-dialog-actions align="end">
-  <button mat-button mat-dialog-close>Cancel</button>
-  <button mat-button [mat-dialog-close]="true" cdkFocusInitial>Install</button>
+  <button type="button" id="cancel-save" mat-raised-button color="warn" (click)="previousState()">
+    <fa-icon icon="ban"></fa-icon>&nbsp;<span jhiTranslate="entity.action.cancel">Cancel</span>
+  </button>
+  <button
+    type="button"
+    (click)="register()"
+    mat-raised-button
+    color="primary"
+    [disabled]="registerForm.invalid"
+    jhiTranslate="register.form.button"
+    data-cy="submit"
+  >
+    Register
+  </button>
 </mat-dialog-actions>
