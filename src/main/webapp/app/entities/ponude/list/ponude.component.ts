@@ -1,5 +1,4 @@
 import { AfterViewInit, Component, Input, OnChanges, OnInit, ViewChild } from '@angular/core';
-
 import { IPonude } from '../ponude.model';
 import { PonudeService } from '../service/ponude.service';
 import { MatTableDataSource } from '@angular/material/table';
@@ -23,7 +22,7 @@ import { HttpResponse } from '@angular/common/http';
   templateUrl: './ponude.component.html',
   styleUrls: ['./ponude.component.scss'],
 })
-export class PonudeComponent implements AfterViewInit, OnChanges, OnInit {
+export class PonudeComponent implements AfterViewInit, OnChanges {
   ponude_ponudjaci?: IPonudePonudjaci[];
   ponude?: IPonude[];
   account: Account | null = null;
@@ -54,7 +53,6 @@ export class PonudeComponent implements AfterViewInit, OnChanges, OnInit {
   @Input() postupak?: any;
   @ViewChild('fileInput') fileInput: any;
   message: string | undefined;
-
   constructor(
     protected ponudeService: PonudeService,
     protected activatedRoute: ActivatedRoute,
@@ -69,10 +67,9 @@ export class PonudeComponent implements AfterViewInit, OnChanges, OnInit {
   public getSifraPostupka(): void {
     this.ponudeService.findSiftraPostupak(this.postupak).subscribe((res: IPonude[]) => {
       this.dataSource.data = res;
-      this.ponude = res;
+
     });
   }
-
   startEdit(
     id?: number,
     sifraPostupka?: number,
@@ -119,7 +116,6 @@ export class PonudeComponent implements AfterViewInit, OnChanges, OnInit {
   public getSifraPonude(): void {
     this.ponudeService.findSiftraPonude(this.nadjiPonudjaca).subscribe((res: IPonude[]) => {
       this.dataSource.data = res;
-      this.ponude = res;
       this.getTotalCost();
     });
   }
@@ -157,11 +153,7 @@ export class PonudeComponent implements AfterViewInit, OnChanges, OnInit {
       this.ponude = res;
     });
   }
-  ngOnInit(): void {
-    this.authSubscription = this.accountService.getAuthenticationState().subscribe(account => (this.account = account));
-  }
-
-  uploadFile(): any {
+ uploadFile(): any {
     const formData = new FormData();
     formData.append('uploadfiles', this.fileInput.nativeElement.files[0]);
 

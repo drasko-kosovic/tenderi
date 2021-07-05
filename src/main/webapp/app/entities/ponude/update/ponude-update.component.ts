@@ -1,4 +1,4 @@
-import { Component, Inject, OnInit } from '@angular/core';
+import { Component, Inject } from '@angular/core';
 import { HttpResponse } from '@angular/common/http';
 import { FormBuilder, FormGroup, Validators } from '@angular/forms';
 import { ActivatedRoute } from '@angular/router';
@@ -16,7 +16,7 @@ import { MAT_DIALOG_DATA, MatDialogRef } from '@angular/material/dialog';
   templateUrl: './ponude-update.component.html',
   styleUrls: ['./ponude.update.scss'],
 })
-export class PonudeUpdateComponent implements OnInit {
+export class PonudeUpdateComponent {
   isSaving = false;
   ponudjacis?: IPonudjaci[];
   editForm: FormGroup;
@@ -45,31 +45,30 @@ export class PonudeUpdateComponent implements OnInit {
       sifraPostupka: [sifraPostupka, [Validators.required]],
       sifraPonude: [sifraPonude, [Validators.required]],
       brojPartije: [brojPartije, [Validators.required]],
-      // nazivPonudjaca: [null, [Validators.required]],
       nazivProizvodjaca: [nazivProizvodjaca],
       zastceniNaziv: [zastceniNaziv],
       ponudjenaVrijednost: [ponudjenaVrijednost, [Validators.required]],
       rokIsporuke: [rokIsporuke, [Validators.required]],
       datumPonude: [datumPonude],
-      ponudjaci: [ponudjaci_id, [Validators.required]],
+      ponudjaci_id: [ponudjaci_id, [Validators.required]],
     });
   }
-
-  ngOnInit(): void {
-    this.activatedRoute.data.subscribe(({ ponude }) => {
-      this.getAllPonudjaci();
-    });
-  }
-  public getAllPonudjaci(): void {
-    this.ponudjaciService.ponudjaciAll().subscribe((res: IPonudjaci[]) => {
-      this.ponudjacis = res;
-      // eslint-disable-next-line no-console
-      console.log(res);
-    });
-  }
-  previousState(): void {
-    window.history.back();
-  }
+  //
+  // ngOnInit(): void {
+  //   this.activatedRoute.data.subscribe(({ ponude }) => {
+  //     this.getAllPonudjaci();
+  //   });
+  // }
+  // public getAllPonudjaci(): void {
+  //   this.ponudjaciService.ponudjaciAll().subscribe((res: IPonudjaci[]) => {
+  //     this.ponudjacis = res;
+  //     // eslint-disable-next-line no-console
+  //     console.log(res);
+  //   });
+  // }
+  // previousState(): void {
+  //   window.history.back();
+  // }
   public confirmAdd(): void {
     const ponude = this.createFromForm();
     this.subscribeToSaveResponse(this.ponudeService.create(ponude));
@@ -79,26 +78,22 @@ export class PonudeUpdateComponent implements OnInit {
   save(): void {
     this.isSaving = true;
     const ponude = this.createFromForm();
-    if (ponude.id !== undefined) {
-      this.subscribeToSaveResponse(this.ponudeService.update(ponude));
-    } else {
-      this.subscribeToSaveResponse(this.ponudeService.create(ponude));
-    }
-  }
+    this.subscribeToSaveResponse(this.ponudeService.update(ponude));
+     }
   close(): any {
     this.dialogRef.close();
   }
 
   protected subscribeToSaveResponse(result: Observable<HttpResponse<IPonude>>): void {
     result.pipe(finalize(() => this.onSaveFinalize())).subscribe(
-      () => this.onSaveSuccess(),
+      // () => this.onSaveSuccess(),
       () => this.onSaveError()
     );
   }
 
-  protected onSaveSuccess(): void {
-    this.previousState();
-  }
+  // protected onSaveSuccess(): void {
+  //   this.previousState();
+  // }
 
   protected onSaveError(): void {
     // Api for inheritance.
@@ -114,7 +109,7 @@ export class PonudeUpdateComponent implements OnInit {
       sifraPostupka: this.editForm.get(['sifraPostupka'])!.value,
       sifraPonude: this.editForm.get(['sifraPonude'])!.value,
       brojPartije: this.editForm.get(['brojPartije'])!.value,
-      nazivPonudjaca: this.editForm.get(['nazivPonudjaca'])!.value,
+      ponudjaci_id: this.editForm.get(['ponudjaci_id'])!.value,
       nazivProizvodjaca: this.editForm.get(['nazivProizvodjaca'])!.value,
       zastceniNaziv: this.editForm.get(['zastceniNaziv'])!.value,
       ponudjenaVrijednost: this.editForm.get(['ponudjenaVrijednost'])!.value,
