@@ -4,18 +4,16 @@ import { FormBuilder, FormGroup, Validators } from '@angular/forms';
 import { ActivatedRoute, Router } from '@angular/router';
 import { Observable } from 'rxjs';
 import { finalize } from 'rxjs/operators';
-
 import { ISpecifikacije, Specifikacije } from '../specifikacije.model';
 import { SpecifikacijeService } from '../service/specifikacije.service';
 import { MAT_DIALOG_DATA, MatDialogRef } from '@angular/material/dialog';
-import { Postupci } from 'app/entities/postupci/postupci.model';
 
 @Component({
   selector: 'jhi-specifikacije-update',
   templateUrl: './specifikacije-update.component.html',
   styleUrls: ['./specifikacije-update.scss'],
 })
-export class SpecifikacijeUpdateComponent implements OnInit {
+export class SpecifikacijeUpdateComponent {
   isSaving = false;
   editForm: FormGroup;
 
@@ -55,16 +53,7 @@ export class SpecifikacijeUpdateComponent implements OnInit {
     });
   }
 
-  ngOnInit(): void {
-    this.activatedRoute.data.subscribe(({ specifikacije }) => {
-      this.updateForm(specifikacije);
-    });
-  }
 
-  previousState(): void {
-    // window.history.back();
-    this.router.navigate(['/specifikacije']);
-  }
   public confirmAdd(): void {
     const specifikacije = this.createFromForm();
     this.subscribeToSaveResponse(this.specifikacijeService.create(specifikacije));
@@ -74,23 +63,21 @@ export class SpecifikacijeUpdateComponent implements OnInit {
   save(): void {
     this.isSaving = true;
     const specifikacije = this.createFromForm();
-    if (specifikacije.id !== undefined) {
+
       this.subscribeToSaveResponse(this.specifikacijeService.update(specifikacije));
-    } else {
-      this.subscribeToSaveResponse(this.specifikacijeService.create(specifikacije));
-    }
+
   }
 
   protected subscribeToSaveResponse(result: Observable<HttpResponse<ISpecifikacije>>): void {
     result.pipe(finalize(() => this.onSaveFinalize())).subscribe(
-      () => this.onSaveSuccess(),
+      // () => this.onSaveSuccess(),
       () => this.onSaveError()
     );
   }
 
-  protected onSaveSuccess(): void {
-    this.previousState();
-  }
+  // protected onSaveSuccess(): void {
+  //   this.previousState();
+  // }
 
   protected onSaveError(): void {
     // Api for inheritance.
@@ -100,20 +87,21 @@ export class SpecifikacijeUpdateComponent implements OnInit {
     this.isSaving = false;
   }
 
-  protected updateForm(specifikacije: ISpecifikacije): void {
-    this.editForm.patchValue({
-      id: specifikacije.id,
-      sifraPostupka: specifikacije.sifraPostupka,
-      brojPartije: specifikacije.brojPartije,
-      atc: specifikacije.atc,
-      inn: specifikacije.inn,
-      farmaceutskiOblikLijeka: specifikacije.farmaceutskiOblikLijeka,
-      jacinaLijeka: specifikacije.jacinaLijeka,
-      trazenaKolicina: specifikacije.trazenaKolicina,
-      pakovanje: specifikacije.pakovanje,
-      procijenjenaVrijednost: specifikacije.procijenjenaVrijednost,
-    });
-  }
+  // protected updateForm(specifikacije: ISpecifikacije): void {
+  //   this.editForm.patchValue({
+  //     id: specifikacije.id,
+  //     sifraPostupka: specifikacije.sifraPostupka,
+  //     brojPartije: specifikacije.brojPartije,
+  //     atc: specifikacije.atc,
+  //     inn: specifikacije.inn,
+  //     farmaceutskiOblikLijeka: specifikacije.farmaceutskiOblikLijeka,
+  //     jacinaLijeka: specifikacije.jacinaLijeka,
+  //     trazenaKolicina: specifikacije.trazenaKolicina,
+  //     pakovanje: specifikacije.pakovanje,
+  //     jedinicaMjere: specifikacije.jedinicaMjere,
+  //     procijenjenaVrijednost: specifikacije.procijenjenaVrijednost,
+  //   });
+  // }
 
   protected createFromForm(): ISpecifikacije {
     return {
@@ -127,6 +115,7 @@ export class SpecifikacijeUpdateComponent implements OnInit {
       jacinaLijeka: this.editForm.get(['jacinaLijeka'])!.value,
       trazenaKolicina: this.editForm.get(['trazenaKolicina'])!.value,
       pakovanje: this.editForm.get(['pakovanje'])!.value,
+      jedinicaMjere: this.editForm.get(['jedinicaMjere'])!.value,
       procijenjenaVrijednost: this.editForm.get(['procijenjenaVrijednost'])!.value,
     };
   }

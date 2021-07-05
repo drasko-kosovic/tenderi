@@ -51,7 +51,7 @@
         <mat-icon
           *jhiHasAnyAuthority="'ROLE_ADMIN'"
           id="edit"
-          (click)="startEdit(element.nazivPonudjaca, element.id, element.odgovornoLice, element.bankaRacun, element.adresaPonudjaca)"
+          (click)="startEdit(element.id, element.nazivPonudjaca, element.odgovornoLice,   element.bankaRacun, element.adresaPonudjaca)"
           >edit</mat-icon
         >
       </td>
@@ -63,7 +63,5 @@
     <tr mat-footer-row *matFooterRowDef="displayedColumns"></tr>
   </table>
   <mat-paginator [pageSizeOptions]="[10, 20]" showFirstLastButtons></mat-paginator>
-  <button type="button" id="cancel-save" mat-raised-button color="warn" (click)="previousState()">
-    <fa-icon icon="ban"></fa-icon>&nbsp;<span jhiTranslate="entity.action.cancel">Cancel</span>
-  </button>
+
 </mat-card>

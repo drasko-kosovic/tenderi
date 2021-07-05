@@ -16,7 +16,6 @@ import { SERVER_API_URL } from 'app/app.constants';
 import { MatDialog } from '@angular/material/dialog';
 import * as dayjs from 'dayjs';
 import { PonudeUpdateComponent } from 'app/entities/ponude/update/ponude-update.component';
-import { PonudjaciUpdateComponent } from 'app/entities/ponudjaci/update/ponudjaci-update.component';
 import { HttpResponse } from '@angular/common/http';
 
 @Component({
@@ -43,8 +42,6 @@ export class PonudeComponent implements AfterViewInit, OnChanges, OnInit {
     'zasticeni naziv',
     'ponudjena vrijednost',
     'rok isporuke',
-
-    // 'delete',
     'edit',
     'delete selected',
     'select',

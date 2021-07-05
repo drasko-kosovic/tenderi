@@ -19,7 +19,7 @@ import * as dayjs from 'dayjs';
 })
 export class PostupciComponent implements OnInit, AfterViewInit {
   postupaks?: HttpResponse<IPostupci[]>;
-  id?: number;
+
   public displayedColumns = ['sifra postupka', 'opis postupka', 'vrsta postupka', 'datum objave', 'broj tendera', 'delete', 'edit'];
   public dataSource = new MatTableDataSource<IPostupci>();
 
@@ -51,7 +51,6 @@ export class PostupciComponent implements OnInit, AfterViewInit {
     vrstaPostupka?: string,
     datumObjave?: dayjs.Dayjs | null
   ): any {
-    this.id = id;
     const dialogRef = this.dialog.open(PostupciUpdateComponent, {
       data: {
         id,

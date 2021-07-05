@@ -25,7 +25,7 @@ export class SpecifikacijeComponent implements AfterViewInit, OnChanges, OnInit 
   specifikacijes?: HttpResponse<ISpecifikacije[]>;
   account: Account | null = null;
   authSubscription?: Subscription;
-  id?: number;
+
   public resourceUrlExcelDownload = SERVER_API_URL + 'api/specifikacije/file';
   public displayedColumns = [
     'sifra postupka',
@@ -77,7 +77,7 @@ export class SpecifikacijeComponent implements AfterViewInit, OnChanges, OnInit 
     jedinicaMjere?: string | null,
     procijenjenaVrijednost?: number
   ): any {
-    this.id = id;
+
     const dialogRef = this.dialog.open(SpecifikacijeUpdateComponent, {
       data: {
         id,
@@ -93,6 +93,14 @@ export class SpecifikacijeComponent implements AfterViewInit, OnChanges, OnInit 
         procijenjenaVrijednost,
       },
     });
+    dialogRef.afterClosed().subscribe(
+      // eslint-disable-next-line no-console
+      val =>
+        this.specifikacijaService.query().subscribe((res: HttpResponse<ISpecifikacije[]>) => {
+          this.dataSource.data = res.body ?? [];
+          this.specifikacijes = res;
+        })
+    );
   }
   addNew(): any {
     const dialogRef = this.dialog.open(SpecifikacijeUpdateComponent, {

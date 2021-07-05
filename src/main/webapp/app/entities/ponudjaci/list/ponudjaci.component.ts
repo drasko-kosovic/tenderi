@@ -12,10 +12,7 @@ import { MatPaginator } from '@angular/material/paginator';
 import { ActivatedRoute, Router } from '@angular/router';
 import { AccountService } from 'app/core/auth/account.service';
 import { MatDialog, MatDialogConfig } from '@angular/material/dialog';
-import { AddDialogPonudjaciComponent } from 'app/entities/ponudjaci/add/add.dialog.ponudjaci.component';
 import { PonudjaciUpdateComponent } from 'app/entities/ponudjaci/update/ponudjaci-update.component';
-import * as dayjs from 'dayjs';
-import { PostupciUpdateComponent } from 'app/entities/postupci/update/postupci-update.component';
 import { HttpResponse } from '@angular/common/http';
 import { IPostupci } from 'app/entities/postupci/postupci.model';
 
@@ -28,7 +25,6 @@ export class PonudjaciComponent implements AfterViewInit, OnInit {
   ponudjacis?: HttpResponse<IPostupci[]>;
   account: Account | null = null;
   authSubscription?: Subscription;
-  id?: number;
   public displayedColumns = ['id', 'naziv ponudjaca', 'odgovorno lice', 'adresa ponudjaca', 'banka racun', 'delete', 'edit'];
 
   public dataSource = new MatTableDataSource<IPonudjaci>();
@@ -45,15 +41,12 @@ export class PonudjaciComponent implements AfterViewInit, OnInit {
     public dialog: MatDialog
   ) {}
 
-  public getAllPonudjaci(): void {
-    this.ponudjaciService.ponudjaciAll().subscribe((res: IPonude[]) => {
-      this.dataSource.data = res;
-      // eslint-disable-next-line no-console
-      console.log(res);
-      // this.ponudjacis = res;
-    });
-  }
-
+   loadAll(): void {
+     this.ponudjaciService.query().subscribe((res: HttpResponse<IPonudjaci[]>) => {
+       this.dataSource.data = res.body ?? [];
+       this.ponudjacis = res;
+     });
+   }
   previousState(): void {
     window.history.back();
   }
@@ -61,10 +54,10 @@ export class PonudjaciComponent implements AfterViewInit, OnInit {
   delete(ponudjaci: IPonudjaci[]): void {
     const modalRef = this.modalService.open(PonudjaciDeleteDialogComponent, { backdrop: 'static' });
     modalRef.componentInstance.ponudjaci = ponudjaci;
-    // unsubscribe not needed because closed completes on modal close
+
     modalRef.closed.subscribe((reason: string) => {
       if (reason === 'deleted') {
-        this.getAllPonudjaci();
+        this.loadAll();
       }
     });
   }
@@ -79,11 +72,10 @@ export class PonudjaciComponent implements AfterViewInit, OnInit {
   }
 
   ngOnInit(): void {
-    this.getAllPonudjaci();
+    this.loadAll();
   }
 
   startEdit(id?: number, nazivPonudjaca?: number, odgovornoLice?: string | null, adresaPonudjaca?: string, bankaRacun?: string): any {
-    this.id = id;
     const dialogRef = this.dialog.open(PonudjaciUpdateComponent, {
       data: {
         id,
@@ -96,7 +88,7 @@ export class PonudjaciComponent implements AfterViewInit, OnInit {
     dialogRef.afterClosed().subscribe(
       // eslint-disable-next-line no-console
       val =>
-        this.ponudjaciService.query().subscribe((res: HttpResponse<IPostupci[]>) => {
+        this.ponudjaciService.query().subscribe((res: HttpResponse<IPonudjaci[]>) => {
           this.dataSource.data = res.body ?? [];
           this.ponudjacis = res;
         })
@@ -110,7 +102,7 @@ export class PonudjaciComponent implements AfterViewInit, OnInit {
     dialogRef.afterClosed().subscribe(
       // eslint-disable-next-line no-console
       val =>
-        this.ponudjaciService.query().subscribe((res: HttpResponse<IPostupci[]>) => {
+        this.ponudjaciService.query().subscribe((res: HttpResponse<IPonudjaci[]>) => {
           this.dataSource.data = res.body ?? [];
           this.ponudjacis = res;
         })
