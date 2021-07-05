@@ -87,16 +87,8 @@ export class PonudeUpdateComponent {
   protected subscribeToSaveResponse(result: Observable<HttpResponse<IPonude>>): void {
     result.pipe(finalize(() => this.onSaveFinalize())).subscribe(
       // () => this.onSaveSuccess(),
-      () => this.onSaveError()
+
     );
-  }
-
-  // protected onSaveSuccess(): void {
-  //   this.previousState();
-  // }
-
-  protected onSaveError(): void {
-    // Api for inheritance.
   }
 
   protected onSaveFinalize(): void {
@@ -109,11 +101,11 @@ export class PonudeUpdateComponent {
       sifraPostupka: this.editForm.get(['sifraPostupka'])!.value,
       sifraPonude: this.editForm.get(['sifraPonude'])!.value,
       brojPartije: this.editForm.get(['brojPartije'])!.value,
-      ponudjaci_id: this.editForm.get(['ponudjaci_id'])!.value,
       nazivProizvodjaca: this.editForm.get(['nazivProizvodjaca'])!.value,
       zastceniNaziv: this.editForm.get(['zastceniNaziv'])!.value,
       ponudjenaVrijednost: this.editForm.get(['ponudjenaVrijednost'])!.value,
       rokIsporuke: this.editForm.get(['rokIsporuke'])!.value,
+      ponudjaci_id: this.editForm.get(['ponudjaci_id'])!.value,
     };
   }
 }
