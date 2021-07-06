@@ -37,7 +37,7 @@ export class PonudeUpdateComponent {
       ponudjenaVrijednost,
       rokIsporuke,
       datumPonude,
-      ponudjaci_id,
+      ponudjaci,
     }: Ponude
   ) {
     this.editForm = this.fb.group({
@@ -50,7 +50,7 @@ export class PonudeUpdateComponent {
       ponudjenaVrijednost: [ponudjenaVrijednost, [Validators.required]],
       rokIsporuke: [rokIsporuke, [Validators.required]],
       datumPonude: [datumPonude],
-      ponudjaci_id: [ponudjaci_id, [Validators.required]],
+      ponudjaci: [ponudjaci, [Validators.required]],
     });
   }
   //
@@ -105,7 +105,7 @@ export class PonudeUpdateComponent {
       zastceniNaziv: this.editForm.get(['zastceniNaziv'])!.value,
       ponudjenaVrijednost: this.editForm.get(['ponudjenaVrijednost'])!.value,
       rokIsporuke: this.editForm.get(['rokIsporuke'])!.value,
-      ponudjaci_id: this.editForm.get(['ponudjaci_id'])!.value,
+      ponudjaci: this.editForm.get(['ponudjaci'])!.value,
     };
   }
 }

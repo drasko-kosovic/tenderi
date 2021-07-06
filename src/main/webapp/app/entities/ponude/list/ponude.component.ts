@@ -16,13 +16,14 @@ import { MatDialog } from '@angular/material/dialog';
 import * as dayjs from 'dayjs';
 import { PonudeUpdateComponent } from 'app/entities/ponude/update/ponude-update.component';
 import { HttpResponse } from '@angular/common/http';
+import {IPonudjaci} from "app/entities/ponudjaci/ponudjaci.model";
 
 @Component({
   selector: 'jhi-ponude',
   templateUrl: './ponude.component.html',
   styleUrls: ['./ponude.component.scss'],
 })
-export class PonudeComponent implements AfterViewInit, OnChanges {
+export class PonudeComponent implements AfterViewInit, OnChanges{
   ponude_ponudjaci?: IPonudePonudjaci[];
   ponude?: IPonude[];
   account: Account | null = null;
@@ -36,11 +37,12 @@ export class PonudeComponent implements AfterViewInit, OnChanges {
     'sifra postupka',
     'sifraPonude',
     'brojPartije',
-    'nazivPonudjaca',
     'naziv proizvodjaca',
     'zasticeni naziv',
     'ponudjena vrijednost',
     'rok isporuke',
+    'datum ponude',
+    'ponudjaci',
     'edit',
     'delete selected',
     'select',
@@ -80,7 +82,7 @@ export class PonudeComponent implements AfterViewInit, OnChanges {
     ponudjenaVrijednost?: number,
     rokIsporuke?: number,
     datumPonude?: dayjs.Dayjs,
-    ponudjaci_id?: number
+    ponudjaci?: IPonudjaci | null,
   ): any {
     this.id = id;
     const dialogRef = this.dialog.open(PonudeUpdateComponent, {
@@ -94,7 +96,7 @@ export class PonudeComponent implements AfterViewInit, OnChanges {
         ponudjenaVrijednost,
         rokIsporuke,
         datumPonude,
-        ponudjaci_id,
+        ponudjaci,
       },
     });
     dialogRef.afterClosed().subscribe(
@@ -191,4 +193,6 @@ export class PonudeComponent implements AfterViewInit, OnChanges {
     this.ponudeService.deleteSelected();
     this.getSifraPostupka();
   }
+
+
 }

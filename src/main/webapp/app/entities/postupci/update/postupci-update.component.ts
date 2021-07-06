@@ -8,6 +8,7 @@ import { finalize } from 'rxjs/operators';
 import { IPostupci, Postupci } from '../postupci.model';
 import { PostupciService } from '../service/postupci.service';
 import { MAT_DIALOG_DATA, MatDialogRef } from '@angular/material/dialog';
+import {IPonudjaci} from "app/entities/ponudjaci/ponudjaci.model";
 
 @Component({
   selector: 'jhi-postupci-update',
@@ -17,6 +18,7 @@ import { MAT_DIALOG_DATA, MatDialogRef } from '@angular/material/dialog';
 export class PostupciUpdateComponent implements OnInit {
   isSaving = false;
   editForm: FormGroup;
+
   constructor(
     protected postupciService: PostupciService,
     protected activatedRoute: ActivatedRoute,
