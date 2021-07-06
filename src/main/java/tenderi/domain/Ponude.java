@@ -31,8 +31,6 @@ public class Ponude implements Serializable {
     @Column(name = "broj_partije", nullable = false)
     private Integer brojPartije;
 
-
-
     @Column(name = "naziv_proizvodjaca")
     private String nazivProizvodjaca;
 
@@ -53,24 +51,68 @@ public class Ponude implements Serializable {
     @Column(name = "datum_ponude", nullable = true)
     private LocalDate datumPonude;
 
-    @OneToOne
-    @JoinColumn(unique = true)
-    private Ponudjaci ponudjaci;
-
-    public Ponudjaci getPonudjaci() {
-        return ponudjaci;
+    public Long getId() {
+        return id;
     }
 
-    public void setPonudjaci(Ponudjaci ponudjaci) {
-        this.ponudjaci = ponudjaci;
+    public void setId(Long id) {
+        this.id = id;
     }
 
-    public LocalDate getDatumPonude() {
-        return datumPonude;
+    public Integer getSifraPostupka() {
+        return sifraPostupka;
     }
 
-    public void setDatumPonude(LocalDate datumPonude) {
-        this.datumPonude = datumPonude;
+    public void setSifraPostupka(Integer sifraPostupka) {
+        this.sifraPostupka = sifraPostupka;
+    }
+
+    public Integer getSifraPonude() {
+        return sifraPonude;
+    }
+
+    public void setSifraPonude(Integer sifraPonude) {
+        this.sifraPonude = sifraPonude;
+    }
+
+    public Integer getBrojPartije() {
+        return brojPartije;
+    }
+
+    public void setBrojPartije(Integer brojPartije) {
+        this.brojPartije = brojPartije;
+    }
+
+    public String getNazivProizvodjaca() {
+        return nazivProizvodjaca;
+    }
+
+    public void setNazivProizvodjaca(String nazivProizvodjaca) {
+        this.nazivProizvodjaca = nazivProizvodjaca;
+    }
+
+    public String getZastceniNaziv() {
+        return zastceniNaziv;
+    }
+
+    public void setZastceniNaziv(String zastceniNaziv) {
+        this.zastceniNaziv = zastceniNaziv;
+    }
+
+    public Double getPonudjenaVrijednost() {
+        return ponudjenaVrijednost;
+    }
+
+    public void setPonudjenaVrijednost(Double ponudjenaVrijednost) {
+        this.ponudjenaVrijednost = ponudjenaVrijednost;
+    }
+
+    public Integer getRokIsporuke() {
+        return rokIsporuke;
+    }
+
+    public void setRokIsporuke(Integer rokIsporuke) {
+        this.rokIsporuke = rokIsporuke;
     }
 
     public Boolean getSelected() {
@@ -81,145 +123,11 @@ public class Ponude implements Serializable {
         this.selected = selected;
     }
 
-    // jhipster-needle-entity-add-field - JHipster will add fields here
-    public Long getId() {
-        return id;
+    public LocalDate getDatumPonude() {
+        return datumPonude;
     }
 
-    public void setId(Long id) {
-        this.id = id;
-    }
-
-    public Ponude id(Long id) {
-        this.id = id;
-        return this;
-    }
-
-    public Integer getSifraPostupka() {
-        return this.sifraPostupka;
-    }
-
-    public Ponude sifraPostupka(Integer sifraPostupka) {
-        this.sifraPostupka = sifraPostupka;
-        return this;
-    }
-
-    public void setSifraPostupka(Integer sifraPostupka) {
-        this.sifraPostupka = sifraPostupka;
-    }
-
-    public Integer getSifraPonude() {
-        return this.sifraPonude;
-    }
-
-    public Ponude sifraPonude(Integer sifraPonude) {
-        this.sifraPonude = sifraPonude;
-        return this;
-    }
-
-    public void setSifraPonude(Integer sifraPonude) {
-        this.sifraPonude = sifraPonude;
-    }
-
-    public Integer getBrojPartije() {
-        return this.brojPartije;
-    }
-
-    public Ponude brojPartije(Integer brojPartije) {
-        this.brojPartije = brojPartije;
-        return this;
-    }
-
-    public void setBrojPartije(Integer brojPartije) {
-        this.brojPartije = brojPartije;
-    }
-
-
-
-
-    public String getNazivProizvodjaca() {
-        return this.nazivProizvodjaca;
-    }
-
-    public Ponude nazivProizvodjaca(String nazivProizvodjaca) {
-        this.nazivProizvodjaca = nazivProizvodjaca;
-        return this;
-    }
-
-    public void setNazivProizvodjaca(String nazivProizvodjaca) {
-        this.nazivProizvodjaca = nazivProizvodjaca;
-    }
-
-    public String getZastceniNaziv() {
-        return this.zastceniNaziv;
-    }
-
-    public Ponude zastceniNaziv(String zastceniNaziv) {
-        this.zastceniNaziv = zastceniNaziv;
-        return this;
-    }
-
-    public void setZastceniNaziv(String zastceniNaziv) {
-        this.zastceniNaziv = zastceniNaziv;
-    }
-
-    public Double getPonudjenaVrijednost() {
-        return this.ponudjenaVrijednost;
-    }
-
-    public Ponude ponudjenaVrijednost(Double ponudjenaVrijednost) {
-        this.ponudjenaVrijednost = ponudjenaVrijednost;
-        return this;
-    }
-
-    public void setPonudjenaVrijednost(Double ponudjenaVrijednost) {
-        this.ponudjenaVrijednost = ponudjenaVrijednost;
-    }
-
-    public Integer getRokIsporuke() {
-        return this.rokIsporuke;
-    }
-
-    public Ponude rokIsporuke(Integer rokIsporuke) {
-        this.rokIsporuke = rokIsporuke;
-        return this;
-    }
-
-    public void setRokIsporuke(Integer rokIsporuke) {
-        this.rokIsporuke = rokIsporuke;
-    }
-
-    // jhipster-needle-entity-add-getters-setters - JHipster will add getters and setters here
-
-    @Override
-    public boolean equals(Object o) {
-        if (this == o) {
-            return true;
-        }
-        if (!(o instanceof Ponude)) {
-            return false;
-        }
-        return id != null && id.equals(((Ponude) o).id);
-    }
-
-    @Override
-    public int hashCode() {
-        // see https://vladmihalcea.com/how-to-implement-equals-and-hashcode-using-the-jpa-entity-identifier/
-        return getClass().hashCode();
-    }
-
-
-    @Override
-    public String toString() {
-        return "Ponude{" +
-            "id=" + getId() +
-            ", sifraPostupka=" + getSifraPostupka() +
-            ", sifraPonude=" + getSifraPonude() +
-            ", brojPartije=" + getBrojPartije() +
-            ", nazivProizvodjaca='" + getNazivProizvodjaca() + "'" +
-            ", zastceniNaziv='" + getZastceniNaziv() + "'" +
-            ", ponudjenaVrijednost=" + getPonudjenaVrijednost() +
-            ", rokIsporuke=" + getRokIsporuke() +
-            "}";
+    public void setDatumPonude(LocalDate datumPonude) {
+        this.datumPonude = datumPonude;
     }
 }
