@@ -1,5 +1,5 @@
 import * as dayjs from 'dayjs';
-import {IPonudjaci} from "app/entities/ponudjaci/ponudjaci.model";
+import { IPonudjaci } from 'app/entities/ponudjaci/ponudjaci.model';
 
 export interface IPonude {
   id?: number;
@@ -12,7 +12,6 @@ export interface IPonude {
   ponudjenaVrijednost?: number;
   rokIsporuke?: number;
   datumPonude?: dayjs.Dayjs;
-  ponudjaci?: IPonudjaci | null;
 }
 
 export class Ponude implements IPonude {
@@ -27,8 +26,7 @@ export class Ponude implements IPonude {
     public ponudjenaVrijednost?: number,
     public rokIsporuke?: number,
     public datumPonude?: dayjs.Dayjs,
-    public ponudjaci_id?:number,
-    public  ponudjaci?: IPonudjaci | null
+    public ponudjaci_id?: number
   ) {}
 }
 

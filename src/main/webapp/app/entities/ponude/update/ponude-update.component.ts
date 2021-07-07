@@ -32,12 +32,12 @@ export class PonudeUpdateComponent {
       sifraPostupka,
       sifraPonude,
       brojPartije,
+      nazivPonudjaca,
       nazivProizvodjaca,
       zastceniNaziv,
       ponudjenaVrijednost,
       rokIsporuke,
       datumPonude,
-      ponudjaci,
     }: Ponude
   ) {
     this.editForm = this.fb.group({
@@ -45,12 +45,12 @@ export class PonudeUpdateComponent {
       sifraPostupka: [sifraPostupka, [Validators.required]],
       sifraPonude: [sifraPonude, [Validators.required]],
       brojPartije: [brojPartije, [Validators.required]],
+      nazivPonudjacaa: [nazivPonudjaca, [Validators.required]],
       nazivProizvodjaca: [nazivProizvodjaca],
       zastceniNaziv: [zastceniNaziv],
       ponudjenaVrijednost: [ponudjenaVrijednost, [Validators.required]],
       rokIsporuke: [rokIsporuke, [Validators.required]],
       datumPonude: [datumPonude],
-      ponudjaci: [ponudjaci, [Validators.required]],
     });
   }
   //
@@ -79,16 +79,17 @@ export class PonudeUpdateComponent {
     this.isSaving = true;
     const ponude = this.createFromForm();
     this.subscribeToSaveResponse(this.ponudeService.update(ponude));
-     }
+  }
   close(): any {
     this.dialogRef.close();
   }
 
   protected subscribeToSaveResponse(result: Observable<HttpResponse<IPonude>>): void {
-    result.pipe(finalize(() => this.onSaveFinalize())).subscribe(
+    result
+      .pipe(finalize(() => this.onSaveFinalize()))
+      .subscribe
       // () => this.onSaveSuccess(),
-
-    );
+      ();
   }
 
   protected onSaveFinalize(): void {

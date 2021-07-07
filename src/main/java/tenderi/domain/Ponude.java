@@ -31,6 +31,17 @@ public class Ponude implements Serializable {
     @Column(name = "broj_partije", nullable = false)
     private Integer brojPartije;
 
+    @Column(name = "naziv_ponudjaca")
+    private String nazivPonudjaca;
+
+    public String getNazivPonudjaca() {
+        return nazivPonudjaca;
+    }
+
+    public void setNazivPonudjaca(String nazivPonudjaca) {
+        this.nazivPonudjaca = nazivPonudjaca;
+    }
+
     @Column(name = "naziv_proizvodjaca")
     private String nazivProizvodjaca;
 

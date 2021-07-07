@@ -1,0 +1,56 @@
+application {
+  config {
+    applicationType monolith
+    authenticationType jwt
+    baseName tenderi
+    blueprints []
+    buildTool maven
+    cacheProvider ehcache
+    clientFramework angularX
+    clientPackageManager npm
+    clientTheme materia
+    clientThemeVariant dark
+    creationTimestamp 1622146421692
+    databaseType sql
+    devDatabaseType postgresql
+    dtoSuffix DTO
+    enableHibernateCache false
+    enableSwaggerCodegen false
+    enableTranslation true
+    jhiPrefix jhi
+    jhipsterVersion "7.0.1"
+    jwtSecretKey "MDI5YmMyOTgyMzQ1MjQ4ZTUxM2M2Y2NhNmQ4MjhhZjQ0MzU0YWM4MjMxMmNmYjI3ZGNjMWNmZTIxNmQ5NDZlNDJlZDFiZDEwMjI0NmJlNTMyN2EzZWNlMDZmZDc5NGZkNDA5NGM1ZjViNTBkMzc3OGY0NmM0YjBhMjExZDZiZjM="
+    languages [sr, en]
+    messageBroker false
+    nativeLanguage sr
+    otherModules []
+    packageName tenderi
+    prodDatabaseType postgresql
+    reactive false
+    searchEngine false
+    serverPort 8080
+    serviceDiscoveryType false
+    skipClient false
+    skipServer false
+    skipUserManagement false
+    testFrameworks []
+    websocket false
+    withAdminUi false
+  }
+
+  entities Ugovor
+}
+
+entity Ugovor {
+  brojUgovora String required
+  datumUgovora LocalDate required
+  predmetUgovora String required
+  nazivPonudjaca String required
+  brojDatumTenderskeDokumntacije String required
+  brojDatumOdlukeIzbora String required
+  brojDatumPonude String required
+  iznosUgovoraBezPdf Integer required
+  sifraPostupka Integer required
+  sifraPonude Integer required
+  sifraPonudjaca Integer required
+}

@@ -20,6 +20,9 @@
             <column name="broj_partije" type="integer">
                 <constraints nullable="false" />
             </column>
+            <column name="naziv_ponudjaca" type="varchar(255)">
+                <constraints nullable="true" />
+            </column>
             <column name="naziv_proizvodjaca" type="varchar(255)">
                 <constraints nullable="true" />
             </column>

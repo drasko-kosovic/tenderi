@@ -16,14 +16,13 @@ import { MatDialog } from '@angular/material/dialog';
 import * as dayjs from 'dayjs';
 import { PonudeUpdateComponent } from 'app/entities/ponude/update/ponude-update.component';
 import { HttpResponse } from '@angular/common/http';
-import {IPonudjaci} from "app/entities/ponudjaci/ponudjaci.model";
 
 @Component({
   selector: 'jhi-ponude',
   templateUrl: './ponude.component.html',
   styleUrls: ['./ponude.component.scss'],
 })
-export class PonudeComponent implements AfterViewInit, OnChanges{
+export class PonudeComponent implements AfterViewInit, OnChanges {
   ponude_ponudjaci?: IPonudePonudjaci[];
   ponude?: IPonude[];
   account: Account | null = null;
@@ -37,12 +36,12 @@ export class PonudeComponent implements AfterViewInit, OnChanges{
     'sifra postupka',
     'sifraPonude',
     'brojPartije',
+    'naziv ponudjaca',
     'naziv proizvodjaca',
     'zasticeni naziv',
     'ponudjena vrijednost',
     'rok isporuke',
     'datum ponude',
-    'ponudjaci',
     'edit',
     'delete selected',
     'select',
@@ -69,7 +68,6 @@ export class PonudeComponent implements AfterViewInit, OnChanges{
   public getSifraPostupka(): void {
     this.ponudeService.findSiftraPostupak(this.postupak).subscribe((res: IPonude[]) => {
       this.dataSource.data = res;
-
     });
   }
   startEdit(
@@ -77,12 +75,12 @@ export class PonudeComponent implements AfterViewInit, OnChanges{
     sifraPostupka?: number,
     sifraPonude?: number,
     brojPartije?: number,
+    nazivPonudjaca?: string | null,
     nazivProizvodjaca?: string | null,
     zastceniNaziv?: string | null,
     ponudjenaVrijednost?: number,
     rokIsporuke?: number,
-    datumPonude?: dayjs.Dayjs,
-    ponudjaci?: IPonudjaci | null,
+    datumPonude?: dayjs.Dayjs
   ): any {
     this.id = id;
     const dialogRef = this.dialog.open(PonudeUpdateComponent, {
@@ -91,12 +89,12 @@ export class PonudeComponent implements AfterViewInit, OnChanges{
         sifraPostupka,
         sifraPonude,
         brojPartije,
+        nazivPonudjaca,
         nazivProizvodjaca,
         zastceniNaziv,
         ponudjenaVrijednost,
         rokIsporuke,
         datumPonude,
-        ponudjaci,
       },
     });
     dialogRef.afterClosed().subscribe(
@@ -155,7 +153,7 @@ export class PonudeComponent implements AfterViewInit, OnChanges{
       this.ponude = res;
     });
   }
- uploadFile(): any {
+  uploadFile(): any {
     const formData = new FormData();
     formData.append('uploadfiles', this.fileInput.nativeElement.files[0]);
 
@@ -193,6 +191,4 @@ export class PonudeComponent implements AfterViewInit, OnChanges{
     this.ponudeService.deleteSelected();
     this.getSifraPostupka();
   }
-
-
 }
